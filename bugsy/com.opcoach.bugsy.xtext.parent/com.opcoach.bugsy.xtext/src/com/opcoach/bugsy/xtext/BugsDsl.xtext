@@ -1,0 +1,81 @@
+grammar com.opcoach.bugsy.xtext.BugsDsl hidden(WS, ML_COMMENT, SL_COMMENT) //  with org.eclipse.xtext.common.Terminals
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+generate bugsDsl "http://www.opcoach.com/bugsy/xtext/BugsDsl"
+
+BugsModel:
+	{BugsModel}
+	'model' '{'
+	instructions+=Instruction*
+	'}';
+
+terminal INT returns ecore::EInt:
+	('0'..'9')+;
+
+terminal FLOAT returns ecore::EFloat:
+	INT '.' INT ('E' ('+' | '-') INT)?;
+
+terminal STRING:
+	'"' ('\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' */ | !('\\' | '"'))* '"' |
+	"'" ('\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' */ | !('\\' | "'"))* "'";
+
+terminal ML_COMMENT:
+	'/*'->'*/';
+
+terminal SL_COMMENT:
+	'#' !('\n' | '\r')* ('\r'? '\n')?;
+
+terminal WS:
+	(' ' | '\t' | '\r' | '\n')+;
+
+terminal ANY_OTHER:
+	.;
+
+	// ID is used for vector and table name
+terminal ID:
+	('a'..'z' | 'A'..'Z') ('a'..'z' | 'A'..'Z' | '_' | '.' | '0'..'9')*;
+
+terminal ARRAYDIM:
+	'[' ('0'..'9')+ | ('a'..'z' | 'A'..'Z')+ ']';
+
+	//.................................
+// Starting grammar definition 
+//.................................
+Instruction:
+	For | Relation;
+
+For:
+	{For}
+	'for' '(' variable=ID 'in' low=INT ':' high=ID ')' '{' contents+=Instruction* '}';
+
+Relation:
+	name=ID /* (dim=ARRAYDIM)? */ relationType=RelationType leftExpr=Operation;
+
+Operation: {Operation}
+	 ((distrib= Distribution)? & (function=Function)?) '(' ((elements+=Parameter) (',' (elements+=Parameter))*)? ')';
+
+Numeric:
+	INT | FLOAT;
+
+Value:
+	Numeric | ID ;
+
+Parameter:
+	{Parameter}
+	value= Value;
+	
+enum Distribution:
+	dbern = 'dbern' |
+	dbeta ='dbeta' |
+	dbin = 'dbin' | dchisqr='dchisqr' | ddexp='ddexp' |
+	dexp='dexp' | df='df' |
+	dgamma='dgamma' | dgengamm='dgen.gamma' | dhyper='dhyper' | dlogis='dlogis' | dlnorm= 'dlnorm' | dnegbin='dnegbin' |
+	dnchisqr='dnchisqr' | dnorm='dnorm' |
+	dpar='dpar' | dpois='dpois' | dt='dt' | dweib='dweib';
+
+enum Function:
+	acos='acos' | acosh='acosh' | asin='asin' | asinh='asinh' | atan='atan' | log='log' | ep='exp' | c='c';
+
+enum RelationType:
+	STOCHASTIC = '~' | DETERMIN1 = '<-' | DETERMIN2 = '=';
+
+

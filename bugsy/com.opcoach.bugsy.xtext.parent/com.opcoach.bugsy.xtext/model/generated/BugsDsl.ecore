@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="bugsDsl" nsURI="http://www.opcoach.com/bugsy/xtext/BugsDsl"
+    nsPrefix="bugsDsl">
+  <eClassifiers xsi:type="ecore:EClass" name="BugsModel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="instructions" upperBound="-1"
+        eType="#//Instruction" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Instruction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="For" eSuperTypes="#//Instruction">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="variable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="low" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="high" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contents" upperBound="-1"
+        eType="#//Instruction" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Relation" eSuperTypes="#//Instruction">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="relationType" eType="#//RelationType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="leftExpr" eType="#//Operation"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Operation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="distrib" eType="#//Distribution"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="function" eType="#//Function"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
+        eType="#//Parameter" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Parameter">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Distribution">
+    <eLiterals name="dbern" literal="dbern"/>
+    <eLiterals name="dbeta" value="1" literal="dbeta"/>
+    <eLiterals name="dbin" value="2" literal="dbin"/>
+    <eLiterals name="dchisqr" value="3" literal="dchisqr"/>
+    <eLiterals name="ddexp" value="4" literal="ddexp"/>
+    <eLiterals name="dexp" value="5" literal="dexp"/>
+    <eLiterals name="df" value="6" literal="df"/>
+    <eLiterals name="dgamma" value="7" literal="dgamma"/>
+    <eLiterals name="dgengamm" value="8" literal="dgen.gamma"/>
+    <eLiterals name="dhyper" value="9" literal="dhyper"/>
+    <eLiterals name="dlogis" value="10" literal="dlogis"/>
+    <eLiterals name="dlnorm" value="11" literal="dlnorm"/>
+    <eLiterals name="dnegbin" value="12" literal="dnegbin"/>
+    <eLiterals name="dnchisqr" value="13" literal="dnchisqr"/>
+    <eLiterals name="dnorm" value="14" literal="dnorm"/>
+    <eLiterals name="dpar" value="15" literal="dpar"/>
+    <eLiterals name="dpois" value="16" literal="dpois"/>
+    <eLiterals name="dt" value="17" literal="dt"/>
+    <eLiterals name="dweib" value="18" literal="dweib"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Function">
+    <eLiterals name="acos" literal="acos"/>
+    <eLiterals name="acosh" value="1" literal="acosh"/>
+    <eLiterals name="asin" value="2" literal="asin"/>
+    <eLiterals name="asinh" value="3" literal="asinh"/>
+    <eLiterals name="atan" value="4" literal="atan"/>
+    <eLiterals name="log" value="5" literal="log"/>
+    <eLiterals name="ep" value="6" literal="exp"/>
+    <eLiterals name="c" value="7" literal="c"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="RelationType">
+    <eLiterals name="STOCHASTIC" literal="~"/>
+    <eLiterals name="DETERMIN1" value="1" literal="&lt;-"/>
+    <eLiterals name="DETERMIN2" value="2" literal="="/>
+  </eClassifiers>
+</ecore:EPackage>
