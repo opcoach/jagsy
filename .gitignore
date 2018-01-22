@@ -2,4 +2,5 @@ Standard Eclipse ignore file
 
 *.class
 bin/
+xtend-gen/
 target/
