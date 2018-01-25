@@ -21,7 +21,9 @@
 		<module>com.opcoach.bugsy.xtext.feature</module>
 		<module>com.opcoach.bugsy.xtext.repository</module>
 		<module>com.opcoach.bugsy.xtext.tests</module>
+		<!--  No UI tests for the moment
 		<module>com.opcoach.bugsy.xtext.ui.tests</module>
+		 -->
 	</modules>
 	<build>
 		<plugins>
