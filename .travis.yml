@@ -2,4 +2,4 @@ language: java
 jdk: oraclejdk8
 script: mvn install -f bugsy/pom.xml
 
-after_failure: "/home/travis/build/opcoach/jagsy/bugsy/com.opcoach.bugsy.xtext.ui.tests/target/work/data/.metadata/.log"
+after_failure: cat "/home/travis/build/opcoach/jagsy/bugsy/com.opcoach.bugsy.xtext.ui.tests/target/work/data/.metadata/.log"
