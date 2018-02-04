@@ -46,4 +46,107 @@ class BugsDslParsingTest {
 		Assert.assertNotNull(result)
 		Assert.assertTrue(result.eResource.errors.isEmpty)
 	}
+	
+	
+	@Test
+	def void testIssue2()
+	{
+		// mismatched input 'a' expected '}' 
+		// See : https://github.com/opcoach/jagsy/issues/2
+		val result = parseHelper.parse('''
+		model{
+		a ~ dnorm(1,1)
+		}
+		''')
+		Assert.assertNotNull(result)
+		Assert.assertTrue(result.eResource.errors.isEmpty)
+	}
+	
+		@Test
+	def void testIssue3()
+	{
+		// Density Function in deterministic definition 
+		// See : https://github.com/opcoach/jagsy/issues/3
+		Assert.fail("Density Function in deterministic definition (Test to Be Fixed)");
+		val result = parseHelper.parse('''
+		model{
+		ab <- dnorm(1,1)
+		}
+		''')
+		Assert.assertNotNull(result)
+		Assert.assertTrue(result.eResource.errors.isEmpty)
+	}
+		@Test
+	def void testIssue4()
+	{
+		// Simple addition sign tagged as error
+		// See : https://github.com/opcoach/jagsy/issues/4
+		val result = parseHelper.parse('''
+		model{
+		ab <- (1+2)
+		}
+		''')
+		Assert.assertNotNull(result)
+		Assert.assertTrue(result.eResource.errors.isEmpty)
+	}
+		@Test
+	def void testIssue5()
+	{
+		// Obligation to use parentheses in expression 
+		// See : https://github.com/opcoach/jagsy/issues/5
+		val result = parseHelper.parse('''
+		model{
+		ab <- ac
+		}
+		''')
+		Assert.assertNotNull(result)
+		Assert.assertTrue(result.eResource.errors.isEmpty)
+	}
+
+	
+	
+		@Test
+	def void testIssue7()
+	{
+		// Indexed Variables not working
+		// See : https://github.com/opcoach/jagsy/issues/7
+		val result = parseHelper.parse('''
+		model{
+		ab[1] <- (1)
+		ab[2] <- (1)
+		}
+		''')
+		Assert.assertNotNull(result)
+		Assert.assertTrue(result.eResource.errors.isEmpty)
+	}
+	
+	
+	@Test
+	def void testIssue8()
+	{
+		// maximum limit of the definition of a range of indices tagged as error
+		// See : https://github.com/opcoach/jagsy/issues/8
+		val result = parseHelper.parse('''
+		model{
+		for(ib in 1:3){
+		}
+		}
+		''')
+		Assert.assertNotNull(result)
+		Assert.assertTrue(result.eResource.errors.isEmpty)
+	}
+	
+	@Test
+	def void testIssue9()
+	{
+		// See : https://github.com/opcoach/jagsy/issues/9
+		val result = parseHelper.parse('''
+			model{
+			ab <- exp(3mu)
+			mu <- 5
+			}
+		''')
+		Assert.assertNotNull(result)
+		Assert.assertTrue(result.eResource.errors.isEmpty)
+	}
 }

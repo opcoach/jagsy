@@ -90,4 +90,137 @@ public class BugsDslParsingTest {
       throw Exceptions.sneakyThrow(_e);
     }
   }
+  
+  @Test
+  public void testIssue2() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("model{");
+      _builder.newLine();
+      _builder.append("a ~ dnorm(1,1)");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      final BugsModel result = this.parseHelper.parse(_builder);
+      Assert.assertNotNull(result);
+      Assert.assertTrue(result.eResource().getErrors().isEmpty());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void testIssue3() {
+    try {
+      Assert.fail("Density Function in deterministic definition (Test to Be Fixed)");
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("model{");
+      _builder.newLine();
+      _builder.append("ab <- dnorm(1,1)");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      final BugsModel result = this.parseHelper.parse(_builder);
+      Assert.assertNotNull(result);
+      Assert.assertTrue(result.eResource().getErrors().isEmpty());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void testIssue4() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("model{");
+      _builder.newLine();
+      _builder.append("ab <- (1+2)");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      final BugsModel result = this.parseHelper.parse(_builder);
+      Assert.assertNotNull(result);
+      Assert.assertTrue(result.eResource().getErrors().isEmpty());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void testIssue5() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("model{");
+      _builder.newLine();
+      _builder.append("ab <- ac");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      final BugsModel result = this.parseHelper.parse(_builder);
+      Assert.assertNotNull(result);
+      Assert.assertTrue(result.eResource().getErrors().isEmpty());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void testIssue7() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("model{");
+      _builder.newLine();
+      _builder.append("ab[1] <- (1)");
+      _builder.newLine();
+      _builder.append("ab[2] <- (1)");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      final BugsModel result = this.parseHelper.parse(_builder);
+      Assert.assertNotNull(result);
+      Assert.assertTrue(result.eResource().getErrors().isEmpty());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void testIssue8() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("model{");
+      _builder.newLine();
+      _builder.append("for(ib in 1:3){");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      final BugsModel result = this.parseHelper.parse(_builder);
+      Assert.assertNotNull(result);
+      Assert.assertTrue(result.eResource().getErrors().isEmpty());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void testIssue9() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("model{");
+      _builder.newLine();
+      _builder.append("ab <- exp(3mu)");
+      _builder.newLine();
+      _builder.append("mu <- 5");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      final BugsModel result = this.parseHelper.parse(_builder);
+      Assert.assertNotNull(result);
+      Assert.assertTrue(result.eResource().getErrors().isEmpty());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
 }
