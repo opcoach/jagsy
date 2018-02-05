@@ -69,9 +69,11 @@ public class BugsDslFactoryImpl extends EFactoryImpl implements BugsDslFactory
       case BugsDslPackage.BUGS_MODEL: return createBugsModel();
       case BugsDslPackage.INSTRUCTION: return createInstruction();
       case BugsDslPackage.FOR: return createFor();
-      case BugsDslPackage.RELATION: return createRelation();
-      case BugsDslPackage.OPERATION: return createOperation();
+      case BugsDslPackage.PARAMETERS: return createParameters();
       case BugsDslPackage.PARAMETER: return createParameter();
+      case BugsDslPackage.RELATION: return createRelation();
+      case BugsDslPackage.STOCHASTIC_RELATION: return createStochasticRelation();
+      case BugsDslPackage.DETERMINISTIC_RELATION: return createDeterministicRelation();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -89,6 +91,8 @@ public class BugsDslFactoryImpl extends EFactoryImpl implements BugsDslFactory
     {
       case BugsDslPackage.DISTRIBUTION:
         return createDistributionFromString(eDataType, initialValue);
+      case BugsDslPackage.DENSITY:
+        return createDensityFromString(eDataType, initialValue);
       case BugsDslPackage.FUNCTION:
         return createFunctionFromString(eDataType, initialValue);
       case BugsDslPackage.RELATION_TYPE:
@@ -110,6 +114,8 @@ public class BugsDslFactoryImpl extends EFactoryImpl implements BugsDslFactory
     {
       case BugsDslPackage.DISTRIBUTION:
         return convertDistributionToString(eDataType, instanceValue);
+      case BugsDslPackage.DENSITY:
+        return convertDensityToString(eDataType, instanceValue);
       case BugsDslPackage.FUNCTION:
         return convertFunctionToString(eDataType, instanceValue);
       case BugsDslPackage.RELATION_TYPE:
@@ -157,21 +163,10 @@ public class BugsDslFactoryImpl extends EFactoryImpl implements BugsDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Relation createRelation()
+  public Parameters createParameters()
   {
-    RelationImpl relation = new RelationImpl();
-    return relation;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Operation createOperation()
-  {
-    OperationImpl operation = new OperationImpl();
-    return operation;
+    ParametersImpl parameters = new ParametersImpl();
+    return parameters;
   }
 
   /**
@@ -183,6 +178,39 @@ public class BugsDslFactoryImpl extends EFactoryImpl implements BugsDslFactory
   {
     ParameterImpl parameter = new ParameterImpl();
     return parameter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Relation createRelation()
+  {
+    RelationImpl relation = new RelationImpl();
+    return relation;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public StochasticRelation createStochasticRelation()
+  {
+    StochasticRelationImpl stochasticRelation = new StochasticRelationImpl();
+    return stochasticRelation;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DeterministicRelation createDeterministicRelation()
+  {
+    DeterministicRelationImpl deterministicRelation = new DeterministicRelationImpl();
+    return deterministicRelation;
   }
 
   /**
@@ -203,6 +231,28 @@ public class BugsDslFactoryImpl extends EFactoryImpl implements BugsDslFactory
    * @generated
    */
   public String convertDistributionToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Density createDensityFromString(EDataType eDataType, String initialValue)
+  {
+    Density result = Density.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertDensityToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }

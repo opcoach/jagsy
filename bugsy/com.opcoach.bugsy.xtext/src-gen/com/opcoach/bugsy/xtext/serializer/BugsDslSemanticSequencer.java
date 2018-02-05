@@ -6,9 +6,10 @@ package com.opcoach.bugsy.xtext.serializer;
 import com.google.inject.Inject;
 import com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage;
 import com.opcoach.bugsy.xtext.bugsDsl.BugsModel;
+import com.opcoach.bugsy.xtext.bugsDsl.DeterministicRelation;
 import com.opcoach.bugsy.xtext.bugsDsl.For;
-import com.opcoach.bugsy.xtext.bugsDsl.Operation;
-import com.opcoach.bugsy.xtext.bugsDsl.Relation;
+import com.opcoach.bugsy.xtext.bugsDsl.Parameters;
+import com.opcoach.bugsy.xtext.bugsDsl.StochasticRelation;
 import com.opcoach.bugsy.xtext.services.BugsDslGrammarAccess;
 import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
@@ -38,17 +39,20 @@ public class BugsDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 			case BugsDslPackage.BUGS_MODEL:
 				sequence_BugsModel(context, (BugsModel) semanticObject); 
 				return; 
+			case BugsDslPackage.DETERMINISTIC_RELATION:
+				sequence_DeterministicRelation(context, (DeterministicRelation) semanticObject); 
+				return; 
 			case BugsDslPackage.FOR:
 				sequence_For(context, (For) semanticObject); 
-				return; 
-			case BugsDslPackage.OPERATION:
-				sequence_Operation(context, (Operation) semanticObject); 
 				return; 
 			case BugsDslPackage.PARAMETER:
 				sequence_Parameter(context, (com.opcoach.bugsy.xtext.bugsDsl.Parameter) semanticObject); 
 				return; 
-			case BugsDslPackage.RELATION:
-				sequence_Relation(context, (Relation) semanticObject); 
+			case BugsDslPackage.PARAMETERS:
+				sequence_Parameters(context, (Parameters) semanticObject); 
+				return; 
+			case BugsDslPackage.STOCHASTIC_RELATION:
+				sequence_StochasticRelation(context, (StochasticRelation) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -69,6 +73,20 @@ public class BugsDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
+	 *     Instruction returns DeterministicRelation
+	 *     Relation returns DeterministicRelation
+	 *     DeterministicRelation returns DeterministicRelation
+	 *
+	 * Constraint:
+	 *     (name=ID (distrib=Distribution | function=Function)* (params+=Parameter params+=Parameter*)?)
+	 */
+	protected void sequence_DeterministicRelation(ISerializationContext context, DeterministicRelation semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Instruction returns For
 	 *     For returns For
 	 *
@@ -76,18 +94,6 @@ public class BugsDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     (variable=ID low=INT high=ID contents+=Instruction*)
 	 */
 	protected void sequence_For(ISerializationContext context, For semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Operation returns Operation
-	 *
-	 * Constraint:
-	 *     ((distrib=Distribution | function=Function)* (elements+=Parameter elements+=Parameter*)?)
-	 */
-	protected void sequence_Operation(ISerializationContext context, Operation semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -112,26 +118,27 @@ public class BugsDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
-	 *     Instruction returns Relation
-	 *     Relation returns Relation
+	 *     Parameters returns Parameters
 	 *
 	 * Constraint:
-	 *     (name=ID relationType=RelationType leftExpr=Operation)
+	 *     {Parameters}
 	 */
-	protected void sequence_Relation(ISerializationContext context, Relation semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, BugsDslPackage.Literals.RELATION__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BugsDslPackage.Literals.RELATION__NAME));
-			if (transientValues.isValueTransient(semanticObject, BugsDslPackage.Literals.RELATION__RELATION_TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BugsDslPackage.Literals.RELATION__RELATION_TYPE));
-			if (transientValues.isValueTransient(semanticObject, BugsDslPackage.Literals.RELATION__LEFT_EXPR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BugsDslPackage.Literals.RELATION__LEFT_EXPR));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getRelationAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getRelationAccess().getRelationTypeRelationTypeEnumRuleCall_1_0(), semanticObject.getRelationType());
-		feeder.accept(grammarAccess.getRelationAccess().getLeftExprOperationParserRuleCall_2_0(), semanticObject.getLeftExpr());
-		feeder.finish();
+	protected void sequence_Parameters(ISerializationContext context, Parameters semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Instruction returns StochasticRelation
+	 *     Relation returns StochasticRelation
+	 *     StochasticRelation returns StochasticRelation
+	 *
+	 * Constraint:
+	 *     (name=ID distrib=Density (params+=Parameter params+=Parameter*)?)
+	 */
+	protected void sequence_StochasticRelation(ISerializationContext context, StochasticRelation semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

@@ -112,7 +112,6 @@ public class BugsDslParsingTest {
   @Test
   public void testIssue3() {
     try {
-      Assert.fail("Density Function in deterministic definition (Test to Be Fixed)");
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("model{");
       _builder.newLine();

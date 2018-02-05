@@ -3,6 +3,7 @@
  */
 package com.opcoach.bugsy.xtext.bugsDsl;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,8 +15,7 @@ package com.opcoach.bugsy.xtext.bugsDsl;
  * </p>
  * <ul>
  *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.Relation#getName <em>Name</em>}</li>
- *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.Relation#getRelationType <em>Relation Type</em>}</li>
- *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.Relation#getLeftExpr <em>Left Expr</em>}</li>
+ *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.Relation#getParams <em>Params</em>}</li>
  * </ul>
  *
  * @see com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage#getRelation()
@@ -51,58 +51,19 @@ public interface Relation extends Instruction
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Relation Type</b></em>' attribute.
-   * The literals are from the enumeration {@link com.opcoach.bugsy.xtext.bugsDsl.RelationType}.
+   * Returns the value of the '<em><b>Params</b></em>' containment reference list.
+   * The list contents are of type {@link com.opcoach.bugsy.xtext.bugsDsl.Parameter}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Relation Type</em>' attribute isn't clear,
+   * If the meaning of the '<em>Params</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Relation Type</em>' attribute.
-   * @see com.opcoach.bugsy.xtext.bugsDsl.RelationType
-   * @see #setRelationType(RelationType)
-   * @see com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage#getRelation_RelationType()
-   * @model
-   * @generated
-   */
-  RelationType getRelationType();
-
-  /**
-   * Sets the value of the '{@link com.opcoach.bugsy.xtext.bugsDsl.Relation#getRelationType <em>Relation Type</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Relation Type</em>' attribute.
-   * @see com.opcoach.bugsy.xtext.bugsDsl.RelationType
-   * @see #getRelationType()
-   * @generated
-   */
-  void setRelationType(RelationType value);
-
-  /**
-   * Returns the value of the '<em><b>Left Expr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Left Expr</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Left Expr</em>' containment reference.
-   * @see #setLeftExpr(Operation)
-   * @see com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage#getRelation_LeftExpr()
+   * @return the value of the '<em>Params</em>' containment reference list.
+   * @see com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage#getRelation_Params()
    * @model containment="true"
    * @generated
    */
-  Operation getLeftExpr();
-
-  /**
-   * Sets the value of the '{@link com.opcoach.bugsy.xtext.bugsDsl.Relation#getLeftExpr <em>Left Expr</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Left Expr</em>' containment reference.
-   * @see #getLeftExpr()
-   * @generated
-   */
-  void setLeftExpr(Operation value);
+  EList<Parameter> getParams();
 
 } // Relation

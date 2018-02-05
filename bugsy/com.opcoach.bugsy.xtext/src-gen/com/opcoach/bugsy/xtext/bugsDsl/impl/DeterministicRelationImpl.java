@@ -4,43 +4,31 @@
 package com.opcoach.bugsy.xtext.bugsDsl.impl;
 
 import com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage;
+import com.opcoach.bugsy.xtext.bugsDsl.DeterministicRelation;
 import com.opcoach.bugsy.xtext.bugsDsl.Distribution;
 import com.opcoach.bugsy.xtext.bugsDsl.Function;
-import com.opcoach.bugsy.xtext.bugsDsl.Operation;
-import com.opcoach.bugsy.xtext.bugsDsl.Parameter;
-
-import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Operation</b></em>'.
+ * An implementation of the model object '<em><b>Deterministic Relation</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.impl.OperationImpl#getDistrib <em>Distrib</em>}</li>
- *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.impl.OperationImpl#getFunction <em>Function</em>}</li>
- *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.impl.OperationImpl#getElements <em>Elements</em>}</li>
+ *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.impl.DeterministicRelationImpl#getDistrib <em>Distrib</em>}</li>
+ *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.impl.DeterministicRelationImpl#getFunction <em>Function</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class OperationImpl extends MinimalEObjectImpl.Container implements Operation
+public class DeterministicRelationImpl extends RelationImpl implements DeterministicRelation
 {
   /**
    * The default value of the '{@link #getDistrib() <em>Distrib</em>}' attribute.
@@ -83,21 +71,11 @@ public class OperationImpl extends MinimalEObjectImpl.Container implements Opera
   protected Function function = FUNCTION_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getElements()
-   * @generated
-   * @ordered
-   */
-  protected EList<Parameter> elements;
-
-  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected OperationImpl()
+  protected DeterministicRelationImpl()
   {
     super();
   }
@@ -110,7 +88,7 @@ public class OperationImpl extends MinimalEObjectImpl.Container implements Opera
   @Override
   protected EClass eStaticClass()
   {
-    return BugsDslPackage.Literals.OPERATION;
+    return BugsDslPackage.Literals.DETERMINISTIC_RELATION;
   }
 
   /**
@@ -133,7 +111,7 @@ public class OperationImpl extends MinimalEObjectImpl.Container implements Opera
     Distribution oldDistrib = distrib;
     distrib = newDistrib == null ? DISTRIB_EDEFAULT : newDistrib;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BugsDslPackage.OPERATION__DISTRIB, oldDistrib, distrib));
+      eNotify(new ENotificationImpl(this, Notification.SET, BugsDslPackage.DETERMINISTIC_RELATION__DISTRIB, oldDistrib, distrib));
   }
 
   /**
@@ -156,37 +134,7 @@ public class OperationImpl extends MinimalEObjectImpl.Container implements Opera
     Function oldFunction = function;
     function = newFunction == null ? FUNCTION_EDEFAULT : newFunction;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BugsDslPackage.OPERATION__FUNCTION, oldFunction, function));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<Parameter> getElements()
-  {
-    if (elements == null)
-    {
-      elements = new EObjectContainmentEList<Parameter>(Parameter.class, this, BugsDslPackage.OPERATION__ELEMENTS);
-    }
-    return elements;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case BugsDslPackage.OPERATION__ELEMENTS:
-        return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
+      eNotify(new ENotificationImpl(this, Notification.SET, BugsDslPackage.DETERMINISTIC_RELATION__FUNCTION, oldFunction, function));
   }
 
   /**
@@ -199,12 +147,10 @@ public class OperationImpl extends MinimalEObjectImpl.Container implements Opera
   {
     switch (featureID)
     {
-      case BugsDslPackage.OPERATION__DISTRIB:
+      case BugsDslPackage.DETERMINISTIC_RELATION__DISTRIB:
         return getDistrib();
-      case BugsDslPackage.OPERATION__FUNCTION:
+      case BugsDslPackage.DETERMINISTIC_RELATION__FUNCTION:
         return getFunction();
-      case BugsDslPackage.OPERATION__ELEMENTS:
-        return getElements();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -214,21 +160,16 @@ public class OperationImpl extends MinimalEObjectImpl.Container implements Opera
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case BugsDslPackage.OPERATION__DISTRIB:
+      case BugsDslPackage.DETERMINISTIC_RELATION__DISTRIB:
         setDistrib((Distribution)newValue);
         return;
-      case BugsDslPackage.OPERATION__FUNCTION:
+      case BugsDslPackage.DETERMINISTIC_RELATION__FUNCTION:
         setFunction((Function)newValue);
-        return;
-      case BugsDslPackage.OPERATION__ELEMENTS:
-        getElements().clear();
-        getElements().addAll((Collection<? extends Parameter>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -244,14 +185,11 @@ public class OperationImpl extends MinimalEObjectImpl.Container implements Opera
   {
     switch (featureID)
     {
-      case BugsDslPackage.OPERATION__DISTRIB:
+      case BugsDslPackage.DETERMINISTIC_RELATION__DISTRIB:
         setDistrib(DISTRIB_EDEFAULT);
         return;
-      case BugsDslPackage.OPERATION__FUNCTION:
+      case BugsDslPackage.DETERMINISTIC_RELATION__FUNCTION:
         setFunction(FUNCTION_EDEFAULT);
-        return;
-      case BugsDslPackage.OPERATION__ELEMENTS:
-        getElements().clear();
         return;
     }
     super.eUnset(featureID);
@@ -267,12 +205,10 @@ public class OperationImpl extends MinimalEObjectImpl.Container implements Opera
   {
     switch (featureID)
     {
-      case BugsDslPackage.OPERATION__DISTRIB:
+      case BugsDslPackage.DETERMINISTIC_RELATION__DISTRIB:
         return distrib != DISTRIB_EDEFAULT;
-      case BugsDslPackage.OPERATION__FUNCTION:
+      case BugsDslPackage.DETERMINISTIC_RELATION__FUNCTION:
         return function != FUNCTION_EDEFAULT;
-      case BugsDslPackage.OPERATION__ELEMENTS:
-        return elements != null && !elements.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -296,4 +232,4 @@ public class OperationImpl extends MinimalEObjectImpl.Container implements Opera
     return result.toString();
   }
 
-} //OperationImpl
+} //DeterministicRelationImpl

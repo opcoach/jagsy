@@ -47,35 +47,42 @@ For:
 	{For}
 	'for' '(' variable=ID 'in' low=INT ':' high=ID ')' '{' contents+=Instruction* '}';
 
-Relation:
-	name=ID /* (dim=ARRAYDIM)? */ relationType=RelationType leftExpr=Operation;
-
-Operation: {Operation}
-	 ((distrib= Distribution)? & (function=Function)?) '(' ((elements+=Parameter) (',' (elements+=Parameter))*)? ')';
+Parameters:
+	{Parameters};
 
 Numeric:
 	INT | FLOAT;
 
 Value:
-	Numeric | ID ;
+	Numeric | ID;
 
 Parameter:
 	{Parameter}
-	value= Value;
-	
+	value=Value;
+
+Relation:
+	StochasticRelation | DeterministicRelation;
+
+StochasticRelation:
+	name=ID /* (dim=ARRAYDIM)? */ '~' distrib=Density ('()' | '(' ((params+=Parameter) (',' (params+=Parameter))*) ')')?;
+
+DeterministicRelation:
+	name=ID /* (dim=ARRAYDIM)? */ ('<-' | '=') ((distrib=Distribution)? & (function=Function)?) ( '()' | '(' ((params+=Parameter) (',' (params+=Parameter))* ')')? ) ;
+
 enum Distribution:
-	dbern = 'dbern' |
-	dbeta ='dbeta' |
-	dbin = 'dbin' | dchisqr='dchisqr' | ddexp='ddexp' |
+	dbern='dbern' |
+	dbin='dbin' | dchisqr='dchisqr' | ddexp='ddexp' |
 	dexp='dexp' | df='df' |
-	dgamma='dgamma' | dgengamm='dgen.gamma' | dhyper='dhyper' | dlogis='dlogis' | dlnorm= 'dlnorm' | dnegbin='dnegbin' |
-	dnchisqr='dnchisqr' | dnorm='dnorm' |
+	dgamma='dgamma' | dgengamm='dgen.gamma' | dhyper='dhyper' | dlogis='dlogis' | dlnorm='dlnorm' | dnegbin='dnegbin' |
+	dnchisqr='dnchisqr' |
 	dpar='dpar' | dpois='dpois' | dt='dt' | dweib='dweib';
+
+enum Density:
+	dnorm='dnorm' |
+	dunif='dunif' |
+	dbeta='dbeta';
 
 enum Function:
 	acos='acos' | acosh='acosh' | asin='asin' | asinh='asinh' | atan='atan' | log='log' | ep='exp' | c='c';
-
-enum RelationType:
-	STOCHASTIC = '~' | DETERMIN1 = '<-' | DETERMIN2 = '=';
 
 

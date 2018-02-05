@@ -6,14 +6,17 @@ package com.opcoach.bugsy.xtext.bugsDsl.impl;
 import com.opcoach.bugsy.xtext.bugsDsl.BugsDslFactory;
 import com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage;
 import com.opcoach.bugsy.xtext.bugsDsl.BugsModel;
+import com.opcoach.bugsy.xtext.bugsDsl.Density;
+import com.opcoach.bugsy.xtext.bugsDsl.DeterministicRelation;
 import com.opcoach.bugsy.xtext.bugsDsl.Distribution;
 import com.opcoach.bugsy.xtext.bugsDsl.For;
 import com.opcoach.bugsy.xtext.bugsDsl.Function;
 import com.opcoach.bugsy.xtext.bugsDsl.Instruction;
-import com.opcoach.bugsy.xtext.bugsDsl.Operation;
 import com.opcoach.bugsy.xtext.bugsDsl.Parameter;
+import com.opcoach.bugsy.xtext.bugsDsl.Parameters;
 import com.opcoach.bugsy.xtext.bugsDsl.Relation;
 import com.opcoach.bugsy.xtext.bugsDsl.RelationType;
+import com.opcoach.bugsy.xtext.bugsDsl.StochasticRelation;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -57,14 +60,7 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass relationEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass operationEClass = null;
+  private EClass parametersEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -78,7 +74,35 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass relationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass stochasticRelationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass deterministicRelationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EEnum distributionEEnum = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EEnum densityEEnum = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -242,79 +266,9 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getRelation()
+  public EClass getParameters()
   {
-    return relationEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getRelation_Name()
-  {
-    return (EAttribute)relationEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getRelation_RelationType()
-  {
-    return (EAttribute)relationEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getRelation_LeftExpr()
-  {
-    return (EReference)relationEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getOperation()
-  {
-    return operationEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getOperation_Distrib()
-  {
-    return (EAttribute)operationEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getOperation_Function()
-  {
-    return (EAttribute)operationEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getOperation_Elements()
-  {
-    return (EReference)operationEClass.getEStructuralFeatures().get(2);
+    return parametersEClass;
   }
 
   /**
@@ -342,9 +296,99 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getRelation()
+  {
+    return relationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getRelation_Name()
+  {
+    return (EAttribute)relationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getRelation_Params()
+  {
+    return (EReference)relationEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getStochasticRelation()
+  {
+    return stochasticRelationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getStochasticRelation_Distrib()
+  {
+    return (EAttribute)stochasticRelationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getDeterministicRelation()
+  {
+    return deterministicRelationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDeterministicRelation_Distrib()
+  {
+    return (EAttribute)deterministicRelationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDeterministicRelation_Function()
+  {
+    return (EAttribute)deterministicRelationEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EEnum getDistribution()
   {
     return distributionEEnum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EEnum getDensity()
+  {
+    return densityEEnum;
   }
 
   /**
@@ -408,21 +452,25 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
     createEAttribute(forEClass, FOR__HIGH);
     createEReference(forEClass, FOR__CONTENTS);
 
-    relationEClass = createEClass(RELATION);
-    createEAttribute(relationEClass, RELATION__NAME);
-    createEAttribute(relationEClass, RELATION__RELATION_TYPE);
-    createEReference(relationEClass, RELATION__LEFT_EXPR);
-
-    operationEClass = createEClass(OPERATION);
-    createEAttribute(operationEClass, OPERATION__DISTRIB);
-    createEAttribute(operationEClass, OPERATION__FUNCTION);
-    createEReference(operationEClass, OPERATION__ELEMENTS);
+    parametersEClass = createEClass(PARAMETERS);
 
     parameterEClass = createEClass(PARAMETER);
     createEAttribute(parameterEClass, PARAMETER__VALUE);
 
+    relationEClass = createEClass(RELATION);
+    createEAttribute(relationEClass, RELATION__NAME);
+    createEReference(relationEClass, RELATION__PARAMS);
+
+    stochasticRelationEClass = createEClass(STOCHASTIC_RELATION);
+    createEAttribute(stochasticRelationEClass, STOCHASTIC_RELATION__DISTRIB);
+
+    deterministicRelationEClass = createEClass(DETERMINISTIC_RELATION);
+    createEAttribute(deterministicRelationEClass, DETERMINISTIC_RELATION__DISTRIB);
+    createEAttribute(deterministicRelationEClass, DETERMINISTIC_RELATION__FUNCTION);
+
     // Create enums
     distributionEEnum = createEEnum(DISTRIBUTION);
+    densityEEnum = createEEnum(DENSITY);
     functionEEnum = createEEnum(FUNCTION);
     relationTypeEEnum = createEEnum(RELATION_TYPE);
   }
@@ -458,6 +506,8 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
     // Add supertypes to classes
     forEClass.getESuperTypes().add(this.getInstruction());
     relationEClass.getESuperTypes().add(this.getInstruction());
+    stochasticRelationEClass.getESuperTypes().add(this.getRelation());
+    deterministicRelationEClass.getESuperTypes().add(this.getRelation());
 
     // Initialize classes and features; add operations and parameters
     initEClass(bugsModelEClass, BugsModel.class, "BugsModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -471,23 +521,25 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
     initEAttribute(getFor_High(), ecorePackage.getEString(), "high", null, 0, 1, For.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFor_Contents(), this.getInstruction(), null, "contents", null, 0, -1, For.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(relationEClass, Relation.class, "Relation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getRelation_Name(), ecorePackage.getEString(), "name", null, 0, 1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getRelation_RelationType(), this.getRelationType(), "relationType", null, 0, 1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getRelation_LeftExpr(), this.getOperation(), null, "leftExpr", null, 0, 1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(operationEClass, Operation.class, "Operation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getOperation_Distrib(), this.getDistribution(), "distrib", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getOperation_Function(), this.getFunction(), "function", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getOperation_Elements(), this.getParameter(), null, "elements", null, 0, -1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(parametersEClass, Parameters.class, "Parameters", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getParameter_Value(), ecorePackage.getEString(), "value", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(relationEClass, Relation.class, "Relation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getRelation_Name(), ecorePackage.getEString(), "name", null, 0, 1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRelation_Params(), this.getParameter(), null, "params", null, 0, -1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(stochasticRelationEClass, StochasticRelation.class, "StochasticRelation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getStochasticRelation_Distrib(), this.getDensity(), "distrib", null, 0, 1, StochasticRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(deterministicRelationEClass, DeterministicRelation.class, "DeterministicRelation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDeterministicRelation_Distrib(), this.getDistribution(), "distrib", null, 0, 1, DeterministicRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDeterministicRelation_Function(), this.getFunction(), "function", null, 0, 1, DeterministicRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     // Initialize enums and add enum literals
     initEEnum(distributionEEnum, Distribution.class, "Distribution");
     addEEnumLiteral(distributionEEnum, Distribution.DBERN);
-    addEEnumLiteral(distributionEEnum, Distribution.DBETA);
     addEEnumLiteral(distributionEEnum, Distribution.DBIN);
     addEEnumLiteral(distributionEEnum, Distribution.DCHISQR);
     addEEnumLiteral(distributionEEnum, Distribution.DDEXP);
@@ -500,11 +552,15 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
     addEEnumLiteral(distributionEEnum, Distribution.DLNORM);
     addEEnumLiteral(distributionEEnum, Distribution.DNEGBIN);
     addEEnumLiteral(distributionEEnum, Distribution.DNCHISQR);
-    addEEnumLiteral(distributionEEnum, Distribution.DNORM);
     addEEnumLiteral(distributionEEnum, Distribution.DPAR);
     addEEnumLiteral(distributionEEnum, Distribution.DPOIS);
     addEEnumLiteral(distributionEEnum, Distribution.DT);
     addEEnumLiteral(distributionEEnum, Distribution.DWEIB);
+
+    initEEnum(densityEEnum, Density.class, "Density");
+    addEEnumLiteral(densityEEnum, Density.DNORM);
+    addEEnumLiteral(densityEEnum, Density.DUNIF);
+    addEEnumLiteral(densityEEnum, Density.DBETA);
 
     initEEnum(functionEEnum, Function.class, "Function");
     addEEnumLiteral(functionEEnum, Function.ACOS);

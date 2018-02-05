@@ -95,6 +95,20 @@ public class BugsDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case BugsDslPackage.PARAMETERS:
+      {
+        Parameters parameters = (Parameters)theEObject;
+        T result = caseParameters(parameters);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BugsDslPackage.PARAMETER:
+      {
+        Parameter parameter = (Parameter)theEObject;
+        T result = caseParameter(parameter);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case BugsDslPackage.RELATION:
       {
         Relation relation = (Relation)theEObject;
@@ -103,17 +117,21 @@ public class BugsDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case BugsDslPackage.OPERATION:
+      case BugsDslPackage.STOCHASTIC_RELATION:
       {
-        Operation operation = (Operation)theEObject;
-        T result = caseOperation(operation);
+        StochasticRelation stochasticRelation = (StochasticRelation)theEObject;
+        T result = caseStochasticRelation(stochasticRelation);
+        if (result == null) result = caseRelation(stochasticRelation);
+        if (result == null) result = caseInstruction(stochasticRelation);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case BugsDslPackage.PARAMETER:
+      case BugsDslPackage.DETERMINISTIC_RELATION:
       {
-        Parameter parameter = (Parameter)theEObject;
-        T result = caseParameter(parameter);
+        DeterministicRelation deterministicRelation = (DeterministicRelation)theEObject;
+        T result = caseDeterministicRelation(deterministicRelation);
+        if (result == null) result = caseRelation(deterministicRelation);
+        if (result == null) result = caseInstruction(deterministicRelation);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -170,33 +188,17 @@ public class BugsDslSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Relation</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Parameters</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Relation</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Parameters</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseRelation(Relation object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Operation</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Operation</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseOperation(Operation object)
+  public T caseParameters(Parameters object)
   {
     return null;
   }
@@ -213,6 +215,54 @@ public class BugsDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseParameter(Parameter object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Relation</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Relation</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRelation(Relation object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Stochastic Relation</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Stochastic Relation</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseStochasticRelation(StochasticRelation object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Deterministic Relation</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Deterministic Relation</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDeterministicRelation(DeterministicRelation object)
   {
     return null;
   }

@@ -91,19 +91,29 @@ public class BugsDslAdapterFactory extends AdapterFactoryImpl
         return createForAdapter();
       }
       @Override
-      public Adapter caseRelation(Relation object)
+      public Adapter caseParameters(Parameters object)
       {
-        return createRelationAdapter();
-      }
-      @Override
-      public Adapter caseOperation(Operation object)
-      {
-        return createOperationAdapter();
+        return createParametersAdapter();
       }
       @Override
       public Adapter caseParameter(Parameter object)
       {
         return createParameterAdapter();
+      }
+      @Override
+      public Adapter caseRelation(Relation object)
+      {
+        return createRelationAdapter();
+      }
+      @Override
+      public Adapter caseStochasticRelation(StochasticRelation object)
+      {
+        return createStochasticRelationAdapter();
+      }
+      @Override
+      public Adapter caseDeterministicRelation(DeterministicRelation object)
+      {
+        return createDeterministicRelationAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -173,31 +183,16 @@ public class BugsDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link com.opcoach.bugsy.xtext.bugsDsl.Relation <em>Relation</em>}'.
+   * Creates a new adapter for an object of class '{@link com.opcoach.bugsy.xtext.bugsDsl.Parameters <em>Parameters</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see com.opcoach.bugsy.xtext.bugsDsl.Relation
+   * @see com.opcoach.bugsy.xtext.bugsDsl.Parameters
    * @generated
    */
-  public Adapter createRelationAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link com.opcoach.bugsy.xtext.bugsDsl.Operation <em>Operation</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see com.opcoach.bugsy.xtext.bugsDsl.Operation
-   * @generated
-   */
-  public Adapter createOperationAdapter()
+  public Adapter createParametersAdapter()
   {
     return null;
   }
@@ -213,6 +208,51 @@ public class BugsDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createParameterAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.opcoach.bugsy.xtext.bugsDsl.Relation <em>Relation</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.opcoach.bugsy.xtext.bugsDsl.Relation
+   * @generated
+   */
+  public Adapter createRelationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.opcoach.bugsy.xtext.bugsDsl.StochasticRelation <em>Stochastic Relation</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.opcoach.bugsy.xtext.bugsDsl.StochasticRelation
+   * @generated
+   */
+  public Adapter createStochasticRelationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.opcoach.bugsy.xtext.bugsDsl.DeterministicRelation <em>Deterministic Relation</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.opcoach.bugsy.xtext.bugsDsl.DeterministicRelation
+   * @generated
+   */
+  public Adapter createDeterministicRelationAdapter()
   {
     return null;
   }

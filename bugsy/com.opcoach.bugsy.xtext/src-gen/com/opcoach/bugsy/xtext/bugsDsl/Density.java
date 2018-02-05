@@ -11,125 +11,125 @@ import org.eclipse.emf.common.util.Enumerator;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the literals of the enumeration '<em><b>Relation Type</b></em>',
+ * A representation of the literals of the enumeration '<em><b>Density</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage#getRelationType()
+ * @see com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage#getDensity()
  * @model
  * @generated
  */
-public enum RelationType implements Enumerator
+public enum Density implements Enumerator
 {
   /**
-   * The '<em><b>STOCHASTIC</b></em>' literal object.
+   * The '<em><b>Dnorm</b></em>' literal object.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #STOCHASTIC_VALUE
+   * @see #DNORM_VALUE
    * @generated
    * @ordered
    */
-  STOCHASTIC(0, "STOCHASTIC", "~"),
+  DNORM(0, "dnorm", "dnorm"),
 
   /**
-   * The '<em><b>DETERMIN1</b></em>' literal object.
+   * The '<em><b>Dunif</b></em>' literal object.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #DETERMIN1_VALUE
+   * @see #DUNIF_VALUE
    * @generated
    * @ordered
    */
-  DETERMIN1(1, "DETERMIN1", "<-"),
+  DUNIF(1, "dunif", "dunif"),
 
   /**
-   * The '<em><b>DETERMIN2</b></em>' literal object.
+   * The '<em><b>Dbeta</b></em>' literal object.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #DETERMIN2_VALUE
+   * @see #DBETA_VALUE
    * @generated
    * @ordered
    */
-  DETERMIN2(2, "DETERMIN2", "=");
+  DBETA(2, "dbeta", "dbeta");
 
   /**
-   * The '<em><b>STOCHASTIC</b></em>' literal value.
+   * The '<em><b>Dnorm</b></em>' literal value.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of '<em><b>STOCHASTIC</b></em>' literal object isn't clear,
+   * If the meaning of '<em><b>Dnorm</b></em>' literal object isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @see #STOCHASTIC
-   * @model literal="~"
+   * @see #DNORM
+   * @model name="dnorm"
    * @generated
    * @ordered
    */
-  public static final int STOCHASTIC_VALUE = 0;
+  public static final int DNORM_VALUE = 0;
 
   /**
-   * The '<em><b>DETERMIN1</b></em>' literal value.
+   * The '<em><b>Dunif</b></em>' literal value.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of '<em><b>DETERMIN1</b></em>' literal object isn't clear,
+   * If the meaning of '<em><b>Dunif</b></em>' literal object isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @see #DETERMIN1
-   * @model literal="&lt;-"
+   * @see #DUNIF
+   * @model name="dunif"
    * @generated
    * @ordered
    */
-  public static final int DETERMIN1_VALUE = 1;
+  public static final int DUNIF_VALUE = 1;
 
   /**
-   * The '<em><b>DETERMIN2</b></em>' literal value.
+   * The '<em><b>Dbeta</b></em>' literal value.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of '<em><b>DETERMIN2</b></em>' literal object isn't clear,
+   * If the meaning of '<em><b>Dbeta</b></em>' literal object isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @see #DETERMIN2
-   * @model literal="="
+   * @see #DBETA
+   * @model name="dbeta"
    * @generated
    * @ordered
    */
-  public static final int DETERMIN2_VALUE = 2;
+  public static final int DBETA_VALUE = 2;
 
   /**
-   * An array of all the '<em><b>Relation Type</b></em>' enumerators.
+   * An array of all the '<em><b>Density</b></em>' enumerators.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private static final RelationType[] VALUES_ARRAY =
-    new RelationType[]
+  private static final Density[] VALUES_ARRAY =
+    new Density[]
     {
-      STOCHASTIC,
-      DETERMIN1,
-      DETERMIN2,
+      DNORM,
+      DUNIF,
+      DBETA,
     };
 
   /**
-   * A public read-only list of all the '<em><b>Relation Type</b></em>' enumerators.
+   * A public read-only list of all the '<em><b>Density</b></em>' enumerators.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  public static final List<RelationType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+  public static final List<Density> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
   /**
-   * Returns the '<em><b>Relation Type</b></em>' literal with the specified literal value.
+   * Returns the '<em><b>Density</b></em>' literal with the specified literal value.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param literal the literal.
    * @return the matching enumerator or <code>null</code>.
    * @generated
    */
-  public static RelationType get(String literal)
+  public static Density get(String literal)
   {
     for (int i = 0; i < VALUES_ARRAY.length; ++i)
     {
-      RelationType result = VALUES_ARRAY[i];
+      Density result = VALUES_ARRAY[i];
       if (result.toString().equals(literal))
       {
         return result;
@@ -139,18 +139,18 @@ public enum RelationType implements Enumerator
   }
 
   /**
-   * Returns the '<em><b>Relation Type</b></em>' literal with the specified name.
+   * Returns the '<em><b>Density</b></em>' literal with the specified name.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param name the name.
    * @return the matching enumerator or <code>null</code>.
    * @generated
    */
-  public static RelationType getByName(String name)
+  public static Density getByName(String name)
   {
     for (int i = 0; i < VALUES_ARRAY.length; ++i)
     {
-      RelationType result = VALUES_ARRAY[i];
+      Density result = VALUES_ARRAY[i];
       if (result.getName().equals(name))
       {
         return result;
@@ -160,20 +160,20 @@ public enum RelationType implements Enumerator
   }
 
   /**
-   * Returns the '<em><b>Relation Type</b></em>' literal with the specified integer value.
+   * Returns the '<em><b>Density</b></em>' literal with the specified integer value.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the integer value.
    * @return the matching enumerator or <code>null</code>.
    * @generated
    */
-  public static RelationType get(int value)
+  public static Density get(int value)
   {
     switch (value)
     {
-      case STOCHASTIC_VALUE: return STOCHASTIC;
-      case DETERMIN1_VALUE: return DETERMIN1;
-      case DETERMIN2_VALUE: return DETERMIN2;
+      case DNORM_VALUE: return DNORM;
+      case DUNIF_VALUE: return DUNIF;
+      case DBETA_VALUE: return DBETA;
     }
     return null;
   }
@@ -205,7 +205,7 @@ public enum RelationType implements Enumerator
    * <!-- end-user-doc -->
    * @generated
    */
-  private RelationType(int value, String name, String literal)
+  private Density(int value, String name, String literal)
   {
     this.value = value;
     this.name = name;
@@ -254,4 +254,4 @@ public enum RelationType implements Enumerator
     return literal;
   }
   
-} //RelationType
+} //Density

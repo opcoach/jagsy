@@ -67,7 +67,7 @@ class BugsDslParsingTest {
 	{
 		// Density Function in deterministic definition 
 		// See : https://github.com/opcoach/jagsy/issues/3
-		Assert.fail("Density Function in deterministic definition (Test to Be Fixed)");
+		// Assert.fail("Density Function in deterministic definition (Test to Be Fixed)");
 		val result = parseHelper.parse('''
 		model{
 		ab <- dnorm(1,1)

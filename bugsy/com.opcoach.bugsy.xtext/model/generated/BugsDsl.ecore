@@ -14,41 +14,45 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="contents" upperBound="-1"
         eType="#//Instruction" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Relation" eSuperTypes="#//Instruction">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="relationType" eType="#//RelationType"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="leftExpr" eType="#//Operation"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Operation">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="distrib" eType="#//Distribution"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="function" eType="#//Function"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
-        eType="#//Parameter" containment="true"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Parameters"/>
   <eClassifiers xsi:type="ecore:EClass" name="Parameter">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Relation" eSuperTypes="#//Instruction">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="params" upperBound="-1"
+        eType="#//Parameter" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StochasticRelation" eSuperTypes="#//Relation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="distrib" eType="#//Density"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DeterministicRelation" eSuperTypes="#//Relation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="distrib" eType="#//Distribution"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="function" eType="#//Function"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Distribution">
     <eLiterals name="dbern" literal="dbern"/>
-    <eLiterals name="dbeta" value="1" literal="dbeta"/>
-    <eLiterals name="dbin" value="2" literal="dbin"/>
-    <eLiterals name="dchisqr" value="3" literal="dchisqr"/>
-    <eLiterals name="ddexp" value="4" literal="ddexp"/>
-    <eLiterals name="dexp" value="5" literal="dexp"/>
-    <eLiterals name="df" value="6" literal="df"/>
-    <eLiterals name="dgamma" value="7" literal="dgamma"/>
-    <eLiterals name="dgengamm" value="8" literal="dgen.gamma"/>
-    <eLiterals name="dhyper" value="9" literal="dhyper"/>
-    <eLiterals name="dlogis" value="10" literal="dlogis"/>
-    <eLiterals name="dlnorm" value="11" literal="dlnorm"/>
-    <eLiterals name="dnegbin" value="12" literal="dnegbin"/>
-    <eLiterals name="dnchisqr" value="13" literal="dnchisqr"/>
-    <eLiterals name="dnorm" value="14" literal="dnorm"/>
-    <eLiterals name="dpar" value="15" literal="dpar"/>
-    <eLiterals name="dpois" value="16" literal="dpois"/>
-    <eLiterals name="dt" value="17" literal="dt"/>
-    <eLiterals name="dweib" value="18" literal="dweib"/>
+    <eLiterals name="dbin" value="1" literal="dbin"/>
+    <eLiterals name="dchisqr" value="2" literal="dchisqr"/>
+    <eLiterals name="ddexp" value="3" literal="ddexp"/>
+    <eLiterals name="dexp" value="4" literal="dexp"/>
+    <eLiterals name="df" value="5" literal="df"/>
+    <eLiterals name="dgamma" value="6" literal="dgamma"/>
+    <eLiterals name="dgengamm" value="7" literal="dgen.gamma"/>
+    <eLiterals name="dhyper" value="8" literal="dhyper"/>
+    <eLiterals name="dlogis" value="9" literal="dlogis"/>
+    <eLiterals name="dlnorm" value="10" literal="dlnorm"/>
+    <eLiterals name="dnegbin" value="11" literal="dnegbin"/>
+    <eLiterals name="dnchisqr" value="12" literal="dnchisqr"/>
+    <eLiterals name="dpar" value="13" literal="dpar"/>
+    <eLiterals name="dpois" value="14" literal="dpois"/>
+    <eLiterals name="dt" value="15" literal="dt"/>
+    <eLiterals name="dweib" value="16" literal="dweib"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Density">
+    <eLiterals name="dnorm" literal="dnorm"/>
+    <eLiterals name="dunif" value="1" literal="dunif"/>
+    <eLiterals name="dbeta" value="2" literal="dbeta"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Function">
     <eLiterals name="acos" literal="acos"/>

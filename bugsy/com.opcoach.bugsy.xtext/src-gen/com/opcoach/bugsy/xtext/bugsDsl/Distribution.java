@@ -31,16 +31,6 @@ public enum Distribution implements Enumerator
   DBERN(0, "dbern", "dbern"),
 
   /**
-   * The '<em><b>Dbeta</b></em>' literal object.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #DBETA_VALUE
-   * @generated
-   * @ordered
-   */
-  DBETA(1, "dbeta", "dbeta"),
-
-  /**
    * The '<em><b>Dbin</b></em>' literal object.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -48,7 +38,7 @@ public enum Distribution implements Enumerator
    * @generated
    * @ordered
    */
-  DBIN(2, "dbin", "dbin"),
+  DBIN(1, "dbin", "dbin"),
 
   /**
    * The '<em><b>Dchisqr</b></em>' literal object.
@@ -58,7 +48,7 @@ public enum Distribution implements Enumerator
    * @generated
    * @ordered
    */
-  DCHISQR(3, "dchisqr", "dchisqr"),
+  DCHISQR(2, "dchisqr", "dchisqr"),
 
   /**
    * The '<em><b>Ddexp</b></em>' literal object.
@@ -68,7 +58,7 @@ public enum Distribution implements Enumerator
    * @generated
    * @ordered
    */
-  DDEXP(4, "ddexp", "ddexp"),
+  DDEXP(3, "ddexp", "ddexp"),
 
   /**
    * The '<em><b>Dexp</b></em>' literal object.
@@ -78,7 +68,7 @@ public enum Distribution implements Enumerator
    * @generated
    * @ordered
    */
-  DEXP(5, "dexp", "dexp"),
+  DEXP(4, "dexp", "dexp"),
 
   /**
    * The '<em><b>Df</b></em>' literal object.
@@ -88,7 +78,7 @@ public enum Distribution implements Enumerator
    * @generated
    * @ordered
    */
-  DF(6, "df", "df"),
+  DF(5, "df", "df"),
 
   /**
    * The '<em><b>Dgamma</b></em>' literal object.
@@ -98,7 +88,7 @@ public enum Distribution implements Enumerator
    * @generated
    * @ordered
    */
-  DGAMMA(7, "dgamma", "dgamma"),
+  DGAMMA(6, "dgamma", "dgamma"),
 
   /**
    * The '<em><b>Dgengamm</b></em>' literal object.
@@ -108,7 +98,7 @@ public enum Distribution implements Enumerator
    * @generated
    * @ordered
    */
-  DGENGAMM(8, "dgengamm", "dgen.gamma"),
+  DGENGAMM(7, "dgengamm", "dgen.gamma"),
 
   /**
    * The '<em><b>Dhyper</b></em>' literal object.
@@ -118,7 +108,7 @@ public enum Distribution implements Enumerator
    * @generated
    * @ordered
    */
-  DHYPER(9, "dhyper", "dhyper"),
+  DHYPER(8, "dhyper", "dhyper"),
 
   /**
    * The '<em><b>Dlogis</b></em>' literal object.
@@ -128,7 +118,7 @@ public enum Distribution implements Enumerator
    * @generated
    * @ordered
    */
-  DLOGIS(10, "dlogis", "dlogis"),
+  DLOGIS(9, "dlogis", "dlogis"),
 
   /**
    * The '<em><b>Dlnorm</b></em>' literal object.
@@ -138,7 +128,7 @@ public enum Distribution implements Enumerator
    * @generated
    * @ordered
    */
-  DLNORM(11, "dlnorm", "dlnorm"),
+  DLNORM(10, "dlnorm", "dlnorm"),
 
   /**
    * The '<em><b>Dnegbin</b></em>' literal object.
@@ -148,7 +138,7 @@ public enum Distribution implements Enumerator
    * @generated
    * @ordered
    */
-  DNEGBIN(12, "dnegbin", "dnegbin"),
+  DNEGBIN(11, "dnegbin", "dnegbin"),
 
   /**
    * The '<em><b>Dnchisqr</b></em>' literal object.
@@ -158,17 +148,7 @@ public enum Distribution implements Enumerator
    * @generated
    * @ordered
    */
-  DNCHISQR(13, "dnchisqr", "dnchisqr"),
-
-  /**
-   * The '<em><b>Dnorm</b></em>' literal object.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #DNORM_VALUE
-   * @generated
-   * @ordered
-   */
-  DNORM(14, "dnorm", "dnorm"),
+  DNCHISQR(12, "dnchisqr", "dnchisqr"),
 
   /**
    * The '<em><b>Dpar</b></em>' literal object.
@@ -178,7 +158,7 @@ public enum Distribution implements Enumerator
    * @generated
    * @ordered
    */
-  DPAR(15, "dpar", "dpar"),
+  DPAR(13, "dpar", "dpar"),
 
   /**
    * The '<em><b>Dpois</b></em>' literal object.
@@ -188,7 +168,7 @@ public enum Distribution implements Enumerator
    * @generated
    * @ordered
    */
-  DPOIS(16, "dpois", "dpois"),
+  DPOIS(14, "dpois", "dpois"),
 
   /**
    * The '<em><b>Dt</b></em>' literal object.
@@ -198,7 +178,7 @@ public enum Distribution implements Enumerator
    * @generated
    * @ordered
    */
-  DT(17, "dt", "dt"),
+  DT(15, "dt", "dt"),
 
   /**
    * The '<em><b>Dweib</b></em>' literal object.
@@ -208,7 +188,7 @@ public enum Distribution implements Enumerator
    * @generated
    * @ordered
    */
-  DWEIB(18, "dweib", "dweib");
+  DWEIB(16, "dweib", "dweib");
 
   /**
    * The '<em><b>Dbern</b></em>' literal value.
@@ -226,21 +206,6 @@ public enum Distribution implements Enumerator
   public static final int DBERN_VALUE = 0;
 
   /**
-   * The '<em><b>Dbeta</b></em>' literal value.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of '<em><b>Dbeta</b></em>' literal object isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @see #DBETA
-   * @model name="dbeta"
-   * @generated
-   * @ordered
-   */
-  public static final int DBETA_VALUE = 1;
-
-  /**
    * The '<em><b>Dbin</b></em>' literal value.
    * <!-- begin-user-doc -->
    * <p>
@@ -253,7 +218,7 @@ public enum Distribution implements Enumerator
    * @generated
    * @ordered
    */
-  public static final int DBIN_VALUE = 2;
+  public static final int DBIN_VALUE = 1;
 
   /**
    * The '<em><b>Dchisqr</b></em>' literal value.
@@ -268,7 +233,7 @@ public enum Distribution implements Enumerator
    * @generated
    * @ordered
    */
-  public static final int DCHISQR_VALUE = 3;
+  public static final int DCHISQR_VALUE = 2;
 
   /**
    * The '<em><b>Ddexp</b></em>' literal value.
@@ -283,7 +248,7 @@ public enum Distribution implements Enumerator
    * @generated
    * @ordered
    */
-  public static final int DDEXP_VALUE = 4;
+  public static final int DDEXP_VALUE = 3;
 
   /**
    * The '<em><b>Dexp</b></em>' literal value.
@@ -298,7 +263,7 @@ public enum Distribution implements Enumerator
    * @generated
    * @ordered
    */
-  public static final int DEXP_VALUE = 5;
+  public static final int DEXP_VALUE = 4;
 
   /**
    * The '<em><b>Df</b></em>' literal value.
@@ -313,7 +278,7 @@ public enum Distribution implements Enumerator
    * @generated
    * @ordered
    */
-  public static final int DF_VALUE = 6;
+  public static final int DF_VALUE = 5;
 
   /**
    * The '<em><b>Dgamma</b></em>' literal value.
@@ -328,7 +293,7 @@ public enum Distribution implements Enumerator
    * @generated
    * @ordered
    */
-  public static final int DGAMMA_VALUE = 7;
+  public static final int DGAMMA_VALUE = 6;
 
   /**
    * The '<em><b>Dgengamm</b></em>' literal value.
@@ -343,7 +308,7 @@ public enum Distribution implements Enumerator
    * @generated
    * @ordered
    */
-  public static final int DGENGAMM_VALUE = 8;
+  public static final int DGENGAMM_VALUE = 7;
 
   /**
    * The '<em><b>Dhyper</b></em>' literal value.
@@ -358,7 +323,7 @@ public enum Distribution implements Enumerator
    * @generated
    * @ordered
    */
-  public static final int DHYPER_VALUE = 9;
+  public static final int DHYPER_VALUE = 8;
 
   /**
    * The '<em><b>Dlogis</b></em>' literal value.
@@ -373,7 +338,7 @@ public enum Distribution implements Enumerator
    * @generated
    * @ordered
    */
-  public static final int DLOGIS_VALUE = 10;
+  public static final int DLOGIS_VALUE = 9;
 
   /**
    * The '<em><b>Dlnorm</b></em>' literal value.
@@ -388,7 +353,7 @@ public enum Distribution implements Enumerator
    * @generated
    * @ordered
    */
-  public static final int DLNORM_VALUE = 11;
+  public static final int DLNORM_VALUE = 10;
 
   /**
    * The '<em><b>Dnegbin</b></em>' literal value.
@@ -403,7 +368,7 @@ public enum Distribution implements Enumerator
    * @generated
    * @ordered
    */
-  public static final int DNEGBIN_VALUE = 12;
+  public static final int DNEGBIN_VALUE = 11;
 
   /**
    * The '<em><b>Dnchisqr</b></em>' literal value.
@@ -418,22 +383,7 @@ public enum Distribution implements Enumerator
    * @generated
    * @ordered
    */
-  public static final int DNCHISQR_VALUE = 13;
-
-  /**
-   * The '<em><b>Dnorm</b></em>' literal value.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of '<em><b>Dnorm</b></em>' literal object isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @see #DNORM
-   * @model name="dnorm"
-   * @generated
-   * @ordered
-   */
-  public static final int DNORM_VALUE = 14;
+  public static final int DNCHISQR_VALUE = 12;
 
   /**
    * The '<em><b>Dpar</b></em>' literal value.
@@ -448,7 +398,7 @@ public enum Distribution implements Enumerator
    * @generated
    * @ordered
    */
-  public static final int DPAR_VALUE = 15;
+  public static final int DPAR_VALUE = 13;
 
   /**
    * The '<em><b>Dpois</b></em>' literal value.
@@ -463,7 +413,7 @@ public enum Distribution implements Enumerator
    * @generated
    * @ordered
    */
-  public static final int DPOIS_VALUE = 16;
+  public static final int DPOIS_VALUE = 14;
 
   /**
    * The '<em><b>Dt</b></em>' literal value.
@@ -478,7 +428,7 @@ public enum Distribution implements Enumerator
    * @generated
    * @ordered
    */
-  public static final int DT_VALUE = 17;
+  public static final int DT_VALUE = 15;
 
   /**
    * The '<em><b>Dweib</b></em>' literal value.
@@ -493,7 +443,7 @@ public enum Distribution implements Enumerator
    * @generated
    * @ordered
    */
-  public static final int DWEIB_VALUE = 18;
+  public static final int DWEIB_VALUE = 16;
 
   /**
    * An array of all the '<em><b>Distribution</b></em>' enumerators.
@@ -505,7 +455,6 @@ public enum Distribution implements Enumerator
     new Distribution[]
     {
       DBERN,
-      DBETA,
       DBIN,
       DCHISQR,
       DDEXP,
@@ -518,7 +467,6 @@ public enum Distribution implements Enumerator
       DLNORM,
       DNEGBIN,
       DNCHISQR,
-      DNORM,
       DPAR,
       DPOIS,
       DT,
@@ -588,7 +536,6 @@ public enum Distribution implements Enumerator
     switch (value)
     {
       case DBERN_VALUE: return DBERN;
-      case DBETA_VALUE: return DBETA;
       case DBIN_VALUE: return DBIN;
       case DCHISQR_VALUE: return DCHISQR;
       case DDEXP_VALUE: return DDEXP;
@@ -601,7 +548,6 @@ public enum Distribution implements Enumerator
       case DLNORM_VALUE: return DLNORM;
       case DNEGBIN_VALUE: return DNEGBIN;
       case DNCHISQR_VALUE: return DNCHISQR;
-      case DNORM_VALUE: return DNORM;
       case DPAR_VALUE: return DPAR;
       case DPOIS_VALUE: return DPOIS;
       case DT_VALUE: return DT;

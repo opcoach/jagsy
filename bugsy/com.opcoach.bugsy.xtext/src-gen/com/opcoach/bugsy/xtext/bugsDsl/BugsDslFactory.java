@@ -51,22 +51,13 @@ public interface BugsDslFactory extends EFactory
   For createFor();
 
   /**
-   * Returns a new object of class '<em>Relation</em>'.
+   * Returns a new object of class '<em>Parameters</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Relation</em>'.
+   * @return a new object of class '<em>Parameters</em>'.
    * @generated
    */
-  Relation createRelation();
-
-  /**
-   * Returns a new object of class '<em>Operation</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Operation</em>'.
-   * @generated
-   */
-  Operation createOperation();
+  Parameters createParameters();
 
   /**
    * Returns a new object of class '<em>Parameter</em>'.
@@ -76,6 +67,33 @@ public interface BugsDslFactory extends EFactory
    * @generated
    */
   Parameter createParameter();
+
+  /**
+   * Returns a new object of class '<em>Relation</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Relation</em>'.
+   * @generated
+   */
+  Relation createRelation();
+
+  /**
+   * Returns a new object of class '<em>Stochastic Relation</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Stochastic Relation</em>'.
+   * @generated
+   */
+  StochasticRelation createStochasticRelation();
+
+  /**
+   * Returns a new object of class '<em>Deterministic Relation</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Deterministic Relation</em>'.
+   * @generated
+   */
+  DeterministicRelation createDeterministicRelation();
 
   /**
    * Returns the package supported by this factory.

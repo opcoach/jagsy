@@ -3,29 +3,25 @@
  */
 package com.opcoach.bugsy.xtext.bugsDsl;
 
-import org.eclipse.emf.common.util.EList;
-
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Operation</b></em>'.
+ * A representation of the model object '<em><b>Deterministic Relation</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.Operation#getDistrib <em>Distrib</em>}</li>
- *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.Operation#getFunction <em>Function</em>}</li>
- *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.Operation#getElements <em>Elements</em>}</li>
+ *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.DeterministicRelation#getDistrib <em>Distrib</em>}</li>
+ *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.DeterministicRelation#getFunction <em>Function</em>}</li>
  * </ul>
  *
- * @see com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage#getOperation()
+ * @see com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage#getDeterministicRelation()
  * @model
  * @generated
  */
-public interface Operation extends EObject
+public interface DeterministicRelation extends Relation
 {
   /**
    * Returns the value of the '<em><b>Distrib</b></em>' attribute.
@@ -39,14 +35,14 @@ public interface Operation extends EObject
    * @return the value of the '<em>Distrib</em>' attribute.
    * @see com.opcoach.bugsy.xtext.bugsDsl.Distribution
    * @see #setDistrib(Distribution)
-   * @see com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage#getOperation_Distrib()
+   * @see com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage#getDeterministicRelation_Distrib()
    * @model
    * @generated
    */
   Distribution getDistrib();
 
   /**
-   * Sets the value of the '{@link com.opcoach.bugsy.xtext.bugsDsl.Operation#getDistrib <em>Distrib</em>}' attribute.
+   * Sets the value of the '{@link com.opcoach.bugsy.xtext.bugsDsl.DeterministicRelation#getDistrib <em>Distrib</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Distrib</em>' attribute.
@@ -68,14 +64,14 @@ public interface Operation extends EObject
    * @return the value of the '<em>Function</em>' attribute.
    * @see com.opcoach.bugsy.xtext.bugsDsl.Function
    * @see #setFunction(Function)
-   * @see com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage#getOperation_Function()
+   * @see com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage#getDeterministicRelation_Function()
    * @model
    * @generated
    */
   Function getFunction();
 
   /**
-   * Sets the value of the '{@link com.opcoach.bugsy.xtext.bugsDsl.Operation#getFunction <em>Function</em>}' attribute.
+   * Sets the value of the '{@link com.opcoach.bugsy.xtext.bugsDsl.DeterministicRelation#getFunction <em>Function</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Function</em>' attribute.
@@ -85,20 +81,4 @@ public interface Operation extends EObject
    */
   void setFunction(Function value);
 
-  /**
-   * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
-   * The list contents are of type {@link com.opcoach.bugsy.xtext.bugsDsl.Parameter}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Elements</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Elements</em>' containment reference list.
-   * @see com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage#getOperation_Elements()
-   * @model containment="true"
-   * @generated
-   */
-  EList<Parameter> getElements();
-
-} // Operation
+} // DeterministicRelation
