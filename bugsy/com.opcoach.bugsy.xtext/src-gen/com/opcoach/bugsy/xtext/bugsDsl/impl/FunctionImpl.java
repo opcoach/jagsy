@@ -4,9 +4,9 @@
 package com.opcoach.bugsy.xtext.bugsDsl.impl;
 
 import com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage;
-import com.opcoach.bugsy.xtext.bugsDsl.Density;
 import com.opcoach.bugsy.xtext.bugsDsl.Expression;
-import com.opcoach.bugsy.xtext.bugsDsl.StochasticRelation;
+import com.opcoach.bugsy.xtext.bugsDsl.Function;
+import com.opcoach.bugsy.xtext.bugsDsl.FunctionOperator;
 
 import java.util.Collection;
 
@@ -19,45 +19,46 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Stochastic Relation</b></em>'.
+ * An implementation of the model object '<em><b>Function</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.impl.StochasticRelationImpl#getDistrib <em>Distrib</em>}</li>
- *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.impl.StochasticRelationImpl#getParams <em>Params</em>}</li>
+ *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.impl.FunctionImpl#getOperation <em>Operation</em>}</li>
+ *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.impl.FunctionImpl#getParams <em>Params</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class StochasticRelationImpl extends RelationImpl implements StochasticRelation
+public class FunctionImpl extends MinimalEObjectImpl.Container implements Function
 {
   /**
-   * The default value of the '{@link #getDistrib() <em>Distrib</em>}' attribute.
+   * The default value of the '{@link #getOperation() <em>Operation</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDistrib()
+   * @see #getOperation()
    * @generated
    * @ordered
    */
-  protected static final Density DISTRIB_EDEFAULT = Density.DNORM;
+  protected static final FunctionOperator OPERATION_EDEFAULT = FunctionOperator.ACOS;
 
   /**
-   * The cached value of the '{@link #getDistrib() <em>Distrib</em>}' attribute.
+   * The cached value of the '{@link #getOperation() <em>Operation</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDistrib()
+   * @see #getOperation()
    * @generated
    * @ordered
    */
-  protected Density distrib = DISTRIB_EDEFAULT;
+  protected FunctionOperator operation = OPERATION_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getParams() <em>Params</em>}' containment reference list.
@@ -74,7 +75,7 @@ public class StochasticRelationImpl extends RelationImpl implements StochasticRe
    * <!-- end-user-doc -->
    * @generated
    */
-  protected StochasticRelationImpl()
+  protected FunctionImpl()
   {
     super();
   }
@@ -87,7 +88,7 @@ public class StochasticRelationImpl extends RelationImpl implements StochasticRe
   @Override
   protected EClass eStaticClass()
   {
-    return BugsDslPackage.Literals.STOCHASTIC_RELATION;
+    return BugsDslPackage.Literals.FUNCTION;
   }
 
   /**
@@ -95,9 +96,9 @@ public class StochasticRelationImpl extends RelationImpl implements StochasticRe
    * <!-- end-user-doc -->
    * @generated
    */
-  public Density getDistrib()
+  public FunctionOperator getOperation()
   {
-    return distrib;
+    return operation;
   }
 
   /**
@@ -105,12 +106,12 @@ public class StochasticRelationImpl extends RelationImpl implements StochasticRe
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDistrib(Density newDistrib)
+  public void setOperation(FunctionOperator newOperation)
   {
-    Density oldDistrib = distrib;
-    distrib = newDistrib == null ? DISTRIB_EDEFAULT : newDistrib;
+    FunctionOperator oldOperation = operation;
+    operation = newOperation == null ? OPERATION_EDEFAULT : newOperation;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BugsDslPackage.STOCHASTIC_RELATION__DISTRIB, oldDistrib, distrib));
+      eNotify(new ENotificationImpl(this, Notification.SET, BugsDslPackage.FUNCTION__OPERATION, oldOperation, operation));
   }
 
   /**
@@ -122,7 +123,7 @@ public class StochasticRelationImpl extends RelationImpl implements StochasticRe
   {
     if (params == null)
     {
-      params = new EObjectContainmentEList<Expression>(Expression.class, this, BugsDslPackage.STOCHASTIC_RELATION__PARAMS);
+      params = new EObjectContainmentEList<Expression>(Expression.class, this, BugsDslPackage.FUNCTION__PARAMS);
     }
     return params;
   }
@@ -137,7 +138,7 @@ public class StochasticRelationImpl extends RelationImpl implements StochasticRe
   {
     switch (featureID)
     {
-      case BugsDslPackage.STOCHASTIC_RELATION__PARAMS:
+      case BugsDslPackage.FUNCTION__PARAMS:
         return ((InternalEList<?>)getParams()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -153,9 +154,9 @@ public class StochasticRelationImpl extends RelationImpl implements StochasticRe
   {
     switch (featureID)
     {
-      case BugsDslPackage.STOCHASTIC_RELATION__DISTRIB:
-        return getDistrib();
-      case BugsDslPackage.STOCHASTIC_RELATION__PARAMS:
+      case BugsDslPackage.FUNCTION__OPERATION:
+        return getOperation();
+      case BugsDslPackage.FUNCTION__PARAMS:
         return getParams();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -172,10 +173,10 @@ public class StochasticRelationImpl extends RelationImpl implements StochasticRe
   {
     switch (featureID)
     {
-      case BugsDslPackage.STOCHASTIC_RELATION__DISTRIB:
-        setDistrib((Density)newValue);
+      case BugsDslPackage.FUNCTION__OPERATION:
+        setOperation((FunctionOperator)newValue);
         return;
-      case BugsDslPackage.STOCHASTIC_RELATION__PARAMS:
+      case BugsDslPackage.FUNCTION__PARAMS:
         getParams().clear();
         getParams().addAll((Collection<? extends Expression>)newValue);
         return;
@@ -193,10 +194,10 @@ public class StochasticRelationImpl extends RelationImpl implements StochasticRe
   {
     switch (featureID)
     {
-      case BugsDslPackage.STOCHASTIC_RELATION__DISTRIB:
-        setDistrib(DISTRIB_EDEFAULT);
+      case BugsDslPackage.FUNCTION__OPERATION:
+        setOperation(OPERATION_EDEFAULT);
         return;
-      case BugsDslPackage.STOCHASTIC_RELATION__PARAMS:
+      case BugsDslPackage.FUNCTION__PARAMS:
         getParams().clear();
         return;
     }
@@ -213,9 +214,9 @@ public class StochasticRelationImpl extends RelationImpl implements StochasticRe
   {
     switch (featureID)
     {
-      case BugsDslPackage.STOCHASTIC_RELATION__DISTRIB:
-        return distrib != DISTRIB_EDEFAULT;
-      case BugsDslPackage.STOCHASTIC_RELATION__PARAMS:
+      case BugsDslPackage.FUNCTION__OPERATION:
+        return operation != OPERATION_EDEFAULT;
+      case BugsDslPackage.FUNCTION__PARAMS:
         return params != null && !params.isEmpty();
     }
     return super.eIsSet(featureID);
@@ -232,10 +233,10 @@ public class StochasticRelationImpl extends RelationImpl implements StochasticRe
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (distrib: ");
-    result.append(distrib);
+    result.append(" (operation: ");
+    result.append(operation);
     result.append(')');
     return result.toString();
   }
 
-} //StochasticRelationImpl
+} //FunctionImpl

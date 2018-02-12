@@ -736,172 +736,26 @@ ruleDeterministicRelation returns [EObject current=null]
 			}
 		)
 		(
-			(
-				((
-					ruleExpression
-				)
-				)=>
-				(
-					{
-						newCompositeNode(grammarAccess.getDeterministicRelationAccess().getExpressionsExpressionParserRuleCall_3_0_0());
-					}
-					lv_expressions_4_0=ruleExpression
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getDeterministicRelationRule());
-						}
-						add(
-							$current,
-							"expressions",
-							lv_expressions_4_0,
-							"com.opcoach.bugsy.xtext.BugsDsl.Expression");
-						afterParserOrEnumRuleCall();
-					}
-				)
+			((
+				ruleExpression
 			)
-			    |
+			)=>
 			(
-				(
-					(
-						{ 
-						  getUnorderedGroupHelper().enter(grammarAccess.getDeterministicRelationAccess().getUnorderedGroup_3_1_0());
-						}
-						(
-							(
-					(
-						{getUnorderedGroupHelper().canSelect(grammarAccess.getDeterministicRelationAccess().getUnorderedGroup_3_1_0(), 0)}?=>(
-							{
-								getUnorderedGroupHelper().select(grammarAccess.getDeterministicRelationAccess().getUnorderedGroup_3_1_0(), 0);
-							}
-										({true}?=>((
-											{
-												newCompositeNode(grammarAccess.getDeterministicRelationAccess().getDistribDistributionEnumRuleCall_3_1_0_0_0());
-											}
-											lv_distrib_6_0=ruleDistribution
-											{
-												if ($current==null) {
-													$current = createModelElementForParent(grammarAccess.getDeterministicRelationRule());
-												}
-												set(
-													$current,
-													"distrib",
-													lv_distrib_6_0,
-													"com.opcoach.bugsy.xtext.BugsDsl.Distribution");
-												afterParserOrEnumRuleCall();
-											}
-										)
-										))
-							{ 
-								getUnorderedGroupHelper().returnFromSelection(grammarAccess.getDeterministicRelationAccess().getUnorderedGroup_3_1_0());
-							}
-						)
-					)|
-					(
-						{getUnorderedGroupHelper().canSelect(grammarAccess.getDeterministicRelationAccess().getUnorderedGroup_3_1_0(), 1)}?=>(
-							{
-								getUnorderedGroupHelper().select(grammarAccess.getDeterministicRelationAccess().getUnorderedGroup_3_1_0(), 1);
-							}
-										({true}?=>((
-											{
-												newCompositeNode(grammarAccess.getDeterministicRelationAccess().getFunctionFunctionEnumRuleCall_3_1_0_1_0());
-											}
-											lv_function_7_0=ruleFunction
-											{
-												if ($current==null) {
-													$current = createModelElementForParent(grammarAccess.getDeterministicRelationRule());
-												}
-												set(
-													$current,
-													"function",
-													lv_function_7_0,
-													"com.opcoach.bugsy.xtext.BugsDsl.Function");
-												afterParserOrEnumRuleCall();
-											}
-										)
-										))
-							{ 
-								getUnorderedGroupHelper().returnFromSelection(grammarAccess.getDeterministicRelationAccess().getUnorderedGroup_3_1_0());
-							}
-						)
-					)
-							)*
-						)
-					)
-						{ 
-						  getUnorderedGroupHelper().leave(grammarAccess.getDeterministicRelationAccess().getUnorderedGroup_3_1_0());
-						}
-				)
-				(
-					otherlv_8='()'
-					{
-						newLeafNode(otherlv_8, grammarAccess.getDeterministicRelationAccess().getLeftParenthesisRightParenthesisKeyword_3_1_1_0());
+				{
+					newCompositeNode(grammarAccess.getDeterministicRelationAccess().getExpressionsExpressionParserRuleCall_3_0());
+				}
+				lv_expressions_4_0=ruleExpression
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDeterministicRelationRule());
 					}
-					    |
-					(
-						otherlv_9='('
-						{
-							newLeafNode(otherlv_9, grammarAccess.getDeterministicRelationAccess().getLeftParenthesisKeyword_3_1_1_1_0());
-						}
-						(
-							(
-								((
-									(
-										ruleExpression
-									)
-								)
-								)=>
-								(
-									(
-										{
-											newCompositeNode(grammarAccess.getDeterministicRelationAccess().getParamsExpressionParserRuleCall_3_1_1_1_1_0_0_0());
-										}
-										lv_params_10_0=ruleExpression
-										{
-											if ($current==null) {
-												$current = createModelElementForParent(grammarAccess.getDeterministicRelationRule());
-											}
-											add(
-												$current,
-												"params",
-												lv_params_10_0,
-												"com.opcoach.bugsy.xtext.BugsDsl.Expression");
-											afterParserOrEnumRuleCall();
-										}
-									)
-								)
-							)
-							(
-								otherlv_11=','
-								{
-									newLeafNode(otherlv_11, grammarAccess.getDeterministicRelationAccess().getCommaKeyword_3_1_1_1_1_1_0());
-								}
-								(
-									(
-										{
-											newCompositeNode(grammarAccess.getDeterministicRelationAccess().getParamsExpressionParserRuleCall_3_1_1_1_1_1_1_0());
-										}
-										lv_params_12_0=ruleExpression
-										{
-											if ($current==null) {
-												$current = createModelElementForParent(grammarAccess.getDeterministicRelationRule());
-											}
-											add(
-												$current,
-												"params",
-												lv_params_12_0,
-												"com.opcoach.bugsy.xtext.BugsDsl.Expression");
-											afterParserOrEnumRuleCall();
-										}
-									)
-								)
-							)*
-							otherlv_13=')'
-							{
-								newLeafNode(otherlv_13, grammarAccess.getDeterministicRelationAccess().getRightParenthesisKeyword_3_1_1_1_1_2());
-							}
-						)?
-					)
-				)
+					add(
+						$current,
+						"expressions",
+						lv_expressions_4_0,
+						"com.opcoach.bugsy.xtext.BugsDsl.Expression");
+					afterParserOrEnumRuleCall();
+				}
 			)
 		)
 	)
@@ -946,6 +800,224 @@ ruleOperator returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken(
 			$current.merge(kw);
 			newLeafNode(kw, grammarAccess.getOperatorAccess().getSolidusKeyword_3());
 		}
+	)
+;
+
+// Entry rule entryRuleFunction
+entryRuleFunction returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getFunctionRule()); }
+	iv_ruleFunction=ruleFunction
+	{ $current=$iv_ruleFunction.current; }
+	EOF;
+
+// Rule Function
+ruleFunction returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getFunctionAccess().getOperationFunctionOperatorEnumRuleCall_0_0());
+				}
+				lv_operation_0_0=ruleFunctionOperator
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getFunctionRule());
+					}
+					set(
+						$current,
+						"operation",
+						lv_operation_0_0,
+						"com.opcoach.bugsy.xtext.BugsDsl.FunctionOperator");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			otherlv_1='()'
+			{
+				newLeafNode(otherlv_1, grammarAccess.getFunctionAccess().getLeftParenthesisRightParenthesisKeyword_1_0());
+			}
+			    |
+			(
+				otherlv_2='('
+				{
+					newLeafNode(otherlv_2, grammarAccess.getFunctionAccess().getLeftParenthesisKeyword_1_1_0());
+				}
+				(
+					(
+						((
+							(
+								ruleExpression
+							)
+						)
+						)=>
+						(
+							(
+								{
+									newCompositeNode(grammarAccess.getFunctionAccess().getParamsExpressionParserRuleCall_1_1_1_0_0_0());
+								}
+								lv_params_3_0=ruleExpression
+								{
+									if ($current==null) {
+										$current = createModelElementForParent(grammarAccess.getFunctionRule());
+									}
+									add(
+										$current,
+										"params",
+										lv_params_3_0,
+										"com.opcoach.bugsy.xtext.BugsDsl.Expression");
+									afterParserOrEnumRuleCall();
+								}
+							)
+						)
+					)
+					(
+						otherlv_4=','
+						{
+							newLeafNode(otherlv_4, grammarAccess.getFunctionAccess().getCommaKeyword_1_1_1_1_0());
+						}
+						(
+							(
+								{
+									newCompositeNode(grammarAccess.getFunctionAccess().getParamsExpressionParserRuleCall_1_1_1_1_1_0());
+								}
+								lv_params_5_0=ruleExpression
+								{
+									if ($current==null) {
+										$current = createModelElementForParent(grammarAccess.getFunctionRule());
+									}
+									add(
+										$current,
+										"params",
+										lv_params_5_0,
+										"com.opcoach.bugsy.xtext.BugsDsl.Expression");
+									afterParserOrEnumRuleCall();
+								}
+							)
+						)
+					)*
+					otherlv_6=')'
+					{
+						newLeafNode(otherlv_6, grammarAccess.getFunctionAccess().getRightParenthesisKeyword_1_1_1_2());
+					}
+				)?
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleDistribution
+entryRuleDistribution returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getDistributionRule()); }
+	iv_ruleDistribution=ruleDistribution
+	{ $current=$iv_ruleDistribution.current; }
+	EOF;
+
+// Rule Distribution
+ruleDistribution returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDistributionAccess().getDistribDistributionOperatorEnumRuleCall_0_0());
+				}
+				lv_distrib_0_0=ruleDistributionOperator
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDistributionRule());
+					}
+					set(
+						$current,
+						"distrib",
+						lv_distrib_0_0,
+						"com.opcoach.bugsy.xtext.BugsDsl.DistributionOperator");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			otherlv_1='()'
+			{
+				newLeafNode(otherlv_1, grammarAccess.getDistributionAccess().getLeftParenthesisRightParenthesisKeyword_1_0());
+			}
+			    |
+			(
+				otherlv_2='('
+				{
+					newLeafNode(otherlv_2, grammarAccess.getDistributionAccess().getLeftParenthesisKeyword_1_1_0());
+				}
+				(
+					(
+						((
+							(
+								ruleExpression
+							)
+						)
+						)=>
+						(
+							(
+								{
+									newCompositeNode(grammarAccess.getDistributionAccess().getParamsExpressionParserRuleCall_1_1_1_0_0_0());
+								}
+								lv_params_3_0=ruleExpression
+								{
+									if ($current==null) {
+										$current = createModelElementForParent(grammarAccess.getDistributionRule());
+									}
+									add(
+										$current,
+										"params",
+										lv_params_3_0,
+										"com.opcoach.bugsy.xtext.BugsDsl.Expression");
+									afterParserOrEnumRuleCall();
+								}
+							)
+						)
+					)
+					(
+						otherlv_4=','
+						{
+							newLeafNode(otherlv_4, grammarAccess.getDistributionAccess().getCommaKeyword_1_1_1_1_0());
+						}
+						(
+							(
+								{
+									newCompositeNode(grammarAccess.getDistributionAccess().getParamsExpressionParserRuleCall_1_1_1_1_1_0());
+								}
+								lv_params_5_0=ruleExpression
+								{
+									if ($current==null) {
+										$current = createModelElementForParent(grammarAccess.getDistributionRule());
+									}
+									add(
+										$current,
+										"params",
+										lv_params_5_0,
+										"com.opcoach.bugsy.xtext.BugsDsl.Expression");
+									afterParserOrEnumRuleCall();
+								}
+							)
+						)
+					)*
+					otherlv_6=')'
+					{
+						newLeafNode(otherlv_6, grammarAccess.getDistributionAccess().getRightParenthesisKeyword_1_1_1_2());
+					}
+				)?
+			)
+		)
 	)
 ;
 
@@ -1077,11 +1149,51 @@ ruleTerminalExpression returns [EObject current=null]
 				}
 			)
 		)
+		    |
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getTerminalExpressionAccess().getFunctionFunctionParserRuleCall_2_0());
+				}
+				lv_function_4_0=ruleFunction
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getTerminalExpressionRule());
+					}
+					set(
+						$current,
+						"function",
+						lv_function_4_0,
+						"com.opcoach.bugsy.xtext.BugsDsl.Function");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		    |
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getTerminalExpressionAccess().getDistributionDistributionParserRuleCall_3_0());
+				}
+				lv_distribution_5_0=ruleDistribution
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getTerminalExpressionRule());
+					}
+					set(
+						$current,
+						"distribution",
+						lv_distribution_5_0,
+						"com.opcoach.bugsy.xtext.BugsDsl.Distribution");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
 	)
 ;
 
-// Rule Distribution
-ruleDistribution returns [Enumerator current=null]
+// Rule DistributionOperator
+ruleDistributionOperator returns [Enumerator current=null]
 @init {
 	enterRule();
 }
@@ -1092,128 +1204,128 @@ ruleDistribution returns [Enumerator current=null]
 		(
 			enumLiteral_0='dbern'
 			{
-				$current = grammarAccess.getDistributionAccess().getDbernEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_0, grammarAccess.getDistributionAccess().getDbernEnumLiteralDeclaration_0());
+				$current = grammarAccess.getDistributionOperatorAccess().getDbernEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getDistributionOperatorAccess().getDbernEnumLiteralDeclaration_0());
 			}
 		)
 		    |
 		(
 			enumLiteral_1='dbin'
 			{
-				$current = grammarAccess.getDistributionAccess().getDbinEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_1, grammarAccess.getDistributionAccess().getDbinEnumLiteralDeclaration_1());
+				$current = grammarAccess.getDistributionOperatorAccess().getDbinEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getDistributionOperatorAccess().getDbinEnumLiteralDeclaration_1());
 			}
 		)
 		    |
 		(
 			enumLiteral_2='dchisqr'
 			{
-				$current = grammarAccess.getDistributionAccess().getDchisqrEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_2, grammarAccess.getDistributionAccess().getDchisqrEnumLiteralDeclaration_2());
+				$current = grammarAccess.getDistributionOperatorAccess().getDchisqrEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_2, grammarAccess.getDistributionOperatorAccess().getDchisqrEnumLiteralDeclaration_2());
 			}
 		)
 		    |
 		(
 			enumLiteral_3='ddexp'
 			{
-				$current = grammarAccess.getDistributionAccess().getDdexpEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_3, grammarAccess.getDistributionAccess().getDdexpEnumLiteralDeclaration_3());
+				$current = grammarAccess.getDistributionOperatorAccess().getDdexpEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_3, grammarAccess.getDistributionOperatorAccess().getDdexpEnumLiteralDeclaration_3());
 			}
 		)
 		    |
 		(
 			enumLiteral_4='dexp'
 			{
-				$current = grammarAccess.getDistributionAccess().getDexpEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_4, grammarAccess.getDistributionAccess().getDexpEnumLiteralDeclaration_4());
+				$current = grammarAccess.getDistributionOperatorAccess().getDexpEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_4, grammarAccess.getDistributionOperatorAccess().getDexpEnumLiteralDeclaration_4());
 			}
 		)
 		    |
 		(
 			enumLiteral_5='df'
 			{
-				$current = grammarAccess.getDistributionAccess().getDfEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_5, grammarAccess.getDistributionAccess().getDfEnumLiteralDeclaration_5());
+				$current = grammarAccess.getDistributionOperatorAccess().getDfEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_5, grammarAccess.getDistributionOperatorAccess().getDfEnumLiteralDeclaration_5());
 			}
 		)
 		    |
 		(
 			enumLiteral_6='dgen.gamma'
 			{
-				$current = grammarAccess.getDistributionAccess().getDgengammEnumLiteralDeclaration_6().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_6, grammarAccess.getDistributionAccess().getDgengammEnumLiteralDeclaration_6());
+				$current = grammarAccess.getDistributionOperatorAccess().getDgengammEnumLiteralDeclaration_6().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_6, grammarAccess.getDistributionOperatorAccess().getDgengammEnumLiteralDeclaration_6());
 			}
 		)
 		    |
 		(
 			enumLiteral_7='dhyper'
 			{
-				$current = grammarAccess.getDistributionAccess().getDhyperEnumLiteralDeclaration_7().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_7, grammarAccess.getDistributionAccess().getDhyperEnumLiteralDeclaration_7());
+				$current = grammarAccess.getDistributionOperatorAccess().getDhyperEnumLiteralDeclaration_7().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_7, grammarAccess.getDistributionOperatorAccess().getDhyperEnumLiteralDeclaration_7());
 			}
 		)
 		    |
 		(
 			enumLiteral_8='dlogis'
 			{
-				$current = grammarAccess.getDistributionAccess().getDlogisEnumLiteralDeclaration_8().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_8, grammarAccess.getDistributionAccess().getDlogisEnumLiteralDeclaration_8());
+				$current = grammarAccess.getDistributionOperatorAccess().getDlogisEnumLiteralDeclaration_8().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_8, grammarAccess.getDistributionOperatorAccess().getDlogisEnumLiteralDeclaration_8());
 			}
 		)
 		    |
 		(
 			enumLiteral_9='dlnorm'
 			{
-				$current = grammarAccess.getDistributionAccess().getDlnormEnumLiteralDeclaration_9().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_9, grammarAccess.getDistributionAccess().getDlnormEnumLiteralDeclaration_9());
+				$current = grammarAccess.getDistributionOperatorAccess().getDlnormEnumLiteralDeclaration_9().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_9, grammarAccess.getDistributionOperatorAccess().getDlnormEnumLiteralDeclaration_9());
 			}
 		)
 		    |
 		(
 			enumLiteral_10='dnegbin'
 			{
-				$current = grammarAccess.getDistributionAccess().getDnegbinEnumLiteralDeclaration_10().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_10, grammarAccess.getDistributionAccess().getDnegbinEnumLiteralDeclaration_10());
+				$current = grammarAccess.getDistributionOperatorAccess().getDnegbinEnumLiteralDeclaration_10().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_10, grammarAccess.getDistributionOperatorAccess().getDnegbinEnumLiteralDeclaration_10());
 			}
 		)
 		    |
 		(
 			enumLiteral_11='dnchisqr'
 			{
-				$current = grammarAccess.getDistributionAccess().getDnchisqrEnumLiteralDeclaration_11().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_11, grammarAccess.getDistributionAccess().getDnchisqrEnumLiteralDeclaration_11());
+				$current = grammarAccess.getDistributionOperatorAccess().getDnchisqrEnumLiteralDeclaration_11().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_11, grammarAccess.getDistributionOperatorAccess().getDnchisqrEnumLiteralDeclaration_11());
 			}
 		)
 		    |
 		(
 			enumLiteral_12='dpar'
 			{
-				$current = grammarAccess.getDistributionAccess().getDparEnumLiteralDeclaration_12().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_12, grammarAccess.getDistributionAccess().getDparEnumLiteralDeclaration_12());
+				$current = grammarAccess.getDistributionOperatorAccess().getDparEnumLiteralDeclaration_12().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_12, grammarAccess.getDistributionOperatorAccess().getDparEnumLiteralDeclaration_12());
 			}
 		)
 		    |
 		(
 			enumLiteral_13='dpois'
 			{
-				$current = grammarAccess.getDistributionAccess().getDpoisEnumLiteralDeclaration_13().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_13, grammarAccess.getDistributionAccess().getDpoisEnumLiteralDeclaration_13());
+				$current = grammarAccess.getDistributionOperatorAccess().getDpoisEnumLiteralDeclaration_13().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_13, grammarAccess.getDistributionOperatorAccess().getDpoisEnumLiteralDeclaration_13());
 			}
 		)
 		    |
 		(
 			enumLiteral_14='dt'
 			{
-				$current = grammarAccess.getDistributionAccess().getDtEnumLiteralDeclaration_14().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_14, grammarAccess.getDistributionAccess().getDtEnumLiteralDeclaration_14());
+				$current = grammarAccess.getDistributionOperatorAccess().getDtEnumLiteralDeclaration_14().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_14, grammarAccess.getDistributionOperatorAccess().getDtEnumLiteralDeclaration_14());
 			}
 		)
 		    |
 		(
 			enumLiteral_15='dweib'
 			{
-				$current = grammarAccess.getDistributionAccess().getDweibEnumLiteralDeclaration_15().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_15, grammarAccess.getDistributionAccess().getDweibEnumLiteralDeclaration_15());
+				$current = grammarAccess.getDistributionOperatorAccess().getDweibEnumLiteralDeclaration_15().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_15, grammarAccess.getDistributionOperatorAccess().getDweibEnumLiteralDeclaration_15());
 			}
 		)
 	)
@@ -1262,8 +1374,8 @@ ruleDensity returns [Enumerator current=null]
 	)
 ;
 
-// Rule Function
-ruleFunction returns [Enumerator current=null]
+// Rule FunctionOperator
+ruleFunctionOperator returns [Enumerator current=null]
 @init {
 	enterRule();
 }
@@ -1274,80 +1386,80 @@ ruleFunction returns [Enumerator current=null]
 		(
 			enumLiteral_0='acos'
 			{
-				$current = grammarAccess.getFunctionAccess().getAcosEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_0, grammarAccess.getFunctionAccess().getAcosEnumLiteralDeclaration_0());
+				$current = grammarAccess.getFunctionOperatorAccess().getAcosEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getFunctionOperatorAccess().getAcosEnumLiteralDeclaration_0());
 			}
 		)
 		    |
 		(
 			enumLiteral_1='acosh'
 			{
-				$current = grammarAccess.getFunctionAccess().getAcoshEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_1, grammarAccess.getFunctionAccess().getAcoshEnumLiteralDeclaration_1());
+				$current = grammarAccess.getFunctionOperatorAccess().getAcoshEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getFunctionOperatorAccess().getAcoshEnumLiteralDeclaration_1());
 			}
 		)
 		    |
 		(
 			enumLiteral_2='asin'
 			{
-				$current = grammarAccess.getFunctionAccess().getAsinEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_2, grammarAccess.getFunctionAccess().getAsinEnumLiteralDeclaration_2());
+				$current = grammarAccess.getFunctionOperatorAccess().getAsinEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_2, grammarAccess.getFunctionOperatorAccess().getAsinEnumLiteralDeclaration_2());
 			}
 		)
 		    |
 		(
 			enumLiteral_3='asinh'
 			{
-				$current = grammarAccess.getFunctionAccess().getAsinhEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_3, grammarAccess.getFunctionAccess().getAsinhEnumLiteralDeclaration_3());
+				$current = grammarAccess.getFunctionOperatorAccess().getAsinhEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_3, grammarAccess.getFunctionOperatorAccess().getAsinhEnumLiteralDeclaration_3());
 			}
 		)
 		    |
 		(
 			enumLiteral_4='atan'
 			{
-				$current = grammarAccess.getFunctionAccess().getAtanEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_4, grammarAccess.getFunctionAccess().getAtanEnumLiteralDeclaration_4());
+				$current = grammarAccess.getFunctionOperatorAccess().getAtanEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_4, grammarAccess.getFunctionOperatorAccess().getAtanEnumLiteralDeclaration_4());
 			}
 		)
 		    |
 		(
 			enumLiteral_5='log'
 			{
-				$current = grammarAccess.getFunctionAccess().getLogEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_5, grammarAccess.getFunctionAccess().getLogEnumLiteralDeclaration_5());
+				$current = grammarAccess.getFunctionOperatorAccess().getLogEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_5, grammarAccess.getFunctionOperatorAccess().getLogEnumLiteralDeclaration_5());
 			}
 		)
 		    |
 		(
 			enumLiteral_6='exp'
 			{
-				$current = grammarAccess.getFunctionAccess().getEpEnumLiteralDeclaration_6().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_6, grammarAccess.getFunctionAccess().getEpEnumLiteralDeclaration_6());
+				$current = grammarAccess.getFunctionOperatorAccess().getEpEnumLiteralDeclaration_6().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_6, grammarAccess.getFunctionOperatorAccess().getEpEnumLiteralDeclaration_6());
 			}
 		)
 		    |
 		(
 			enumLiteral_7='c'
 			{
-				$current = grammarAccess.getFunctionAccess().getCEnumLiteralDeclaration_7().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_7, grammarAccess.getFunctionAccess().getCEnumLiteralDeclaration_7());
+				$current = grammarAccess.getFunctionOperatorAccess().getCEnumLiteralDeclaration_7().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_7, grammarAccess.getFunctionOperatorAccess().getCEnumLiteralDeclaration_7());
 			}
 		)
 		    |
 		(
 			enumLiteral_8='mean'
 			{
-				$current = grammarAccess.getFunctionAccess().getMeanEnumLiteralDeclaration_8().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_8, grammarAccess.getFunctionAccess().getMeanEnumLiteralDeclaration_8());
+				$current = grammarAccess.getFunctionOperatorAccess().getMeanEnumLiteralDeclaration_8().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_8, grammarAccess.getFunctionOperatorAccess().getMeanEnumLiteralDeclaration_8());
 			}
 		)
 		    |
 		(
 			enumLiteral_9='sqrt'
 			{
-				$current = grammarAccess.getFunctionAccess().getSqrtEnumLiteralDeclaration_9().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_9, grammarAccess.getFunctionAccess().getSqrtEnumLiteralDeclaration_9());
+				$current = grammarAccess.getFunctionOperatorAccess().getSqrtEnumLiteralDeclaration_9().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_9, grammarAccess.getFunctionOperatorAccess().getSqrtEnumLiteralDeclaration_9());
 			}
 		)
 	)

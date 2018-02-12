@@ -46,6 +46,7 @@ class BugsDslParsingTest {
 				
 		''')
 		Assert.assertNotNull(result)
+						println("Errors in testLoadModel1  : " + result.eResource.errors)
 		Assert.assertTrue(result.eResource.errors.isEmpty)
 		
 	}
@@ -69,6 +70,8 @@ class BugsDslParsingTest {
 				  }	
 		''')
 		Assert.assertNotNull(result)
+						println("Errors in testLoadModelFromRefGuide  : " + result.eResource.errors)
+		
 		Assert.assertTrue(result.eResource.errors.isEmpty)
 		
 	}
@@ -83,6 +86,8 @@ class BugsDslParsingTest {
 			}
 		''')
 		Assert.assertNotNull(result)
+						println("Errors in testIssue 2 : " + result.eResource.errors)
+		
 		Assert.assertTrue(result.eResource.errors.isEmpty)
 	}
 
@@ -97,7 +102,9 @@ class BugsDslParsingTest {
 			}
 		''')
 		Assert.assertNotNull(result)
-		Assert.assertTrue(result.eResource.errors.isEmpty)
+				println("Errors in testIssue 3 : " + result.eResource.errors)
+		
+		Assert.assertTrue(!result.eResource.errors.isEmpty)
 	}
 
 	@Test
@@ -110,6 +117,8 @@ class BugsDslParsingTest {
 			}
 		''')
 		Assert.assertNotNull(result)
+				println("Errors in testIssue 4 : " + result.eResource.errors)
+		
 		Assert.assertTrue(result.eResource.errors.isEmpty)
 	}
 
@@ -123,6 +132,8 @@ class BugsDslParsingTest {
 			}
 		''')
 		Assert.assertNotNull(result)
+				println("Errors in Issue 5 : " + result.eResource.errors)
+		
 		Assert.assertTrue(result.eResource.errors.isEmpty)
 	}
 
@@ -137,6 +148,8 @@ class BugsDslParsingTest {
 			}
 		''')
 		Assert.assertNotNull(result)
+				println("Errors in Issue 7 : " + result.eResource.errors)
+		
 		Assert.assertTrue(result.eResource.errors.isEmpty)
 	}
 
@@ -151,6 +164,7 @@ class BugsDslParsingTest {
 			}
 		''')
 		Assert.assertNotNull(result)
+		println("Errors in Issue 8 : " + result.eResource.errors)
 		Assert.assertTrue(result.eResource.errors.isEmpty)
 	}
 
@@ -164,6 +178,7 @@ class BugsDslParsingTest {
 			}
 		''')
 		Assert.assertNotNull(result)
-		Assert.assertTrue(result.eResource.errors.isEmpty)
+		println("Errors in Issue 9 : " + result.eResource.errors)
+		Assert.assertTrue(!result.eResource.errors.isEmpty)
 	}
 }

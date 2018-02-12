@@ -74,6 +74,8 @@ public class BugsDslFactoryImpl extends EFactoryImpl implements BugsDslFactory
       case BugsDslPackage.RELATION: return createRelation();
       case BugsDslPackage.STOCHASTIC_RELATION: return createStochasticRelation();
       case BugsDslPackage.DETERMINISTIC_RELATION: return createDeterministicRelation();
+      case BugsDslPackage.FUNCTION: return createFunction();
+      case BugsDslPackage.DISTRIBUTION: return createDistribution();
       case BugsDslPackage.EXPRESSION: return createExpression();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -90,12 +92,12 @@ public class BugsDslFactoryImpl extends EFactoryImpl implements BugsDslFactory
   {
     switch (eDataType.getClassifierID())
     {
-      case BugsDslPackage.DISTRIBUTION:
-        return createDistributionFromString(eDataType, initialValue);
+      case BugsDslPackage.DISTRIBUTION_OPERATOR:
+        return createDistributionOperatorFromString(eDataType, initialValue);
       case BugsDslPackage.DENSITY:
         return createDensityFromString(eDataType, initialValue);
-      case BugsDslPackage.FUNCTION:
-        return createFunctionFromString(eDataType, initialValue);
+      case BugsDslPackage.FUNCTION_OPERATOR:
+        return createFunctionOperatorFromString(eDataType, initialValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -111,12 +113,12 @@ public class BugsDslFactoryImpl extends EFactoryImpl implements BugsDslFactory
   {
     switch (eDataType.getClassifierID())
     {
-      case BugsDslPackage.DISTRIBUTION:
-        return convertDistributionToString(eDataType, instanceValue);
+      case BugsDslPackage.DISTRIBUTION_OPERATOR:
+        return convertDistributionOperatorToString(eDataType, instanceValue);
       case BugsDslPackage.DENSITY:
         return convertDensityToString(eDataType, instanceValue);
-      case BugsDslPackage.FUNCTION:
-        return convertFunctionToString(eDataType, instanceValue);
+      case BugsDslPackage.FUNCTION_OPERATOR:
+        return convertFunctionOperatorToString(eDataType, instanceValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -215,6 +217,28 @@ public class BugsDslFactoryImpl extends EFactoryImpl implements BugsDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public Function createFunction()
+  {
+    FunctionImpl function = new FunctionImpl();
+    return function;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Distribution createDistribution()
+  {
+    DistributionImpl distribution = new DistributionImpl();
+    return distribution;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Expression createExpression()
   {
     ExpressionImpl expression = new ExpressionImpl();
@@ -226,9 +250,9 @@ public class BugsDslFactoryImpl extends EFactoryImpl implements BugsDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Distribution createDistributionFromString(EDataType eDataType, String initialValue)
+  public DistributionOperator createDistributionOperatorFromString(EDataType eDataType, String initialValue)
   {
-    Distribution result = Distribution.get(initialValue);
+    DistributionOperator result = DistributionOperator.get(initialValue);
     if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
     return result;
   }
@@ -238,7 +262,7 @@ public class BugsDslFactoryImpl extends EFactoryImpl implements BugsDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public String convertDistributionToString(EDataType eDataType, Object instanceValue)
+  public String convertDistributionOperatorToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }
@@ -270,9 +294,9 @@ public class BugsDslFactoryImpl extends EFactoryImpl implements BugsDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Function createFunctionFromString(EDataType eDataType, String initialValue)
+  public FunctionOperator createFunctionOperatorFromString(EDataType eDataType, String initialValue)
   {
-    Function result = Function.get(initialValue);
+    FunctionOperator result = FunctionOperator.get(initialValue);
     if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
     return result;
   }
@@ -282,7 +306,7 @@ public class BugsDslFactoryImpl extends EFactoryImpl implements BugsDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public String convertFunctionToString(EDataType eDataType, Object instanceValue)
+  public String convertFunctionOperatorToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }

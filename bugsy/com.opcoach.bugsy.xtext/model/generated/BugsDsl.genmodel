@@ -6,23 +6,23 @@
     complianceLevel="6.0" copyrightFields="false" runtimeVersion="2.13">
   <genPackages prefix="BugsDsl" basePackage="com.opcoach.bugsy.xtext" disposableProviderFactory="true"
       fileExtensions="bugs" ecorePackage="BugsDsl.ecore#/">
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="BugsDsl.ecore#//Distribution">
-      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//Distribution/dbern"/>
-      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//Distribution/dbin"/>
-      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//Distribution/dchisqr"/>
-      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//Distribution/ddexp"/>
-      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//Distribution/dexp"/>
-      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//Distribution/df"/>
-      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//Distribution/dgengamm"/>
-      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//Distribution/dhyper"/>
-      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//Distribution/dlogis"/>
-      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//Distribution/dlnorm"/>
-      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//Distribution/dnegbin"/>
-      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//Distribution/dnchisqr"/>
-      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//Distribution/dpar"/>
-      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//Distribution/dpois"/>
-      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//Distribution/dt"/>
-      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//Distribution/dweib"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="BugsDsl.ecore#//DistributionOperator">
+      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//DistributionOperator/dbern"/>
+      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//DistributionOperator/dbin"/>
+      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//DistributionOperator/dchisqr"/>
+      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//DistributionOperator/ddexp"/>
+      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//DistributionOperator/dexp"/>
+      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//DistributionOperator/df"/>
+      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//DistributionOperator/dgengamm"/>
+      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//DistributionOperator/dhyper"/>
+      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//DistributionOperator/dlogis"/>
+      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//DistributionOperator/dlnorm"/>
+      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//DistributionOperator/dnegbin"/>
+      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//DistributionOperator/dnchisqr"/>
+      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//DistributionOperator/dpar"/>
+      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//DistributionOperator/dpois"/>
+      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//DistributionOperator/dt"/>
+      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//DistributionOperator/dweib"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="BugsDsl.ecore#//Density">
       <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//Density/dnorm"/>
@@ -30,17 +30,17 @@
       <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//Density/dbeta"/>
       <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//Density/dgamma"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="BugsDsl.ecore#//Function">
-      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//Function/acos"/>
-      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//Function/acosh"/>
-      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//Function/asin"/>
-      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//Function/asinh"/>
-      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//Function/atan"/>
-      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//Function/log"/>
-      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//Function/ep"/>
-      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//Function/c"/>
-      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//Function/mean"/>
-      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//Function/sqrt"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="BugsDsl.ecore#//FunctionOperator">
+      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//FunctionOperator/acos"/>
+      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//FunctionOperator/acosh"/>
+      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//FunctionOperator/asin"/>
+      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//FunctionOperator/asinh"/>
+      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//FunctionOperator/atan"/>
+      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//FunctionOperator/log"/>
+      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//FunctionOperator/ep"/>
+      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//FunctionOperator/c"/>
+      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//FunctionOperator/mean"/>
+      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//FunctionOperator/sqrt"/>
     </genEnums>
     <genClasses ecoreClass="BugsDsl.ecore#//BugsModel">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BugsDsl.ecore#//BugsModel/instructions"/>
@@ -62,21 +62,29 @@
     </genClasses>
     <genClasses ecoreClass="BugsDsl.ecore#//Relation">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BugsDsl.ecore#//Relation/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BugsDsl.ecore#//Relation/params"/>
     </genClasses>
     <genClasses ecoreClass="BugsDsl.ecore#//StochasticRelation">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BugsDsl.ecore#//StochasticRelation/distrib"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BugsDsl.ecore#//StochasticRelation/params"/>
     </genClasses>
     <genClasses ecoreClass="BugsDsl.ecore#//DeterministicRelation">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BugsDsl.ecore#//DeterministicRelation/expressions"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BugsDsl.ecore#//DeterministicRelation/distrib"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BugsDsl.ecore#//DeterministicRelation/function"/>
+    </genClasses>
+    <genClasses ecoreClass="BugsDsl.ecore#//Function">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BugsDsl.ecore#//Function/operation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BugsDsl.ecore#//Function/params"/>
+    </genClasses>
+    <genClasses ecoreClass="BugsDsl.ecore#//Distribution">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BugsDsl.ecore#//Distribution/distrib"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BugsDsl.ecore#//Distribution/params"/>
     </genClasses>
     <genClasses ecoreClass="BugsDsl.ecore#//Expression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BugsDsl.ecore#//Expression/left"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BugsDsl.ecore#//Expression/op"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BugsDsl.ecore#//Expression/right"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BugsDsl.ecore#//Expression/value"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BugsDsl.ecore#//Expression/function"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BugsDsl.ecore#//Expression/distribution"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

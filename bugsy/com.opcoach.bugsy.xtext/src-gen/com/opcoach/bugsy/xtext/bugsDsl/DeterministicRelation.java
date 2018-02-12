@@ -15,8 +15,6 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.DeterministicRelation#getExpressions <em>Expressions</em>}</li>
- *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.DeterministicRelation#getDistrib <em>Distrib</em>}</li>
- *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.DeterministicRelation#getFunction <em>Function</em>}</li>
  * </ul>
  *
  * @see com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage#getDeterministicRelation()
@@ -40,63 +38,5 @@ public interface DeterministicRelation extends Relation
    * @generated
    */
   EList<Expression> getExpressions();
-
-  /**
-   * Returns the value of the '<em><b>Distrib</b></em>' attribute.
-   * The literals are from the enumeration {@link com.opcoach.bugsy.xtext.bugsDsl.Distribution}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Distrib</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Distrib</em>' attribute.
-   * @see com.opcoach.bugsy.xtext.bugsDsl.Distribution
-   * @see #setDistrib(Distribution)
-   * @see com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage#getDeterministicRelation_Distrib()
-   * @model
-   * @generated
-   */
-  Distribution getDistrib();
-
-  /**
-   * Sets the value of the '{@link com.opcoach.bugsy.xtext.bugsDsl.DeterministicRelation#getDistrib <em>Distrib</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Distrib</em>' attribute.
-   * @see com.opcoach.bugsy.xtext.bugsDsl.Distribution
-   * @see #getDistrib()
-   * @generated
-   */
-  void setDistrib(Distribution value);
-
-  /**
-   * Returns the value of the '<em><b>Function</b></em>' attribute.
-   * The literals are from the enumeration {@link com.opcoach.bugsy.xtext.bugsDsl.Function}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Function</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Function</em>' attribute.
-   * @see com.opcoach.bugsy.xtext.bugsDsl.Function
-   * @see #setFunction(Function)
-   * @see com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage#getDeterministicRelation_Function()
-   * @model
-   * @generated
-   */
-  Function getFunction();
-
-  /**
-   * Sets the value of the '{@link com.opcoach.bugsy.xtext.bugsDsl.DeterministicRelation#getFunction <em>Function</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Function</em>' attribute.
-   * @see com.opcoach.bugsy.xtext.bugsDsl.Function
-   * @see #getFunction()
-   * @generated
-   */
-  void setFunction(Function value);
 
 } // DeterministicRelation

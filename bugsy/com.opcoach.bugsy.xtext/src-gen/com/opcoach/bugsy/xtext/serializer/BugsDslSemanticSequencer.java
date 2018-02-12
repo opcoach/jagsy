@@ -8,8 +8,10 @@ import com.opcoach.bugsy.xtext.bugsDsl.ArrayID;
 import com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage;
 import com.opcoach.bugsy.xtext.bugsDsl.BugsModel;
 import com.opcoach.bugsy.xtext.bugsDsl.DeterministicRelation;
+import com.opcoach.bugsy.xtext.bugsDsl.Distribution;
 import com.opcoach.bugsy.xtext.bugsDsl.Expression;
 import com.opcoach.bugsy.xtext.bugsDsl.For;
+import com.opcoach.bugsy.xtext.bugsDsl.Function;
 import com.opcoach.bugsy.xtext.bugsDsl.StochasticRelation;
 import com.opcoach.bugsy.xtext.bugsDsl.Value;
 import com.opcoach.bugsy.xtext.services.BugsDslGrammarAccess;
@@ -45,11 +47,17 @@ public class BugsDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 			case BugsDslPackage.DETERMINISTIC_RELATION:
 				sequence_DeterministicRelation(context, (DeterministicRelation) semanticObject); 
 				return; 
+			case BugsDslPackage.DISTRIBUTION:
+				sequence_Distribution(context, (Distribution) semanticObject); 
+				return; 
 			case BugsDslPackage.EXPRESSION:
 				sequence_Expression_TerminalExpression(context, (Expression) semanticObject); 
 				return; 
 			case BugsDslPackage.FOR:
 				sequence_For(context, (For) semanticObject); 
+				return; 
+			case BugsDslPackage.FUNCTION:
+				sequence_Function(context, (Function) semanticObject); 
 				return; 
 			case BugsDslPackage.STOCHASTIC_RELATION:
 				sequence_StochasticRelation(context, (StochasticRelation) semanticObject); 
@@ -93,9 +101,21 @@ public class BugsDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     DeterministicRelation returns DeterministicRelation
 	 *
 	 * Constraint:
-	 *     (name=ArrayID (expressions+=Expression | ((distrib=Distribution | function=Function)* (params+=Expression params+=Expression*)?))?)
+	 *     (name=ArrayID expressions+=Expression)
 	 */
 	protected void sequence_DeterministicRelation(ISerializationContext context, DeterministicRelation semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Distribution returns Distribution
+	 *
+	 * Constraint:
+	 *     (distrib=DistributionOperator (params+=Expression params+=Expression*)?)
+	 */
+	protected void sequence_Distribution(ISerializationContext context, Distribution semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -107,7 +127,7 @@ public class BugsDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     TerminalExpression returns Expression
 	 *
 	 * Constraint:
-	 *     ((left=Expression_Expression_1_0 op=Operator right=TerminalExpression) | value=Value)
+	 *     ((left=Expression_Expression_1_0 op=Operator right=TerminalExpression) | value=Value | function=Function | distribution=Distribution)
 	 */
 	protected void sequence_Expression_TerminalExpression(ISerializationContext context, Expression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -123,6 +143,18 @@ public class BugsDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     (variable=ID low=INT high=ID contents+=Instruction*)
 	 */
 	protected void sequence_For(ISerializationContext context, For semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Function returns Function
+	 *
+	 * Constraint:
+	 *     (operation=FunctionOperator (params+=Expression params+=Expression*)?)
+	 */
+	protected void sequence_Function(ISerializationContext context, Function semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

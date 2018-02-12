@@ -4,7 +4,9 @@
 package com.opcoach.bugsy.xtext.bugsDsl.impl;
 
 import com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage;
+import com.opcoach.bugsy.xtext.bugsDsl.Distribution;
 import com.opcoach.bugsy.xtext.bugsDsl.Expression;
+import com.opcoach.bugsy.xtext.bugsDsl.Function;
 import com.opcoach.bugsy.xtext.bugsDsl.Value;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -28,6 +30,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.impl.ExpressionImpl#getOp <em>Op</em>}</li>
  *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.impl.ExpressionImpl#getRight <em>Right</em>}</li>
  *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.impl.ExpressionImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.impl.ExpressionImpl#getFunction <em>Function</em>}</li>
+ *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.impl.ExpressionImpl#getDistribution <em>Distribution</em>}</li>
  * </ul>
  *
  * @generated
@@ -83,6 +87,26 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
    * @ordered
    */
   protected Value value;
+
+  /**
+   * The cached value of the '{@link #getFunction() <em>Function</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFunction()
+   * @generated
+   * @ordered
+   */
+  protected Function function;
+
+  /**
+   * The cached value of the '{@link #getDistribution() <em>Distribution</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDistribution()
+   * @generated
+   * @ordered
+   */
+  protected Distribution distribution;
 
   /**
    * <!-- begin-user-doc -->
@@ -277,6 +301,102 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
    * <!-- end-user-doc -->
    * @generated
    */
+  public Function getFunction()
+  {
+    return function;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetFunction(Function newFunction, NotificationChain msgs)
+  {
+    Function oldFunction = function;
+    function = newFunction;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BugsDslPackage.EXPRESSION__FUNCTION, oldFunction, newFunction);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setFunction(Function newFunction)
+  {
+    if (newFunction != function)
+    {
+      NotificationChain msgs = null;
+      if (function != null)
+        msgs = ((InternalEObject)function).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BugsDslPackage.EXPRESSION__FUNCTION, null, msgs);
+      if (newFunction != null)
+        msgs = ((InternalEObject)newFunction).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BugsDslPackage.EXPRESSION__FUNCTION, null, msgs);
+      msgs = basicSetFunction(newFunction, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, BugsDslPackage.EXPRESSION__FUNCTION, newFunction, newFunction));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Distribution getDistribution()
+  {
+    return distribution;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetDistribution(Distribution newDistribution, NotificationChain msgs)
+  {
+    Distribution oldDistribution = distribution;
+    distribution = newDistribution;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BugsDslPackage.EXPRESSION__DISTRIBUTION, oldDistribution, newDistribution);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setDistribution(Distribution newDistribution)
+  {
+    if (newDistribution != distribution)
+    {
+      NotificationChain msgs = null;
+      if (distribution != null)
+        msgs = ((InternalEObject)distribution).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BugsDslPackage.EXPRESSION__DISTRIBUTION, null, msgs);
+      if (newDistribution != null)
+        msgs = ((InternalEObject)newDistribution).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BugsDslPackage.EXPRESSION__DISTRIBUTION, null, msgs);
+      msgs = basicSetDistribution(newDistribution, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, BugsDslPackage.EXPRESSION__DISTRIBUTION, newDistribution, newDistribution));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -288,6 +408,10 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
         return basicSetRight(null, msgs);
       case BugsDslPackage.EXPRESSION__VALUE:
         return basicSetValue(null, msgs);
+      case BugsDslPackage.EXPRESSION__FUNCTION:
+        return basicSetFunction(null, msgs);
+      case BugsDslPackage.EXPRESSION__DISTRIBUTION:
+        return basicSetDistribution(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -310,6 +434,10 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
         return getRight();
       case BugsDslPackage.EXPRESSION__VALUE:
         return getValue();
+      case BugsDslPackage.EXPRESSION__FUNCTION:
+        return getFunction();
+      case BugsDslPackage.EXPRESSION__DISTRIBUTION:
+        return getDistribution();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -335,6 +463,12 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
         return;
       case BugsDslPackage.EXPRESSION__VALUE:
         setValue((Value)newValue);
+        return;
+      case BugsDslPackage.EXPRESSION__FUNCTION:
+        setFunction((Function)newValue);
+        return;
+      case BugsDslPackage.EXPRESSION__DISTRIBUTION:
+        setDistribution((Distribution)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -362,6 +496,12 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
       case BugsDslPackage.EXPRESSION__VALUE:
         setValue((Value)null);
         return;
+      case BugsDslPackage.EXPRESSION__FUNCTION:
+        setFunction((Function)null);
+        return;
+      case BugsDslPackage.EXPRESSION__DISTRIBUTION:
+        setDistribution((Distribution)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -384,6 +524,10 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
         return right != null;
       case BugsDslPackage.EXPRESSION__VALUE:
         return value != null;
+      case BugsDslPackage.EXPRESSION__FUNCTION:
+        return function != null;
+      case BugsDslPackage.EXPRESSION__DISTRIBUTION:
+        return distribution != null;
     }
     return super.eIsSet(featureID);
   }

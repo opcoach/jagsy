@@ -43,21 +43,23 @@ StochasticRelation:
 	')')?;
 
 DeterministicRelation:
-	{DeterministicRelation} name=ArrayID ('<-' | '=') (=> expressions+=Expression | ((distrib=Distribution)?
-	& (function=Function)?) ('()' | '(' (=> (params+=Expression) (',' (params+=Expression))* ')')?));
+	{DeterministicRelation} name=ArrayID ('<-' | '=') (=> expressions+=Expression);
 
 Operator:
 	'+' | '-' | '*' | '/';
+
+Function : operation = FunctionOperator ('()' | '(' (=> (params+=Expression) (',' (params+=Expression))* ')')?) ;
+
+Distribution : distrib=DistributionOperator ('()' | '(' (=> (params+=Expression) (',' (params+=Expression))* ')')?)  ;
 
 Expression:
 	TerminalExpression ({Expression.left=current} op=Operator
 	right=TerminalExpression)*;
 
 TerminalExpression returns Expression:
-	'(' Expression ')' | (value=Value
-	);
+	'(' Expression ')' | (value=Value) | (function=Function) | (distribution=Distribution);
 
-enum Distribution:
+enum DistributionOperator:
 	dbern='dbern' | dbin='dbin' | dchisqr='dchisqr' | ddexp='ddexp' | dexp='dexp' | df='df' |
 	dgengamm='dgen.gamma' | dhyper='dhyper' | dlogis='dlogis' | dlnorm='dlnorm' | dnegbin='dnegbin' | dnchisqr='dnchisqr'
 	| dpar='dpar' | dpois='dpois' | dt='dt' | dweib='dweib';
@@ -65,7 +67,7 @@ enum Distribution:
 enum Density:
 	dnorm='dnorm' | dunif='dunif' | dbeta='dbeta' | dgamma='dgamma';
 
-enum Function:
+enum FunctionOperator:
 	acos='acos' | acosh='acosh' | asin='asin' | asinh='asinh' | atan='atan' | log='log' | ep='exp' | c='c' | mean='mean' |
 	sqrt='sqrt';
 

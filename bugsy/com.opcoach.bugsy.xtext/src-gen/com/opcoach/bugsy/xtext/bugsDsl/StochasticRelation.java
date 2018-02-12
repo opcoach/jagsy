@@ -3,6 +3,7 @@
  */
 package com.opcoach.bugsy.xtext.bugsDsl;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,6 +15,7 @@ package com.opcoach.bugsy.xtext.bugsDsl;
  * </p>
  * <ul>
  *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.StochasticRelation#getDistrib <em>Distrib</em>}</li>
+ *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.StochasticRelation#getParams <em>Params</em>}</li>
  * </ul>
  *
  * @see com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage#getStochasticRelation()
@@ -50,5 +52,21 @@ public interface StochasticRelation extends Relation
    * @generated
    */
   void setDistrib(Density value);
+
+  /**
+   * Returns the value of the '<em><b>Params</b></em>' containment reference list.
+   * The list contents are of type {@link com.opcoach.bugsy.xtext.bugsDsl.Expression}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Params</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Params</em>' containment reference list.
+   * @see com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage#getStochasticRelation_Params()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Expression> getParams();
 
 } // StochasticRelation

@@ -18,6 +18,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.Expression#getOp <em>Op</em>}</li>
  *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.Expression#getRight <em>Right</em>}</li>
  *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.Expression#getValue <em>Value</em>}</li>
+ *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.Expression#getFunction <em>Function</em>}</li>
+ *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.Expression#getDistribution <em>Distribution</em>}</li>
  * </ul>
  *
  * @see com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage#getExpression()
@@ -129,5 +131,57 @@ public interface Expression extends EObject
    * @generated
    */
   void setValue(Value value);
+
+  /**
+   * Returns the value of the '<em><b>Function</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Function</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Function</em>' containment reference.
+   * @see #setFunction(Function)
+   * @see com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage#getExpression_Function()
+   * @model containment="true"
+   * @generated
+   */
+  Function getFunction();
+
+  /**
+   * Sets the value of the '{@link com.opcoach.bugsy.xtext.bugsDsl.Expression#getFunction <em>Function</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Function</em>' containment reference.
+   * @see #getFunction()
+   * @generated
+   */
+  void setFunction(Function value);
+
+  /**
+   * Returns the value of the '<em><b>Distribution</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Distribution</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Distribution</em>' containment reference.
+   * @see #setDistribution(Distribution)
+   * @see com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage#getExpression_Distribution()
+   * @model containment="true"
+   * @generated
+   */
+  Distribution getDistribution();
+
+  /**
+   * Sets the value of the '{@link com.opcoach.bugsy.xtext.bugsDsl.Expression#getDistribution <em>Distribution</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Distribution</em>' containment reference.
+   * @see #getDistribution()
+   * @generated
+   */
+  void setDistribution(Distribution value);
 
 } // Expression

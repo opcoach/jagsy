@@ -135,6 +135,20 @@ public class BugsDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case BugsDslPackage.FUNCTION:
+      {
+        Function function = (Function)theEObject;
+        T result = caseFunction(function);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BugsDslPackage.DISTRIBUTION:
+      {
+        Distribution distribution = (Distribution)theEObject;
+        T result = caseDistribution(distribution);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case BugsDslPackage.EXPRESSION:
       {
         Expression expression = (Expression)theEObject;
@@ -270,6 +284,38 @@ public class BugsDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseDeterministicRelation(DeterministicRelation object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Function</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Function</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFunction(Function object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Distribution</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Distribution</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDistribution(Distribution object)
   {
     return null;
   }

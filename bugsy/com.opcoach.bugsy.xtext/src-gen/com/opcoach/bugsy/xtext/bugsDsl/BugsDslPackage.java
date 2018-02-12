@@ -254,22 +254,13 @@ public interface BugsDslPackage extends EPackage
   int RELATION__NAME = INSTRUCTION_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Params</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int RELATION__PARAMS = INSTRUCTION_FEATURE_COUNT + 1;
-
-  /**
    * The number of structural features of the '<em>Relation</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RELATION_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 2;
+  int RELATION_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link com.opcoach.bugsy.xtext.bugsDsl.impl.StochasticRelationImpl <em>Stochastic Relation</em>}' class.
@@ -291,15 +282,6 @@ public interface BugsDslPackage extends EPackage
   int STOCHASTIC_RELATION__NAME = RELATION__NAME;
 
   /**
-   * The feature id for the '<em><b>Params</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STOCHASTIC_RELATION__PARAMS = RELATION__PARAMS;
-
-  /**
    * The feature id for the '<em><b>Distrib</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -309,13 +291,22 @@ public interface BugsDslPackage extends EPackage
   int STOCHASTIC_RELATION__DISTRIB = RELATION_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Params</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STOCHASTIC_RELATION__PARAMS = RELATION_FEATURE_COUNT + 1;
+
+  /**
    * The number of structural features of the '<em>Stochastic Relation</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STOCHASTIC_RELATION_FEATURE_COUNT = RELATION_FEATURE_COUNT + 1;
+  int STOCHASTIC_RELATION_FEATURE_COUNT = RELATION_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link com.opcoach.bugsy.xtext.bugsDsl.impl.DeterministicRelationImpl <em>Deterministic Relation</em>}' class.
@@ -337,15 +328,6 @@ public interface BugsDslPackage extends EPackage
   int DETERMINISTIC_RELATION__NAME = RELATION__NAME;
 
   /**
-   * The feature id for the '<em><b>Params</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DETERMINISTIC_RELATION__PARAMS = RELATION__PARAMS;
-
-  /**
    * The feature id for the '<em><b>Expressions</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -355,31 +337,87 @@ public interface BugsDslPackage extends EPackage
   int DETERMINISTIC_RELATION__EXPRESSIONS = RELATION_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Distrib</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DETERMINISTIC_RELATION__DISTRIB = RELATION_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Function</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DETERMINISTIC_RELATION__FUNCTION = RELATION_FEATURE_COUNT + 2;
-
-  /**
    * The number of structural features of the '<em>Deterministic Relation</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DETERMINISTIC_RELATION_FEATURE_COUNT = RELATION_FEATURE_COUNT + 3;
+  int DETERMINISTIC_RELATION_FEATURE_COUNT = RELATION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link com.opcoach.bugsy.xtext.bugsDsl.impl.FunctionImpl <em>Function</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.opcoach.bugsy.xtext.bugsDsl.impl.FunctionImpl
+   * @see com.opcoach.bugsy.xtext.bugsDsl.impl.BugsDslPackageImpl#getFunction()
+   * @generated
+   */
+  int FUNCTION = 8;
+
+  /**
+   * The feature id for the '<em><b>Operation</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION__OPERATION = 0;
+
+  /**
+   * The feature id for the '<em><b>Params</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION__PARAMS = 1;
+
+  /**
+   * The number of structural features of the '<em>Function</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link com.opcoach.bugsy.xtext.bugsDsl.impl.DistributionImpl <em>Distribution</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.opcoach.bugsy.xtext.bugsDsl.impl.DistributionImpl
+   * @see com.opcoach.bugsy.xtext.bugsDsl.impl.BugsDslPackageImpl#getDistribution()
+   * @generated
+   */
+  int DISTRIBUTION = 9;
+
+  /**
+   * The feature id for the '<em><b>Distrib</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DISTRIBUTION__DISTRIB = 0;
+
+  /**
+   * The feature id for the '<em><b>Params</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DISTRIBUTION__PARAMS = 1;
+
+  /**
+   * The number of structural features of the '<em>Distribution</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DISTRIBUTION_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link com.opcoach.bugsy.xtext.bugsDsl.impl.ExpressionImpl <em>Expression</em>}' class.
@@ -389,7 +427,7 @@ public interface BugsDslPackage extends EPackage
    * @see com.opcoach.bugsy.xtext.bugsDsl.impl.BugsDslPackageImpl#getExpression()
    * @generated
    */
-  int EXPRESSION = 8;
+  int EXPRESSION = 10;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -428,23 +466,41 @@ public interface BugsDslPackage extends EPackage
   int EXPRESSION__VALUE = 3;
 
   /**
+   * The feature id for the '<em><b>Function</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION__FUNCTION = 4;
+
+  /**
+   * The feature id for the '<em><b>Distribution</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION__DISTRIBUTION = 5;
+
+  /**
    * The number of structural features of the '<em>Expression</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPRESSION_FEATURE_COUNT = 4;
+  int EXPRESSION_FEATURE_COUNT = 6;
 
   /**
-   * The meta object id for the '{@link com.opcoach.bugsy.xtext.bugsDsl.Distribution <em>Distribution</em>}' enum.
+   * The meta object id for the '{@link com.opcoach.bugsy.xtext.bugsDsl.DistributionOperator <em>Distribution Operator</em>}' enum.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see com.opcoach.bugsy.xtext.bugsDsl.Distribution
-   * @see com.opcoach.bugsy.xtext.bugsDsl.impl.BugsDslPackageImpl#getDistribution()
+   * @see com.opcoach.bugsy.xtext.bugsDsl.DistributionOperator
+   * @see com.opcoach.bugsy.xtext.bugsDsl.impl.BugsDslPackageImpl#getDistributionOperator()
    * @generated
    */
-  int DISTRIBUTION = 9;
+  int DISTRIBUTION_OPERATOR = 11;
 
   /**
    * The meta object id for the '{@link com.opcoach.bugsy.xtext.bugsDsl.Density <em>Density</em>}' enum.
@@ -454,17 +510,17 @@ public interface BugsDslPackage extends EPackage
    * @see com.opcoach.bugsy.xtext.bugsDsl.impl.BugsDslPackageImpl#getDensity()
    * @generated
    */
-  int DENSITY = 10;
+  int DENSITY = 12;
 
   /**
-   * The meta object id for the '{@link com.opcoach.bugsy.xtext.bugsDsl.Function <em>Function</em>}' enum.
+   * The meta object id for the '{@link com.opcoach.bugsy.xtext.bugsDsl.FunctionOperator <em>Function Operator</em>}' enum.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see com.opcoach.bugsy.xtext.bugsDsl.Function
-   * @see com.opcoach.bugsy.xtext.bugsDsl.impl.BugsDslPackageImpl#getFunction()
+   * @see com.opcoach.bugsy.xtext.bugsDsl.FunctionOperator
+   * @see com.opcoach.bugsy.xtext.bugsDsl.impl.BugsDslPackageImpl#getFunctionOperator()
    * @generated
    */
-  int FUNCTION = 11;
+  int FUNCTION_OPERATOR = 13;
 
 
   /**
@@ -638,17 +694,6 @@ public interface BugsDslPackage extends EPackage
   EReference getRelation_Name();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.opcoach.bugsy.xtext.bugsDsl.Relation#getParams <em>Params</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Params</em>'.
-   * @see com.opcoach.bugsy.xtext.bugsDsl.Relation#getParams()
-   * @see #getRelation()
-   * @generated
-   */
-  EReference getRelation_Params();
-
-  /**
    * Returns the meta object for class '{@link com.opcoach.bugsy.xtext.bugsDsl.StochasticRelation <em>Stochastic Relation</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -668,6 +713,17 @@ public interface BugsDslPackage extends EPackage
    * @generated
    */
   EAttribute getStochasticRelation_Distrib();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link com.opcoach.bugsy.xtext.bugsDsl.StochasticRelation#getParams <em>Params</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Params</em>'.
+   * @see com.opcoach.bugsy.xtext.bugsDsl.StochasticRelation#getParams()
+   * @see #getStochasticRelation()
+   * @generated
+   */
+  EReference getStochasticRelation_Params();
 
   /**
    * Returns the meta object for class '{@link com.opcoach.bugsy.xtext.bugsDsl.DeterministicRelation <em>Deterministic Relation</em>}'.
@@ -691,26 +747,68 @@ public interface BugsDslPackage extends EPackage
   EReference getDeterministicRelation_Expressions();
 
   /**
-   * Returns the meta object for the attribute '{@link com.opcoach.bugsy.xtext.bugsDsl.DeterministicRelation#getDistrib <em>Distrib</em>}'.
+   * Returns the meta object for class '{@link com.opcoach.bugsy.xtext.bugsDsl.Function <em>Function</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Function</em>'.
+   * @see com.opcoach.bugsy.xtext.bugsDsl.Function
+   * @generated
+   */
+  EClass getFunction();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.opcoach.bugsy.xtext.bugsDsl.Function#getOperation <em>Operation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Operation</em>'.
+   * @see com.opcoach.bugsy.xtext.bugsDsl.Function#getOperation()
+   * @see #getFunction()
+   * @generated
+   */
+  EAttribute getFunction_Operation();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link com.opcoach.bugsy.xtext.bugsDsl.Function#getParams <em>Params</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Params</em>'.
+   * @see com.opcoach.bugsy.xtext.bugsDsl.Function#getParams()
+   * @see #getFunction()
+   * @generated
+   */
+  EReference getFunction_Params();
+
+  /**
+   * Returns the meta object for class '{@link com.opcoach.bugsy.xtext.bugsDsl.Distribution <em>Distribution</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Distribution</em>'.
+   * @see com.opcoach.bugsy.xtext.bugsDsl.Distribution
+   * @generated
+   */
+  EClass getDistribution();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.opcoach.bugsy.xtext.bugsDsl.Distribution#getDistrib <em>Distrib</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Distrib</em>'.
-   * @see com.opcoach.bugsy.xtext.bugsDsl.DeterministicRelation#getDistrib()
-   * @see #getDeterministicRelation()
+   * @see com.opcoach.bugsy.xtext.bugsDsl.Distribution#getDistrib()
+   * @see #getDistribution()
    * @generated
    */
-  EAttribute getDeterministicRelation_Distrib();
+  EAttribute getDistribution_Distrib();
 
   /**
-   * Returns the meta object for the attribute '{@link com.opcoach.bugsy.xtext.bugsDsl.DeterministicRelation#getFunction <em>Function</em>}'.
+   * Returns the meta object for the containment reference list '{@link com.opcoach.bugsy.xtext.bugsDsl.Distribution#getParams <em>Params</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Function</em>'.
-   * @see com.opcoach.bugsy.xtext.bugsDsl.DeterministicRelation#getFunction()
-   * @see #getDeterministicRelation()
+   * @return the meta object for the containment reference list '<em>Params</em>'.
+   * @see com.opcoach.bugsy.xtext.bugsDsl.Distribution#getParams()
+   * @see #getDistribution()
    * @generated
    */
-  EAttribute getDeterministicRelation_Function();
+  EReference getDistribution_Params();
 
   /**
    * Returns the meta object for class '{@link com.opcoach.bugsy.xtext.bugsDsl.Expression <em>Expression</em>}'.
@@ -767,14 +865,36 @@ public interface BugsDslPackage extends EPackage
   EReference getExpression_Value();
 
   /**
-   * Returns the meta object for enum '{@link com.opcoach.bugsy.xtext.bugsDsl.Distribution <em>Distribution</em>}'.
+   * Returns the meta object for the containment reference '{@link com.opcoach.bugsy.xtext.bugsDsl.Expression#getFunction <em>Function</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for enum '<em>Distribution</em>'.
-   * @see com.opcoach.bugsy.xtext.bugsDsl.Distribution
+   * @return the meta object for the containment reference '<em>Function</em>'.
+   * @see com.opcoach.bugsy.xtext.bugsDsl.Expression#getFunction()
+   * @see #getExpression()
    * @generated
    */
-  EEnum getDistribution();
+  EReference getExpression_Function();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.opcoach.bugsy.xtext.bugsDsl.Expression#getDistribution <em>Distribution</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Distribution</em>'.
+   * @see com.opcoach.bugsy.xtext.bugsDsl.Expression#getDistribution()
+   * @see #getExpression()
+   * @generated
+   */
+  EReference getExpression_Distribution();
+
+  /**
+   * Returns the meta object for enum '{@link com.opcoach.bugsy.xtext.bugsDsl.DistributionOperator <em>Distribution Operator</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>Distribution Operator</em>'.
+   * @see com.opcoach.bugsy.xtext.bugsDsl.DistributionOperator
+   * @generated
+   */
+  EEnum getDistributionOperator();
 
   /**
    * Returns the meta object for enum '{@link com.opcoach.bugsy.xtext.bugsDsl.Density <em>Density</em>}'.
@@ -787,14 +907,14 @@ public interface BugsDslPackage extends EPackage
   EEnum getDensity();
 
   /**
-   * Returns the meta object for enum '{@link com.opcoach.bugsy.xtext.bugsDsl.Function <em>Function</em>}'.
+   * Returns the meta object for enum '{@link com.opcoach.bugsy.xtext.bugsDsl.FunctionOperator <em>Function Operator</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for enum '<em>Function</em>'.
-   * @see com.opcoach.bugsy.xtext.bugsDsl.Function
+   * @return the meta object for enum '<em>Function Operator</em>'.
+   * @see com.opcoach.bugsy.xtext.bugsDsl.FunctionOperator
    * @generated
    */
-  EEnum getFunction();
+  EEnum getFunctionOperator();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -960,14 +1080,6 @@ public interface BugsDslPackage extends EPackage
     EReference RELATION__NAME = eINSTANCE.getRelation_Name();
 
     /**
-     * The meta object literal for the '<em><b>Params</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference RELATION__PARAMS = eINSTANCE.getRelation_Params();
-
-    /**
      * The meta object literal for the '{@link com.opcoach.bugsy.xtext.bugsDsl.impl.StochasticRelationImpl <em>Stochastic Relation</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -984,6 +1096,14 @@ public interface BugsDslPackage extends EPackage
      * @generated
      */
     EAttribute STOCHASTIC_RELATION__DISTRIB = eINSTANCE.getStochasticRelation_Distrib();
+
+    /**
+     * The meta object literal for the '<em><b>Params</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STOCHASTIC_RELATION__PARAMS = eINSTANCE.getStochasticRelation_Params();
 
     /**
      * The meta object literal for the '{@link com.opcoach.bugsy.xtext.bugsDsl.impl.DeterministicRelationImpl <em>Deterministic Relation</em>}' class.
@@ -1004,20 +1124,56 @@ public interface BugsDslPackage extends EPackage
     EReference DETERMINISTIC_RELATION__EXPRESSIONS = eINSTANCE.getDeterministicRelation_Expressions();
 
     /**
+     * The meta object literal for the '{@link com.opcoach.bugsy.xtext.bugsDsl.impl.FunctionImpl <em>Function</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.opcoach.bugsy.xtext.bugsDsl.impl.FunctionImpl
+     * @see com.opcoach.bugsy.xtext.bugsDsl.impl.BugsDslPackageImpl#getFunction()
+     * @generated
+     */
+    EClass FUNCTION = eINSTANCE.getFunction();
+
+    /**
+     * The meta object literal for the '<em><b>Operation</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FUNCTION__OPERATION = eINSTANCE.getFunction_Operation();
+
+    /**
+     * The meta object literal for the '<em><b>Params</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FUNCTION__PARAMS = eINSTANCE.getFunction_Params();
+
+    /**
+     * The meta object literal for the '{@link com.opcoach.bugsy.xtext.bugsDsl.impl.DistributionImpl <em>Distribution</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.opcoach.bugsy.xtext.bugsDsl.impl.DistributionImpl
+     * @see com.opcoach.bugsy.xtext.bugsDsl.impl.BugsDslPackageImpl#getDistribution()
+     * @generated
+     */
+    EClass DISTRIBUTION = eINSTANCE.getDistribution();
+
+    /**
      * The meta object literal for the '<em><b>Distrib</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute DETERMINISTIC_RELATION__DISTRIB = eINSTANCE.getDeterministicRelation_Distrib();
+    EAttribute DISTRIBUTION__DISTRIB = eINSTANCE.getDistribution_Distrib();
 
     /**
-     * The meta object literal for the '<em><b>Function</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Params</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute DETERMINISTIC_RELATION__FUNCTION = eINSTANCE.getDeterministicRelation_Function();
+    EReference DISTRIBUTION__PARAMS = eINSTANCE.getDistribution_Params();
 
     /**
      * The meta object literal for the '{@link com.opcoach.bugsy.xtext.bugsDsl.impl.ExpressionImpl <em>Expression</em>}' class.
@@ -1062,14 +1218,30 @@ public interface BugsDslPackage extends EPackage
     EReference EXPRESSION__VALUE = eINSTANCE.getExpression_Value();
 
     /**
-     * The meta object literal for the '{@link com.opcoach.bugsy.xtext.bugsDsl.Distribution <em>Distribution</em>}' enum.
+     * The meta object literal for the '<em><b>Function</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see com.opcoach.bugsy.xtext.bugsDsl.Distribution
-     * @see com.opcoach.bugsy.xtext.bugsDsl.impl.BugsDslPackageImpl#getDistribution()
      * @generated
      */
-    EEnum DISTRIBUTION = eINSTANCE.getDistribution();
+    EReference EXPRESSION__FUNCTION = eINSTANCE.getExpression_Function();
+
+    /**
+     * The meta object literal for the '<em><b>Distribution</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPRESSION__DISTRIBUTION = eINSTANCE.getExpression_Distribution();
+
+    /**
+     * The meta object literal for the '{@link com.opcoach.bugsy.xtext.bugsDsl.DistributionOperator <em>Distribution Operator</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.opcoach.bugsy.xtext.bugsDsl.DistributionOperator
+     * @see com.opcoach.bugsy.xtext.bugsDsl.impl.BugsDslPackageImpl#getDistributionOperator()
+     * @generated
+     */
+    EEnum DISTRIBUTION_OPERATOR = eINSTANCE.getDistributionOperator();
 
     /**
      * The meta object literal for the '{@link com.opcoach.bugsy.xtext.bugsDsl.Density <em>Density</em>}' enum.
@@ -1082,14 +1254,14 @@ public interface BugsDslPackage extends EPackage
     EEnum DENSITY = eINSTANCE.getDensity();
 
     /**
-     * The meta object literal for the '{@link com.opcoach.bugsy.xtext.bugsDsl.Function <em>Function</em>}' enum.
+     * The meta object literal for the '{@link com.opcoach.bugsy.xtext.bugsDsl.FunctionOperator <em>Function Operator</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see com.opcoach.bugsy.xtext.bugsDsl.Function
-     * @see com.opcoach.bugsy.xtext.bugsDsl.impl.BugsDslPackageImpl#getFunction()
+     * @see com.opcoach.bugsy.xtext.bugsDsl.FunctionOperator
+     * @see com.opcoach.bugsy.xtext.bugsDsl.impl.BugsDslPackageImpl#getFunctionOperator()
      * @generated
      */
-    EEnum FUNCTION = eINSTANCE.getFunction();
+    EEnum FUNCTION_OPERATOR = eINSTANCE.getFunctionOperator();
 
   }
 

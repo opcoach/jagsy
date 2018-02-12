@@ -6,11 +6,14 @@ package com.opcoach.bugsy.xtext.tests;
 import com.google.inject.Inject;
 import com.opcoach.bugsy.xtext.bugsDsl.BugsModel;
 import com.opcoach.bugsy.xtext.tests.BugsDslInjectorProvider;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.testing.InjectWith;
 import org.eclipse.xtext.testing.XtextRunner;
 import org.eclipse.xtext.testing.util.ParseHelper;
 import org.eclipse.xtext.xbase.lib.Exceptions;
+import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -93,6 +96,9 @@ public class BugsDslParsingTest {
       _builder.newLine();
       final BugsModel result = this.parseHelper.parse(_builder);
       Assert.assertNotNull(result);
+      EList<Resource.Diagnostic> _errors = result.eResource().getErrors();
+      String _plus = ("Errors in testLoadModel1  : " + _errors);
+      InputOutput.<String>println(_plus);
       Assert.assertTrue(result.eResource().getErrors().isEmpty());
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
@@ -142,6 +148,9 @@ public class BugsDslParsingTest {
       _builder.newLine();
       final BugsModel result = this.parseHelper.parse(_builder);
       Assert.assertNotNull(result);
+      EList<Resource.Diagnostic> _errors = result.eResource().getErrors();
+      String _plus = ("Errors in testLoadModelFromRefGuide  : " + _errors);
+      InputOutput.<String>println(_plus);
       Assert.assertTrue(result.eResource().getErrors().isEmpty());
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
@@ -160,6 +169,9 @@ public class BugsDslParsingTest {
       _builder.newLine();
       final BugsModel result = this.parseHelper.parse(_builder);
       Assert.assertNotNull(result);
+      EList<Resource.Diagnostic> _errors = result.eResource().getErrors();
+      String _plus = ("Errors in testIssue 2 : " + _errors);
+      InputOutput.<String>println(_plus);
       Assert.assertTrue(result.eResource().getErrors().isEmpty());
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
@@ -178,7 +190,12 @@ public class BugsDslParsingTest {
       _builder.newLine();
       final BugsModel result = this.parseHelper.parse(_builder);
       Assert.assertNotNull(result);
-      Assert.assertTrue(result.eResource().getErrors().isEmpty());
+      EList<Resource.Diagnostic> _errors = result.eResource().getErrors();
+      String _plus = ("Errors in testIssue 3 : " + _errors);
+      InputOutput.<String>println(_plus);
+      boolean _isEmpty = result.eResource().getErrors().isEmpty();
+      boolean _not = (!_isEmpty);
+      Assert.assertTrue(_not);
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }
@@ -196,6 +213,9 @@ public class BugsDslParsingTest {
       _builder.newLine();
       final BugsModel result = this.parseHelper.parse(_builder);
       Assert.assertNotNull(result);
+      EList<Resource.Diagnostic> _errors = result.eResource().getErrors();
+      String _plus = ("Errors in testIssue 4 : " + _errors);
+      InputOutput.<String>println(_plus);
       Assert.assertTrue(result.eResource().getErrors().isEmpty());
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
@@ -214,6 +234,9 @@ public class BugsDslParsingTest {
       _builder.newLine();
       final BugsModel result = this.parseHelper.parse(_builder);
       Assert.assertNotNull(result);
+      EList<Resource.Diagnostic> _errors = result.eResource().getErrors();
+      String _plus = ("Errors in Issue 5 : " + _errors);
+      InputOutput.<String>println(_plus);
       Assert.assertTrue(result.eResource().getErrors().isEmpty());
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
@@ -234,6 +257,9 @@ public class BugsDslParsingTest {
       _builder.newLine();
       final BugsModel result = this.parseHelper.parse(_builder);
       Assert.assertNotNull(result);
+      EList<Resource.Diagnostic> _errors = result.eResource().getErrors();
+      String _plus = ("Errors in Issue 7 : " + _errors);
+      InputOutput.<String>println(_plus);
       Assert.assertTrue(result.eResource().getErrors().isEmpty());
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
@@ -254,6 +280,9 @@ public class BugsDslParsingTest {
       _builder.newLine();
       final BugsModel result = this.parseHelper.parse(_builder);
       Assert.assertNotNull(result);
+      EList<Resource.Diagnostic> _errors = result.eResource().getErrors();
+      String _plus = ("Errors in Issue 8 : " + _errors);
+      InputOutput.<String>println(_plus);
       Assert.assertTrue(result.eResource().getErrors().isEmpty());
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
@@ -274,7 +303,12 @@ public class BugsDslParsingTest {
       _builder.newLine();
       final BugsModel result = this.parseHelper.parse(_builder);
       Assert.assertNotNull(result);
-      Assert.assertTrue(result.eResource().getErrors().isEmpty());
+      EList<Resource.Diagnostic> _errors = result.eResource().getErrors();
+      String _plus = ("Errors in Issue 9 : " + _errors);
+      InputOutput.<String>println(_plus);
+      boolean _isEmpty = result.eResource().getErrors().isEmpty();
+      boolean _not = (!_isEmpty);
+      Assert.assertTrue(_not);
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }

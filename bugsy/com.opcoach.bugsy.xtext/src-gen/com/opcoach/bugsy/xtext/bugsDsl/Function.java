@@ -3,444 +3,72 @@
  */
 package com.opcoach.bugsy.xtext.bugsDsl;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.common.util.Enumerator;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the literals of the enumeration '<em><b>Function</b></em>',
- * and utility methods for working with them.
+ * A representation of the model object '<em><b>Function</b></em>'.
  * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.Function#getOperation <em>Operation</em>}</li>
+ *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.Function#getParams <em>Params</em>}</li>
+ * </ul>
+ *
  * @see com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage#getFunction()
  * @model
  * @generated
  */
-public enum Function implements Enumerator
+public interface Function extends EObject
 {
   /**
-   * The '<em><b>Acos</b></em>' literal object.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #ACOS_VALUE
-   * @generated
-   * @ordered
-   */
-  ACOS(0, "acos", "acos"),
-
-  /**
-   * The '<em><b>Acosh</b></em>' literal object.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #ACOSH_VALUE
-   * @generated
-   * @ordered
-   */
-  ACOSH(1, "acosh", "acosh"),
-
-  /**
-   * The '<em><b>Asin</b></em>' literal object.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #ASIN_VALUE
-   * @generated
-   * @ordered
-   */
-  ASIN(2, "asin", "asin"),
-
-  /**
-   * The '<em><b>Asinh</b></em>' literal object.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #ASINH_VALUE
-   * @generated
-   * @ordered
-   */
-  ASINH(3, "asinh", "asinh"),
-
-  /**
-   * The '<em><b>Atan</b></em>' literal object.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #ATAN_VALUE
-   * @generated
-   * @ordered
-   */
-  ATAN(4, "atan", "atan"),
-
-  /**
-   * The '<em><b>Log</b></em>' literal object.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #LOG_VALUE
-   * @generated
-   * @ordered
-   */
-  LOG(5, "log", "log"),
-
-  /**
-   * The '<em><b>Ep</b></em>' literal object.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #EP_VALUE
-   * @generated
-   * @ordered
-   */
-  EP(6, "ep", "exp"),
-
-  /**
-   * The '<em><b>C</b></em>' literal object.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #C_VALUE
-   * @generated
-   * @ordered
-   */
-  C(7, "c", "c"),
-
-  /**
-   * The '<em><b>Mean</b></em>' literal object.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #MEAN_VALUE
-   * @generated
-   * @ordered
-   */
-  MEAN(8, "mean", "mean"),
-
-  /**
-   * The '<em><b>Sqrt</b></em>' literal object.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #SQRT_VALUE
-   * @generated
-   * @ordered
-   */
-  SQRT(9, "sqrt", "sqrt");
-
-  /**
-   * The '<em><b>Acos</b></em>' literal value.
+   * Returns the value of the '<em><b>Operation</b></em>' attribute.
+   * The literals are from the enumeration {@link com.opcoach.bugsy.xtext.bugsDsl.FunctionOperator}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of '<em><b>Acos</b></em>' literal object isn't clear,
+   * If the meaning of the '<em>Operation</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @see #ACOS
-   * @model name="acos"
+   * @return the value of the '<em>Operation</em>' attribute.
+   * @see com.opcoach.bugsy.xtext.bugsDsl.FunctionOperator
+   * @see #setOperation(FunctionOperator)
+   * @see com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage#getFunction_Operation()
+   * @model
    * @generated
-   * @ordered
    */
-  public static final int ACOS_VALUE = 0;
+  FunctionOperator getOperation();
 
   /**
-   * The '<em><b>Acosh</b></em>' literal value.
+   * Sets the value of the '{@link com.opcoach.bugsy.xtext.bugsDsl.Function#getOperation <em>Operation</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Operation</em>' attribute.
+   * @see com.opcoach.bugsy.xtext.bugsDsl.FunctionOperator
+   * @see #getOperation()
+   * @generated
+   */
+  void setOperation(FunctionOperator value);
+
+  /**
+   * Returns the value of the '<em><b>Params</b></em>' containment reference list.
+   * The list contents are of type {@link com.opcoach.bugsy.xtext.bugsDsl.Expression}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of '<em><b>Acosh</b></em>' literal object isn't clear,
+   * If the meaning of the '<em>Params</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @see #ACOSH
-   * @model name="acosh"
+   * @return the value of the '<em>Params</em>' containment reference list.
+   * @see com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage#getFunction_Params()
+   * @model containment="true"
    * @generated
-   * @ordered
    */
-  public static final int ACOSH_VALUE = 1;
+  EList<Expression> getParams();
 
-  /**
-   * The '<em><b>Asin</b></em>' literal value.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of '<em><b>Asin</b></em>' literal object isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @see #ASIN
-   * @model name="asin"
-   * @generated
-   * @ordered
-   */
-  public static final int ASIN_VALUE = 2;
-
-  /**
-   * The '<em><b>Asinh</b></em>' literal value.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of '<em><b>Asinh</b></em>' literal object isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @see #ASINH
-   * @model name="asinh"
-   * @generated
-   * @ordered
-   */
-  public static final int ASINH_VALUE = 3;
-
-  /**
-   * The '<em><b>Atan</b></em>' literal value.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of '<em><b>Atan</b></em>' literal object isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @see #ATAN
-   * @model name="atan"
-   * @generated
-   * @ordered
-   */
-  public static final int ATAN_VALUE = 4;
-
-  /**
-   * The '<em><b>Log</b></em>' literal value.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of '<em><b>Log</b></em>' literal object isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @see #LOG
-   * @model name="log"
-   * @generated
-   * @ordered
-   */
-  public static final int LOG_VALUE = 5;
-
-  /**
-   * The '<em><b>Ep</b></em>' literal value.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of '<em><b>Ep</b></em>' literal object isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @see #EP
-   * @model name="ep" literal="exp"
-   * @generated
-   * @ordered
-   */
-  public static final int EP_VALUE = 6;
-
-  /**
-   * The '<em><b>C</b></em>' literal value.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of '<em><b>C</b></em>' literal object isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @see #C
-   * @model name="c"
-   * @generated
-   * @ordered
-   */
-  public static final int C_VALUE = 7;
-
-  /**
-   * The '<em><b>Mean</b></em>' literal value.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of '<em><b>Mean</b></em>' literal object isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @see #MEAN
-   * @model name="mean"
-   * @generated
-   * @ordered
-   */
-  public static final int MEAN_VALUE = 8;
-
-  /**
-   * The '<em><b>Sqrt</b></em>' literal value.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of '<em><b>Sqrt</b></em>' literal object isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @see #SQRT
-   * @model name="sqrt"
-   * @generated
-   * @ordered
-   */
-  public static final int SQRT_VALUE = 9;
-
-  /**
-   * An array of all the '<em><b>Function</b></em>' enumerators.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private static final Function[] VALUES_ARRAY =
-    new Function[]
-    {
-      ACOS,
-      ACOSH,
-      ASIN,
-      ASINH,
-      ATAN,
-      LOG,
-      EP,
-      C,
-      MEAN,
-      SQRT,
-    };
-
-  /**
-   * A public read-only list of all the '<em><b>Function</b></em>' enumerators.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public static final List<Function> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
-
-  /**
-   * Returns the '<em><b>Function</b></em>' literal with the specified literal value.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param literal the literal.
-   * @return the matching enumerator or <code>null</code>.
-   * @generated
-   */
-  public static Function get(String literal)
-  {
-    for (int i = 0; i < VALUES_ARRAY.length; ++i)
-    {
-      Function result = VALUES_ARRAY[i];
-      if (result.toString().equals(literal))
-      {
-        return result;
-      }
-    }
-    return null;
-  }
-
-  /**
-   * Returns the '<em><b>Function</b></em>' literal with the specified name.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param name the name.
-   * @return the matching enumerator or <code>null</code>.
-   * @generated
-   */
-  public static Function getByName(String name)
-  {
-    for (int i = 0; i < VALUES_ARRAY.length; ++i)
-    {
-      Function result = VALUES_ARRAY[i];
-      if (result.getName().equals(name))
-      {
-        return result;
-      }
-    }
-    return null;
-  }
-
-  /**
-   * Returns the '<em><b>Function</b></em>' literal with the specified integer value.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the integer value.
-   * @return the matching enumerator or <code>null</code>.
-   * @generated
-   */
-  public static Function get(int value)
-  {
-    switch (value)
-    {
-      case ACOS_VALUE: return ACOS;
-      case ACOSH_VALUE: return ACOSH;
-      case ASIN_VALUE: return ASIN;
-      case ASINH_VALUE: return ASINH;
-      case ATAN_VALUE: return ATAN;
-      case LOG_VALUE: return LOG;
-      case EP_VALUE: return EP;
-      case C_VALUE: return C;
-      case MEAN_VALUE: return MEAN;
-      case SQRT_VALUE: return SQRT;
-    }
-    return null;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private final int value;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private final String name;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private final String literal;
-
-  /**
-   * Only this class can construct instances.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private Function(int value, String name, String literal)
-  {
-    this.value = value;
-    this.name = name;
-    this.literal = literal;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public int getValue()
-  {
-    return value;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getName()
-  {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getLiteral()
-  {
-    return literal;
-  }
-
-  /**
-   * Returns the literal value of the enumerator, which is its string representation.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    return literal;
-  }
-  
-} //Function
+} // Function

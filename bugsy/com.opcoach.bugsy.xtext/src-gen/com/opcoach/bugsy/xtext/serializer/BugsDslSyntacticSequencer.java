@@ -22,7 +22,8 @@ public class BugsDslSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected BugsDslGrammarAccess grammarAccess;
 	protected AbstractElementAlias match_DeterministicRelation_EqualsSignKeyword_2_1_or_LessThanSignHyphenMinusKeyword_2_0;
-	protected AbstractElementAlias match_DeterministicRelation_LeftParenthesisKeyword_3_1_1_1_0_or_LeftParenthesisRightParenthesisKeyword_3_1_1_0;
+	protected AbstractElementAlias match_Distribution_LeftParenthesisKeyword_1_1_0_or_LeftParenthesisRightParenthesisKeyword_1_0;
+	protected AbstractElementAlias match_Function_LeftParenthesisKeyword_1_1_0_or_LeftParenthesisRightParenthesisKeyword_1_0;
 	protected AbstractElementAlias match_StochasticRelation_LeftParenthesisRightParenthesisKeyword_4_0_q;
 	protected AbstractElementAlias match_TerminalExpression_LeftParenthesisKeyword_0_0_a;
 	protected AbstractElementAlias match_TerminalExpression_LeftParenthesisKeyword_0_0_p;
@@ -31,7 +32,8 @@ public class BugsDslSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (BugsDslGrammarAccess) access;
 		match_DeterministicRelation_EqualsSignKeyword_2_1_or_LessThanSignHyphenMinusKeyword_2_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getDeterministicRelationAccess().getEqualsSignKeyword_2_1()), new TokenAlias(false, false, grammarAccess.getDeterministicRelationAccess().getLessThanSignHyphenMinusKeyword_2_0()));
-		match_DeterministicRelation_LeftParenthesisKeyword_3_1_1_1_0_or_LeftParenthesisRightParenthesisKeyword_3_1_1_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getDeterministicRelationAccess().getLeftParenthesisKeyword_3_1_1_1_0()), new TokenAlias(false, false, grammarAccess.getDeterministicRelationAccess().getLeftParenthesisRightParenthesisKeyword_3_1_1_0()));
+		match_Distribution_LeftParenthesisKeyword_1_1_0_or_LeftParenthesisRightParenthesisKeyword_1_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getDistributionAccess().getLeftParenthesisKeyword_1_1_0()), new TokenAlias(false, false, grammarAccess.getDistributionAccess().getLeftParenthesisRightParenthesisKeyword_1_0()));
+		match_Function_LeftParenthesisKeyword_1_1_0_or_LeftParenthesisRightParenthesisKeyword_1_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getFunctionAccess().getLeftParenthesisKeyword_1_1_0()), new TokenAlias(false, false, grammarAccess.getFunctionAccess().getLeftParenthesisRightParenthesisKeyword_1_0()));
 		match_StochasticRelation_LeftParenthesisRightParenthesisKeyword_4_0_q = new TokenAlias(false, true, grammarAccess.getStochasticRelationAccess().getLeftParenthesisRightParenthesisKeyword_4_0());
 		match_TerminalExpression_LeftParenthesisKeyword_0_0_a = new TokenAlias(true, true, grammarAccess.getTerminalExpressionAccess().getLeftParenthesisKeyword_0_0());
 		match_TerminalExpression_LeftParenthesisKeyword_0_0_p = new TokenAlias(true, false, grammarAccess.getTerminalExpressionAccess().getLeftParenthesisKeyword_0_0());
@@ -51,8 +53,10 @@ public class BugsDslSyntacticSequencer extends AbstractSyntacticSequencer {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
 			if (match_DeterministicRelation_EqualsSignKeyword_2_1_or_LessThanSignHyphenMinusKeyword_2_0.equals(syntax))
 				emit_DeterministicRelation_EqualsSignKeyword_2_1_or_LessThanSignHyphenMinusKeyword_2_0(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_DeterministicRelation_LeftParenthesisKeyword_3_1_1_1_0_or_LeftParenthesisRightParenthesisKeyword_3_1_1_0.equals(syntax))
-				emit_DeterministicRelation_LeftParenthesisKeyword_3_1_1_1_0_or_LeftParenthesisRightParenthesisKeyword_3_1_1_0(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Distribution_LeftParenthesisKeyword_1_1_0_or_LeftParenthesisRightParenthesisKeyword_1_0.equals(syntax))
+				emit_Distribution_LeftParenthesisKeyword_1_1_0_or_LeftParenthesisRightParenthesisKeyword_1_0(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Function_LeftParenthesisKeyword_1_1_0_or_LeftParenthesisRightParenthesisKeyword_1_0.equals(syntax))
+				emit_Function_LeftParenthesisKeyword_1_1_0_or_LeftParenthesisRightParenthesisKeyword_1_0(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_StochasticRelation_LeftParenthesisRightParenthesisKeyword_4_0_q.equals(syntax))
 				emit_StochasticRelation_LeftParenthesisRightParenthesisKeyword_4_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_TerminalExpression_LeftParenthesisKeyword_0_0_a.equals(syntax))
@@ -68,11 +72,7 @@ public class BugsDslSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     '=' | '<-'
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     name=ArrayID (ambiguity) '(' params+=Expression
-	 *     name=ArrayID (ambiguity) ('(' | '()') (rule end)
-	 *     name=ArrayID (ambiguity) distrib=Distribution
 	 *     name=ArrayID (ambiguity) expressions+=Expression
-	 *     name=ArrayID (ambiguity) function=Function
 	 */
 	protected void emit_DeterministicRelation_EqualsSignKeyword_2_1_or_LessThanSignHyphenMinusKeyword_2_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -80,14 +80,23 @@ public class BugsDslSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Ambiguous syntax:
-	 *     '(' | '()'
+	 *     '()' | '('
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     distrib=Distribution (ambiguity) (rule end)
-	 *     function=Function (ambiguity) (rule end)
-	 *     name=ArrayID ('=' | '<-') (ambiguity) (rule end)
+	 *     distrib=DistributionOperator (ambiguity) (rule end)
 	 */
-	protected void emit_DeterministicRelation_LeftParenthesisKeyword_3_1_1_1_0_or_LeftParenthesisRightParenthesisKeyword_3_1_1_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Distribution_LeftParenthesisKeyword_1_1_0_or_LeftParenthesisRightParenthesisKeyword_1_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     '()' | '('
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     operation=FunctionOperator (ambiguity) (rule end)
+	 */
+	protected void emit_Function_LeftParenthesisKeyword_1_1_0_or_LeftParenthesisRightParenthesisKeyword_1_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -107,6 +116,8 @@ public class BugsDslSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     '('*
 	 *
 	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) distribution=Distribution
+	 *     (rule start) (ambiguity) function=Function
 	 *     (rule start) (ambiguity) value=Value
 	 *     (rule start) (ambiguity) {Expression.left=}
 	 */

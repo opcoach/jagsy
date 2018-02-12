@@ -5,21 +5,16 @@ package com.opcoach.bugsy.xtext.bugsDsl.impl;
 
 import com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage;
 import com.opcoach.bugsy.xtext.bugsDsl.DeterministicRelation;
-import com.opcoach.bugsy.xtext.bugsDsl.Distribution;
 import com.opcoach.bugsy.xtext.bugsDsl.Expression;
-import com.opcoach.bugsy.xtext.bugsDsl.Function;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -33,8 +28,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.impl.DeterministicRelationImpl#getExpressions <em>Expressions</em>}</li>
- *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.impl.DeterministicRelationImpl#getDistrib <em>Distrib</em>}</li>
- *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.impl.DeterministicRelationImpl#getFunction <em>Function</em>}</li>
  * </ul>
  *
  * @generated
@@ -50,46 +43,6 @@ public class DeterministicRelationImpl extends RelationImpl implements Determini
    * @ordered
    */
   protected EList<Expression> expressions;
-
-  /**
-   * The default value of the '{@link #getDistrib() <em>Distrib</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDistrib()
-   * @generated
-   * @ordered
-   */
-  protected static final Distribution DISTRIB_EDEFAULT = Distribution.DBERN;
-
-  /**
-   * The cached value of the '{@link #getDistrib() <em>Distrib</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDistrib()
-   * @generated
-   * @ordered
-   */
-  protected Distribution distrib = DISTRIB_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getFunction() <em>Function</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getFunction()
-   * @generated
-   * @ordered
-   */
-  protected static final Function FUNCTION_EDEFAULT = Function.ACOS;
-
-  /**
-   * The cached value of the '{@link #getFunction() <em>Function</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getFunction()
-   * @generated
-   * @ordered
-   */
-  protected Function function = FUNCTION_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -131,52 +84,6 @@ public class DeterministicRelationImpl extends RelationImpl implements Determini
    * <!-- end-user-doc -->
    * @generated
    */
-  public Distribution getDistrib()
-  {
-    return distrib;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setDistrib(Distribution newDistrib)
-  {
-    Distribution oldDistrib = distrib;
-    distrib = newDistrib == null ? DISTRIB_EDEFAULT : newDistrib;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BugsDslPackage.DETERMINISTIC_RELATION__DISTRIB, oldDistrib, distrib));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Function getFunction()
-  {
-    return function;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setFunction(Function newFunction)
-  {
-    Function oldFunction = function;
-    function = newFunction == null ? FUNCTION_EDEFAULT : newFunction;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BugsDslPackage.DETERMINISTIC_RELATION__FUNCTION, oldFunction, function));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -200,10 +107,6 @@ public class DeterministicRelationImpl extends RelationImpl implements Determini
     {
       case BugsDslPackage.DETERMINISTIC_RELATION__EXPRESSIONS:
         return getExpressions();
-      case BugsDslPackage.DETERMINISTIC_RELATION__DISTRIB:
-        return getDistrib();
-      case BugsDslPackage.DETERMINISTIC_RELATION__FUNCTION:
-        return getFunction();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -223,12 +126,6 @@ public class DeterministicRelationImpl extends RelationImpl implements Determini
         getExpressions().clear();
         getExpressions().addAll((Collection<? extends Expression>)newValue);
         return;
-      case BugsDslPackage.DETERMINISTIC_RELATION__DISTRIB:
-        setDistrib((Distribution)newValue);
-        return;
-      case BugsDslPackage.DETERMINISTIC_RELATION__FUNCTION:
-        setFunction((Function)newValue);
-        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -246,12 +143,6 @@ public class DeterministicRelationImpl extends RelationImpl implements Determini
       case BugsDslPackage.DETERMINISTIC_RELATION__EXPRESSIONS:
         getExpressions().clear();
         return;
-      case BugsDslPackage.DETERMINISTIC_RELATION__DISTRIB:
-        setDistrib(DISTRIB_EDEFAULT);
-        return;
-      case BugsDslPackage.DETERMINISTIC_RELATION__FUNCTION:
-        setFunction(FUNCTION_EDEFAULT);
-        return;
     }
     super.eUnset(featureID);
   }
@@ -268,31 +159,8 @@ public class DeterministicRelationImpl extends RelationImpl implements Determini
     {
       case BugsDslPackage.DETERMINISTIC_RELATION__EXPRESSIONS:
         return expressions != null && !expressions.isEmpty();
-      case BugsDslPackage.DETERMINISTIC_RELATION__DISTRIB:
-        return distrib != DISTRIB_EDEFAULT;
-      case BugsDslPackage.DETERMINISTIC_RELATION__FUNCTION:
-        return function != FUNCTION_EDEFAULT;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (distrib: ");
-    result.append(distrib);
-    result.append(", function: ");
-    result.append(function);
-    result.append(')');
-    return result.toString();
   }
 
 } //DeterministicRelationImpl

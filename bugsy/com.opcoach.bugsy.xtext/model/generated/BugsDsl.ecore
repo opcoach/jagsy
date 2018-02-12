@@ -26,17 +26,25 @@
   <eClassifiers xsi:type="ecore:EClass" name="Relation" eSuperTypes="#//Instruction">
     <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="#//ArrayID"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="params" upperBound="-1"
-        eType="#//Expression" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StochasticRelation" eSuperTypes="#//Relation">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="distrib" eType="#//Density"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="params" upperBound="-1"
+        eType="#//Expression" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DeterministicRelation" eSuperTypes="#//Relation">
     <eStructuralFeatures xsi:type="ecore:EReference" name="expressions" upperBound="-1"
         eType="#//Expression" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="distrib" eType="#//Distribution"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="function" eType="#//Function"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Function">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operation" eType="#//FunctionOperator"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="params" upperBound="-1"
+        eType="#//Expression" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Distribution">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="distrib" eType="#//DistributionOperator"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="params" upperBound="-1"
+        eType="#//Expression" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Expression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Expression"
@@ -46,8 +54,12 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//Value"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="function" eType="#//Function"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="distribution" eType="#//Distribution"
+        containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="Distribution">
+  <eClassifiers xsi:type="ecore:EEnum" name="DistributionOperator">
     <eLiterals name="dbern" literal="dbern"/>
     <eLiterals name="dbin" value="1" literal="dbin"/>
     <eLiterals name="dchisqr" value="2" literal="dchisqr"/>
@@ -71,7 +83,7 @@
     <eLiterals name="dbeta" value="2" literal="dbeta"/>
     <eLiterals name="dgamma" value="3" literal="dgamma"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="Function">
+  <eClassifiers xsi:type="ecore:EEnum" name="FunctionOperator">
     <eLiterals name="acos" literal="acos"/>
     <eLiterals name="acosh" value="1" literal="acosh"/>
     <eLiterals name="asin" value="2" literal="asin"/>

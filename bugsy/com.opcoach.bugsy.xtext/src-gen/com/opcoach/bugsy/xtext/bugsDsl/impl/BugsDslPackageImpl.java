@@ -10,9 +10,11 @@ import com.opcoach.bugsy.xtext.bugsDsl.BugsModel;
 import com.opcoach.bugsy.xtext.bugsDsl.Density;
 import com.opcoach.bugsy.xtext.bugsDsl.DeterministicRelation;
 import com.opcoach.bugsy.xtext.bugsDsl.Distribution;
+import com.opcoach.bugsy.xtext.bugsDsl.DistributionOperator;
 import com.opcoach.bugsy.xtext.bugsDsl.Expression;
 import com.opcoach.bugsy.xtext.bugsDsl.For;
 import com.opcoach.bugsy.xtext.bugsDsl.Function;
+import com.opcoach.bugsy.xtext.bugsDsl.FunctionOperator;
 import com.opcoach.bugsy.xtext.bugsDsl.Instruction;
 import com.opcoach.bugsy.xtext.bugsDsl.Relation;
 import com.opcoach.bugsy.xtext.bugsDsl.StochasticRelation;
@@ -95,6 +97,20 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass functionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass distributionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass expressionEClass = null;
 
   /**
@@ -102,7 +118,7 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EEnum distributionEEnum = null;
+  private EEnum distributionOperatorEEnum = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -116,7 +132,7 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EEnum functionEEnum = null;
+  private EEnum functionOperatorEEnum = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -346,16 +362,6 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getRelation_Params()
-  {
-    return (EReference)relationEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getStochasticRelation()
   {
     return stochasticRelationEClass;
@@ -369,6 +375,16 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
   public EAttribute getStochasticRelation_Distrib()
   {
     return (EAttribute)stochasticRelationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getStochasticRelation_Params()
+  {
+    return (EReference)stochasticRelationEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -396,9 +412,9 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getDeterministicRelation_Distrib()
+  public EClass getFunction()
   {
-    return (EAttribute)deterministicRelationEClass.getEStructuralFeatures().get(1);
+    return functionEClass;
   }
 
   /**
@@ -406,9 +422,49 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getDeterministicRelation_Function()
+  public EAttribute getFunction_Operation()
   {
-    return (EAttribute)deterministicRelationEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)functionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getFunction_Params()
+  {
+    return (EReference)functionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getDistribution()
+  {
+    return distributionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDistribution_Distrib()
+  {
+    return (EAttribute)distributionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDistribution_Params()
+  {
+    return (EReference)distributionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -466,9 +522,29 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EEnum getDistribution()
+  public EReference getExpression_Function()
   {
-    return distributionEEnum;
+    return (EReference)expressionEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getExpression_Distribution()
+  {
+    return (EReference)expressionEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EEnum getDistributionOperator()
+  {
+    return distributionOperatorEEnum;
   }
 
   /**
@@ -486,9 +562,9 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EEnum getFunction()
+  public EEnum getFunctionOperator()
   {
-    return functionEEnum;
+    return functionOperatorEEnum;
   }
 
   /**
@@ -542,26 +618,34 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
 
     relationEClass = createEClass(RELATION);
     createEReference(relationEClass, RELATION__NAME);
-    createEReference(relationEClass, RELATION__PARAMS);
 
     stochasticRelationEClass = createEClass(STOCHASTIC_RELATION);
     createEAttribute(stochasticRelationEClass, STOCHASTIC_RELATION__DISTRIB);
+    createEReference(stochasticRelationEClass, STOCHASTIC_RELATION__PARAMS);
 
     deterministicRelationEClass = createEClass(DETERMINISTIC_RELATION);
     createEReference(deterministicRelationEClass, DETERMINISTIC_RELATION__EXPRESSIONS);
-    createEAttribute(deterministicRelationEClass, DETERMINISTIC_RELATION__DISTRIB);
-    createEAttribute(deterministicRelationEClass, DETERMINISTIC_RELATION__FUNCTION);
+
+    functionEClass = createEClass(FUNCTION);
+    createEAttribute(functionEClass, FUNCTION__OPERATION);
+    createEReference(functionEClass, FUNCTION__PARAMS);
+
+    distributionEClass = createEClass(DISTRIBUTION);
+    createEAttribute(distributionEClass, DISTRIBUTION__DISTRIB);
+    createEReference(distributionEClass, DISTRIBUTION__PARAMS);
 
     expressionEClass = createEClass(EXPRESSION);
     createEReference(expressionEClass, EXPRESSION__LEFT);
     createEAttribute(expressionEClass, EXPRESSION__OP);
     createEReference(expressionEClass, EXPRESSION__RIGHT);
     createEReference(expressionEClass, EXPRESSION__VALUE);
+    createEReference(expressionEClass, EXPRESSION__FUNCTION);
+    createEReference(expressionEClass, EXPRESSION__DISTRIBUTION);
 
     // Create enums
-    distributionEEnum = createEEnum(DISTRIBUTION);
+    distributionOperatorEEnum = createEEnum(DISTRIBUTION_OPERATOR);
     densityEEnum = createEEnum(DENSITY);
-    functionEEnum = createEEnum(FUNCTION);
+    functionOperatorEEnum = createEEnum(FUNCTION_OPERATOR);
   }
 
   /**
@@ -620,40 +704,48 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
 
     initEClass(relationEClass, Relation.class, "Relation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getRelation_Name(), this.getArrayID(), null, "name", null, 0, 1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getRelation_Params(), this.getExpression(), null, "params", null, 0, -1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(stochasticRelationEClass, StochasticRelation.class, "StochasticRelation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getStochasticRelation_Distrib(), this.getDensity(), "distrib", null, 0, 1, StochasticRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStochasticRelation_Params(), this.getExpression(), null, "params", null, 0, -1, StochasticRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(deterministicRelationEClass, DeterministicRelation.class, "DeterministicRelation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getDeterministicRelation_Expressions(), this.getExpression(), null, "expressions", null, 0, -1, DeterministicRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getDeterministicRelation_Distrib(), this.getDistribution(), "distrib", null, 0, 1, DeterministicRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getDeterministicRelation_Function(), this.getFunction(), "function", null, 0, 1, DeterministicRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(functionEClass, Function.class, "Function", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getFunction_Operation(), this.getFunctionOperator(), "operation", null, 0, 1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFunction_Params(), this.getExpression(), null, "params", null, 0, -1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(distributionEClass, Distribution.class, "Distribution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDistribution_Distrib(), this.getDistributionOperator(), "distrib", null, 0, 1, Distribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDistribution_Params(), this.getExpression(), null, "params", null, 0, -1, Distribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getExpression_Left(), this.getExpression(), null, "left", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getExpression_Op(), ecorePackage.getEString(), "op", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExpression_Right(), this.getExpression(), null, "right", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExpression_Value(), this.getValue(), null, "value", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExpression_Function(), this.getFunction(), null, "function", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExpression_Distribution(), this.getDistribution(), null, "distribution", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Initialize enums and add enum literals
-    initEEnum(distributionEEnum, Distribution.class, "Distribution");
-    addEEnumLiteral(distributionEEnum, Distribution.DBERN);
-    addEEnumLiteral(distributionEEnum, Distribution.DBIN);
-    addEEnumLiteral(distributionEEnum, Distribution.DCHISQR);
-    addEEnumLiteral(distributionEEnum, Distribution.DDEXP);
-    addEEnumLiteral(distributionEEnum, Distribution.DEXP);
-    addEEnumLiteral(distributionEEnum, Distribution.DF);
-    addEEnumLiteral(distributionEEnum, Distribution.DGENGAMM);
-    addEEnumLiteral(distributionEEnum, Distribution.DHYPER);
-    addEEnumLiteral(distributionEEnum, Distribution.DLOGIS);
-    addEEnumLiteral(distributionEEnum, Distribution.DLNORM);
-    addEEnumLiteral(distributionEEnum, Distribution.DNEGBIN);
-    addEEnumLiteral(distributionEEnum, Distribution.DNCHISQR);
-    addEEnumLiteral(distributionEEnum, Distribution.DPAR);
-    addEEnumLiteral(distributionEEnum, Distribution.DPOIS);
-    addEEnumLiteral(distributionEEnum, Distribution.DT);
-    addEEnumLiteral(distributionEEnum, Distribution.DWEIB);
+    initEEnum(distributionOperatorEEnum, DistributionOperator.class, "DistributionOperator");
+    addEEnumLiteral(distributionOperatorEEnum, DistributionOperator.DBERN);
+    addEEnumLiteral(distributionOperatorEEnum, DistributionOperator.DBIN);
+    addEEnumLiteral(distributionOperatorEEnum, DistributionOperator.DCHISQR);
+    addEEnumLiteral(distributionOperatorEEnum, DistributionOperator.DDEXP);
+    addEEnumLiteral(distributionOperatorEEnum, DistributionOperator.DEXP);
+    addEEnumLiteral(distributionOperatorEEnum, DistributionOperator.DF);
+    addEEnumLiteral(distributionOperatorEEnum, DistributionOperator.DGENGAMM);
+    addEEnumLiteral(distributionOperatorEEnum, DistributionOperator.DHYPER);
+    addEEnumLiteral(distributionOperatorEEnum, DistributionOperator.DLOGIS);
+    addEEnumLiteral(distributionOperatorEEnum, DistributionOperator.DLNORM);
+    addEEnumLiteral(distributionOperatorEEnum, DistributionOperator.DNEGBIN);
+    addEEnumLiteral(distributionOperatorEEnum, DistributionOperator.DNCHISQR);
+    addEEnumLiteral(distributionOperatorEEnum, DistributionOperator.DPAR);
+    addEEnumLiteral(distributionOperatorEEnum, DistributionOperator.DPOIS);
+    addEEnumLiteral(distributionOperatorEEnum, DistributionOperator.DT);
+    addEEnumLiteral(distributionOperatorEEnum, DistributionOperator.DWEIB);
 
     initEEnum(densityEEnum, Density.class, "Density");
     addEEnumLiteral(densityEEnum, Density.DNORM);
@@ -661,17 +753,17 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
     addEEnumLiteral(densityEEnum, Density.DBETA);
     addEEnumLiteral(densityEEnum, Density.DGAMMA);
 
-    initEEnum(functionEEnum, Function.class, "Function");
-    addEEnumLiteral(functionEEnum, Function.ACOS);
-    addEEnumLiteral(functionEEnum, Function.ACOSH);
-    addEEnumLiteral(functionEEnum, Function.ASIN);
-    addEEnumLiteral(functionEEnum, Function.ASINH);
-    addEEnumLiteral(functionEEnum, Function.ATAN);
-    addEEnumLiteral(functionEEnum, Function.LOG);
-    addEEnumLiteral(functionEEnum, Function.EP);
-    addEEnumLiteral(functionEEnum, Function.C);
-    addEEnumLiteral(functionEEnum, Function.MEAN);
-    addEEnumLiteral(functionEEnum, Function.SQRT);
+    initEEnum(functionOperatorEEnum, FunctionOperator.class, "FunctionOperator");
+    addEEnumLiteral(functionOperatorEEnum, FunctionOperator.ACOS);
+    addEEnumLiteral(functionOperatorEEnum, FunctionOperator.ACOSH);
+    addEEnumLiteral(functionOperatorEEnum, FunctionOperator.ASIN);
+    addEEnumLiteral(functionOperatorEEnum, FunctionOperator.ASINH);
+    addEEnumLiteral(functionOperatorEEnum, FunctionOperator.ATAN);
+    addEEnumLiteral(functionOperatorEEnum, FunctionOperator.LOG);
+    addEEnumLiteral(functionOperatorEEnum, FunctionOperator.EP);
+    addEEnumLiteral(functionOperatorEEnum, FunctionOperator.C);
+    addEEnumLiteral(functionOperatorEEnum, FunctionOperator.MEAN);
+    addEEnumLiteral(functionOperatorEEnum, FunctionOperator.SQRT);
 
     // Create resource
     createResource(eNS_URI);

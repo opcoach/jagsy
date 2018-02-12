@@ -18,7 +18,6 @@ import org.eclipse.xtext.Keyword;
 import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.TerminalRule;
-import org.eclipse.xtext.UnorderedGroup;
 import org.eclipse.xtext.common.services.TerminalsGrammarAccess;
 import org.eclipse.xtext.service.AbstractElementFinder.AbstractEnumRuleElementFinder;
 import org.eclipse.xtext.service.AbstractElementFinder.AbstractGrammarElementFinder;
@@ -414,36 +413,14 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
 		private final Keyword cLessThanSignHyphenMinusKeyword_2_0 = (Keyword)cAlternatives_2.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_2_1 = (Keyword)cAlternatives_2.eContents().get(1);
-		private final Alternatives cAlternatives_3 = (Alternatives)cGroup.eContents().get(3);
-		private final Assignment cExpressionsAssignment_3_0 = (Assignment)cAlternatives_3.eContents().get(0);
-		private final RuleCall cExpressionsExpressionParserRuleCall_3_0_0 = (RuleCall)cExpressionsAssignment_3_0.eContents().get(0);
-		private final Group cGroup_3_1 = (Group)cAlternatives_3.eContents().get(1);
-		private final UnorderedGroup cUnorderedGroup_3_1_0 = (UnorderedGroup)cGroup_3_1.eContents().get(0);
-		private final Assignment cDistribAssignment_3_1_0_0 = (Assignment)cUnorderedGroup_3_1_0.eContents().get(0);
-		private final RuleCall cDistribDistributionEnumRuleCall_3_1_0_0_0 = (RuleCall)cDistribAssignment_3_1_0_0.eContents().get(0);
-		private final Assignment cFunctionAssignment_3_1_0_1 = (Assignment)cUnorderedGroup_3_1_0.eContents().get(1);
-		private final RuleCall cFunctionFunctionEnumRuleCall_3_1_0_1_0 = (RuleCall)cFunctionAssignment_3_1_0_1.eContents().get(0);
-		private final Alternatives cAlternatives_3_1_1 = (Alternatives)cGroup_3_1.eContents().get(1);
-		private final Keyword cLeftParenthesisRightParenthesisKeyword_3_1_1_0 = (Keyword)cAlternatives_3_1_1.eContents().get(0);
-		private final Group cGroup_3_1_1_1 = (Group)cAlternatives_3_1_1.eContents().get(1);
-		private final Keyword cLeftParenthesisKeyword_3_1_1_1_0 = (Keyword)cGroup_3_1_1_1.eContents().get(0);
-		private final Group cGroup_3_1_1_1_1 = (Group)cGroup_3_1_1_1.eContents().get(1);
-		private final Group cGroup_3_1_1_1_1_0 = (Group)cGroup_3_1_1_1_1.eContents().get(0);
-		private final Assignment cParamsAssignment_3_1_1_1_1_0_0 = (Assignment)cGroup_3_1_1_1_1_0.eContents().get(0);
-		private final RuleCall cParamsExpressionParserRuleCall_3_1_1_1_1_0_0_0 = (RuleCall)cParamsAssignment_3_1_1_1_1_0_0.eContents().get(0);
-		private final Group cGroup_3_1_1_1_1_1 = (Group)cGroup_3_1_1_1_1.eContents().get(1);
-		private final Keyword cCommaKeyword_3_1_1_1_1_1_0 = (Keyword)cGroup_3_1_1_1_1_1.eContents().get(0);
-		private final Assignment cParamsAssignment_3_1_1_1_1_1_1 = (Assignment)cGroup_3_1_1_1_1_1.eContents().get(1);
-		private final RuleCall cParamsExpressionParserRuleCall_3_1_1_1_1_1_1_0 = (RuleCall)cParamsAssignment_3_1_1_1_1_1_1.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_3_1_1_1_1_2 = (Keyword)cGroup_3_1_1_1_1.eContents().get(2);
+		private final Assignment cExpressionsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cExpressionsExpressionParserRuleCall_3_0 = (RuleCall)cExpressionsAssignment_3.eContents().get(0);
 		
 		//DeterministicRelation:
-		//	{DeterministicRelation} name=ArrayID ('<-' | '=') (=> expressions+=Expression | (distrib=Distribution?
-		//	& function=Function?) ('()' | '(' (=> (params+=Expression) (',' params+=Expression)* ')')?));
+		//	{DeterministicRelation} name=ArrayID ('<-' | '=') => expressions+=Expression;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{DeterministicRelation} name=ArrayID ('<-' | '=') (=> expressions+=Expression | (distrib=Distribution? &
-		//function=Function?) ('()' | '(' (=> (params+=Expression) (',' params+=Expression)* ')')?))
+		//{DeterministicRelation} name=ArrayID ('<-' | '=') => expressions+=Expression
 		public Group getGroup() { return cGroup; }
 		
 		//{DeterministicRelation}
@@ -464,72 +441,11 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		//'='
 		public Keyword getEqualsSignKeyword_2_1() { return cEqualsSignKeyword_2_1; }
 		
-		//=> expressions+=Expression | (distrib=Distribution? & function=Function?) ('()' | '(' (=> (params+=Expression) (','
-		//params+=Expression)* ')')?)
-		public Alternatives getAlternatives_3() { return cAlternatives_3; }
-		
 		//=> expressions+=Expression
-		public Assignment getExpressionsAssignment_3_0() { return cExpressionsAssignment_3_0; }
+		public Assignment getExpressionsAssignment_3() { return cExpressionsAssignment_3; }
 		
 		//Expression
-		public RuleCall getExpressionsExpressionParserRuleCall_3_0_0() { return cExpressionsExpressionParserRuleCall_3_0_0; }
-		
-		//(distrib=Distribution? & function=Function?) ('()' | '(' (=> (params+=Expression) (',' params+=Expression)* ')')?)
-		public Group getGroup_3_1() { return cGroup_3_1; }
-		
-		//distrib=Distribution? & function=Function?
-		public UnorderedGroup getUnorderedGroup_3_1_0() { return cUnorderedGroup_3_1_0; }
-		
-		//distrib=Distribution?
-		public Assignment getDistribAssignment_3_1_0_0() { return cDistribAssignment_3_1_0_0; }
-		
-		//Distribution
-		public RuleCall getDistribDistributionEnumRuleCall_3_1_0_0_0() { return cDistribDistributionEnumRuleCall_3_1_0_0_0; }
-		
-		//function=Function?
-		public Assignment getFunctionAssignment_3_1_0_1() { return cFunctionAssignment_3_1_0_1; }
-		
-		//Function
-		public RuleCall getFunctionFunctionEnumRuleCall_3_1_0_1_0() { return cFunctionFunctionEnumRuleCall_3_1_0_1_0; }
-		
-		//'()' | '(' (=> (params+=Expression) (',' params+=Expression)* ')')?
-		public Alternatives getAlternatives_3_1_1() { return cAlternatives_3_1_1; }
-		
-		//'()'
-		public Keyword getLeftParenthesisRightParenthesisKeyword_3_1_1_0() { return cLeftParenthesisRightParenthesisKeyword_3_1_1_0; }
-		
-		//'(' (=> (params+=Expression) (',' params+=Expression)* ')')?
-		public Group getGroup_3_1_1_1() { return cGroup_3_1_1_1; }
-		
-		//'('
-		public Keyword getLeftParenthesisKeyword_3_1_1_1_0() { return cLeftParenthesisKeyword_3_1_1_1_0; }
-		
-		//(=> (params+=Expression) (',' params+=Expression)* ')')?
-		public Group getGroup_3_1_1_1_1() { return cGroup_3_1_1_1_1; }
-		
-		//=> (params+=Expression)
-		public Group getGroup_3_1_1_1_1_0() { return cGroup_3_1_1_1_1_0; }
-		
-		//params+=Expression
-		public Assignment getParamsAssignment_3_1_1_1_1_0_0() { return cParamsAssignment_3_1_1_1_1_0_0; }
-		
-		//Expression
-		public RuleCall getParamsExpressionParserRuleCall_3_1_1_1_1_0_0_0() { return cParamsExpressionParserRuleCall_3_1_1_1_1_0_0_0; }
-		
-		//(',' params+=Expression)*
-		public Group getGroup_3_1_1_1_1_1() { return cGroup_3_1_1_1_1_1; }
-		
-		//','
-		public Keyword getCommaKeyword_3_1_1_1_1_1_0() { return cCommaKeyword_3_1_1_1_1_1_0; }
-		
-		//params+=Expression
-		public Assignment getParamsAssignment_3_1_1_1_1_1_1() { return cParamsAssignment_3_1_1_1_1_1_1; }
-		
-		//Expression
-		public RuleCall getParamsExpressionParserRuleCall_3_1_1_1_1_1_1_0() { return cParamsExpressionParserRuleCall_3_1_1_1_1_1_1_0; }
-		
-		//')'
-		public Keyword getRightParenthesisKeyword_3_1_1_1_1_2() { return cRightParenthesisKeyword_3_1_1_1_1_2; }
+		public RuleCall getExpressionsExpressionParserRuleCall_3_0() { return cExpressionsExpressionParserRuleCall_3_0; }
 	}
 	public class OperatorElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.opcoach.bugsy.xtext.BugsDsl.Operator");
@@ -557,6 +473,148 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//'/'
 		public Keyword getSolidusKeyword_3() { return cSolidusKeyword_3; }
+	}
+	public class FunctionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.opcoach.bugsy.xtext.BugsDsl.Function");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cOperationAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cOperationFunctionOperatorEnumRuleCall_0_0 = (RuleCall)cOperationAssignment_0.eContents().get(0);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final Keyword cLeftParenthesisRightParenthesisKeyword_1_0 = (Keyword)cAlternatives_1.eContents().get(0);
+		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_1_1_0 = (Keyword)cGroup_1_1.eContents().get(0);
+		private final Group cGroup_1_1_1 = (Group)cGroup_1_1.eContents().get(1);
+		private final Group cGroup_1_1_1_0 = (Group)cGroup_1_1_1.eContents().get(0);
+		private final Assignment cParamsAssignment_1_1_1_0_0 = (Assignment)cGroup_1_1_1_0.eContents().get(0);
+		private final RuleCall cParamsExpressionParserRuleCall_1_1_1_0_0_0 = (RuleCall)cParamsAssignment_1_1_1_0_0.eContents().get(0);
+		private final Group cGroup_1_1_1_1 = (Group)cGroup_1_1_1.eContents().get(1);
+		private final Keyword cCommaKeyword_1_1_1_1_0 = (Keyword)cGroup_1_1_1_1.eContents().get(0);
+		private final Assignment cParamsAssignment_1_1_1_1_1 = (Assignment)cGroup_1_1_1_1.eContents().get(1);
+		private final RuleCall cParamsExpressionParserRuleCall_1_1_1_1_1_0 = (RuleCall)cParamsAssignment_1_1_1_1_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_1_1_1_2 = (Keyword)cGroup_1_1_1.eContents().get(2);
+		
+		//Function:
+		//	operation=FunctionOperator ('()' | '(' (=> (params+=Expression) (',' params+=Expression)* ')')?);
+		@Override public ParserRule getRule() { return rule; }
+		
+		//operation=FunctionOperator ('()' | '(' (=> (params+=Expression) (',' params+=Expression)* ')')?)
+		public Group getGroup() { return cGroup; }
+		
+		//operation=FunctionOperator
+		public Assignment getOperationAssignment_0() { return cOperationAssignment_0; }
+		
+		//FunctionOperator
+		public RuleCall getOperationFunctionOperatorEnumRuleCall_0_0() { return cOperationFunctionOperatorEnumRuleCall_0_0; }
+		
+		//'()' | '(' (=> (params+=Expression) (',' params+=Expression)* ')')?
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+		
+		//'()'
+		public Keyword getLeftParenthesisRightParenthesisKeyword_1_0() { return cLeftParenthesisRightParenthesisKeyword_1_0; }
+		
+		//'(' (=> (params+=Expression) (',' params+=Expression)* ')')?
+		public Group getGroup_1_1() { return cGroup_1_1; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_1_1_0() { return cLeftParenthesisKeyword_1_1_0; }
+		
+		//(=> (params+=Expression) (',' params+=Expression)* ')')?
+		public Group getGroup_1_1_1() { return cGroup_1_1_1; }
+		
+		//=> (params+=Expression)
+		public Group getGroup_1_1_1_0() { return cGroup_1_1_1_0; }
+		
+		//params+=Expression
+		public Assignment getParamsAssignment_1_1_1_0_0() { return cParamsAssignment_1_1_1_0_0; }
+		
+		//Expression
+		public RuleCall getParamsExpressionParserRuleCall_1_1_1_0_0_0() { return cParamsExpressionParserRuleCall_1_1_1_0_0_0; }
+		
+		//(',' params+=Expression)*
+		public Group getGroup_1_1_1_1() { return cGroup_1_1_1_1; }
+		
+		//','
+		public Keyword getCommaKeyword_1_1_1_1_0() { return cCommaKeyword_1_1_1_1_0; }
+		
+		//params+=Expression
+		public Assignment getParamsAssignment_1_1_1_1_1() { return cParamsAssignment_1_1_1_1_1; }
+		
+		//Expression
+		public RuleCall getParamsExpressionParserRuleCall_1_1_1_1_1_0() { return cParamsExpressionParserRuleCall_1_1_1_1_1_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_1_1_1_2() { return cRightParenthesisKeyword_1_1_1_2; }
+	}
+	public class DistributionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.opcoach.bugsy.xtext.BugsDsl.Distribution");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cDistribAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cDistribDistributionOperatorEnumRuleCall_0_0 = (RuleCall)cDistribAssignment_0.eContents().get(0);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final Keyword cLeftParenthesisRightParenthesisKeyword_1_0 = (Keyword)cAlternatives_1.eContents().get(0);
+		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_1_1_0 = (Keyword)cGroup_1_1.eContents().get(0);
+		private final Group cGroup_1_1_1 = (Group)cGroup_1_1.eContents().get(1);
+		private final Group cGroup_1_1_1_0 = (Group)cGroup_1_1_1.eContents().get(0);
+		private final Assignment cParamsAssignment_1_1_1_0_0 = (Assignment)cGroup_1_1_1_0.eContents().get(0);
+		private final RuleCall cParamsExpressionParserRuleCall_1_1_1_0_0_0 = (RuleCall)cParamsAssignment_1_1_1_0_0.eContents().get(0);
+		private final Group cGroup_1_1_1_1 = (Group)cGroup_1_1_1.eContents().get(1);
+		private final Keyword cCommaKeyword_1_1_1_1_0 = (Keyword)cGroup_1_1_1_1.eContents().get(0);
+		private final Assignment cParamsAssignment_1_1_1_1_1 = (Assignment)cGroup_1_1_1_1.eContents().get(1);
+		private final RuleCall cParamsExpressionParserRuleCall_1_1_1_1_1_0 = (RuleCall)cParamsAssignment_1_1_1_1_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_1_1_1_2 = (Keyword)cGroup_1_1_1.eContents().get(2);
+		
+		//Distribution:
+		//	distrib=DistributionOperator ('()' | '(' (=> (params+=Expression) (',' params+=Expression)* ')')?);
+		@Override public ParserRule getRule() { return rule; }
+		
+		//distrib=DistributionOperator ('()' | '(' (=> (params+=Expression) (',' params+=Expression)* ')')?)
+		public Group getGroup() { return cGroup; }
+		
+		//distrib=DistributionOperator
+		public Assignment getDistribAssignment_0() { return cDistribAssignment_0; }
+		
+		//DistributionOperator
+		public RuleCall getDistribDistributionOperatorEnumRuleCall_0_0() { return cDistribDistributionOperatorEnumRuleCall_0_0; }
+		
+		//'()' | '(' (=> (params+=Expression) (',' params+=Expression)* ')')?
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+		
+		//'()'
+		public Keyword getLeftParenthesisRightParenthesisKeyword_1_0() { return cLeftParenthesisRightParenthesisKeyword_1_0; }
+		
+		//'(' (=> (params+=Expression) (',' params+=Expression)* ')')?
+		public Group getGroup_1_1() { return cGroup_1_1; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_1_1_0() { return cLeftParenthesisKeyword_1_1_0; }
+		
+		//(=> (params+=Expression) (',' params+=Expression)* ')')?
+		public Group getGroup_1_1_1() { return cGroup_1_1_1; }
+		
+		//=> (params+=Expression)
+		public Group getGroup_1_1_1_0() { return cGroup_1_1_1_0; }
+		
+		//params+=Expression
+		public Assignment getParamsAssignment_1_1_1_0_0() { return cParamsAssignment_1_1_1_0_0; }
+		
+		//Expression
+		public RuleCall getParamsExpressionParserRuleCall_1_1_1_0_0_0() { return cParamsExpressionParserRuleCall_1_1_1_0_0_0; }
+		
+		//(',' params+=Expression)*
+		public Group getGroup_1_1_1_1() { return cGroup_1_1_1_1; }
+		
+		//','
+		public Keyword getCommaKeyword_1_1_1_1_0() { return cCommaKeyword_1_1_1_1_0; }
+		
+		//params+=Expression
+		public Assignment getParamsAssignment_1_1_1_1_1() { return cParamsAssignment_1_1_1_1_1; }
+		
+		//Expression
+		public RuleCall getParamsExpressionParserRuleCall_1_1_1_1_1_0() { return cParamsExpressionParserRuleCall_1_1_1_1_1_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_1_1_1_2() { return cRightParenthesisKeyword_1_1_1_2; }
 	}
 	public class ExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.opcoach.bugsy.xtext.BugsDsl.Expression");
@@ -607,12 +665,16 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightParenthesisKeyword_0_2 = (Keyword)cGroup_0.eContents().get(2);
 		private final Assignment cValueAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
 		private final RuleCall cValueValueParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final Assignment cFunctionAssignment_2 = (Assignment)cAlternatives.eContents().get(2);
+		private final RuleCall cFunctionFunctionParserRuleCall_2_0 = (RuleCall)cFunctionAssignment_2.eContents().get(0);
+		private final Assignment cDistributionAssignment_3 = (Assignment)cAlternatives.eContents().get(3);
+		private final RuleCall cDistributionDistributionParserRuleCall_3_0 = (RuleCall)cDistributionAssignment_3.eContents().get(0);
 		
 		//TerminalExpression Expression:
-		//	'(' Expression ')' | value=Value;
+		//	'(' Expression ')' | value=Value | function=Function | distribution=Distribution;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'(' Expression ')' | value=Value
+		//'(' Expression ')' | value=Value | function=Function | distribution=Distribution
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//'(' Expression ')'
@@ -632,10 +694,22 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Value
 		public RuleCall getValueValueParserRuleCall_1_0() { return cValueValueParserRuleCall_1_0; }
+		
+		//function=Function
+		public Assignment getFunctionAssignment_2() { return cFunctionAssignment_2; }
+		
+		//Function
+		public RuleCall getFunctionFunctionParserRuleCall_2_0() { return cFunctionFunctionParserRuleCall_2_0; }
+		
+		//distribution=Distribution
+		public Assignment getDistributionAssignment_3() { return cDistributionAssignment_3; }
+		
+		//Distribution
+		public RuleCall getDistributionDistributionParserRuleCall_3_0() { return cDistributionDistributionParserRuleCall_3_0; }
 	}
 	
-	public class DistributionElements extends AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "com.opcoach.bugsy.xtext.BugsDsl.Distribution");
+	public class DistributionOperatorElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "com.opcoach.bugsy.xtext.BugsDsl.DistributionOperator");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final EnumLiteralDeclaration cDbernEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
 		private final Keyword cDbernDbernKeyword_0_0 = (Keyword)cDbernEnumLiteralDeclaration_0.eContents().get(0);
@@ -670,7 +744,7 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final EnumLiteralDeclaration cDweibEnumLiteralDeclaration_15 = (EnumLiteralDeclaration)cAlternatives.eContents().get(15);
 		private final Keyword cDweibDweibKeyword_15_0 = (Keyword)cDweibEnumLiteralDeclaration_15.eContents().get(0);
 		
-		//enum Distribution:
+		//enum DistributionOperator:
 		//	dbern | dbin | dchisqr | ddexp | dexp | df |
 		//	dgengamm='dgen.gamma' | dhyper | dlogis | dlnorm | dnegbin | dnchisqr | dpar | dpois | dt | dweib;
 		public EnumRule getRule() { return rule; }
@@ -818,8 +892,8 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		//'dgamma'
 		public Keyword getDgammaDgammaKeyword_3_0() { return cDgammaDgammaKeyword_3_0; }
 	}
-	public class FunctionElements extends AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "com.opcoach.bugsy.xtext.BugsDsl.Function");
+	public class FunctionOperatorElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "com.opcoach.bugsy.xtext.BugsDsl.FunctionOperator");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final EnumLiteralDeclaration cAcosEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
 		private final Keyword cAcosAcosKeyword_0_0 = (Keyword)cAcosEnumLiteralDeclaration_0.eContents().get(0);
@@ -842,7 +916,7 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final EnumLiteralDeclaration cSqrtEnumLiteralDeclaration_9 = (EnumLiteralDeclaration)cAlternatives.eContents().get(9);
 		private final Keyword cSqrtSqrtKeyword_9_0 = (Keyword)cSqrtEnumLiteralDeclaration_9.eContents().get(0);
 		
-		//enum Function:
+		//enum FunctionOperator:
 		//	acos | acosh | asin | asinh | atan | log | ep='exp' | c | mean |
 		//	sqrt;
 		public EnumRule getRule() { return rule; }
@@ -924,11 +998,13 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 	private final StochasticRelationElements pStochasticRelation;
 	private final DeterministicRelationElements pDeterministicRelation;
 	private final OperatorElements pOperator;
+	private final FunctionElements pFunction;
+	private final DistributionElements pDistribution;
 	private final ExpressionElements pExpression;
 	private final TerminalExpressionElements pTerminalExpression;
-	private final DistributionElements eDistribution;
+	private final DistributionOperatorElements eDistributionOperator;
 	private final DensityElements eDensity;
-	private final FunctionElements eFunction;
+	private final FunctionOperatorElements eFunctionOperator;
 	
 	private final Grammar grammar;
 	
@@ -952,11 +1028,13 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.pStochasticRelation = new StochasticRelationElements();
 		this.pDeterministicRelation = new DeterministicRelationElements();
 		this.pOperator = new OperatorElements();
+		this.pFunction = new FunctionElements();
+		this.pDistribution = new DistributionElements();
 		this.pExpression = new ExpressionElements();
 		this.pTerminalExpression = new TerminalExpressionElements();
-		this.eDistribution = new DistributionElements();
+		this.eDistributionOperator = new DistributionOperatorElements();
 		this.eDensity = new DensityElements();
-		this.eFunction = new FunctionElements();
+		this.eFunctionOperator = new FunctionOperatorElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -1096,8 +1174,7 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DeterministicRelation:
-	//	{DeterministicRelation} name=ArrayID ('<-' | '=') (=> expressions+=Expression | (distrib=Distribution?
-	//	& function=Function?) ('()' | '(' (=> (params+=Expression) (',' params+=Expression)* ')')?));
+	//	{DeterministicRelation} name=ArrayID ('<-' | '=') => expressions+=Expression;
 	public DeterministicRelationElements getDeterministicRelationAccess() {
 		return pDeterministicRelation;
 	}
@@ -1116,6 +1193,26 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getOperatorAccess().getRule();
 	}
 	
+	//Function:
+	//	operation=FunctionOperator ('()' | '(' (=> (params+=Expression) (',' params+=Expression)* ')')?);
+	public FunctionElements getFunctionAccess() {
+		return pFunction;
+	}
+	
+	public ParserRule getFunctionRule() {
+		return getFunctionAccess().getRule();
+	}
+	
+	//Distribution:
+	//	distrib=DistributionOperator ('()' | '(' (=> (params+=Expression) (',' params+=Expression)* ')')?);
+	public DistributionElements getDistributionAccess() {
+		return pDistribution;
+	}
+	
+	public ParserRule getDistributionRule() {
+		return getDistributionAccess().getRule();
+	}
+	
 	//Expression:
 	//	TerminalExpression ({Expression.left=current} op=Operator
 	//	right=TerminalExpression)*;
@@ -1128,7 +1225,7 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//TerminalExpression Expression:
-	//	'(' Expression ')' | value=Value;
+	//	'(' Expression ')' | value=Value | function=Function | distribution=Distribution;
 	public TerminalExpressionElements getTerminalExpressionAccess() {
 		return pTerminalExpression;
 	}
@@ -1137,15 +1234,15 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getTerminalExpressionAccess().getRule();
 	}
 	
-	//enum Distribution:
+	//enum DistributionOperator:
 	//	dbern | dbin | dchisqr | ddexp | dexp | df |
 	//	dgengamm='dgen.gamma' | dhyper | dlogis | dlnorm | dnegbin | dnchisqr | dpar | dpois | dt | dweib;
-	public DistributionElements getDistributionAccess() {
-		return eDistribution;
+	public DistributionOperatorElements getDistributionOperatorAccess() {
+		return eDistributionOperator;
 	}
 	
-	public EnumRule getDistributionRule() {
-		return getDistributionAccess().getRule();
+	public EnumRule getDistributionOperatorRule() {
+		return getDistributionOperatorAccess().getRule();
 	}
 	
 	//enum Density:
@@ -1158,15 +1255,15 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getDensityAccess().getRule();
 	}
 	
-	//enum Function:
+	//enum FunctionOperator:
 	//	acos | acosh | asin | asinh | atan | log | ep='exp' | c | mean |
 	//	sqrt;
-	public FunctionElements getFunctionAccess() {
-		return eFunction;
+	public FunctionOperatorElements getFunctionOperatorAccess() {
+		return eFunctionOperator;
 	}
 	
-	public EnumRule getFunctionRule() {
-		return getFunctionAccess().getRule();
+	public EnumRule getFunctionOperatorRule() {
+		return getFunctionOperatorAccess().getRule();
 	}
 	
 	//terminal INT returns ecore::EInt:
