@@ -40,11 +40,6 @@
       <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//Function/ep"/>
       <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//Function/c"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="BugsDsl.ecore#//RelationType">
-      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//RelationType/STOCHASTIC"/>
-      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//RelationType/DETERMIN1"/>
-      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//RelationType/DETERMIN2"/>
-    </genEnums>
     <genClasses ecoreClass="BugsDsl.ecore#//BugsModel">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BugsDsl.ecore#//BugsModel/instructions"/>
     </genClasses>
@@ -61,14 +56,16 @@
     </genClasses>
     <genClasses ecoreClass="BugsDsl.ecore#//Relation">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BugsDsl.ecore#//Relation/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BugsDsl.ecore#//Relation/params"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BugsDsl.ecore#//Relation/relation"/>
     </genClasses>
     <genClasses ecoreClass="BugsDsl.ecore#//StochasticRelation">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BugsDsl.ecore#//StochasticRelation/distrib"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BugsDsl.ecore#//StochasticRelation/params"/>
     </genClasses>
     <genClasses ecoreClass="BugsDsl.ecore#//DeterministicRelation">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BugsDsl.ecore#//DeterministicRelation/distrib"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BugsDsl.ecore#//DeterministicRelation/function"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BugsDsl.ecore#//DeterministicRelation/params"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -15,7 +15,6 @@ import com.opcoach.bugsy.xtext.bugsDsl.Instruction;
 import com.opcoach.bugsy.xtext.bugsDsl.Parameter;
 import com.opcoach.bugsy.xtext.bugsDsl.Parameters;
 import com.opcoach.bugsy.xtext.bugsDsl.Relation;
-import com.opcoach.bugsy.xtext.bugsDsl.RelationType;
 import com.opcoach.bugsy.xtext.bugsDsl.StochasticRelation;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -110,13 +109,6 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
    * @generated
    */
   private EEnum functionEEnum = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EEnum relationTypeEEnum = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -316,7 +308,7 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getRelation_Params()
+  public EReference getRelation_Relation()
   {
     return (EReference)relationEClass.getEStructuralFeatures().get(1);
   }
@@ -339,6 +331,16 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
   public EAttribute getStochasticRelation_Distrib()
   {
     return (EAttribute)stochasticRelationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getStochasticRelation_Params()
+  {
+    return (EReference)stochasticRelationEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -376,6 +378,16 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getDeterministicRelation_Params()
+  {
+    return (EReference)deterministicRelationEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EEnum getDistribution()
   {
     return distributionEEnum;
@@ -399,16 +411,6 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
   public EEnum getFunction()
   {
     return functionEEnum;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EEnum getRelationType()
-  {
-    return relationTypeEEnum;
   }
 
   /**
@@ -459,20 +461,21 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
 
     relationEClass = createEClass(RELATION);
     createEAttribute(relationEClass, RELATION__NAME);
-    createEReference(relationEClass, RELATION__PARAMS);
+    createEReference(relationEClass, RELATION__RELATION);
 
     stochasticRelationEClass = createEClass(STOCHASTIC_RELATION);
     createEAttribute(stochasticRelationEClass, STOCHASTIC_RELATION__DISTRIB);
+    createEReference(stochasticRelationEClass, STOCHASTIC_RELATION__PARAMS);
 
     deterministicRelationEClass = createEClass(DETERMINISTIC_RELATION);
     createEAttribute(deterministicRelationEClass, DETERMINISTIC_RELATION__DISTRIB);
     createEAttribute(deterministicRelationEClass, DETERMINISTIC_RELATION__FUNCTION);
+    createEReference(deterministicRelationEClass, DETERMINISTIC_RELATION__PARAMS);
 
     // Create enums
     distributionEEnum = createEEnum(DISTRIBUTION);
     densityEEnum = createEEnum(DENSITY);
     functionEEnum = createEEnum(FUNCTION);
-    relationTypeEEnum = createEEnum(RELATION_TYPE);
   }
 
   /**
@@ -506,8 +509,6 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
     // Add supertypes to classes
     forEClass.getESuperTypes().add(this.getInstruction());
     relationEClass.getESuperTypes().add(this.getInstruction());
-    stochasticRelationEClass.getESuperTypes().add(this.getRelation());
-    deterministicRelationEClass.getESuperTypes().add(this.getRelation());
 
     // Initialize classes and features; add operations and parameters
     initEClass(bugsModelEClass, BugsModel.class, "BugsModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -528,14 +529,16 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
 
     initEClass(relationEClass, Relation.class, "Relation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getRelation_Name(), ecorePackage.getEString(), "name", null, 0, 1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getRelation_Params(), this.getParameter(), null, "params", null, 0, -1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRelation_Relation(), ecorePackage.getEObject(), null, "relation", null, 0, 1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(stochasticRelationEClass, StochasticRelation.class, "StochasticRelation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getStochasticRelation_Distrib(), this.getDensity(), "distrib", null, 0, 1, StochasticRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStochasticRelation_Params(), this.getParameter(), null, "params", null, 0, -1, StochasticRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(deterministicRelationEClass, DeterministicRelation.class, "DeterministicRelation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDeterministicRelation_Distrib(), this.getDistribution(), "distrib", null, 0, 1, DeterministicRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getDeterministicRelation_Function(), this.getFunction(), "function", null, 0, 1, DeterministicRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDeterministicRelation_Params(), this.getParameter(), null, "params", null, 0, -1, DeterministicRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Initialize enums and add enum literals
     initEEnum(distributionEEnum, Distribution.class, "Distribution");
@@ -571,11 +574,6 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
     addEEnumLiteral(functionEEnum, Function.LOG);
     addEEnumLiteral(functionEEnum, Function.EP);
     addEEnumLiteral(functionEEnum, Function.C);
-
-    initEEnum(relationTypeEEnum, RelationType.class, "RelationType");
-    addEEnumLiteral(relationTypeEEnum, RelationType.STOCHASTIC);
-    addEEnumLiteral(relationTypeEEnum, RelationType.DETERMIN1);
-    addEEnumLiteral(relationTypeEEnum, RelationType.DETERMIN2);
 
     // Create resource
     createResource(eNS_URI);

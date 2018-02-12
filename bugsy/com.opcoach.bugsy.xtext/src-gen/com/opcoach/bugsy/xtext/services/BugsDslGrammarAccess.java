@@ -19,6 +19,7 @@ import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.TerminalRule;
 import org.eclipse.xtext.UnorderedGroup;
+import org.eclipse.xtext.common.services.TerminalsGrammarAccess;
 import org.eclipse.xtext.service.AbstractElementFinder.AbstractEnumRuleElementFinder;
 import org.eclipse.xtext.service.AbstractElementFinder.AbstractGrammarElementFinder;
 import org.eclipse.xtext.service.GrammarProvider;
@@ -175,22 +176,14 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	public class NumericElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.opcoach.bugsy.xtext.BugsDsl.Numeric");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cINTTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cFLOATTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cINTTerminalRuleCall = (RuleCall)rule.eContents().get(1);
 		
 		//Numeric:
-		//	INT | FLOAT;
+		//	INT;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//INT | FLOAT
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
 		//INT
-		public RuleCall getINTTerminalRuleCall_0() { return cINTTerminalRuleCall_0; }
-		
-		//FLOAT
-		public RuleCall getFLOATTerminalRuleCall_1() { return cFLOATTerminalRuleCall_1; }
+		public RuleCall getINTTerminalRuleCall() { return cINTTerminalRuleCall; }
 	}
 	public class ValueElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.opcoach.bugsy.xtext.BugsDsl.Value");
@@ -198,6 +191,7 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNumericParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cIDTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
+		//// | FLOAT;
 		//Value:
 		//	Numeric | ID;
 		@Override public ParserRule getRule() { return rule; }
@@ -236,28 +230,43 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	public class RelationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.opcoach.bugsy.xtext.BugsDsl.Relation");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cStochasticRelationParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cDeterministicRelationParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
+		private final Assignment cRelationAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Alternatives cRelationAlternatives_1_0 = (Alternatives)cRelationAssignment_1.eContents().get(0);
+		private final RuleCall cRelationStochasticRelationParserRuleCall_1_0_0 = (RuleCall)cRelationAlternatives_1_0.eContents().get(0);
+		private final RuleCall cRelationDeterministicRelationParserRuleCall_1_0_1 = (RuleCall)cRelationAlternatives_1_0.eContents().get(1);
 		
 		//Relation:
-		//	StochasticRelation | DeterministicRelation;
+		//	name=ID relation=(StochasticRelation | DeterministicRelation);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//StochasticRelation | DeterministicRelation
-		public Alternatives getAlternatives() { return cAlternatives; }
+		//name=ID relation=(StochasticRelation | DeterministicRelation)
+		public Group getGroup() { return cGroup; }
+		
+		//name=ID
+		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
+		
+		//relation=(StochasticRelation | DeterministicRelation)
+		public Assignment getRelationAssignment_1() { return cRelationAssignment_1; }
+		
+		//(StochasticRelation | DeterministicRelation)
+		public Alternatives getRelationAlternatives_1_0() { return cRelationAlternatives_1_0; }
 		
 		//StochasticRelation
-		public RuleCall getStochasticRelationParserRuleCall_0() { return cStochasticRelationParserRuleCall_0; }
+		public RuleCall getRelationStochasticRelationParserRuleCall_1_0_0() { return cRelationStochasticRelationParserRuleCall_1_0_0; }
 		
 		//DeterministicRelation
-		public RuleCall getDeterministicRelationParserRuleCall_1() { return cDeterministicRelationParserRuleCall_1; }
+		public RuleCall getRelationDeterministicRelationParserRuleCall_1_0_1() { return cRelationDeterministicRelationParserRuleCall_1_0_1; }
 	}
 	public class StochasticRelationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.opcoach.bugsy.xtext.BugsDsl.StochasticRelation");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
+		private final Action cStochasticRelationAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cTildeKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cDistribAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cDistribDensityEnumRuleCall_2_0 = (RuleCall)cDistribAssignment_2.eContents().get(0);
@@ -275,19 +284,18 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightParenthesisKeyword_3_1_2 = (Keyword)cGroup_3_1.eContents().get(2);
 		
 		//StochasticRelation:
-		//	name=ID /* (dim=ARRAYDIM)? */ '~' distrib=Density ('()' | '(' (params+=Parameter (',' params+=Parameter)*) ')')?;
+		//	{StochasticRelation}
+		//	/* name=ID(dim=ARRAYDIM)? */ '~' distrib=Density ('()' | '(' (params+=Parameter (',' params+=Parameter)*) ')')?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=ID /* (dim=ARRAYDIM)? */ '~' distrib=Density ('()' | '(' (params+=Parameter (',' params+=Parameter)*) ')')?
+		//{StochasticRelation} /* name=ID(dim=ARRAYDIM)? */ '~' distrib=Density ('()' | '(' (params+=Parameter (','
+		//params+=Parameter)*) ')')?
 		public Group getGroup() { return cGroup; }
 		
-		//name=ID
-		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
+		//{StochasticRelation}
+		public Action getStochasticRelationAction_0() { return cStochasticRelationAction_0; }
 		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
-		
-		///* (dim=ARRAYDIM)? */ '~'
+		///* name=ID(dim=ARRAYDIM)? */ '~'
 		public Keyword getTildeKeyword_1() { return cTildeKeyword_1; }
 		
 		//distrib=Density
@@ -335,8 +343,7 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 	public class DeterministicRelationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.opcoach.bugsy.xtext.BugsDsl.DeterministicRelation");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
+		private final Action cDeterministicRelationAction_0 = (Action)cGroup.eContents().get(0);
 		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
 		private final Keyword cLessThanSignHyphenMinusKeyword_1_0 = (Keyword)cAlternatives_1.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_1_1 = (Keyword)cAlternatives_1.eContents().get(1);
@@ -359,21 +366,18 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightParenthesisKeyword_3_1_1_2 = (Keyword)cGroup_3_1_1.eContents().get(2);
 		
 		//DeterministicRelation:
-		//	name=ID ('<-' | '=') (distrib=Distribution? & function=Function?) ('()' | '(' (params+=Parameter (','
+		//	{DeterministicRelation} ('<-' | '=') (distrib=Distribution? & function=Function?) ('()' | '(' (params+=Parameter (','
 		//	params+=Parameter)* ')')?);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=ID ('<-' | '=') (distrib=Distribution? & function=Function?) ('()' | '(' (params+=Parameter (','
+		//{DeterministicRelation} ('<-' | '=') (distrib=Distribution? & function=Function?) ('()' | '(' (params+=Parameter (','
 		//params+=Parameter)* ')')?)
 		public Group getGroup() { return cGroup; }
 		
-		//name=ID
-		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
+		//{DeterministicRelation}
+		public Action getDeterministicRelationAction_0() { return cDeterministicRelationAction_0; }
 		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
-		
-		///* (dim=ARRAYDIM)? */ '<-' | '='
+		///* name=ID  (dim=ARRAYDIM)? */ '<-' | '='
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
 		//'<-'
@@ -699,52 +703,9 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		//'c'
 		public Keyword getCCKeyword_7_0() { return cCCKeyword_7_0; }
 	}
-	public class RelationTypeElements extends AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "com.opcoach.bugsy.xtext.BugsDsl.RelationType");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final EnumLiteralDeclaration cSTOCHASTICEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
-		private final Keyword cSTOCHASTICTildeKeyword_0_0 = (Keyword)cSTOCHASTICEnumLiteralDeclaration_0.eContents().get(0);
-		private final EnumLiteralDeclaration cDETERMIN1EnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cDETERMIN1LessThanSignHyphenMinusKeyword_1_0 = (Keyword)cDETERMIN1EnumLiteralDeclaration_1.eContents().get(0);
-		private final EnumLiteralDeclaration cDETERMIN2EnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
-		private final Keyword cDETERMIN2EqualsSignKeyword_2_0 = (Keyword)cDETERMIN2EnumLiteralDeclaration_2.eContents().get(0);
-		
-		//enum RelationType:
-		//	STOCHASTIC='~' | DETERMIN1='<-' | DETERMIN2='=';
-		public EnumRule getRule() { return rule; }
-		
-		//STOCHASTIC='~' | DETERMIN1='<-' | DETERMIN2='='
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//STOCHASTIC='~'
-		public EnumLiteralDeclaration getSTOCHASTICEnumLiteralDeclaration_0() { return cSTOCHASTICEnumLiteralDeclaration_0; }
-		
-		//'~'
-		public Keyword getSTOCHASTICTildeKeyword_0_0() { return cSTOCHASTICTildeKeyword_0_0; }
-		
-		//DETERMIN1='<-'
-		public EnumLiteralDeclaration getDETERMIN1EnumLiteralDeclaration_1() { return cDETERMIN1EnumLiteralDeclaration_1; }
-		
-		//'<-'
-		public Keyword getDETERMIN1LessThanSignHyphenMinusKeyword_1_0() { return cDETERMIN1LessThanSignHyphenMinusKeyword_1_0; }
-		
-		//DETERMIN2='='
-		public EnumLiteralDeclaration getDETERMIN2EnumLiteralDeclaration_2() { return cDETERMIN2EnumLiteralDeclaration_2; }
-		
-		//'='
-		public Keyword getDETERMIN2EqualsSignKeyword_2_0() { return cDETERMIN2EqualsSignKeyword_2_0; }
-	}
 	
 	private final BugsModelElements pBugsModel;
-	private final TerminalRule tINT;
-	private final TerminalRule tFLOAT;
-	private final TerminalRule tSTRING;
-	private final TerminalRule tML_COMMENT;
 	private final TerminalRule tSL_COMMENT;
-	private final TerminalRule tWS;
-	private final TerminalRule tANY_OTHER;
-	private final TerminalRule tID;
-	private final TerminalRule tARRAYDIM;
 	private final InstructionElements pInstruction;
 	private final ForElements pFor;
 	private final ParametersElements pParameters;
@@ -757,23 +718,18 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 	private final DistributionElements eDistribution;
 	private final DensityElements eDensity;
 	private final FunctionElements eFunction;
-	private final RelationTypeElements eRelationType;
 	
 	private final Grammar grammar;
+	
+	private final TerminalsGrammarAccess gaTerminals;
 
 	@Inject
-	public BugsDslGrammarAccess(GrammarProvider grammarProvider) {
+	public BugsDslGrammarAccess(GrammarProvider grammarProvider,
+			TerminalsGrammarAccess gaTerminals) {
 		this.grammar = internalFindGrammar(grammarProvider);
+		this.gaTerminals = gaTerminals;
 		this.pBugsModel = new BugsModelElements();
-		this.tINT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.opcoach.bugsy.xtext.BugsDsl.INT");
-		this.tFLOAT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.opcoach.bugsy.xtext.BugsDsl.FLOAT");
-		this.tSTRING = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.opcoach.bugsy.xtext.BugsDsl.STRING");
-		this.tML_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.opcoach.bugsy.xtext.BugsDsl.ML_COMMENT");
 		this.tSL_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.opcoach.bugsy.xtext.BugsDsl.SL_COMMENT");
-		this.tWS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.opcoach.bugsy.xtext.BugsDsl.WS");
-		this.tANY_OTHER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.opcoach.bugsy.xtext.BugsDsl.ANY_OTHER");
-		this.tID = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.opcoach.bugsy.xtext.BugsDsl.ID");
-		this.tARRAYDIM = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.opcoach.bugsy.xtext.BugsDsl.ARRAYDIM");
 		this.pInstruction = new InstructionElements();
 		this.pFor = new ForElements();
 		this.pParameters = new ParametersElements();
@@ -786,7 +742,6 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.eDistribution = new DistributionElements();
 		this.eDensity = new DensityElements();
 		this.eFunction = new FunctionElements();
-		this.eRelationType = new RelationTypeElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -810,6 +765,10 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		return grammar;
 	}
 	
+	
+	public TerminalsGrammarAccess getTerminalsGrammarAccess() {
+		return gaTerminals;
+	}
 
 	
 	//BugsModel:
@@ -825,59 +784,10 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getBugsModelAccess().getRule();
 	}
 	
-	//terminal INT returns ecore::EInt:
-	//	'0'..'9'+;
-	public TerminalRule getINTRule() {
-		return tINT;
-	}
-	
-	//terminal FLOAT returns ecore::EFloat:
-	//	INT '.' INT ('E' ('+' | '-') INT)?;
-	public TerminalRule getFLOATRule() {
-		return tFLOAT;
-	}
-	
-	//terminal STRING:
-	//	'"' ('\\' . | !('\\' | '"'))* '"' |
-	//	"'" ('\\' . | !('\\' | "'"))* "'";
-	public TerminalRule getSTRINGRule() {
-		return tSTRING;
-	}
-	
-	//terminal ML_COMMENT:
-	//	'/*'->'*/';
-	public TerminalRule getML_COMMENTRule() {
-		return tML_COMMENT;
-	}
-	
-	//terminal SL_COMMENT:
+	//@ Override terminal SL_COMMENT:
 	//	'#' !('\n' | '\r')* ('\r'? '\n')?;
 	public TerminalRule getSL_COMMENTRule() {
 		return tSL_COMMENT;
-	}
-	
-	//terminal WS:
-	//	' ' | '\t' | '\r' | '\n'+;
-	public TerminalRule getWSRule() {
-		return tWS;
-	}
-	
-	//terminal ANY_OTHER:
-	//	.;
-	public TerminalRule getANY_OTHERRule() {
-		return tANY_OTHER;
-	}
-	
-	//terminal ID:
-	//	('a'..'z' | 'A'..'Z') ('a'..'z' | 'A'..'Z' | '_' | '.' | '0'..'9')*;
-	public TerminalRule getIDRule() {
-		return tID;
-	}
-	
-	//terminal ARRAYDIM:
-	//	'[' '0'..'9'+ | ('a'..'z' | 'A'..'Z')+ ']';
-	public TerminalRule getARRAYDIMRule() {
-		return tARRAYDIM;
 	}
 	
 	////.................................
@@ -915,7 +825,7 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Numeric:
-	//	INT | FLOAT;
+	//	INT;
 	public NumericElements getNumericAccess() {
 		return pNumeric;
 	}
@@ -924,6 +834,7 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getNumericAccess().getRule();
 	}
 	
+	//// | FLOAT;
 	//Value:
 	//	Numeric | ID;
 	public ValueElements getValueAccess() {
@@ -945,7 +856,7 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Relation:
-	//	StochasticRelation | DeterministicRelation;
+	//	name=ID relation=(StochasticRelation | DeterministicRelation);
 	public RelationElements getRelationAccess() {
 		return pRelation;
 	}
@@ -955,7 +866,8 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//StochasticRelation:
-	//	name=ID /* (dim=ARRAYDIM)? */ '~' distrib=Density ('()' | '(' (params+=Parameter (',' params+=Parameter)*) ')')?;
+	//	{StochasticRelation}
+	//	/* name=ID(dim=ARRAYDIM)? */ '~' distrib=Density ('()' | '(' (params+=Parameter (',' params+=Parameter)*) ')')?;
 	public StochasticRelationElements getStochasticRelationAccess() {
 		return pStochasticRelation;
 	}
@@ -965,7 +877,7 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DeterministicRelation:
-	//	name=ID ('<-' | '=') (distrib=Distribution? & function=Function?) ('()' | '(' (params+=Parameter (','
+	//	{DeterministicRelation} ('<-' | '=') (distrib=Distribution? & function=Function?) ('()' | '(' (params+=Parameter (','
 	//	params+=Parameter)* ')')?);
 	public DeterministicRelationElements getDeterministicRelationAccess() {
 		return pDeterministicRelation;
@@ -1012,13 +924,40 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getFunctionAccess().getRule();
 	}
 	
-	//enum RelationType:
-	//	STOCHASTIC='~' | DETERMIN1='<-' | DETERMIN2='=';
-	public RelationTypeElements getRelationTypeAccess() {
-		return eRelationType;
+	//terminal ID:
+	//	'^'? ('a'..'z' | 'A'..'Z' | '_') ('a'..'z' | 'A'..'Z' | '_' | '0'..'9')*;
+	public TerminalRule getIDRule() {
+		return gaTerminals.getIDRule();
 	}
 	
-	public EnumRule getRelationTypeRule() {
-		return getRelationTypeAccess().getRule();
+	//terminal INT returns ecore::EInt:
+	//	'0'..'9'+;
+	public TerminalRule getINTRule() {
+		return gaTerminals.getINTRule();
+	}
+	
+	//terminal STRING:
+	//	'"' ('\\' . | !('\\' | '"'))* '"' |
+	//	"'" ('\\' . | !('\\' | "'"))* "'";
+	public TerminalRule getSTRINGRule() {
+		return gaTerminals.getSTRINGRule();
+	}
+	
+	//terminal ML_COMMENT:
+	//	'/*'->'*/';
+	public TerminalRule getML_COMMENTRule() {
+		return gaTerminals.getML_COMMENTRule();
+	}
+	
+	//terminal WS:
+	//	' ' | '\t' | '\r' | '\n'+;
+	public TerminalRule getWSRule() {
+		return gaTerminals.getWSRule();
+	}
+	
+	//terminal ANY_OTHER:
+	//	.;
+	public TerminalRule getANY_OTHERRule() {
+		return gaTerminals.getANY_OTHERRule();
 	}
 }

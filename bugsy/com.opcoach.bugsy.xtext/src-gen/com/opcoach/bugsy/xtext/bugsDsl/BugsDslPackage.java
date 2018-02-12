@@ -227,13 +227,13 @@ public interface BugsDslPackage extends EPackage
   int RELATION__NAME = INSTRUCTION_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Params</b></em>' containment reference list.
+   * The feature id for the '<em><b>Relation</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RELATION__PARAMS = INSTRUCTION_FEATURE_COUNT + 1;
+  int RELATION__RELATION = INSTRUCTION_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Relation</em>' class.
@@ -255,13 +255,13 @@ public interface BugsDslPackage extends EPackage
   int STOCHASTIC_RELATION = 6;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Distrib</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STOCHASTIC_RELATION__NAME = RELATION__NAME;
+  int STOCHASTIC_RELATION__DISTRIB = 0;
 
   /**
    * The feature id for the '<em><b>Params</b></em>' containment reference list.
@@ -270,16 +270,7 @@ public interface BugsDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STOCHASTIC_RELATION__PARAMS = RELATION__PARAMS;
-
-  /**
-   * The feature id for the '<em><b>Distrib</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STOCHASTIC_RELATION__DISTRIB = RELATION_FEATURE_COUNT + 0;
+  int STOCHASTIC_RELATION__PARAMS = 1;
 
   /**
    * The number of structural features of the '<em>Stochastic Relation</em>' class.
@@ -288,7 +279,7 @@ public interface BugsDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STOCHASTIC_RELATION_FEATURE_COUNT = RELATION_FEATURE_COUNT + 1;
+  int STOCHASTIC_RELATION_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link com.opcoach.bugsy.xtext.bugsDsl.impl.DeterministicRelationImpl <em>Deterministic Relation</em>}' class.
@@ -301,31 +292,13 @@ public interface BugsDslPackage extends EPackage
   int DETERMINISTIC_RELATION = 7;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DETERMINISTIC_RELATION__NAME = RELATION__NAME;
-
-  /**
-   * The feature id for the '<em><b>Params</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DETERMINISTIC_RELATION__PARAMS = RELATION__PARAMS;
-
-  /**
    * The feature id for the '<em><b>Distrib</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DETERMINISTIC_RELATION__DISTRIB = RELATION_FEATURE_COUNT + 0;
+  int DETERMINISTIC_RELATION__DISTRIB = 0;
 
   /**
    * The feature id for the '<em><b>Function</b></em>' attribute.
@@ -334,7 +307,16 @@ public interface BugsDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DETERMINISTIC_RELATION__FUNCTION = RELATION_FEATURE_COUNT + 1;
+  int DETERMINISTIC_RELATION__FUNCTION = 1;
+
+  /**
+   * The feature id for the '<em><b>Params</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DETERMINISTIC_RELATION__PARAMS = 2;
 
   /**
    * The number of structural features of the '<em>Deterministic Relation</em>' class.
@@ -343,7 +325,7 @@ public interface BugsDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DETERMINISTIC_RELATION_FEATURE_COUNT = RELATION_FEATURE_COUNT + 2;
+  int DETERMINISTIC_RELATION_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link com.opcoach.bugsy.xtext.bugsDsl.Distribution <em>Distribution</em>}' enum.
@@ -374,16 +356,6 @@ public interface BugsDslPackage extends EPackage
    * @generated
    */
   int FUNCTION = 10;
-
-  /**
-   * The meta object id for the '{@link com.opcoach.bugsy.xtext.bugsDsl.RelationType <em>Relation Type</em>}' enum.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see com.opcoach.bugsy.xtext.bugsDsl.RelationType
-   * @see com.opcoach.bugsy.xtext.bugsDsl.impl.BugsDslPackageImpl#getRelationType()
-   * @generated
-   */
-  int RELATION_TYPE = 11;
 
 
   /**
@@ -524,15 +496,15 @@ public interface BugsDslPackage extends EPackage
   EAttribute getRelation_Name();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.opcoach.bugsy.xtext.bugsDsl.Relation#getParams <em>Params</em>}'.
+   * Returns the meta object for the containment reference '{@link com.opcoach.bugsy.xtext.bugsDsl.Relation#getRelation <em>Relation</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Params</em>'.
-   * @see com.opcoach.bugsy.xtext.bugsDsl.Relation#getParams()
+   * @return the meta object for the containment reference '<em>Relation</em>'.
+   * @see com.opcoach.bugsy.xtext.bugsDsl.Relation#getRelation()
    * @see #getRelation()
    * @generated
    */
-  EReference getRelation_Params();
+  EReference getRelation_Relation();
 
   /**
    * Returns the meta object for class '{@link com.opcoach.bugsy.xtext.bugsDsl.StochasticRelation <em>Stochastic Relation</em>}'.
@@ -554,6 +526,17 @@ public interface BugsDslPackage extends EPackage
    * @generated
    */
   EAttribute getStochasticRelation_Distrib();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link com.opcoach.bugsy.xtext.bugsDsl.StochasticRelation#getParams <em>Params</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Params</em>'.
+   * @see com.opcoach.bugsy.xtext.bugsDsl.StochasticRelation#getParams()
+   * @see #getStochasticRelation()
+   * @generated
+   */
+  EReference getStochasticRelation_Params();
 
   /**
    * Returns the meta object for class '{@link com.opcoach.bugsy.xtext.bugsDsl.DeterministicRelation <em>Deterministic Relation</em>}'.
@@ -588,6 +571,17 @@ public interface BugsDslPackage extends EPackage
   EAttribute getDeterministicRelation_Function();
 
   /**
+   * Returns the meta object for the containment reference list '{@link com.opcoach.bugsy.xtext.bugsDsl.DeterministicRelation#getParams <em>Params</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Params</em>'.
+   * @see com.opcoach.bugsy.xtext.bugsDsl.DeterministicRelation#getParams()
+   * @see #getDeterministicRelation()
+   * @generated
+   */
+  EReference getDeterministicRelation_Params();
+
+  /**
    * Returns the meta object for enum '{@link com.opcoach.bugsy.xtext.bugsDsl.Distribution <em>Distribution</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -616,16 +610,6 @@ public interface BugsDslPackage extends EPackage
    * @generated
    */
   EEnum getFunction();
-
-  /**
-   * Returns the meta object for enum '{@link com.opcoach.bugsy.xtext.bugsDsl.RelationType <em>Relation Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for enum '<em>Relation Type</em>'.
-   * @see com.opcoach.bugsy.xtext.bugsDsl.RelationType
-   * @generated
-   */
-  EEnum getRelationType();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -767,12 +751,12 @@ public interface BugsDslPackage extends EPackage
     EAttribute RELATION__NAME = eINSTANCE.getRelation_Name();
 
     /**
-     * The meta object literal for the '<em><b>Params</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Relation</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference RELATION__PARAMS = eINSTANCE.getRelation_Params();
+    EReference RELATION__RELATION = eINSTANCE.getRelation_Relation();
 
     /**
      * The meta object literal for the '{@link com.opcoach.bugsy.xtext.bugsDsl.impl.StochasticRelationImpl <em>Stochastic Relation</em>}' class.
@@ -791,6 +775,14 @@ public interface BugsDslPackage extends EPackage
      * @generated
      */
     EAttribute STOCHASTIC_RELATION__DISTRIB = eINSTANCE.getStochasticRelation_Distrib();
+
+    /**
+     * The meta object literal for the '<em><b>Params</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STOCHASTIC_RELATION__PARAMS = eINSTANCE.getStochasticRelation_Params();
 
     /**
      * The meta object literal for the '{@link com.opcoach.bugsy.xtext.bugsDsl.impl.DeterministicRelationImpl <em>Deterministic Relation</em>}' class.
@@ -817,6 +809,14 @@ public interface BugsDslPackage extends EPackage
      * @generated
      */
     EAttribute DETERMINISTIC_RELATION__FUNCTION = eINSTANCE.getDeterministicRelation_Function();
+
+    /**
+     * The meta object literal for the '<em><b>Params</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DETERMINISTIC_RELATION__PARAMS = eINSTANCE.getDeterministicRelation_Params();
 
     /**
      * The meta object literal for the '{@link com.opcoach.bugsy.xtext.bugsDsl.Distribution <em>Distribution</em>}' enum.
@@ -847,16 +847,6 @@ public interface BugsDslPackage extends EPackage
      * @generated
      */
     EEnum FUNCTION = eINSTANCE.getFunction();
-
-    /**
-     * The meta object literal for the '{@link com.opcoach.bugsy.xtext.bugsDsl.RelationType <em>Relation Type</em>}' enum.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see com.opcoach.bugsy.xtext.bugsDsl.RelationType
-     * @see com.opcoach.bugsy.xtext.bugsDsl.impl.BugsDslPackageImpl#getRelationType()
-     * @generated
-     */
-    EEnum RELATION_TYPE = eINSTANCE.getRelationType();
 
   }
 

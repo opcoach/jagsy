@@ -57,13 +57,13 @@ public class BugsDslSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	/**
 	 * Ambiguous syntax:
-	 *     '=' | '<-'
+	 *     '<-' | '='
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     name=ID (ambiguity) '(' params+=Parameter
-	 *     name=ID (ambiguity) ('(' | '()') (rule end)
-	 *     name=ID (ambiguity) distrib=Distribution
-	 *     name=ID (ambiguity) function=Function
+	 *     (rule start) (ambiguity) '(' params+=Parameter
+	 *     (rule start) (ambiguity) ('()' | '(') (rule start)
+	 *     (rule start) (ambiguity) distrib=Distribution
+	 *     (rule start) (ambiguity) function=Function
 	 */
 	protected void emit_DeterministicRelation_EqualsSignKeyword_1_1_or_LessThanSignHyphenMinusKeyword_1_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -71,12 +71,12 @@ public class BugsDslSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Ambiguous syntax:
-	 *     '(' | '()'
+	 *     '()' | '('
 	 *
 	 * This ambiguous syntax occurs at:
+	 *     (rule start) ('<-' | '=') (ambiguity) (rule start)
 	 *     distrib=Distribution (ambiguity) (rule end)
 	 *     function=Function (ambiguity) (rule end)
-	 *     name=ID ('=' | '<-') (ambiguity) (rule end)
 	 */
 	protected void emit_DeterministicRelation_LeftParenthesisKeyword_3_1_0_or_LeftParenthesisRightParenthesisKeyword_3_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

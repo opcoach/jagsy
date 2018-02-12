@@ -121,8 +121,6 @@ public class BugsDslSwitch<T> extends Switch<T>
       {
         StochasticRelation stochasticRelation = (StochasticRelation)theEObject;
         T result = caseStochasticRelation(stochasticRelation);
-        if (result == null) result = caseRelation(stochasticRelation);
-        if (result == null) result = caseInstruction(stochasticRelation);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -130,8 +128,6 @@ public class BugsDslSwitch<T> extends Switch<T>
       {
         DeterministicRelation deterministicRelation = (DeterministicRelation)theEObject;
         T result = caseDeterministicRelation(deterministicRelation);
-        if (result == null) result = caseRelation(deterministicRelation);
-        if (result == null) result = caseInstruction(deterministicRelation);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }

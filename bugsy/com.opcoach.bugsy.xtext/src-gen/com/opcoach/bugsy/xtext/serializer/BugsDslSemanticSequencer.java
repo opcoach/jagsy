@@ -9,6 +9,7 @@ import com.opcoach.bugsy.xtext.bugsDsl.BugsModel;
 import com.opcoach.bugsy.xtext.bugsDsl.DeterministicRelation;
 import com.opcoach.bugsy.xtext.bugsDsl.For;
 import com.opcoach.bugsy.xtext.bugsDsl.Parameters;
+import com.opcoach.bugsy.xtext.bugsDsl.Relation;
 import com.opcoach.bugsy.xtext.bugsDsl.StochasticRelation;
 import com.opcoach.bugsy.xtext.services.BugsDslGrammarAccess;
 import java.util.Set;
@@ -51,6 +52,9 @@ public class BugsDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 			case BugsDslPackage.PARAMETERS:
 				sequence_Parameters(context, (Parameters) semanticObject); 
 				return; 
+			case BugsDslPackage.RELATION:
+				sequence_Relation(context, (Relation) semanticObject); 
+				return; 
 			case BugsDslPackage.STOCHASTIC_RELATION:
 				sequence_StochasticRelation(context, (StochasticRelation) semanticObject); 
 				return; 
@@ -73,12 +77,10 @@ public class BugsDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
-	 *     Instruction returns DeterministicRelation
-	 *     Relation returns DeterministicRelation
 	 *     DeterministicRelation returns DeterministicRelation
 	 *
 	 * Constraint:
-	 *     (name=ID (distrib=Distribution | function=Function)* (params+=Parameter params+=Parameter*)?)
+	 *     ((distrib=Distribution | function=Function)* (params+=Parameter params+=Parameter*)?)
 	 */
 	protected void sequence_DeterministicRelation(ISerializationContext context, DeterministicRelation semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -130,12 +132,23 @@ public class BugsDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
-	 *     Instruction returns StochasticRelation
-	 *     Relation returns StochasticRelation
+	 *     Instruction returns Relation
+	 *     Relation returns Relation
+	 *
+	 * Constraint:
+	 *     (name=ID (relation=StochasticRelation | relation=DeterministicRelation))
+	 */
+	protected void sequence_Relation(ISerializationContext context, Relation semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     StochasticRelation returns StochasticRelation
 	 *
 	 * Constraint:
-	 *     (name=ID distrib=Density (params+=Parameter params+=Parameter*)?)
+	 *     (distrib=Density (params+=Parameter params+=Parameter*)?)
 	 */
 	protected void sequence_StochasticRelation(ISerializationContext context, StochasticRelation semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

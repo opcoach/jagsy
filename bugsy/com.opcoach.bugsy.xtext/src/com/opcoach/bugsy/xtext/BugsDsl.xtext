@@ -1,4 +1,5 @@
-grammar com.opcoach.bugsy.xtext.BugsDsl hidden(WS, ML_COMMENT, SL_COMMENT) //  with org.eclipse.xtext.common.Terminals
+grammar com.opcoach.bugsy.xtext.BugsDsl with org.eclipse.xtext.common.Terminals
+
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 generate bugsDsl "http://www.opcoach.com/bugsy/xtext/BugsDsl"
 
@@ -8,34 +9,9 @@ BugsModel:
 	instructions+=Instruction*
 	'}';
 
-terminal INT returns ecore::EInt:
-	('0'..'9')+;
+@Override
+terminal SL_COMMENT 	: '#' !('\n'|'\r')* ('\r'? '\n')?;
 
-terminal FLOAT returns ecore::EFloat:
-	INT '.' INT ('E' ('+' | '-') INT)?;
-
-terminal STRING:
-	'"' ('\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' */ | !('\\' | '"'))* '"' |
-	"'" ('\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' */ | !('\\' | "'"))* "'";
-
-terminal ML_COMMENT:
-	'/*'->'*/';
-
-terminal SL_COMMENT:
-	'#' !('\n' | '\r')* ('\r'? '\n')?;
-
-terminal WS:
-	(' ' | '\t' | '\r' | '\n')+;
-
-terminal ANY_OTHER:
-	.;
-
-	// ID is used for vector and table name
-terminal ID:
-	('a'..'z' | 'A'..'Z') ('a'..'z' | 'A'..'Z' | '_' | '.' | '0'..'9')*;
-
-terminal ARRAYDIM:
-	'[' ('0'..'9')+ | ('a'..'z' | 'A'..'Z')+ ']';
 
 	//.................................
 // Starting grammar definition 
@@ -51,7 +27,7 @@ Parameters:
 	{Parameters};
 
 Numeric:
-	INT | FLOAT;
+	INT ; // | FLOAT;
 
 Value:
 	Numeric | ID;
@@ -61,13 +37,17 @@ Parameter:
 	value=Value;
 
 Relation:
-	StochasticRelation | DeterministicRelation;
+	 name=ID relation=(StochasticRelation | DeterministicRelation);
 
 StochasticRelation:
-	name=ID /* (dim=ARRAYDIM)? */ '~' distrib=Density ('()' | '(' ((params+=Parameter) (',' (params+=Parameter))*) ')')?;
+	{StochasticRelation}
+/* name=ID(dim=ARRAYDIM)? */ '~' distrib=Density ('()' | '(' ((params+=Parameter) (',' (params+=Parameter))*) ')')?;
 
 DeterministicRelation:
-	name=ID /* (dim=ARRAYDIM)? */ ('<-' | '=') ((distrib=Distribution)? & (function=Function)?) ( '()' | '(' ((params+=Parameter) (',' (params+=Parameter))* ')')? ) ;
+	{DeterministicRelation}
+/* name=ID  (dim=ARRAYDIM)? */ ('<-' | '=') ((distrib=Distribution)? & (function=Function)?) ('()' | '('
+	((params+=Parameter) (',' (params+=Parameter))* ')')?);
+
 
 enum Distribution:
 	dbern='dbern' |

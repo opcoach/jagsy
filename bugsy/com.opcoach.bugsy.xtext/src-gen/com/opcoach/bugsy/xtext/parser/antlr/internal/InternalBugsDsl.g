@@ -199,7 +199,7 @@ ruleFor returns [EObject current=null]
 						$current,
 						"variable",
 						lv_variable_3_0,
-						"com.opcoach.bugsy.xtext.BugsDsl.ID");
+						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)
 		)
@@ -221,7 +221,7 @@ ruleFor returns [EObject current=null]
 						$current,
 						"low",
 						lv_low_5_0,
-						"com.opcoach.bugsy.xtext.BugsDsl.INT");
+						"org.eclipse.xtext.common.Terminals.INT");
 				}
 			)
 		)
@@ -243,7 +243,7 @@ ruleFor returns [EObject current=null]
 						$current,
 						"high",
 						lv_high_7_0,
-						"com.opcoach.bugsy.xtext.BugsDsl.ID");
+						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)
 		)
@@ -296,23 +296,13 @@ ruleNumeric returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()
 @after {
 	leaveRule();
 }:
-	(
-		this_INT_0=RULE_INT
-		{
-			$current.merge(this_INT_0);
-		}
-		{
-			newLeafNode(this_INT_0, grammarAccess.getNumericAccess().getINTTerminalRuleCall_0());
-		}
-		    |
-		this_FLOAT_1=RULE_FLOAT
-		{
-			$current.merge(this_FLOAT_1);
-		}
-		{
-			newLeafNode(this_FLOAT_1, grammarAccess.getNumericAccess().getFLOATTerminalRuleCall_1());
-		}
-	)
+	this_INT_0=RULE_INT
+	{
+		$current.merge(this_INT_0);
+	}
+	{
+		newLeafNode(this_INT_0, grammarAccess.getNumericAccess().getINTTerminalRuleCall());
+	}
 ;
 
 // Entry rule entryRuleValue
@@ -413,23 +403,61 @@ ruleRelation returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		{
-			newCompositeNode(grammarAccess.getRelationAccess().getStochasticRelationParserRuleCall_0());
-		}
-		this_StochasticRelation_0=ruleStochasticRelation
-		{
-			$current = $this_StochasticRelation_0.current;
-			afterParserOrEnumRuleCall();
-		}
-		    |
-		{
-			newCompositeNode(grammarAccess.getRelationAccess().getDeterministicRelationParserRuleCall_1());
-		}
-		this_DeterministicRelation_1=ruleDeterministicRelation
-		{
-			$current = $this_DeterministicRelation_1.current;
-			afterParserOrEnumRuleCall();
-		}
+		(
+			(
+				lv_name_0_0=RULE_ID
+				{
+					newLeafNode(lv_name_0_0, grammarAccess.getRelationAccess().getNameIDTerminalRuleCall_0_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getRelationRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_0_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
+		(
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getRelationAccess().getRelationStochasticRelationParserRuleCall_1_0_0());
+					}
+					lv_relation_1_1=ruleStochasticRelation
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getRelationRule());
+						}
+						set(
+							$current,
+							"relation",
+							lv_relation_1_1,
+							"com.opcoach.bugsy.xtext.BugsDsl.StochasticRelation");
+						afterParserOrEnumRuleCall();
+					}
+					    |
+					{
+						newCompositeNode(grammarAccess.getRelationAccess().getRelationDeterministicRelationParserRuleCall_1_0_1());
+					}
+					lv_relation_1_2=ruleDeterministicRelation
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getRelationRule());
+						}
+						set(
+							$current,
+							"relation",
+							lv_relation_1_2,
+							"com.opcoach.bugsy.xtext.BugsDsl.DeterministicRelation");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)
 	)
 ;
 
@@ -450,22 +478,11 @@ ruleStochasticRelation returns [EObject current=null]
 }:
 	(
 		(
-			(
-				lv_name_0_0=RULE_ID
-				{
-					newLeafNode(lv_name_0_0, grammarAccess.getStochasticRelationAccess().getNameIDTerminalRuleCall_0_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getStochasticRelationRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"name",
-						lv_name_0_0,
-						"com.opcoach.bugsy.xtext.BugsDsl.ID");
-				}
-			)
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getStochasticRelationAccess().getStochasticRelationAction_0(),
+					$current);
+			}
 		)
 		otherlv_1='~'
 		{
@@ -573,22 +590,11 @@ ruleDeterministicRelation returns [EObject current=null]
 }:
 	(
 		(
-			(
-				lv_name_0_0=RULE_ID
-				{
-					newLeafNode(lv_name_0_0, grammarAccess.getDeterministicRelationAccess().getNameIDTerminalRuleCall_0_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getDeterministicRelationRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"name",
-						lv_name_0_0,
-						"com.opcoach.bugsy.xtext.BugsDsl.ID");
-				}
-			)
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getDeterministicRelationAccess().getDeterministicRelationAction_0(),
+					$current);
+			}
 		)
 		(
 			otherlv_1='<-'
@@ -994,20 +1000,16 @@ ruleFunction returns [Enumerator current=null]
 	)
 ;
 
-RULE_INT : ('0'..'9')+;
+RULE_SL_COMMENT : '#' ~(('\n'|'\r'))* ('\r'? '\n')?;
 
-RULE_FLOAT : RULE_INT '.' RULE_INT ('E' ('+'|'-') RULE_INT)?;
+RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
+
+RULE_INT : ('0'..'9')+;
 
 RULE_STRING : ('"' ('\\' .|~(('\\'|'"')))* '"'|'\'' ('\\' .|~(('\\'|'\'')))* '\'');
 
 RULE_ML_COMMENT : '/*' ( options {greedy=false;} : . )*'*/';
 
-RULE_SL_COMMENT : '#' ~(('\n'|'\r'))* ('\r'? '\n')?;
-
 RULE_WS : (' '|'\t'|'\r'|'\n')+;
 
 RULE_ANY_OTHER : .;
-
-RULE_ID : ('a'..'z'|'A'..'Z') ('a'..'z'|'A'..'Z'|'_'|'.'|'0'..'9')*;
-
-RULE_ARRAYDIM : ('[' ('0'..'9')+|('a'..'z'|'A'..'Z')+ ']');

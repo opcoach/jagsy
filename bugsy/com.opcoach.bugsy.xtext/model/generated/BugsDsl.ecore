@@ -20,15 +20,19 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Relation" eSuperTypes="#//Instruction">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="relation" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StochasticRelation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="distrib" eType="#//Density"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="params" upperBound="-1"
         eType="#//Parameter" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StochasticRelation" eSuperTypes="#//Relation">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="distrib" eType="#//Density"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DeterministicRelation" eSuperTypes="#//Relation">
+  <eClassifiers xsi:type="ecore:EClass" name="DeterministicRelation">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="distrib" eType="#//Distribution"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="function" eType="#//Function"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="params" upperBound="-1"
+        eType="#//Parameter" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Distribution">
     <eLiterals name="dbern" literal="dbern"/>
@@ -63,10 +67,5 @@
     <eLiterals name="log" value="5" literal="log"/>
     <eLiterals name="ep" value="6" literal="exp"/>
     <eLiterals name="c" value="7" literal="c"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="RelationType">
-    <eLiterals name="STOCHASTIC" literal="~"/>
-    <eLiterals name="DETERMIN1" value="1" literal="&lt;-"/>
-    <eLiterals name="DETERMIN2" value="2" literal="="/>
   </eClassifiers>
 </ecore:EPackage>

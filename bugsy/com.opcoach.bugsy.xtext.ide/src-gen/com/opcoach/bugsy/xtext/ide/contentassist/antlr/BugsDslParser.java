@@ -32,19 +32,18 @@ public class BugsDslParser extends AbstractContentAssistParser {
 				private static final long serialVersionUID = 1L;
 				{
 					put(grammarAccess.getInstructionAccess().getAlternatives(), "rule__Instruction__Alternatives");
-					put(grammarAccess.getNumericAccess().getAlternatives(), "rule__Numeric__Alternatives");
 					put(grammarAccess.getValueAccess().getAlternatives(), "rule__Value__Alternatives");
-					put(grammarAccess.getRelationAccess().getAlternatives(), "rule__Relation__Alternatives");
+					put(grammarAccess.getRelationAccess().getRelationAlternatives_1_0(), "rule__Relation__RelationAlternatives_1_0");
 					put(grammarAccess.getStochasticRelationAccess().getAlternatives_3(), "rule__StochasticRelation__Alternatives_3");
 					put(grammarAccess.getDeterministicRelationAccess().getAlternatives_1(), "rule__DeterministicRelation__Alternatives_1");
 					put(grammarAccess.getDeterministicRelationAccess().getAlternatives_3(), "rule__DeterministicRelation__Alternatives_3");
 					put(grammarAccess.getDistributionAccess().getAlternatives(), "rule__Distribution__Alternatives");
 					put(grammarAccess.getDensityAccess().getAlternatives(), "rule__Density__Alternatives");
 					put(grammarAccess.getFunctionAccess().getAlternatives(), "rule__Function__Alternatives");
-					put(grammarAccess.getRelationTypeAccess().getAlternatives(), "rule__RelationType__Alternatives");
 					put(grammarAccess.getBugsModelAccess().getGroup(), "rule__BugsModel__Group__0");
 					put(grammarAccess.getForAccess().getGroup(), "rule__For__Group__0");
 					put(grammarAccess.getParameterAccess().getGroup(), "rule__Parameter__Group__0");
+					put(grammarAccess.getRelationAccess().getGroup(), "rule__Relation__Group__0");
 					put(grammarAccess.getStochasticRelationAccess().getGroup(), "rule__StochasticRelation__Group__0");
 					put(grammarAccess.getStochasticRelationAccess().getGroup_3_1(), "rule__StochasticRelation__Group_3_1__0");
 					put(grammarAccess.getStochasticRelationAccess().getGroup_3_1_1(), "rule__StochasticRelation__Group_3_1_1__0");
@@ -59,11 +58,11 @@ public class BugsDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getForAccess().getHighAssignment_7(), "rule__For__HighAssignment_7");
 					put(grammarAccess.getForAccess().getContentsAssignment_10(), "rule__For__ContentsAssignment_10");
 					put(grammarAccess.getParameterAccess().getValueAssignment_1(), "rule__Parameter__ValueAssignment_1");
-					put(grammarAccess.getStochasticRelationAccess().getNameAssignment_0(), "rule__StochasticRelation__NameAssignment_0");
+					put(grammarAccess.getRelationAccess().getNameAssignment_0(), "rule__Relation__NameAssignment_0");
+					put(grammarAccess.getRelationAccess().getRelationAssignment_1(), "rule__Relation__RelationAssignment_1");
 					put(grammarAccess.getStochasticRelationAccess().getDistribAssignment_2(), "rule__StochasticRelation__DistribAssignment_2");
 					put(grammarAccess.getStochasticRelationAccess().getParamsAssignment_3_1_1_0(), "rule__StochasticRelation__ParamsAssignment_3_1_1_0");
 					put(grammarAccess.getStochasticRelationAccess().getParamsAssignment_3_1_1_1_1(), "rule__StochasticRelation__ParamsAssignment_3_1_1_1_1");
-					put(grammarAccess.getDeterministicRelationAccess().getNameAssignment_0(), "rule__DeterministicRelation__NameAssignment_0");
 					put(grammarAccess.getDeterministicRelationAccess().getDistribAssignment_2_0(), "rule__DeterministicRelation__DistribAssignment_2_0");
 					put(grammarAccess.getDeterministicRelationAccess().getFunctionAssignment_2_1(), "rule__DeterministicRelation__FunctionAssignment_2_1");
 					put(grammarAccess.getDeterministicRelationAccess().getParamsAssignment_3_1_1_0(), "rule__DeterministicRelation__ParamsAssignment_3_1_1_0");

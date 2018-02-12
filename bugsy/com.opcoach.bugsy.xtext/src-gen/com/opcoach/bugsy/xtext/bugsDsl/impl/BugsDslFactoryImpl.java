@@ -95,8 +95,6 @@ public class BugsDslFactoryImpl extends EFactoryImpl implements BugsDslFactory
         return createDensityFromString(eDataType, initialValue);
       case BugsDslPackage.FUNCTION:
         return createFunctionFromString(eDataType, initialValue);
-      case BugsDslPackage.RELATION_TYPE:
-        return createRelationTypeFromString(eDataType, initialValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -118,8 +116,6 @@ public class BugsDslFactoryImpl extends EFactoryImpl implements BugsDslFactory
         return convertDensityToString(eDataType, instanceValue);
       case BugsDslPackage.FUNCTION:
         return convertFunctionToString(eDataType, instanceValue);
-      case BugsDslPackage.RELATION_TYPE:
-        return convertRelationTypeToString(eDataType, instanceValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -275,28 +271,6 @@ public class BugsDslFactoryImpl extends EFactoryImpl implements BugsDslFactory
    * @generated
    */
   public String convertFunctionToString(EDataType eDataType, Object instanceValue)
-  {
-    return instanceValue == null ? null : instanceValue.toString();
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public RelationType createRelationTypeFromString(EDataType eDataType, String initialValue)
-  {
-    RelationType result = RelationType.get(initialValue);
-    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-    return result;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String convertRelationTypeToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }
