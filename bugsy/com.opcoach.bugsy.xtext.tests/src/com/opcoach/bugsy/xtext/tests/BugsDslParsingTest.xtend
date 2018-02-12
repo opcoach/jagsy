@@ -17,129 +17,145 @@ import org.junit.runner.RunWith
 class BugsDslParsingTest {
 	@Inject
 	ParseHelper<BugsModel> parseHelper
-	
+
 	@Test
-	def void loadModel() {
+	def void testLoadModel1() {
 		val result = parseHelper.parse('''
 			model { 
 						for ( ed in 1:N2 ) { }
-					 	 a  <- dnegbin(n, a)
-					  	 
+							 a  <- dnegbin(n, a)
+							  
 						# Comment 1
 						d <- dpois()
 							tutu <- acosh ()
 							test ~ dbeta(3,NZ)
 							NZ <- dgen.gamma() 
 							titi ~ dnorm(0, 3, 2)
-						    toto <- c( 0, 0 , 0, tau) 
-						    test ~ dnorm( test)
-						    afq <- dgen.gamma(afq)
-						    afq ~ dunif(afq,afq,tutu)
-						    tutu <- asin(afq,tau)
-						    for ( a3 in 0:N3 ) { 
-						    	  # Must loop on this...
-						    	  test2 ~ dnorm()
-						    	  test33 <- dgamma(1, 9)
-						    }
-						    }
-						    
+							   toto <- c( 0, 0 , 0, tau) 
+							   test ~ dnorm( test)
+							   afq <- dgen.gamma(afq)
+							   afq ~ dunif(afq,afq,tutu)
+							   tutu <- asin(afq,tau)
+							   for ( a3 in 0:N3 ) { 
+							   	  # Must loop on this...
+							   	  test2 ~ dnorm()
+							   	  test33 <- dgamma(1, 9)
+							   }
+							   }
+							   
 				
 		''')
 		Assert.assertNotNull(result)
+		Assert.assertTrue(result.eResource.errors.isEmpty)
+		
 	}
-	
-	
+
 	@Test
-	def void testIssue2()
-	{
+	def void testLoadModelFromRefGuide() {
+		val result = parseHelper.parse('''
+			model {
+			    for (i in 1:N) {
+			    	Y[i]   ~ dnorm(mu[i], tau)
+				mu[i] <- alpha + beta * (x[i] - x.bar)
+				   	
+				}
+			
+				x.bar <- mean(x)
+				alpha ~ dnorm(0.0, 1.0E-4)
+				beta ~ dnorm(0.0, 1.0E-4)
+				sigma<- 1.0/sqrt(tau)
+				tau ~ dgamma(1.0E-3, 1.0E-3)
+				 
+				  }	
+		''')
+		Assert.assertNotNull(result)
+		Assert.assertTrue(result.eResource.errors.isEmpty)
+		
+	}
+
+	@Test
+	def void testIssue2() {
 		// mismatched input 'a' expected '}' 
 		// See : https://github.com/opcoach/jagsy/issues/2
 		val result = parseHelper.parse('''
-		model{
-		a ~ dnorm(1,1)
-		}
-		''')
-		Assert.assertNotNull(result)
-		Assert.assertTrue(result.eResource.errors.isEmpty)
-	}
-	
-		@Test
-	def void testIssue3()
-	{
-		// Density Function in deterministic definition 
-		// See : https://github.com/opcoach/jagsy/issues/3
-		// Assert.fail("Density Function in deterministic definition (Test to Be Fixed)");
-		val result = parseHelper.parse('''
-		model{
-		ab <- dnorm(1,1)
-		}
-		''')
-		Assert.assertNotNull(result)
-		Assert.assertTrue(result.eResource.errors.isEmpty)
-	}
-		@Test
-	def void testIssue4()
-	{
-		// Simple addition sign tagged as error
-		// See : https://github.com/opcoach/jagsy/issues/4
-		val result = parseHelper.parse('''
-		model{
-		ab <- (1+2)
-		}
-		''')
-		Assert.assertNotNull(result)
-		Assert.assertTrue(result.eResource.errors.isEmpty)
-	}
-		@Test
-	def void testIssue5()
-	{
-		// Obligation to use parentheses in expression 
-		// See : https://github.com/opcoach/jagsy/issues/5
-		val result = parseHelper.parse('''
-		model{
-		ab <- ac
-		}
+			model{
+			a ~ dnorm(1,1)
+			}
 		''')
 		Assert.assertNotNull(result)
 		Assert.assertTrue(result.eResource.errors.isEmpty)
 	}
 
-	
-	
-		@Test
-	def void testIssue7()
-	{
+	@Test
+	def void testIssue3() {
+		// Density Function in deterministic definition 
+		// See : https://github.com/opcoach/jagsy/issues/3
+		// Assert.fail("Density Function in deterministic definition (Test to Be Fixed)");
+		val result = parseHelper.parse('''
+			model{
+			ab <- dnorm(1,1)
+			}
+		''')
+		Assert.assertNotNull(result)
+		Assert.assertTrue(result.eResource.errors.isEmpty)
+	}
+
+	@Test
+	def void testIssue4() {
+		// Simple addition sign tagged as error
+		// See : https://github.com/opcoach/jagsy/issues/4
+		val result = parseHelper.parse('''
+			model{
+			ab <- (1+2)
+			}
+		''')
+		Assert.assertNotNull(result)
+		Assert.assertTrue(result.eResource.errors.isEmpty)
+	}
+
+	@Test
+	def void testIssue5() {
+		// Obligation to use parentheses in expression 
+		// See : https://github.com/opcoach/jagsy/issues/5
+		val result = parseHelper.parse('''
+			model{
+			ab <- ac
+			}
+		''')
+		Assert.assertNotNull(result)
+		Assert.assertTrue(result.eResource.errors.isEmpty)
+	}
+
+	@Test
+	def void testIssue7() {
 		// Indexed Variables not working
 		// See : https://github.com/opcoach/jagsy/issues/7
 		val result = parseHelper.parse('''
-		model{
-		ab[1] <- (1)
-		ab[2] <- (1)
-		}
+			model{
+			ab[1] <- (1)
+			ab[2] <- (1)
+			}
 		''')
 		Assert.assertNotNull(result)
 		Assert.assertTrue(result.eResource.errors.isEmpty)
 	}
-	
-	
+
 	@Test
-	def void testIssue8()
-	{
+	def void testIssue8() {
 		// maximum limit of the definition of a range of indices tagged as error
 		// See : https://github.com/opcoach/jagsy/issues/8
 		val result = parseHelper.parse('''
-		model{
-		for(ib in 1:3){
-		}
-		}
+			model{
+			for(ib in 1:3){
+			}
+			}
 		''')
 		Assert.assertNotNull(result)
 		Assert.assertTrue(result.eResource.errors.isEmpty)
 	}
-	
+
 	@Test
-	def void testIssue9()
-	{
+	def void testIssue9() {
 		// See : https://github.com/opcoach/jagsy/issues/9
 		val result = parseHelper.parse('''
 			model{

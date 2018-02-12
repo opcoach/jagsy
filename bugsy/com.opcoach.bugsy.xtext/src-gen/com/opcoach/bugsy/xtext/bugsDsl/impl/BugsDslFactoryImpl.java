@@ -69,11 +69,12 @@ public class BugsDslFactoryImpl extends EFactoryImpl implements BugsDslFactory
       case BugsDslPackage.BUGS_MODEL: return createBugsModel();
       case BugsDslPackage.INSTRUCTION: return createInstruction();
       case BugsDslPackage.FOR: return createFor();
-      case BugsDslPackage.PARAMETERS: return createParameters();
-      case BugsDslPackage.PARAMETER: return createParameter();
+      case BugsDslPackage.VALUE: return createValue();
+      case BugsDslPackage.ARRAY_ID: return createArrayID();
       case BugsDslPackage.RELATION: return createRelation();
       case BugsDslPackage.STOCHASTIC_RELATION: return createStochasticRelation();
       case BugsDslPackage.DETERMINISTIC_RELATION: return createDeterministicRelation();
+      case BugsDslPackage.EXPRESSION: return createExpression();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -159,10 +160,10 @@ public class BugsDslFactoryImpl extends EFactoryImpl implements BugsDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Parameters createParameters()
+  public Value createValue()
   {
-    ParametersImpl parameters = new ParametersImpl();
-    return parameters;
+    ValueImpl value = new ValueImpl();
+    return value;
   }
 
   /**
@@ -170,10 +171,10 @@ public class BugsDslFactoryImpl extends EFactoryImpl implements BugsDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Parameter createParameter()
+  public ArrayID createArrayID()
   {
-    ParameterImpl parameter = new ParameterImpl();
-    return parameter;
+    ArrayIDImpl arrayID = new ArrayIDImpl();
+    return arrayID;
   }
 
   /**
@@ -207,6 +208,17 @@ public class BugsDslFactoryImpl extends EFactoryImpl implements BugsDslFactory
   {
     DeterministicRelationImpl deterministicRelation = new DeterministicRelationImpl();
     return deterministicRelation;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Expression createExpression()
+  {
+    ExpressionImpl expression = new ExpressionImpl();
+    return expression;
   }
 
   /**

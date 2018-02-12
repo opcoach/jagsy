@@ -95,17 +95,17 @@ public class BugsDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case BugsDslPackage.PARAMETERS:
+      case BugsDslPackage.VALUE:
       {
-        Parameters parameters = (Parameters)theEObject;
-        T result = caseParameters(parameters);
+        Value value = (Value)theEObject;
+        T result = caseValue(value);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case BugsDslPackage.PARAMETER:
+      case BugsDslPackage.ARRAY_ID:
       {
-        Parameter parameter = (Parameter)theEObject;
-        T result = caseParameter(parameter);
+        ArrayID arrayID = (ArrayID)theEObject;
+        T result = caseArrayID(arrayID);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -121,6 +121,8 @@ public class BugsDslSwitch<T> extends Switch<T>
       {
         StochasticRelation stochasticRelation = (StochasticRelation)theEObject;
         T result = caseStochasticRelation(stochasticRelation);
+        if (result == null) result = caseRelation(stochasticRelation);
+        if (result == null) result = caseInstruction(stochasticRelation);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -128,6 +130,15 @@ public class BugsDslSwitch<T> extends Switch<T>
       {
         DeterministicRelation deterministicRelation = (DeterministicRelation)theEObject;
         T result = caseDeterministicRelation(deterministicRelation);
+        if (result == null) result = caseRelation(deterministicRelation);
+        if (result == null) result = caseInstruction(deterministicRelation);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BugsDslPackage.EXPRESSION:
+      {
+        Expression expression = (Expression)theEObject;
+        T result = caseExpression(expression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -184,33 +195,33 @@ public class BugsDslSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Parameters</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Value</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Parameters</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Value</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseParameters(Parameters object)
+  public T caseValue(Value object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Parameter</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Array ID</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Parameter</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Array ID</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseParameter(Parameter object)
+  public T caseArrayID(ArrayID object)
   {
     return null;
   }
@@ -259,6 +270,22 @@ public class BugsDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseDeterministicRelation(DeterministicRelation object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseExpression(Expression object)
   {
     return null;
   }

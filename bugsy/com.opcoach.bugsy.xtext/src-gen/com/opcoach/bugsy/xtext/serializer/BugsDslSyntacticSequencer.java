@@ -21,16 +21,20 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public class BugsDslSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected BugsDslGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_DeterministicRelation_EqualsSignKeyword_1_1_or_LessThanSignHyphenMinusKeyword_1_0;
-	protected AbstractElementAlias match_DeterministicRelation_LeftParenthesisKeyword_3_1_0_or_LeftParenthesisRightParenthesisKeyword_3_0;
-	protected AbstractElementAlias match_StochasticRelation_LeftParenthesisRightParenthesisKeyword_3_0_q;
+	protected AbstractElementAlias match_DeterministicRelation_EqualsSignKeyword_2_1_or_LessThanSignHyphenMinusKeyword_2_0;
+	protected AbstractElementAlias match_DeterministicRelation_LeftParenthesisKeyword_3_1_1_1_0_or_LeftParenthesisRightParenthesisKeyword_3_1_1_0;
+	protected AbstractElementAlias match_StochasticRelation_LeftParenthesisRightParenthesisKeyword_4_0_q;
+	protected AbstractElementAlias match_TerminalExpression_LeftParenthesisKeyword_0_0_a;
+	protected AbstractElementAlias match_TerminalExpression_LeftParenthesisKeyword_0_0_p;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (BugsDslGrammarAccess) access;
-		match_DeterministicRelation_EqualsSignKeyword_1_1_or_LessThanSignHyphenMinusKeyword_1_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getDeterministicRelationAccess().getEqualsSignKeyword_1_1()), new TokenAlias(false, false, grammarAccess.getDeterministicRelationAccess().getLessThanSignHyphenMinusKeyword_1_0()));
-		match_DeterministicRelation_LeftParenthesisKeyword_3_1_0_or_LeftParenthesisRightParenthesisKeyword_3_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getDeterministicRelationAccess().getLeftParenthesisKeyword_3_1_0()), new TokenAlias(false, false, grammarAccess.getDeterministicRelationAccess().getLeftParenthesisRightParenthesisKeyword_3_0()));
-		match_StochasticRelation_LeftParenthesisRightParenthesisKeyword_3_0_q = new TokenAlias(false, true, grammarAccess.getStochasticRelationAccess().getLeftParenthesisRightParenthesisKeyword_3_0());
+		match_DeterministicRelation_EqualsSignKeyword_2_1_or_LessThanSignHyphenMinusKeyword_2_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getDeterministicRelationAccess().getEqualsSignKeyword_2_1()), new TokenAlias(false, false, grammarAccess.getDeterministicRelationAccess().getLessThanSignHyphenMinusKeyword_2_0()));
+		match_DeterministicRelation_LeftParenthesisKeyword_3_1_1_1_0_or_LeftParenthesisRightParenthesisKeyword_3_1_1_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getDeterministicRelationAccess().getLeftParenthesisKeyword_3_1_1_1_0()), new TokenAlias(false, false, grammarAccess.getDeterministicRelationAccess().getLeftParenthesisRightParenthesisKeyword_3_1_1_0()));
+		match_StochasticRelation_LeftParenthesisRightParenthesisKeyword_4_0_q = new TokenAlias(false, true, grammarAccess.getStochasticRelationAccess().getLeftParenthesisRightParenthesisKeyword_4_0());
+		match_TerminalExpression_LeftParenthesisKeyword_0_0_a = new TokenAlias(true, true, grammarAccess.getTerminalExpressionAccess().getLeftParenthesisKeyword_0_0());
+		match_TerminalExpression_LeftParenthesisKeyword_0_0_p = new TokenAlias(true, false, grammarAccess.getTerminalExpressionAccess().getLeftParenthesisKeyword_0_0());
 	}
 	
 	@Override
@@ -45,40 +49,45 @@ public class BugsDslSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_DeterministicRelation_EqualsSignKeyword_1_1_or_LessThanSignHyphenMinusKeyword_1_0.equals(syntax))
-				emit_DeterministicRelation_EqualsSignKeyword_1_1_or_LessThanSignHyphenMinusKeyword_1_0(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_DeterministicRelation_LeftParenthesisKeyword_3_1_0_or_LeftParenthesisRightParenthesisKeyword_3_0.equals(syntax))
-				emit_DeterministicRelation_LeftParenthesisKeyword_3_1_0_or_LeftParenthesisRightParenthesisKeyword_3_0(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_StochasticRelation_LeftParenthesisRightParenthesisKeyword_3_0_q.equals(syntax))
-				emit_StochasticRelation_LeftParenthesisRightParenthesisKeyword_3_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			if (match_DeterministicRelation_EqualsSignKeyword_2_1_or_LessThanSignHyphenMinusKeyword_2_0.equals(syntax))
+				emit_DeterministicRelation_EqualsSignKeyword_2_1_or_LessThanSignHyphenMinusKeyword_2_0(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_DeterministicRelation_LeftParenthesisKeyword_3_1_1_1_0_or_LeftParenthesisRightParenthesisKeyword_3_1_1_0.equals(syntax))
+				emit_DeterministicRelation_LeftParenthesisKeyword_3_1_1_1_0_or_LeftParenthesisRightParenthesisKeyword_3_1_1_0(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_StochasticRelation_LeftParenthesisRightParenthesisKeyword_4_0_q.equals(syntax))
+				emit_StochasticRelation_LeftParenthesisRightParenthesisKeyword_4_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_TerminalExpression_LeftParenthesisKeyword_0_0_a.equals(syntax))
+				emit_TerminalExpression_LeftParenthesisKeyword_0_0_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_TerminalExpression_LeftParenthesisKeyword_0_0_p.equals(syntax))
+				emit_TerminalExpression_LeftParenthesisKeyword_0_0_p(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
 	/**
 	 * Ambiguous syntax:
-	 *     '<-' | '='
+	 *     '=' | '<-'
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) '(' params+=Parameter
-	 *     (rule start) (ambiguity) ('()' | '(') (rule start)
-	 *     (rule start) (ambiguity) distrib=Distribution
-	 *     (rule start) (ambiguity) function=Function
+	 *     name=ArrayID (ambiguity) '(' params+=Expression
+	 *     name=ArrayID (ambiguity) ('(' | '()') (rule end)
+	 *     name=ArrayID (ambiguity) distrib=Distribution
+	 *     name=ArrayID (ambiguity) expressions+=Expression
+	 *     name=ArrayID (ambiguity) function=Function
 	 */
-	protected void emit_DeterministicRelation_EqualsSignKeyword_1_1_or_LessThanSignHyphenMinusKeyword_1_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_DeterministicRelation_EqualsSignKeyword_2_1_or_LessThanSignHyphenMinusKeyword_2_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
 	 * Ambiguous syntax:
-	 *     '()' | '('
+	 *     '(' | '()'
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) ('<-' | '=') (ambiguity) (rule start)
 	 *     distrib=Distribution (ambiguity) (rule end)
 	 *     function=Function (ambiguity) (rule end)
+	 *     name=ArrayID ('=' | '<-') (ambiguity) (rule end)
 	 */
-	protected void emit_DeterministicRelation_LeftParenthesisKeyword_3_1_0_or_LeftParenthesisRightParenthesisKeyword_3_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_DeterministicRelation_LeftParenthesisKeyword_3_1_1_1_0_or_LeftParenthesisRightParenthesisKeyword_3_1_1_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -89,7 +98,30 @@ public class BugsDslSyntacticSequencer extends AbstractSyntacticSequencer {
 	 * This ambiguous syntax occurs at:
 	 *     distrib=Density (ambiguity) (rule end)
 	 */
-	protected void emit_StochasticRelation_LeftParenthesisRightParenthesisKeyword_3_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_StochasticRelation_LeftParenthesisRightParenthesisKeyword_4_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     '('*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) value=Value
+	 *     (rule start) (ambiguity) {Expression.left=}
+	 */
+	protected void emit_TerminalExpression_LeftParenthesisKeyword_0_0_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     '('+
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) {Expression.left=}
+	 */
+	protected void emit_TerminalExpression_LeftParenthesisKeyword_0_0_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

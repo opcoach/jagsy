@@ -4,13 +4,14 @@
 package com.opcoach.bugsy.xtext.serializer;
 
 import com.google.inject.Inject;
+import com.opcoach.bugsy.xtext.bugsDsl.ArrayID;
 import com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage;
 import com.opcoach.bugsy.xtext.bugsDsl.BugsModel;
 import com.opcoach.bugsy.xtext.bugsDsl.DeterministicRelation;
+import com.opcoach.bugsy.xtext.bugsDsl.Expression;
 import com.opcoach.bugsy.xtext.bugsDsl.For;
-import com.opcoach.bugsy.xtext.bugsDsl.Parameters;
-import com.opcoach.bugsy.xtext.bugsDsl.Relation;
 import com.opcoach.bugsy.xtext.bugsDsl.StochasticRelation;
+import com.opcoach.bugsy.xtext.bugsDsl.Value;
 import com.opcoach.bugsy.xtext.services.BugsDslGrammarAccess;
 import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
@@ -19,9 +20,7 @@ import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Parameter;
 import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.serializer.ISerializationContext;
-import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
-import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 
 @SuppressWarnings("all")
 public class BugsDslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
@@ -37,31 +36,43 @@ public class BugsDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == BugsDslPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case BugsDslPackage.ARRAY_ID:
+				sequence_ArrayID(context, (ArrayID) semanticObject); 
+				return; 
 			case BugsDslPackage.BUGS_MODEL:
 				sequence_BugsModel(context, (BugsModel) semanticObject); 
 				return; 
 			case BugsDslPackage.DETERMINISTIC_RELATION:
 				sequence_DeterministicRelation(context, (DeterministicRelation) semanticObject); 
 				return; 
+			case BugsDslPackage.EXPRESSION:
+				sequence_Expression_TerminalExpression(context, (Expression) semanticObject); 
+				return; 
 			case BugsDslPackage.FOR:
 				sequence_For(context, (For) semanticObject); 
 				return; 
-			case BugsDslPackage.PARAMETER:
-				sequence_Parameter(context, (com.opcoach.bugsy.xtext.bugsDsl.Parameter) semanticObject); 
-				return; 
-			case BugsDslPackage.PARAMETERS:
-				sequence_Parameters(context, (Parameters) semanticObject); 
-				return; 
-			case BugsDslPackage.RELATION:
-				sequence_Relation(context, (Relation) semanticObject); 
-				return; 
 			case BugsDslPackage.STOCHASTIC_RELATION:
 				sequence_StochasticRelation(context, (StochasticRelation) semanticObject); 
+				return; 
+			case BugsDslPackage.VALUE:
+				sequence_Value(context, (Value) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
+	
+	/**
+	 * Contexts:
+	 *     ArrayID returns ArrayID
+	 *
+	 * Constraint:
+	 *     (name=ID index=ID?)
+	 */
+	protected void sequence_ArrayID(ISerializationContext context, ArrayID semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
 	
 	/**
 	 * Contexts:
@@ -77,12 +88,28 @@ public class BugsDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
+	 *     Instruction returns DeterministicRelation
+	 *     Relation returns DeterministicRelation
 	 *     DeterministicRelation returns DeterministicRelation
 	 *
 	 * Constraint:
-	 *     ((distrib=Distribution | function=Function)* (params+=Parameter params+=Parameter*)?)
+	 *     (name=ArrayID (expressions+=Expression | ((distrib=Distribution | function=Function)* (params+=Expression params+=Expression*)?))?)
 	 */
 	protected void sequence_DeterministicRelation(ISerializationContext context, DeterministicRelation semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Expression returns Expression
+	 *     Expression.Expression_1_0 returns Expression
+	 *     TerminalExpression returns Expression
+	 *
+	 * Constraint:
+	 *     ((left=Expression_Expression_1_0 op=Operator right=TerminalExpression) | value=Value)
+	 */
+	protected void sequence_Expression_TerminalExpression(ISerializationContext context, Expression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -102,55 +129,26 @@ public class BugsDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
-	 *     Parameter returns Parameter
-	 *
-	 * Constraint:
-	 *     value=Value
-	 */
-	protected void sequence_Parameter(ISerializationContext context, com.opcoach.bugsy.xtext.bugsDsl.Parameter semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, BugsDslPackage.Literals.PARAMETER__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BugsDslPackage.Literals.PARAMETER__VALUE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getParameterAccess().getValueValueParserRuleCall_1_0(), semanticObject.getValue());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Parameters returns Parameters
-	 *
-	 * Constraint:
-	 *     {Parameters}
-	 */
-	protected void sequence_Parameters(ISerializationContext context, Parameters semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Instruction returns Relation
-	 *     Relation returns Relation
-	 *
-	 * Constraint:
-	 *     (name=ID (relation=StochasticRelation | relation=DeterministicRelation))
-	 */
-	protected void sequence_Relation(ISerializationContext context, Relation semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
+	 *     Instruction returns StochasticRelation
+	 *     Relation returns StochasticRelation
 	 *     StochasticRelation returns StochasticRelation
 	 *
 	 * Constraint:
-	 *     (distrib=Density (params+=Parameter params+=Parameter*)?)
+	 *     (name=ArrayID distrib=Density (params+=Expression params+=Expression*)?)
 	 */
 	protected void sequence_StochasticRelation(ISerializationContext context, StochasticRelation semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Value returns Value
+	 *
+	 * Constraint:
+	 *     (value=Numeric | id=ArrayID)
+	 */
+	protected void sequence_Value(ISerializationContext context, Value semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

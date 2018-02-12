@@ -3,7 +3,7 @@
  */
 package com.opcoach.bugsy.xtext.bugsDsl;
 
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.Relation#getName <em>Name</em>}</li>
- *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.Relation#getRelation <em>Relation</em>}</li>
+ *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.Relation#getParams <em>Params</em>}</li>
  * </ul>
  *
  * @see com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage#getRelation()
@@ -25,55 +25,45 @@ import org.eclipse.emf.ecore.EObject;
 public interface Relation extends Instruction
 {
   /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * Returns the value of the '<em><b>Name</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Name</em>' attribute isn't clear,
+   * If the meaning of the '<em>Name</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
+   * @return the value of the '<em>Name</em>' containment reference.
+   * @see #setName(ArrayID)
    * @see com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage#getRelation_Name()
-   * @model
-   * @generated
-   */
-  String getName();
-
-  /**
-   * Sets the value of the '{@link com.opcoach.bugsy.xtext.bugsDsl.Relation#getName <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
-   * @generated
-   */
-  void setName(String value);
-
-  /**
-   * Returns the value of the '<em><b>Relation</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Relation</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Relation</em>' containment reference.
-   * @see #setRelation(EObject)
-   * @see com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage#getRelation_Relation()
    * @model containment="true"
    * @generated
    */
-  EObject getRelation();
+  ArrayID getName();
 
   /**
-   * Sets the value of the '{@link com.opcoach.bugsy.xtext.bugsDsl.Relation#getRelation <em>Relation</em>}' containment reference.
+   * Sets the value of the '{@link com.opcoach.bugsy.xtext.bugsDsl.Relation#getName <em>Name</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Relation</em>' containment reference.
-   * @see #getRelation()
+   * @param value the new value of the '<em>Name</em>' containment reference.
+   * @see #getName()
    * @generated
    */
-  void setRelation(EObject value);
+  void setName(ArrayID value);
+
+  /**
+   * Returns the value of the '<em><b>Params</b></em>' containment reference list.
+   * The list contents are of type {@link com.opcoach.bugsy.xtext.bugsDsl.Expression}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Params</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Params</em>' containment reference list.
+   * @see com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage#getRelation_Params()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Expression> getParams();
 
 } // Relation

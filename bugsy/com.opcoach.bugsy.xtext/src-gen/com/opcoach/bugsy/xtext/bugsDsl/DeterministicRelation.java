@@ -5,8 +5,6 @@ package com.opcoach.bugsy.xtext.bugsDsl;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Deterministic Relation</b></em>'.
@@ -16,17 +14,33 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.DeterministicRelation#getExpressions <em>Expressions</em>}</li>
  *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.DeterministicRelation#getDistrib <em>Distrib</em>}</li>
  *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.DeterministicRelation#getFunction <em>Function</em>}</li>
- *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.DeterministicRelation#getParams <em>Params</em>}</li>
  * </ul>
  *
  * @see com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage#getDeterministicRelation()
  * @model
  * @generated
  */
-public interface DeterministicRelation extends EObject
+public interface DeterministicRelation extends Relation
 {
+  /**
+   * Returns the value of the '<em><b>Expressions</b></em>' containment reference list.
+   * The list contents are of type {@link com.opcoach.bugsy.xtext.bugsDsl.Expression}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Expressions</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Expressions</em>' containment reference list.
+   * @see com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage#getDeterministicRelation_Expressions()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Expression> getExpressions();
+
   /**
    * Returns the value of the '<em><b>Distrib</b></em>' attribute.
    * The literals are from the enumeration {@link com.opcoach.bugsy.xtext.bugsDsl.Distribution}.
@@ -84,21 +98,5 @@ public interface DeterministicRelation extends EObject
    * @generated
    */
   void setFunction(Function value);
-
-  /**
-   * Returns the value of the '<em><b>Params</b></em>' containment reference list.
-   * The list contents are of type {@link com.opcoach.bugsy.xtext.bugsDsl.Parameter}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Params</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Params</em>' containment reference list.
-   * @see com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage#getDeterministicRelation_Params()
-   * @model containment="true"
-   * @generated
-   */
-  EList<Parameter> getParams();
 
 } // DeterministicRelation

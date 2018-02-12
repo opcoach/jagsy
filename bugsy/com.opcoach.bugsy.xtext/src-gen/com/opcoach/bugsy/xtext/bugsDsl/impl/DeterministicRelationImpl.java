@@ -6,8 +6,8 @@ package com.opcoach.bugsy.xtext.bugsDsl.impl;
 import com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage;
 import com.opcoach.bugsy.xtext.bugsDsl.DeterministicRelation;
 import com.opcoach.bugsy.xtext.bugsDsl.Distribution;
+import com.opcoach.bugsy.xtext.bugsDsl.Expression;
 import com.opcoach.bugsy.xtext.bugsDsl.Function;
-import com.opcoach.bugsy.xtext.bugsDsl.Parameter;
 
 import java.util.Collection;
 
@@ -20,7 +20,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -33,15 +32,25 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.impl.DeterministicRelationImpl#getExpressions <em>Expressions</em>}</li>
  *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.impl.DeterministicRelationImpl#getDistrib <em>Distrib</em>}</li>
  *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.impl.DeterministicRelationImpl#getFunction <em>Function</em>}</li>
- *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.impl.DeterministicRelationImpl#getParams <em>Params</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class DeterministicRelationImpl extends MinimalEObjectImpl.Container implements DeterministicRelation
+public class DeterministicRelationImpl extends RelationImpl implements DeterministicRelation
 {
+  /**
+   * The cached value of the '{@link #getExpressions() <em>Expressions</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExpressions()
+   * @generated
+   * @ordered
+   */
+  protected EList<Expression> expressions;
+
   /**
    * The default value of the '{@link #getDistrib() <em>Distrib</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -83,16 +92,6 @@ public class DeterministicRelationImpl extends MinimalEObjectImpl.Container impl
   protected Function function = FUNCTION_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getParams() <em>Params</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getParams()
-   * @generated
-   * @ordered
-   */
-  protected EList<Parameter> params;
-
-  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -111,6 +110,20 @@ public class DeterministicRelationImpl extends MinimalEObjectImpl.Container impl
   protected EClass eStaticClass()
   {
     return BugsDslPackage.Literals.DETERMINISTIC_RELATION;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Expression> getExpressions()
+  {
+    if (expressions == null)
+    {
+      expressions = new EObjectContainmentEList<Expression>(Expression.class, this, BugsDslPackage.DETERMINISTIC_RELATION__EXPRESSIONS);
+    }
+    return expressions;
   }
 
   /**
@@ -164,27 +177,13 @@ public class DeterministicRelationImpl extends MinimalEObjectImpl.Container impl
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Parameter> getParams()
-  {
-    if (params == null)
-    {
-      params = new EObjectContainmentEList<Parameter>(Parameter.class, this, BugsDslPackage.DETERMINISTIC_RELATION__PARAMS);
-    }
-    return params;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
     {
-      case BugsDslPackage.DETERMINISTIC_RELATION__PARAMS:
-        return ((InternalEList<?>)getParams()).basicRemove(otherEnd, msgs);
+      case BugsDslPackage.DETERMINISTIC_RELATION__EXPRESSIONS:
+        return ((InternalEList<?>)getExpressions()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -199,12 +198,12 @@ public class DeterministicRelationImpl extends MinimalEObjectImpl.Container impl
   {
     switch (featureID)
     {
+      case BugsDslPackage.DETERMINISTIC_RELATION__EXPRESSIONS:
+        return getExpressions();
       case BugsDslPackage.DETERMINISTIC_RELATION__DISTRIB:
         return getDistrib();
       case BugsDslPackage.DETERMINISTIC_RELATION__FUNCTION:
         return getFunction();
-      case BugsDslPackage.DETERMINISTIC_RELATION__PARAMS:
-        return getParams();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -220,15 +219,15 @@ public class DeterministicRelationImpl extends MinimalEObjectImpl.Container impl
   {
     switch (featureID)
     {
+      case BugsDslPackage.DETERMINISTIC_RELATION__EXPRESSIONS:
+        getExpressions().clear();
+        getExpressions().addAll((Collection<? extends Expression>)newValue);
+        return;
       case BugsDslPackage.DETERMINISTIC_RELATION__DISTRIB:
         setDistrib((Distribution)newValue);
         return;
       case BugsDslPackage.DETERMINISTIC_RELATION__FUNCTION:
         setFunction((Function)newValue);
-        return;
-      case BugsDslPackage.DETERMINISTIC_RELATION__PARAMS:
-        getParams().clear();
-        getParams().addAll((Collection<? extends Parameter>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -244,14 +243,14 @@ public class DeterministicRelationImpl extends MinimalEObjectImpl.Container impl
   {
     switch (featureID)
     {
+      case BugsDslPackage.DETERMINISTIC_RELATION__EXPRESSIONS:
+        getExpressions().clear();
+        return;
       case BugsDslPackage.DETERMINISTIC_RELATION__DISTRIB:
         setDistrib(DISTRIB_EDEFAULT);
         return;
       case BugsDslPackage.DETERMINISTIC_RELATION__FUNCTION:
         setFunction(FUNCTION_EDEFAULT);
-        return;
-      case BugsDslPackage.DETERMINISTIC_RELATION__PARAMS:
-        getParams().clear();
         return;
     }
     super.eUnset(featureID);
@@ -267,12 +266,12 @@ public class DeterministicRelationImpl extends MinimalEObjectImpl.Container impl
   {
     switch (featureID)
     {
+      case BugsDslPackage.DETERMINISTIC_RELATION__EXPRESSIONS:
+        return expressions != null && !expressions.isEmpty();
       case BugsDslPackage.DETERMINISTIC_RELATION__DISTRIB:
         return distrib != DISTRIB_EDEFAULT;
       case BugsDslPackage.DETERMINISTIC_RELATION__FUNCTION:
         return function != FUNCTION_EDEFAULT;
-      case BugsDslPackage.DETERMINISTIC_RELATION__PARAMS:
-        return params != null && !params.isEmpty();
     }
     return super.eIsSet(featureID);
   }

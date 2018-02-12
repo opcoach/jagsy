@@ -23,7 +23,7 @@ public class BugsDslParsingTest {
   private ParseHelper<BugsModel> parseHelper;
   
   @Test
-  public void loadModel() {
+  public void testLoadModel1() {
     try {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("model { ");
@@ -31,10 +31,10 @@ public class BugsDslParsingTest {
       _builder.append("\t\t\t");
       _builder.append("for ( ed in 1:N2 ) { }");
       _builder.newLine();
-      _builder.append("\t\t \t ");
+      _builder.append("\t\t\t\t ");
       _builder.append("a  <- dnegbin(n, a)");
       _builder.newLine();
-      _builder.append("\t\t  \t ");
+      _builder.append("\t\t\t\t  ");
       _builder.newLine();
       _builder.append("\t\t\t");
       _builder.append("# Comment 1");
@@ -54,45 +54,95 @@ public class BugsDslParsingTest {
       _builder.append("\t\t\t\t");
       _builder.append("titi ~ dnorm(0, 3, 2)");
       _builder.newLine();
-      _builder.append("\t\t\t    ");
+      _builder.append("\t\t\t\t   ");
       _builder.append("toto <- c( 0, 0 , 0, tau) ");
       _builder.newLine();
-      _builder.append("\t\t\t    ");
+      _builder.append("\t\t\t\t   ");
       _builder.append("test ~ dnorm( test)");
       _builder.newLine();
-      _builder.append("\t\t\t    ");
+      _builder.append("\t\t\t\t   ");
       _builder.append("afq <- dgen.gamma(afq)");
       _builder.newLine();
-      _builder.append("\t\t\t    ");
+      _builder.append("\t\t\t\t   ");
       _builder.append("afq ~ dunif(afq,afq,tutu)");
       _builder.newLine();
-      _builder.append("\t\t\t    ");
+      _builder.append("\t\t\t\t   ");
       _builder.append("tutu <- asin(afq,tau)");
       _builder.newLine();
-      _builder.append("\t\t\t    ");
+      _builder.append("\t\t\t\t   ");
       _builder.append("for ( a3 in 0:N3 ) { ");
       _builder.newLine();
-      _builder.append("\t\t\t    \t  ");
+      _builder.append("\t\t\t\t   \t  ");
       _builder.append("# Must loop on this...");
       _builder.newLine();
-      _builder.append("\t\t\t    \t  ");
+      _builder.append("\t\t\t\t   \t  ");
       _builder.append("test2 ~ dnorm()");
       _builder.newLine();
-      _builder.append("\t\t\t    \t  ");
+      _builder.append("\t\t\t\t   \t  ");
       _builder.append("test33 <- dgamma(1, 9)");
       _builder.newLine();
-      _builder.append("\t\t\t    ");
+      _builder.append("\t\t\t\t   ");
       _builder.append("}");
       _builder.newLine();
-      _builder.append("\t\t\t    ");
+      _builder.append("\t\t\t\t   ");
       _builder.append("}");
       _builder.newLine();
-      _builder.append("\t\t\t    ");
+      _builder.append("\t\t\t\t   ");
       _builder.newLine();
       _builder.append("\t");
       _builder.newLine();
       final BugsModel result = this.parseHelper.parse(_builder);
       Assert.assertNotNull(result);
+      Assert.assertTrue(result.eResource().getErrors().isEmpty());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void testLoadModelFromRefGuide() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("model {");
+      _builder.newLine();
+      _builder.append("    ");
+      _builder.append("for (i in 1:N) {");
+      _builder.newLine();
+      _builder.append("    \t");
+      _builder.append("Y[i]   ~ dnorm(mu[i], tau)");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("mu[i] <- alpha + beta * (x[i] - x.bar)");
+      _builder.newLine();
+      _builder.append("\t   \t");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("x.bar <- mean(x)");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("alpha ~ dnorm(0.0, 1.0E-4)");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("beta ~ dnorm(0.0, 1.0E-4)");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("sigma<- 1.0/sqrt(tau)");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("tau ~ dgamma(1.0E-3, 1.0E-3)");
+      _builder.newLine();
+      _builder.append("\t ");
+      _builder.newLine();
+      _builder.append("\t  ");
+      _builder.append("}\t");
+      _builder.newLine();
+      final BugsModel result = this.parseHelper.parse(_builder);
+      Assert.assertNotNull(result);
+      Assert.assertTrue(result.eResource().getErrors().isEmpty());
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }

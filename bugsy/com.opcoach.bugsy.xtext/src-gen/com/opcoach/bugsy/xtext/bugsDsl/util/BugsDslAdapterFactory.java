@@ -91,14 +91,14 @@ public class BugsDslAdapterFactory extends AdapterFactoryImpl
         return createForAdapter();
       }
       @Override
-      public Adapter caseParameters(Parameters object)
+      public Adapter caseValue(Value object)
       {
-        return createParametersAdapter();
+        return createValueAdapter();
       }
       @Override
-      public Adapter caseParameter(Parameter object)
+      public Adapter caseArrayID(ArrayID object)
       {
-        return createParameterAdapter();
+        return createArrayIDAdapter();
       }
       @Override
       public Adapter caseRelation(Relation object)
@@ -114,6 +114,11 @@ public class BugsDslAdapterFactory extends AdapterFactoryImpl
       public Adapter caseDeterministicRelation(DeterministicRelation object)
       {
         return createDeterministicRelationAdapter();
+      }
+      @Override
+      public Adapter caseExpression(Expression object)
+      {
+        return createExpressionAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -183,31 +188,31 @@ public class BugsDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link com.opcoach.bugsy.xtext.bugsDsl.Parameters <em>Parameters</em>}'.
+   * Creates a new adapter for an object of class '{@link com.opcoach.bugsy.xtext.bugsDsl.Value <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see com.opcoach.bugsy.xtext.bugsDsl.Parameters
+   * @see com.opcoach.bugsy.xtext.bugsDsl.Value
    * @generated
    */
-  public Adapter createParametersAdapter()
+  public Adapter createValueAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link com.opcoach.bugsy.xtext.bugsDsl.Parameter <em>Parameter</em>}'.
+   * Creates a new adapter for an object of class '{@link com.opcoach.bugsy.xtext.bugsDsl.ArrayID <em>Array ID</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see com.opcoach.bugsy.xtext.bugsDsl.Parameter
+   * @see com.opcoach.bugsy.xtext.bugsDsl.ArrayID
    * @generated
    */
-  public Adapter createParameterAdapter()
+  public Adapter createArrayIDAdapter()
   {
     return null;
   }
@@ -253,6 +258,21 @@ public class BugsDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createDeterministicRelationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.opcoach.bugsy.xtext.bugsDsl.Expression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.opcoach.bugsy.xtext.bugsDsl.Expression
+   * @generated
+   */
+  public Adapter createExpressionAdapter()
   {
     return null;
   }

@@ -14,25 +14,38 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="contents" upperBound="-1"
         eType="#//Instruction" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Parameters"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Parameter">
+  <eClassifiers xsi:type="ecore:EClass" name="Value">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Relation" eSuperTypes="#//Instruction">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="relation" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="id" eType="#//ArrayID"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StochasticRelation">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="distrib" eType="#//Density"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="params" upperBound="-1"
-        eType="#//Parameter" containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ArrayID">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="index" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DeterministicRelation">
+  <eClassifiers xsi:type="ecore:EClass" name="Relation" eSuperTypes="#//Instruction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="#//ArrayID"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="params" upperBound="-1"
+        eType="#//Expression" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StochasticRelation" eSuperTypes="#//Relation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="distrib" eType="#//Density"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DeterministicRelation" eSuperTypes="#//Relation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expressions" upperBound="-1"
+        eType="#//Expression" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="distrib" eType="#//Distribution"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="function" eType="#//Function"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="params" upperBound="-1"
-        eType="#//Parameter" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Expression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//Value"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Distribution">
     <eLiterals name="dbern" literal="dbern"/>
@@ -41,22 +54,22 @@
     <eLiterals name="ddexp" value="3" literal="ddexp"/>
     <eLiterals name="dexp" value="4" literal="dexp"/>
     <eLiterals name="df" value="5" literal="df"/>
-    <eLiterals name="dgamma" value="6" literal="dgamma"/>
-    <eLiterals name="dgengamm" value="7" literal="dgen.gamma"/>
-    <eLiterals name="dhyper" value="8" literal="dhyper"/>
-    <eLiterals name="dlogis" value="9" literal="dlogis"/>
-    <eLiterals name="dlnorm" value="10" literal="dlnorm"/>
-    <eLiterals name="dnegbin" value="11" literal="dnegbin"/>
-    <eLiterals name="dnchisqr" value="12" literal="dnchisqr"/>
-    <eLiterals name="dpar" value="13" literal="dpar"/>
-    <eLiterals name="dpois" value="14" literal="dpois"/>
-    <eLiterals name="dt" value="15" literal="dt"/>
-    <eLiterals name="dweib" value="16" literal="dweib"/>
+    <eLiterals name="dgengamm" value="6" literal="dgen.gamma"/>
+    <eLiterals name="dhyper" value="7" literal="dhyper"/>
+    <eLiterals name="dlogis" value="8" literal="dlogis"/>
+    <eLiterals name="dlnorm" value="9" literal="dlnorm"/>
+    <eLiterals name="dnegbin" value="10" literal="dnegbin"/>
+    <eLiterals name="dnchisqr" value="11" literal="dnchisqr"/>
+    <eLiterals name="dpar" value="12" literal="dpar"/>
+    <eLiterals name="dpois" value="13" literal="dpois"/>
+    <eLiterals name="dt" value="14" literal="dt"/>
+    <eLiterals name="dweib" value="15" literal="dweib"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Density">
     <eLiterals name="dnorm" literal="dnorm"/>
     <eLiterals name="dunif" value="1" literal="dunif"/>
     <eLiterals name="dbeta" value="2" literal="dbeta"/>
+    <eLiterals name="dgamma" value="3" literal="dgamma"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Function">
     <eLiterals name="acos" literal="acos"/>
@@ -67,5 +80,7 @@
     <eLiterals name="log" value="5" literal="log"/>
     <eLiterals name="ep" value="6" literal="exp"/>
     <eLiterals name="c" value="7" literal="c"/>
+    <eLiterals name="mean" value="8" literal="mean"/>
+    <eLiterals name="sqrt" value="9" literal="sqrt"/>
   </eClassifiers>
 </ecore:EPackage>

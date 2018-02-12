@@ -13,7 +13,6 @@
       <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//Distribution/ddexp"/>
       <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//Distribution/dexp"/>
       <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//Distribution/df"/>
-      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//Distribution/dgamma"/>
       <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//Distribution/dgengamm"/>
       <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//Distribution/dhyper"/>
       <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//Distribution/dlogis"/>
@@ -29,6 +28,7 @@
       <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//Density/dnorm"/>
       <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//Density/dunif"/>
       <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//Density/dbeta"/>
+      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//Density/dgamma"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="BugsDsl.ecore#//Function">
       <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//Function/acos"/>
@@ -39,6 +39,8 @@
       <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//Function/log"/>
       <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//Function/ep"/>
       <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//Function/c"/>
+      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//Function/mean"/>
+      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//Function/sqrt"/>
     </genEnums>
     <genClasses ecoreClass="BugsDsl.ecore#//BugsModel">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BugsDsl.ecore#//BugsModel/instructions"/>
@@ -50,22 +52,31 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BugsDsl.ecore#//For/high"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BugsDsl.ecore#//For/contents"/>
     </genClasses>
-    <genClasses ecoreClass="BugsDsl.ecore#//Parameters"/>
-    <genClasses ecoreClass="BugsDsl.ecore#//Parameter">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BugsDsl.ecore#//Parameter/value"/>
+    <genClasses ecoreClass="BugsDsl.ecore#//Value">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BugsDsl.ecore#//Value/value"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BugsDsl.ecore#//Value/id"/>
+    </genClasses>
+    <genClasses ecoreClass="BugsDsl.ecore#//ArrayID">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BugsDsl.ecore#//ArrayID/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BugsDsl.ecore#//ArrayID/index"/>
     </genClasses>
     <genClasses ecoreClass="BugsDsl.ecore#//Relation">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BugsDsl.ecore#//Relation/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BugsDsl.ecore#//Relation/relation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BugsDsl.ecore#//Relation/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BugsDsl.ecore#//Relation/params"/>
     </genClasses>
     <genClasses ecoreClass="BugsDsl.ecore#//StochasticRelation">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BugsDsl.ecore#//StochasticRelation/distrib"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BugsDsl.ecore#//StochasticRelation/params"/>
     </genClasses>
     <genClasses ecoreClass="BugsDsl.ecore#//DeterministicRelation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BugsDsl.ecore#//DeterministicRelation/expressions"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BugsDsl.ecore#//DeterministicRelation/distrib"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BugsDsl.ecore#//DeterministicRelation/function"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BugsDsl.ecore#//DeterministicRelation/params"/>
+    </genClasses>
+    <genClasses ecoreClass="BugsDsl.ecore#//Expression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BugsDsl.ecore#//Expression/left"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BugsDsl.ecore#//Expression/op"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BugsDsl.ecore#//Expression/right"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BugsDsl.ecore#//Expression/value"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -3,17 +3,25 @@
  */
 package com.opcoach.bugsy.xtext.bugsDsl.impl;
 
+import com.opcoach.bugsy.xtext.bugsDsl.ArrayID;
 import com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage;
+import com.opcoach.bugsy.xtext.bugsDsl.Expression;
 import com.opcoach.bugsy.xtext.bugsDsl.Relation;
+
+import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,7 +32,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.impl.RelationImpl#getName <em>Name</em>}</li>
- *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.impl.RelationImpl#getRelation <em>Relation</em>}</li>
+ *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.impl.RelationImpl#getParams <em>Params</em>}</li>
  * </ul>
  *
  * @generated
@@ -32,34 +40,24 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 public class RelationImpl extends InstructionImpl implements Relation
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getName() <em>Name</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getName()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
+  protected ArrayID name;
 
   /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getParams() <em>Params</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getParams()
    * @generated
    * @ordered
    */
-  protected String name = NAME_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getRelation() <em>Relation</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getRelation()
-   * @generated
-   * @ordered
-   */
-  protected EObject relation;
+  protected EList<Expression> params;
 
   /**
    * <!-- begin-user-doc -->
@@ -87,7 +85,7 @@ public class RelationImpl extends InstructionImpl implements Relation
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
+  public ArrayID getName()
   {
     return name;
   }
@@ -97,36 +95,13 @@ public class RelationImpl extends InstructionImpl implements Relation
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setName(String newName)
+  public NotificationChain basicSetName(ArrayID newName, NotificationChain msgs)
   {
-    String oldName = name;
+    ArrayID oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BugsDslPackage.RELATION__NAME, oldName, name));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EObject getRelation()
-  {
-    return relation;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetRelation(EObject newRelation, NotificationChain msgs)
-  {
-    EObject oldRelation = relation;
-    relation = newRelation;
-    if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BugsDslPackage.RELATION__RELATION, oldRelation, newRelation);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BugsDslPackage.RELATION__NAME, oldName, newName);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -137,20 +112,34 @@ public class RelationImpl extends InstructionImpl implements Relation
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setRelation(EObject newRelation)
+  public void setName(ArrayID newName)
   {
-    if (newRelation != relation)
+    if (newName != name)
     {
       NotificationChain msgs = null;
-      if (relation != null)
-        msgs = ((InternalEObject)relation).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BugsDslPackage.RELATION__RELATION, null, msgs);
-      if (newRelation != null)
-        msgs = ((InternalEObject)newRelation).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BugsDslPackage.RELATION__RELATION, null, msgs);
-      msgs = basicSetRelation(newRelation, msgs);
+      if (name != null)
+        msgs = ((InternalEObject)name).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BugsDslPackage.RELATION__NAME, null, msgs);
+      if (newName != null)
+        msgs = ((InternalEObject)newName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BugsDslPackage.RELATION__NAME, null, msgs);
+      msgs = basicSetName(newName, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BugsDslPackage.RELATION__RELATION, newRelation, newRelation));
+      eNotify(new ENotificationImpl(this, Notification.SET, BugsDslPackage.RELATION__NAME, newName, newName));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Expression> getParams()
+  {
+    if (params == null)
+    {
+      params = new EObjectContainmentEList<Expression>(Expression.class, this, BugsDslPackage.RELATION__PARAMS);
+    }
+    return params;
   }
 
   /**
@@ -163,8 +152,10 @@ public class RelationImpl extends InstructionImpl implements Relation
   {
     switch (featureID)
     {
-      case BugsDslPackage.RELATION__RELATION:
-        return basicSetRelation(null, msgs);
+      case BugsDslPackage.RELATION__NAME:
+        return basicSetName(null, msgs);
+      case BugsDslPackage.RELATION__PARAMS:
+        return ((InternalEList<?>)getParams()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -181,8 +172,8 @@ public class RelationImpl extends InstructionImpl implements Relation
     {
       case BugsDslPackage.RELATION__NAME:
         return getName();
-      case BugsDslPackage.RELATION__RELATION:
-        return getRelation();
+      case BugsDslPackage.RELATION__PARAMS:
+        return getParams();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -192,16 +183,18 @@ public class RelationImpl extends InstructionImpl implements Relation
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
       case BugsDslPackage.RELATION__NAME:
-        setName((String)newValue);
+        setName((ArrayID)newValue);
         return;
-      case BugsDslPackage.RELATION__RELATION:
-        setRelation((EObject)newValue);
+      case BugsDslPackage.RELATION__PARAMS:
+        getParams().clear();
+        getParams().addAll((Collection<? extends Expression>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -218,10 +211,10 @@ public class RelationImpl extends InstructionImpl implements Relation
     switch (featureID)
     {
       case BugsDslPackage.RELATION__NAME:
-        setName(NAME_EDEFAULT);
+        setName((ArrayID)null);
         return;
-      case BugsDslPackage.RELATION__RELATION:
-        setRelation((EObject)null);
+      case BugsDslPackage.RELATION__PARAMS:
+        getParams().clear();
         return;
     }
     super.eUnset(featureID);
@@ -238,28 +231,11 @@ public class RelationImpl extends InstructionImpl implements Relation
     switch (featureID)
     {
       case BugsDslPackage.RELATION__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case BugsDslPackage.RELATION__RELATION:
-        return relation != null;
+        return name != null;
+      case BugsDslPackage.RELATION__PARAMS:
+        return params != null && !params.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
   }
 
 } //RelationImpl

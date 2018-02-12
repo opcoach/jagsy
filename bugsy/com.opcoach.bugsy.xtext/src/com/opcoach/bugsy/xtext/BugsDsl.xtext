@@ -9,9 +9,10 @@ BugsModel:
 	instructions+=Instruction*
 	'}';
 
-@Override
-terminal SL_COMMENT 	: '#' !('\n'|'\r')* ('\r'? '\n')?;
-
+@ Override terminal SL_COMMENT:
+	'#' !('\n' | '\r')* ('\r'? '\n')?;
+@ Override terminal ID:
+	'^'? ('a'..'z' | 'A'..'Z' | '_') ('a'..'z' | 'A'..'Z' | '_' | '.' | '0'..'9')*;
 
 	//.................................
 // Starting grammar definition 
@@ -20,49 +21,52 @@ Instruction:
 	For | Relation;
 
 For:
-	{For}
-	'for' '(' variable=ID 'in' low=INT ':' high=ID ')' '{' contents+=Instruction* '}';
-
-Parameters:
-	{Parameters};
+	{For} 'for' '(' variable=ID 'in' low=INT ':' high=ID ')' '{' contents+=Instruction* '}';
 
 Numeric:
-	INT ; // | FLOAT;
+	INT | Float;
+
+Float returns ecore::EFloat:
+	INT '.' INT ('E' ('+' | '-') INT)?;
 
 Value:
-	Numeric | ID;
+	{Value} value=Numeric | id=ArrayID;
 
-Parameter:
-	{Parameter}
-	value=Value;
+ArrayID:
+	name=ID ('[' index=ID ']')?;
 
 Relation:
-	 name=ID relation=(StochasticRelation | DeterministicRelation);
+	StochasticRelation | DeterministicRelation;
 
 StochasticRelation:
-	{StochasticRelation}
-/* name=ID(dim=ARRAYDIM)? */ '~' distrib=Density ('()' | '(' ((params+=Parameter) (',' (params+=Parameter))*) ')')?;
+	{StochasticRelation} name=ArrayID '~' distrib=Density ('()' | '(' ((params+=Expression) (',' (params+=Expression))*)
+	')')?;
 
 DeterministicRelation:
-	{DeterministicRelation}
-/* name=ID  (dim=ARRAYDIM)? */ ('<-' | '=') ((distrib=Distribution)? & (function=Function)?) ('()' | '('
-	((params+=Parameter) (',' (params+=Parameter))* ')')?);
+	{DeterministicRelation} name=ArrayID ('<-' | '=') (=> expressions+=Expression | ((distrib=Distribution)?
+	& (function=Function)?) ('()' | '(' (=> (params+=Expression) (',' (params+=Expression))* ')')?));
 
+Operator:
+	'+' | '-' | '*' | '/';
+
+Expression:
+	TerminalExpression ({Expression.left=current} op=Operator
+	right=TerminalExpression)*;
+
+TerminalExpression returns Expression:
+	'(' Expression ')' | (value=Value
+	);
 
 enum Distribution:
-	dbern='dbern' |
-	dbin='dbin' | dchisqr='dchisqr' | ddexp='ddexp' |
-	dexp='dexp' | df='df' |
-	dgamma='dgamma' | dgengamm='dgen.gamma' | dhyper='dhyper' | dlogis='dlogis' | dlnorm='dlnorm' | dnegbin='dnegbin' |
-	dnchisqr='dnchisqr' |
-	dpar='dpar' | dpois='dpois' | dt='dt' | dweib='dweib';
+	dbern='dbern' | dbin='dbin' | dchisqr='dchisqr' | ddexp='ddexp' | dexp='dexp' | df='df' |
+	dgengamm='dgen.gamma' | dhyper='dhyper' | dlogis='dlogis' | dlnorm='dlnorm' | dnegbin='dnegbin' | dnchisqr='dnchisqr'
+	| dpar='dpar' | dpois='dpois' | dt='dt' | dweib='dweib';
 
 enum Density:
-	dnorm='dnorm' |
-	dunif='dunif' |
-	dbeta='dbeta';
+	dnorm='dnorm' | dunif='dunif' | dbeta='dbeta' | dgamma='dgamma';
 
 enum Function:
-	acos='acos' | acosh='acosh' | asin='asin' | asinh='asinh' | atan='atan' | log='log' | ep='exp' | c='c';
+	acos='acos' | acosh='acosh' | asin='asin' | asinh='asinh' | atan='atan' | log='log' | ep='exp' | c='c' | mean='mean' |
+	sqrt='sqrt';
 
 

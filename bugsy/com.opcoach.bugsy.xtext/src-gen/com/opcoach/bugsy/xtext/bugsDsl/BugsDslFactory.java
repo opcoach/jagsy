@@ -51,22 +51,22 @@ public interface BugsDslFactory extends EFactory
   For createFor();
 
   /**
-   * Returns a new object of class '<em>Parameters</em>'.
+   * Returns a new object of class '<em>Value</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Parameters</em>'.
+   * @return a new object of class '<em>Value</em>'.
    * @generated
    */
-  Parameters createParameters();
+  Value createValue();
 
   /**
-   * Returns a new object of class '<em>Parameter</em>'.
+   * Returns a new object of class '<em>Array ID</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Parameter</em>'.
+   * @return a new object of class '<em>Array ID</em>'.
    * @generated
    */
-  Parameter createParameter();
+  ArrayID createArrayID();
 
   /**
    * Returns a new object of class '<em>Relation</em>'.
@@ -94,6 +94,15 @@ public interface BugsDslFactory extends EFactory
    * @generated
    */
   DeterministicRelation createDeterministicRelation();
+
+  /**
+   * Returns a new object of class '<em>Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Expression</em>'.
+   * @generated
+   */
+  Expression createExpression();
 
   /**
    * Returns the package supported by this factory.

@@ -98,7 +98,27 @@ public enum Function implements Enumerator
    * @generated
    * @ordered
    */
-  C(7, "c", "c");
+  C(7, "c", "c"),
+
+  /**
+   * The '<em><b>Mean</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #MEAN_VALUE
+   * @generated
+   * @ordered
+   */
+  MEAN(8, "mean", "mean"),
+
+  /**
+   * The '<em><b>Sqrt</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #SQRT_VALUE
+   * @generated
+   * @ordered
+   */
+  SQRT(9, "sqrt", "sqrt");
 
   /**
    * The '<em><b>Acos</b></em>' literal value.
@@ -221,6 +241,36 @@ public enum Function implements Enumerator
   public static final int C_VALUE = 7;
 
   /**
+   * The '<em><b>Mean</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of '<em><b>Mean</b></em>' literal object isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @see #MEAN
+   * @model name="mean"
+   * @generated
+   * @ordered
+   */
+  public static final int MEAN_VALUE = 8;
+
+  /**
+   * The '<em><b>Sqrt</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of '<em><b>Sqrt</b></em>' literal object isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @see #SQRT
+   * @model name="sqrt"
+   * @generated
+   * @ordered
+   */
+  public static final int SQRT_VALUE = 9;
+
+  /**
    * An array of all the '<em><b>Function</b></em>' enumerators.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -237,6 +287,8 @@ public enum Function implements Enumerator
       LOG,
       EP,
       C,
+      MEAN,
+      SQRT,
     };
 
   /**
@@ -309,6 +361,8 @@ public enum Function implements Enumerator
       case LOG_VALUE: return LOG;
       case EP_VALUE: return EP;
       case C_VALUE: return C;
+      case MEAN_VALUE: return MEAN;
+      case SQRT_VALUE: return SQRT;
     }
     return null;
   }

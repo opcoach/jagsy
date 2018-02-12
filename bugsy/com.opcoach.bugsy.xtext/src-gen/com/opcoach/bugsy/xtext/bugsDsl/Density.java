@@ -48,7 +48,17 @@ public enum Density implements Enumerator
    * @generated
    * @ordered
    */
-  DBETA(2, "dbeta", "dbeta");
+  DBETA(2, "dbeta", "dbeta"),
+
+  /**
+   * The '<em><b>Dgamma</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #DGAMMA_VALUE
+   * @generated
+   * @ordered
+   */
+  DGAMMA(3, "dgamma", "dgamma");
 
   /**
    * The '<em><b>Dnorm</b></em>' literal value.
@@ -96,6 +106,21 @@ public enum Density implements Enumerator
   public static final int DBETA_VALUE = 2;
 
   /**
+   * The '<em><b>Dgamma</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of '<em><b>Dgamma</b></em>' literal object isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @see #DGAMMA
+   * @model name="dgamma"
+   * @generated
+   * @ordered
+   */
+  public static final int DGAMMA_VALUE = 3;
+
+  /**
    * An array of all the '<em><b>Density</b></em>' enumerators.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -107,6 +132,7 @@ public enum Density implements Enumerator
       DNORM,
       DUNIF,
       DBETA,
+      DGAMMA,
     };
 
   /**
@@ -174,6 +200,7 @@ public enum Density implements Enumerator
       case DNORM_VALUE: return DNORM;
       case DUNIF_VALUE: return DUNIF;
       case DBETA_VALUE: return DBETA;
+      case DGAMMA_VALUE: return DGAMMA;
     }
     return null;
   }
