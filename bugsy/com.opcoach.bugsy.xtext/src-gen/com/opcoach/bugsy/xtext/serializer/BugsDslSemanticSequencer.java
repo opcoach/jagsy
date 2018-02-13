@@ -140,7 +140,7 @@ public class BugsDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     For returns For
 	 *
 	 * Constraint:
-	 *     (variable=ID low=INT high=ID contents+=Instruction*)
+	 *     (variable=ID low=Index high=Index contents+=Instruction*)
 	 */
 	protected void sequence_For(ISerializationContext context, For semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

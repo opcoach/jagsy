@@ -209,19 +209,20 @@ ruleFor returns [EObject current=null]
 		}
 		(
 			(
-				lv_low_5_0=RULE_INT
 				{
-					newLeafNode(lv_low_5_0, grammarAccess.getForAccess().getLowINTTerminalRuleCall_5_0());
+					newCompositeNode(grammarAccess.getForAccess().getLowIndexParserRuleCall_5_0());
 				}
+				lv_low_5_0=ruleIndex
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getForRule());
+						$current = createModelElementForParent(grammarAccess.getForRule());
 					}
-					setWithLastConsumed(
+					set(
 						$current,
 						"low",
 						lv_low_5_0,
-						"org.eclipse.xtext.common.Terminals.INT");
+						"com.opcoach.bugsy.xtext.BugsDsl.Index");
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)
@@ -231,19 +232,20 @@ ruleFor returns [EObject current=null]
 		}
 		(
 			(
-				lv_high_7_0=RULE_ID
 				{
-					newLeafNode(lv_high_7_0, grammarAccess.getForAccess().getHighIDTerminalRuleCall_7_0());
+					newCompositeNode(grammarAccess.getForAccess().getHighIndexParserRuleCall_7_0());
 				}
+				lv_high_7_0=ruleIndex
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getForRule());
+						$current = createModelElementForParent(grammarAccess.getForRule());
 					}
-					setWithLastConsumed(
+					set(
 						$current,
 						"high",
 						lv_high_7_0,
-						"com.opcoach.bugsy.xtext.BugsDsl.ID");
+						"com.opcoach.bugsy.xtext.BugsDsl.Index");
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)

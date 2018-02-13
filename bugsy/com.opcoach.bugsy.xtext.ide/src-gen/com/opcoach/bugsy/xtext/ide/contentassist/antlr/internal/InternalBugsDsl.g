@@ -3042,9 +3042,9 @@ rule__For__LowAssignment_5
 	}
 :
 	(
-		{ before(grammarAccess.getForAccess().getLowINTTerminalRuleCall_5_0()); }
-		RULE_INT
-		{ after(grammarAccess.getForAccess().getLowINTTerminalRuleCall_5_0()); }
+		{ before(grammarAccess.getForAccess().getLowIndexParserRuleCall_5_0()); }
+		ruleIndex
+		{ after(grammarAccess.getForAccess().getLowIndexParserRuleCall_5_0()); }
 	)
 ;
 finally {
@@ -3057,9 +3057,9 @@ rule__For__HighAssignment_7
 	}
 :
 	(
-		{ before(grammarAccess.getForAccess().getHighIDTerminalRuleCall_7_0()); }
-		RULE_ID
-		{ after(grammarAccess.getForAccess().getHighIDTerminalRuleCall_7_0()); }
+		{ before(grammarAccess.getForAccess().getHighIndexParserRuleCall_7_0()); }
+		ruleIndex
+		{ after(grammarAccess.getForAccess().getHighIndexParserRuleCall_7_0()); }
 	)
 ;
 finally {

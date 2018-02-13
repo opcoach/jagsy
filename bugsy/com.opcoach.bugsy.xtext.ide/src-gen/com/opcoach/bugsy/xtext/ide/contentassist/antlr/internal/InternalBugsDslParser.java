@@ -2158,15 +2158,15 @@ public class InternalBugsDslParser extends AbstractInternalContentAssistParser {
                     }
                     }
                     break;
+                case 60:
+                    {
+                    alt6=1;
+                    }
+                    break;
                 case 14:
                 case 15:
                     {
                     alt6=2;
-                    }
-                    break;
-                case 60:
-                    {
-                    alt6=1;
                     }
                     break;
                 default:
@@ -4858,7 +4858,7 @@ public class InternalBugsDslParser extends AbstractInternalContentAssistParser {
             // InternalBugsDsl.g:1285:1: ( rule__For__Group__6__Impl rule__For__Group__7 )
             // InternalBugsDsl.g:1286:2: rule__For__Group__6__Impl rule__For__Group__7
             {
-            pushFollow(FOLLOW_9);
+            pushFollow(FOLLOW_11);
             rule__For__Group__6__Impl();
 
             state._fsp--;
@@ -5444,7 +5444,7 @@ public class InternalBugsDslParser extends AbstractInternalContentAssistParser {
             // InternalBugsDsl.g:1474:1: ( rule__Float__Group__1__Impl rule__Float__Group__2 )
             // InternalBugsDsl.g:1475:2: rule__Float__Group__1__Impl rule__Float__Group__2
             {
-            pushFollow(FOLLOW_11);
+            pushFollow(FOLLOW_15);
             rule__Float__Group__1__Impl();
 
             state._fsp--;
@@ -5523,7 +5523,7 @@ public class InternalBugsDslParser extends AbstractInternalContentAssistParser {
             // InternalBugsDsl.g:1501:1: ( rule__Float__Group__2__Impl rule__Float__Group__3 )
             // InternalBugsDsl.g:1502:2: rule__Float__Group__2__Impl rule__Float__Group__3
             {
-            pushFollow(FOLLOW_15);
+            pushFollow(FOLLOW_16);
             rule__Float__Group__2__Impl();
 
             state._fsp--;
@@ -5697,7 +5697,7 @@ public class InternalBugsDslParser extends AbstractInternalContentAssistParser {
             // InternalBugsDsl.g:1555:1: ( rule__Float__Group_3__0__Impl rule__Float__Group_3__1 )
             // InternalBugsDsl.g:1556:2: rule__Float__Group_3__0__Impl rule__Float__Group_3__1
             {
-            pushFollow(FOLLOW_16);
+            pushFollow(FOLLOW_17);
             rule__Float__Group_3__0__Impl();
 
             state._fsp--;
@@ -5776,7 +5776,7 @@ public class InternalBugsDslParser extends AbstractInternalContentAssistParser {
             // InternalBugsDsl.g:1582:1: ( rule__Float__Group_3__1__Impl rule__Float__Group_3__2 )
             // InternalBugsDsl.g:1583:2: rule__Float__Group_3__1__Impl rule__Float__Group_3__2
             {
-            pushFollow(FOLLOW_11);
+            pushFollow(FOLLOW_15);
             rule__Float__Group_3__1__Impl();
 
             state._fsp--;
@@ -5939,7 +5939,7 @@ public class InternalBugsDslParser extends AbstractInternalContentAssistParser {
             // InternalBugsDsl.g:1636:1: ( rule__Value__Group_0__0__Impl rule__Value__Group_0__1 )
             // InternalBugsDsl.g:1637:2: rule__Value__Group_0__0__Impl rule__Value__Group_0__1
             {
-            pushFollow(FOLLOW_11);
+            pushFollow(FOLLOW_15);
             rule__Value__Group_0__0__Impl();
 
             state._fsp--;
@@ -6102,7 +6102,7 @@ public class InternalBugsDslParser extends AbstractInternalContentAssistParser {
             // InternalBugsDsl.g:1690:1: ( rule__ArrayID__Group__0__Impl rule__ArrayID__Group__1 )
             // InternalBugsDsl.g:1691:2: rule__ArrayID__Group__0__Impl rule__ArrayID__Group__1
             {
-            pushFollow(FOLLOW_17);
+            pushFollow(FOLLOW_18);
             rule__ArrayID__Group__0__Impl();
 
             state._fsp--;
@@ -6286,7 +6286,7 @@ public class InternalBugsDslParser extends AbstractInternalContentAssistParser {
             // InternalBugsDsl.g:1744:1: ( rule__ArrayID__Group_1__0__Impl rule__ArrayID__Group_1__1 )
             // InternalBugsDsl.g:1745:2: rule__ArrayID__Group_1__0__Impl rule__ArrayID__Group_1__1
             {
-            pushFollow(FOLLOW_18);
+            pushFollow(FOLLOW_11);
             rule__ArrayID__Group_1__0__Impl();
 
             state._fsp--;
@@ -10440,24 +10440,28 @@ public class InternalBugsDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__For__LowAssignment_5"
-    // InternalBugsDsl.g:3039:1: rule__For__LowAssignment_5 : ( RULE_INT ) ;
+    // InternalBugsDsl.g:3039:1: rule__For__LowAssignment_5 : ( ruleIndex ) ;
     public final void rule__For__LowAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBugsDsl.g:3043:1: ( ( RULE_INT ) )
-            // InternalBugsDsl.g:3044:2: ( RULE_INT )
+            // InternalBugsDsl.g:3043:1: ( ( ruleIndex ) )
+            // InternalBugsDsl.g:3044:2: ( ruleIndex )
             {
-            // InternalBugsDsl.g:3044:2: ( RULE_INT )
-            // InternalBugsDsl.g:3045:3: RULE_INT
+            // InternalBugsDsl.g:3044:2: ( ruleIndex )
+            // InternalBugsDsl.g:3045:3: ruleIndex
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getForAccess().getLowINTTerminalRuleCall_5_0()); 
+               before(grammarAccess.getForAccess().getLowIndexParserRuleCall_5_0()); 
             }
-            match(input,RULE_INT,FOLLOW_2); if (state.failed) return ;
+            pushFollow(FOLLOW_2);
+            ruleIndex();
+
+            state._fsp--;
+            if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getForAccess().getLowINTTerminalRuleCall_5_0()); 
+               after(grammarAccess.getForAccess().getLowIndexParserRuleCall_5_0()); 
             }
 
             }
@@ -10481,24 +10485,28 @@ public class InternalBugsDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__For__HighAssignment_7"
-    // InternalBugsDsl.g:3054:1: rule__For__HighAssignment_7 : ( RULE_ID ) ;
+    // InternalBugsDsl.g:3054:1: rule__For__HighAssignment_7 : ( ruleIndex ) ;
     public final void rule__For__HighAssignment_7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBugsDsl.g:3058:1: ( ( RULE_ID ) )
-            // InternalBugsDsl.g:3059:2: ( RULE_ID )
+            // InternalBugsDsl.g:3058:1: ( ( ruleIndex ) )
+            // InternalBugsDsl.g:3059:2: ( ruleIndex )
             {
-            // InternalBugsDsl.g:3059:2: ( RULE_ID )
-            // InternalBugsDsl.g:3060:3: RULE_ID
+            // InternalBugsDsl.g:3059:2: ( ruleIndex )
+            // InternalBugsDsl.g:3060:3: ruleIndex
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getForAccess().getHighIDTerminalRuleCall_7_0()); 
+               before(grammarAccess.getForAccess().getHighIndexParserRuleCall_7_0()); 
             }
-            match(input,RULE_ID,FOLLOW_2); if (state.failed) return ;
+            pushFollow(FOLLOW_2);
+            ruleIndex();
+
+            state._fsp--;
+            if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getForAccess().getHighIDTerminalRuleCall_7_0()); 
+               after(grammarAccess.getForAccess().getHighIndexParserRuleCall_7_0()); 
             }
 
             }
@@ -11521,14 +11529,14 @@ public class InternalBugsDslParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0010000000000000L});
     public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000000020L});
     public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0020000000000000L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000000030L});
     public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0040000000000000L});
     public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0080000000000000L});
     public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0100000000000000L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0200000000000000L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000001800L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0400000000000000L});
-    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000000000030L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0200000000000000L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000000001800L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0400000000000000L});
     public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0800000000000000L});
     public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x1000000000000000L});
     public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000003C00000000L});

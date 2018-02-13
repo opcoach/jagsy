@@ -68,7 +68,7 @@ public class ForImpl extends InstructionImpl implements For
    * @generated
    * @ordered
    */
-  protected static final int LOW_EDEFAULT = 0;
+  protected static final String LOW_EDEFAULT = null;
 
   /**
    * The cached value of the '{@link #getLow() <em>Low</em>}' attribute.
@@ -78,7 +78,7 @@ public class ForImpl extends InstructionImpl implements For
    * @generated
    * @ordered
    */
-  protected int low = LOW_EDEFAULT;
+  protected String low = LOW_EDEFAULT;
 
   /**
    * The default value of the '{@link #getHigh() <em>High</em>}' attribute.
@@ -159,7 +159,7 @@ public class ForImpl extends InstructionImpl implements For
    * <!-- end-user-doc -->
    * @generated
    */
-  public int getLow()
+  public String getLow()
   {
     return low;
   }
@@ -169,9 +169,9 @@ public class ForImpl extends InstructionImpl implements For
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setLow(int newLow)
+  public void setLow(String newLow)
   {
-    int oldLow = low;
+    String oldLow = low;
     low = newLow;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, BugsDslPackage.FOR__LOW, oldLow, low));
@@ -267,7 +267,7 @@ public class ForImpl extends InstructionImpl implements For
         setVariable((String)newValue);
         return;
       case BugsDslPackage.FOR__LOW:
-        setLow((Integer)newValue);
+        setLow((String)newValue);
         return;
       case BugsDslPackage.FOR__HIGH:
         setHigh((String)newValue);
@@ -319,7 +319,7 @@ public class ForImpl extends InstructionImpl implements For
       case BugsDslPackage.FOR__VARIABLE:
         return VARIABLE_EDEFAULT == null ? variable != null : !VARIABLE_EDEFAULT.equals(variable);
       case BugsDslPackage.FOR__LOW:
-        return low != LOW_EDEFAULT;
+        return LOW_EDEFAULT == null ? low != null : !LOW_EDEFAULT.equals(low);
       case BugsDslPackage.FOR__HIGH:
         return HIGH_EDEFAULT == null ? high != null : !HIGH_EDEFAULT.equals(high);
       case BugsDslPackage.FOR__CONTENTS:

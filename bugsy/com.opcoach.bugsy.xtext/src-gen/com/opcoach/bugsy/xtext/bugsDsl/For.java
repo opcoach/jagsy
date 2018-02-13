@@ -61,12 +61,12 @@ public interface For extends Instruction
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Low</em>' attribute.
-   * @see #setLow(int)
+   * @see #setLow(String)
    * @see com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage#getFor_Low()
    * @model
    * @generated
    */
-  int getLow();
+  String getLow();
 
   /**
    * Sets the value of the '{@link com.opcoach.bugsy.xtext.bugsDsl.For#getLow <em>Low</em>}' attribute.
@@ -76,7 +76,7 @@ public interface For extends Instruction
    * @see #getLow()
    * @generated
    */
-  void setLow(int value);
+  void setLow(String value);
 
   /**
    * Returns the value of the '<em><b>High</b></em>' attribute.
