@@ -35,7 +35,7 @@ Value:
 	{Value} value=Numeric | id=ArrayID;
 
 ArrayID:
-	name=ID ('[' index=Index ']')?;
+	name=ID ('[' index+=Index  (',' (index+=Index))*']')?;
 
 Relation:
 	StochasticRelation | DeterministicRelation;

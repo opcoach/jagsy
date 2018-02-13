@@ -290,13 +290,17 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLeftSquareBracketKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final Assignment cIndexAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cIndexIndexParserRuleCall_1_1_0 = (RuleCall)cIndexAssignment_1_1.eContents().get(0);
-		private final Keyword cRightSquareBracketKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
+		private final Group cGroup_1_2 = (Group)cGroup_1.eContents().get(2);
+		private final Keyword cCommaKeyword_1_2_0 = (Keyword)cGroup_1_2.eContents().get(0);
+		private final Assignment cIndexAssignment_1_2_1 = (Assignment)cGroup_1_2.eContents().get(1);
+		private final RuleCall cIndexIndexParserRuleCall_1_2_1_0 = (RuleCall)cIndexAssignment_1_2_1.eContents().get(0);
+		private final Keyword cRightSquareBracketKeyword_1_3 = (Keyword)cGroup_1.eContents().get(3);
 		
 		//ArrayID:
-		//	name=ID ('[' index=Index ']')?;
+		//	name=ID ('[' index+=Index (',' index+=Index)* ']')?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=ID ('[' index=Index ']')?
+		//name=ID ('[' index+=Index (',' index+=Index)* ']')?
 		public Group getGroup() { return cGroup; }
 		
 		//name=ID
@@ -305,20 +309,32 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
 		
-		//('[' index=Index ']')?
+		//('[' index+=Index (',' index+=Index)* ']')?
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//'['
 		public Keyword getLeftSquareBracketKeyword_1_0() { return cLeftSquareBracketKeyword_1_0; }
 		
-		//index=Index
+		//index+=Index
 		public Assignment getIndexAssignment_1_1() { return cIndexAssignment_1_1; }
 		
 		//Index
 		public RuleCall getIndexIndexParserRuleCall_1_1_0() { return cIndexIndexParserRuleCall_1_1_0; }
 		
+		//(',' index+=Index)*
+		public Group getGroup_1_2() { return cGroup_1_2; }
+		
+		//','
+		public Keyword getCommaKeyword_1_2_0() { return cCommaKeyword_1_2_0; }
+		
+		//index+=Index
+		public Assignment getIndexAssignment_1_2_1() { return cIndexAssignment_1_2_1; }
+		
+		//Index
+		public RuleCall getIndexIndexParserRuleCall_1_2_1_0() { return cIndexIndexParserRuleCall_1_2_1_0; }
+		
 		//']'
-		public Keyword getRightSquareBracketKeyword_1_2() { return cRightSquareBracketKeyword_1_2; }
+		public Keyword getRightSquareBracketKeyword_1_3() { return cRightSquareBracketKeyword_1_3; }
 	}
 	public class RelationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.opcoach.bugsy.xtext.BugsDsl.Relation");
@@ -1174,7 +1190,7 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ArrayID:
-	//	name=ID ('[' index=Index ']')?;
+	//	name=ID ('[' index+=Index (',' index+=Index)* ']')?;
 	public ArrayIDElements getArrayIDAccess() {
 		return pArrayID;
 	}

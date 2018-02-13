@@ -6,12 +6,18 @@ package com.opcoach.bugsy.xtext.bugsDsl.impl;
 import com.opcoach.bugsy.xtext.bugsDsl.ArrayID;
 import com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -50,24 +56,14 @@ public class ArrayIDImpl extends MinimalEObjectImpl.Container implements ArrayID
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getIndex() <em>Index</em>}' attribute.
+   * The cached value of the '{@link #getIndex() <em>Index</em>}' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getIndex()
    * @generated
    * @ordered
    */
-  protected static final String INDEX_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getIndex() <em>Index</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getIndex()
-   * @generated
-   * @ordered
-   */
-  protected String index = INDEX_EDEFAULT;
+  protected EList<String> index;
 
   /**
    * <!-- begin-user-doc -->
@@ -118,22 +114,13 @@ public class ArrayIDImpl extends MinimalEObjectImpl.Container implements ArrayID
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getIndex()
+  public EList<String> getIndex()
   {
+    if (index == null)
+    {
+      index = new EDataTypeEList<String>(String.class, this, BugsDslPackage.ARRAY_ID__INDEX);
+    }
     return index;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setIndex(String newIndex)
-  {
-    String oldIndex = index;
-    index = newIndex;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BugsDslPackage.ARRAY_ID__INDEX, oldIndex, index));
   }
 
   /**
@@ -159,6 +146,7 @@ public class ArrayIDImpl extends MinimalEObjectImpl.Container implements ArrayID
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -168,7 +156,8 @@ public class ArrayIDImpl extends MinimalEObjectImpl.Container implements ArrayID
         setName((String)newValue);
         return;
       case BugsDslPackage.ARRAY_ID__INDEX:
-        setIndex((String)newValue);
+        getIndex().clear();
+        getIndex().addAll((Collection<? extends String>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -188,7 +177,7 @@ public class ArrayIDImpl extends MinimalEObjectImpl.Container implements ArrayID
         setName(NAME_EDEFAULT);
         return;
       case BugsDslPackage.ARRAY_ID__INDEX:
-        setIndex(INDEX_EDEFAULT);
+        getIndex().clear();
         return;
     }
     super.eUnset(featureID);
@@ -207,7 +196,7 @@ public class ArrayIDImpl extends MinimalEObjectImpl.Container implements ArrayID
       case BugsDslPackage.ARRAY_ID__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case BugsDslPackage.ARRAY_ID__INDEX:
-        return INDEX_EDEFAULT == null ? index != null : !INDEX_EDEFAULT.equals(index);
+        return index != null && !index.isEmpty();
     }
     return super.eIsSet(featureID);
   }

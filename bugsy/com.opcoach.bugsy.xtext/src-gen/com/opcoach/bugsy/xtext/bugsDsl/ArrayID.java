@@ -3,6 +3,8 @@
  */
 package com.opcoach.bugsy.xtext.bugsDsl;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -51,29 +53,19 @@ public interface ArrayID extends EObject
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Index</b></em>' attribute.
+   * Returns the value of the '<em><b>Index</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Index</em>' attribute isn't clear,
+   * If the meaning of the '<em>Index</em>' attribute list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Index</em>' attribute.
-   * @see #setIndex(String)
+   * @return the value of the '<em>Index</em>' attribute list.
    * @see com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage#getArrayID_Index()
-   * @model
+   * @model unique="false"
    * @generated
    */
-  String getIndex();
-
-  /**
-   * Sets the value of the '{@link com.opcoach.bugsy.xtext.bugsDsl.ArrayID#getIndex <em>Index</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Index</em>' attribute.
-   * @see #getIndex()
-   * @generated
-   */
-  void setIndex(String value);
+  EList<String> getIndex();
 
 } // ArrayID

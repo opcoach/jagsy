@@ -1797,6 +1797,7 @@ rule__ArrayID__Group_1__2
 	}
 :
 	rule__ArrayID__Group_1__2__Impl
+	rule__ArrayID__Group_1__3
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -1808,9 +1809,89 @@ rule__ArrayID__Group_1__2__Impl
 	}
 :
 (
-	{ before(grammarAccess.getArrayIDAccess().getRightSquareBracketKeyword_1_2()); }
+	{ before(grammarAccess.getArrayIDAccess().getGroup_1_2()); }
+	(rule__ArrayID__Group_1_2__0)*
+	{ after(grammarAccess.getArrayIDAccess().getGroup_1_2()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ArrayID__Group_1__3
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__ArrayID__Group_1__3__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ArrayID__Group_1__3__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getArrayIDAccess().getRightSquareBracketKeyword_1_3()); }
 	']'
-	{ after(grammarAccess.getArrayIDAccess().getRightSquareBracketKeyword_1_2()); }
+	{ after(grammarAccess.getArrayIDAccess().getRightSquareBracketKeyword_1_3()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__ArrayID__Group_1_2__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__ArrayID__Group_1_2__0__Impl
+	rule__ArrayID__Group_1_2__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ArrayID__Group_1_2__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getArrayIDAccess().getCommaKeyword_1_2_0()); }
+	','
+	{ after(grammarAccess.getArrayIDAccess().getCommaKeyword_1_2_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ArrayID__Group_1_2__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__ArrayID__Group_1_2__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ArrayID__Group_1_2__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getArrayIDAccess().getIndexAssignment_1_2_1()); }
+	(rule__ArrayID__IndexAssignment_1_2_1)
+	{ after(grammarAccess.getArrayIDAccess().getIndexAssignment_1_2_1()); }
 )
 ;
 finally {
@@ -3135,6 +3216,21 @@ rule__ArrayID__IndexAssignment_1_1
 		{ before(grammarAccess.getArrayIDAccess().getIndexIndexParserRuleCall_1_1_0()); }
 		ruleIndex
 		{ after(grammarAccess.getArrayIDAccess().getIndexIndexParserRuleCall_1_1_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ArrayID__IndexAssignment_1_2_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getArrayIDAccess().getIndexIndexParserRuleCall_1_2_1_0()); }
+		ruleIndex
+		{ after(grammarAccess.getArrayIDAccess().getIndexIndexParserRuleCall_1_2_1_0()); }
 	)
 ;
 finally {

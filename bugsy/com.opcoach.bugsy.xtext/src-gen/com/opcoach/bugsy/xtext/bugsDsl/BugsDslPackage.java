@@ -217,7 +217,7 @@ public interface BugsDslPackage extends EPackage
   int ARRAY_ID__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Index</b></em>' attribute.
+   * The feature id for the '<em><b>Index</b></em>' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -662,10 +662,10 @@ public interface BugsDslPackage extends EPackage
   EAttribute getArrayID_Name();
 
   /**
-   * Returns the meta object for the attribute '{@link com.opcoach.bugsy.xtext.bugsDsl.ArrayID#getIndex <em>Index</em>}'.
+   * Returns the meta object for the attribute list '{@link com.opcoach.bugsy.xtext.bugsDsl.ArrayID#getIndex <em>Index</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Index</em>'.
+   * @return the meta object for the attribute list '<em>Index</em>'.
    * @see com.opcoach.bugsy.xtext.bugsDsl.ArrayID#getIndex()
    * @see #getArrayID()
    * @generated
@@ -1054,7 +1054,7 @@ public interface BugsDslPackage extends EPackage
     EAttribute ARRAY_ID__NAME = eINSTANCE.getArrayID_Name();
 
     /**
-     * The meta object literal for the '<em><b>Index</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Index</b></em>' attribute list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated

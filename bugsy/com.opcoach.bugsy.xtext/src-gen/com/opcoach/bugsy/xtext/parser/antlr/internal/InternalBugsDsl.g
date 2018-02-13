@@ -535,7 +535,7 @@ ruleArrayID returns [EObject current=null]
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getArrayIDRule());
 						}
-						set(
+						add(
 							$current,
 							"index",
 							lv_index_2_0,
@@ -544,9 +544,34 @@ ruleArrayID returns [EObject current=null]
 					}
 				)
 			)
-			otherlv_3=']'
+			(
+				otherlv_3=','
+				{
+					newLeafNode(otherlv_3, grammarAccess.getArrayIDAccess().getCommaKeyword_1_2_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getArrayIDAccess().getIndexIndexParserRuleCall_1_2_1_0());
+						}
+						lv_index_4_0=ruleIndex
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getArrayIDRule());
+							}
+							add(
+								$current,
+								"index",
+								lv_index_4_0,
+								"com.opcoach.bugsy.xtext.BugsDsl.Index");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+			otherlv_5=']'
 			{
-				newLeafNode(otherlv_3, grammarAccess.getArrayIDAccess().getRightSquareBracketKeyword_1_2());
+				newLeafNode(otherlv_5, grammarAccess.getArrayIDAccess().getRightSquareBracketKeyword_1_3());
 			}
 		)?
 	)

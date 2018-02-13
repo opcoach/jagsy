@@ -46,9 +46,9 @@ class BugsDslParsingTest {
 				
 		''')
 		Assert.assertNotNull(result)
-						println("Errors in testLoadModel1  : " + result.eResource.errors)
+		println("Errors in testLoadModel1  : " + result.eResource.errors)
 		Assert.assertTrue(result.eResource.errors.isEmpty)
-		
+
 	}
 
 	@Test
@@ -70,10 +70,10 @@ class BugsDslParsingTest {
 				  }	
 		''')
 		Assert.assertNotNull(result)
-						println("Errors in testLoadModelFromRefGuide  : " + result.eResource.errors)
-		
+		println("Errors in testLoadModelFromRefGuide  : " + result.eResource.errors)
+
 		Assert.assertTrue(result.eResource.errors.isEmpty)
-		
+
 	}
 
 	@Test
@@ -86,8 +86,8 @@ class BugsDslParsingTest {
 			}
 		''')
 		Assert.assertNotNull(result)
-						println("Errors in testIssue 2 : " + result.eResource.errors)
-		
+		println("Errors in testIssue 2 : " + result.eResource.errors)
+
 		Assert.assertTrue(result.eResource.errors.isEmpty)
 	}
 
@@ -102,8 +102,8 @@ class BugsDslParsingTest {
 			}
 		''')
 		Assert.assertNotNull(result)
-				println("Errors in testIssue 3 : " + result.eResource.errors)
-		
+		println("Errors in testIssue 3 : " + result.eResource.errors)
+
 		Assert.assertTrue(!result.eResource.errors.isEmpty)
 	}
 
@@ -117,8 +117,8 @@ class BugsDslParsingTest {
 			}
 		''')
 		Assert.assertNotNull(result)
-				println("Errors in testIssue 4 : " + result.eResource.errors)
-		
+		println("Errors in testIssue 4 : " + result.eResource.errors)
+
 		Assert.assertTrue(result.eResource.errors.isEmpty)
 	}
 
@@ -132,8 +132,8 @@ class BugsDslParsingTest {
 			}
 		''')
 		Assert.assertNotNull(result)
-				println("Errors in Issue 5 : " + result.eResource.errors)
-		
+		println("Errors in Issue 5 : " + result.eResource.errors)
+
 		Assert.assertTrue(result.eResource.errors.isEmpty)
 	}
 
@@ -148,8 +148,8 @@ class BugsDslParsingTest {
 			}
 		''')
 		Assert.assertNotNull(result)
-				println("Errors in Issue 7 : " + result.eResource.errors)
-		
+		println("Errors in Issue 7 : " + result.eResource.errors)
+
 		Assert.assertTrue(result.eResource.errors.isEmpty)
 	}
 
@@ -181,4 +181,22 @@ class BugsDslParsingTest {
 		println("Errors in Issue 9 : " + result.eResource.errors)
 		Assert.assertTrue(!result.eResource.errors.isEmpty)
 	}
+
+	@Test
+	def void testIssue10() {
+		// See : https://github.com/opcoach/jagsy/issues/10
+		val result = parseHelper.parse('''
+			model {
+			for (i in 1:10) {
+			for (j in 1:10) {
+			Y[i,j] ~ dnorm(mu[i,j], tau)
+			}
+			}
+			}
+		''')
+		Assert.assertNotNull(result)
+		println("Errors in Issue 10 : " + result.eResource.errors)
+		Assert.assertTrue(result.eResource.errors.isEmpty)
+	}
+
 }

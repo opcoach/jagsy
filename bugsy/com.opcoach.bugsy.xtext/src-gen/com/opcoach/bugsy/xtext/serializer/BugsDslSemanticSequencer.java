@@ -75,7 +75,7 @@ public class BugsDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     ArrayID returns ArrayID
 	 *
 	 * Constraint:
-	 *     (name=ID index=Index?)
+	 *     (name=ID (index+=Index index+=Index*)?)
 	 */
 	protected void sequence_ArrayID(ISerializationContext context, ArrayID semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
