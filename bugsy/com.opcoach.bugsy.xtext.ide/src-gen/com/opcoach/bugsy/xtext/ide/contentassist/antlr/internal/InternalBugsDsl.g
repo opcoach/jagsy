@@ -150,6 +150,31 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+// Entry rule entryRuleIndex
+entryRuleIndex
+:
+{ before(grammarAccess.getIndexRule()); }
+	 ruleIndex
+{ after(grammarAccess.getIndexRule()); } 
+	 EOF 
+;
+
+// Rule Index
+ruleIndex 
+	@init {
+		int stackSize = keepStackSize();
+	}
+	:
+	(
+		{ before(grammarAccess.getIndexAccess().getAlternatives()); }
+		(rule__Index__Alternatives)
+		{ after(grammarAccess.getIndexAccess().getAlternatives()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 // Entry rule entryRuleFloat
 entryRuleFloat
 :
@@ -509,6 +534,27 @@ rule__Numeric__Alternatives
 		{ before(grammarAccess.getNumericAccess().getFloatParserRuleCall_1()); }
 		ruleFloat
 		{ after(grammarAccess.getNumericAccess().getFloatParserRuleCall_1()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Index__Alternatives
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getIndexAccess().getINTTerminalRuleCall_0()); }
+		RULE_INT
+		{ after(grammarAccess.getIndexAccess().getINTTerminalRuleCall_0()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getIndexAccess().getIDTerminalRuleCall_1()); }
+		RULE_ID
+		{ after(grammarAccess.getIndexAccess().getIDTerminalRuleCall_1()); }
 	)
 ;
 finally {
@@ -3086,9 +3132,9 @@ rule__ArrayID__IndexAssignment_1_1
 	}
 :
 	(
-		{ before(grammarAccess.getArrayIDAccess().getIndexIDTerminalRuleCall_1_1_0()); }
-		RULE_ID
-		{ after(grammarAccess.getArrayIDAccess().getIndexIDTerminalRuleCall_1_1_0()); }
+		{ before(grammarAccess.getArrayIDAccess().getIndexIndexParserRuleCall_1_1_0()); }
+		ruleIndex
+		{ after(grammarAccess.getArrayIDAccess().getIndexIndexParserRuleCall_1_1_0()); }
 	)
 ;
 finally {

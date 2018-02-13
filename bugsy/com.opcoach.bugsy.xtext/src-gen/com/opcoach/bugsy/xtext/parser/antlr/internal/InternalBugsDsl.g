@@ -318,6 +318,40 @@ ruleNumeric returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()
 	)
 ;
 
+// Entry rule entryRuleIndex
+entryRuleIndex returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getIndexRule()); }
+	iv_ruleIndex=ruleIndex
+	{ $current=$iv_ruleIndex.current.getText(); }
+	EOF;
+
+// Rule Index
+ruleIndex returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		this_INT_0=RULE_INT
+		{
+			$current.merge(this_INT_0);
+		}
+		{
+			newLeafNode(this_INT_0, grammarAccess.getIndexAccess().getINTTerminalRuleCall_0());
+		}
+		    |
+		this_ID_1=RULE_ID
+		{
+			$current.merge(this_ID_1);
+		}
+		{
+			newLeafNode(this_ID_1, grammarAccess.getIndexAccess().getIDTerminalRuleCall_1());
+		}
+	)
+;
+
 // Entry rule entryRuleFloat
 entryRuleFloat returns [String current=null]:
 	{ newCompositeNode(grammarAccess.getFloatRule()); }
@@ -491,19 +525,20 @@ ruleArrayID returns [EObject current=null]
 			}
 			(
 				(
-					lv_index_2_0=RULE_ID
 					{
-						newLeafNode(lv_index_2_0, grammarAccess.getArrayIDAccess().getIndexIDTerminalRuleCall_1_1_0());
+						newCompositeNode(grammarAccess.getArrayIDAccess().getIndexIndexParserRuleCall_1_1_0());
 					}
+					lv_index_2_0=ruleIndex
 					{
 						if ($current==null) {
-							$current = createModelElement(grammarAccess.getArrayIDRule());
+							$current = createModelElementForParent(grammarAccess.getArrayIDRule());
 						}
-						setWithLastConsumed(
+						set(
 							$current,
 							"index",
 							lv_index_2_0,
-							"com.opcoach.bugsy.xtext.BugsDsl.ID");
+							"com.opcoach.bugsy.xtext.BugsDsl.Index");
+						afterParserOrEnumRuleCall();
 					}
 				)
 			)

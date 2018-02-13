@@ -82,7 +82,7 @@ public class BugsDslParsingTest {
       _builder.append("test2 ~ dnorm()");
       _builder.newLine();
       _builder.append("\t\t\t\t   \t  ");
-      _builder.append("test33 <- dgamma(1, 9)");
+      _builder.append("test33 <- dbin(1, 9)");
       _builder.newLine();
       _builder.append("\t\t\t\t   ");
       _builder.append("}");

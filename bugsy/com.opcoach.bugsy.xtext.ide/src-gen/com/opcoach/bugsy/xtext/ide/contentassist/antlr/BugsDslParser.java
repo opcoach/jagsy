@@ -33,6 +33,7 @@ public class BugsDslParser extends AbstractContentAssistParser {
 				{
 					put(grammarAccess.getInstructionAccess().getAlternatives(), "rule__Instruction__Alternatives");
 					put(grammarAccess.getNumericAccess().getAlternatives(), "rule__Numeric__Alternatives");
+					put(grammarAccess.getIndexAccess().getAlternatives(), "rule__Index__Alternatives");
 					put(grammarAccess.getFloatAccess().getAlternatives_3_1(), "rule__Float__Alternatives_3_1");
 					put(grammarAccess.getValueAccess().getAlternatives(), "rule__Value__Alternatives");
 					put(grammarAccess.getRelationAccess().getAlternatives(), "rule__Relation__Alternatives");

@@ -39,7 +39,7 @@ class BugsDslParsingTest {
 							   for ( a3 in 0:N3 ) { 
 							   	  # Must loop on this...
 							   	  test2 ~ dnorm()
-							   	  test33 <- dgamma(1, 9)
+							   	  test33 <- dbin(1, 9)
 							   }
 							   }
 							   

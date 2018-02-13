@@ -26,6 +26,8 @@ For:
 Numeric:
 	INT | Float;
 
+	Index : INT | ID;
+
 Float returns ecore::EFloat:
 	INT '.' INT ('E' ('+' | '-') INT)?;
 
@@ -33,7 +35,7 @@ Value:
 	{Value} value=Numeric | id=ArrayID;
 
 ArrayID:
-	name=ID ('[' index=ID ']')?;
+	name=ID ('[' index=Index ']')?;
 
 Relation:
 	StochasticRelation | DeterministicRelation;

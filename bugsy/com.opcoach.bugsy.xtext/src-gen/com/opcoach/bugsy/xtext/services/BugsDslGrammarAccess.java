@@ -180,6 +180,25 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		//Float
 		public RuleCall getFloatParserRuleCall_1() { return cFloatParserRuleCall_1; }
 	}
+	public class IndexElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.opcoach.bugsy.xtext.BugsDsl.Index");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cINTTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cIDTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//Index:
+		//	INT | ID;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//INT | ID
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//INT
+		public RuleCall getINTTerminalRuleCall_0() { return cINTTerminalRuleCall_0; }
+		
+		//ID
+		public RuleCall getIDTerminalRuleCall_1() { return cIDTerminalRuleCall_1; }
+	}
 	public class FloatElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.opcoach.bugsy.xtext.BugsDsl.Float");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -270,14 +289,14 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
 		private final Keyword cLeftSquareBracketKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final Assignment cIndexAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cIndexIDTerminalRuleCall_1_1_0 = (RuleCall)cIndexAssignment_1_1.eContents().get(0);
+		private final RuleCall cIndexIndexParserRuleCall_1_1_0 = (RuleCall)cIndexAssignment_1_1.eContents().get(0);
 		private final Keyword cRightSquareBracketKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
 		
 		//ArrayID:
-		//	name=ID ('[' index=ID ']')?;
+		//	name=ID ('[' index=Index ']')?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=ID ('[' index=ID ']')?
+		//name=ID ('[' index=Index ']')?
 		public Group getGroup() { return cGroup; }
 		
 		//name=ID
@@ -286,17 +305,17 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
 		
-		//('[' index=ID ']')?
+		//('[' index=Index ']')?
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//'['
 		public Keyword getLeftSquareBracketKeyword_1_0() { return cLeftSquareBracketKeyword_1_0; }
 		
-		//index=ID
+		//index=Index
 		public Assignment getIndexAssignment_1_1() { return cIndexAssignment_1_1; }
 		
-		//ID
-		public RuleCall getIndexIDTerminalRuleCall_1_1_0() { return cIndexIDTerminalRuleCall_1_1_0; }
+		//Index
+		public RuleCall getIndexIndexParserRuleCall_1_1_0() { return cIndexIndexParserRuleCall_1_1_0; }
 		
 		//']'
 		public Keyword getRightSquareBracketKeyword_1_2() { return cRightSquareBracketKeyword_1_2; }
@@ -991,6 +1010,7 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 	private final InstructionElements pInstruction;
 	private final ForElements pFor;
 	private final NumericElements pNumeric;
+	private final IndexElements pIndex;
 	private final FloatElements pFloat;
 	private final ValueElements pValue;
 	private final ArrayIDElements pArrayID;
@@ -1021,6 +1041,7 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.pInstruction = new InstructionElements();
 		this.pFor = new ForElements();
 		this.pNumeric = new NumericElements();
+		this.pIndex = new IndexElements();
 		this.pFloat = new FloatElements();
 		this.pValue = new ValueElements();
 		this.pArrayID = new ArrayIDElements();
@@ -1122,6 +1143,16 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getNumericAccess().getRule();
 	}
 	
+	//Index:
+	//	INT | ID;
+	public IndexElements getIndexAccess() {
+		return pIndex;
+	}
+	
+	public ParserRule getIndexRule() {
+		return getIndexAccess().getRule();
+	}
+	
 	//Float ecore::EFloat:
 	//	INT '.' INT ('E' ('+' | '-') INT)?;
 	public FloatElements getFloatAccess() {
@@ -1143,7 +1174,7 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ArrayID:
-	//	name=ID ('[' index=ID ']')?;
+	//	name=ID ('[' index=Index ']')?;
 	public ArrayIDElements getArrayIDAccess() {
 		return pArrayID;
 	}
