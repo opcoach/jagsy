@@ -199,4 +199,18 @@ class BugsDslParsingTest {
 		Assert.assertTrue(result.eResource.errors.isEmpty)
 	}
 
+	@Test
+	def void testVectorConstruction() {
+		val result = parseHelper.parse('''
+			model {
+			y <- c(x1, x2, x3)
+			v <- c(a)
+			v <- c(a[1,1], a[2,1], a[1,2], a[2,2])
+			}
+		''')
+		Assert.assertNotNull(result)
+		println("Errors in testVectorConstruction : " + result.eResource.errors)
+		Assert.assertTrue(result.eResource.errors.isEmpty)
+	}
+
 }

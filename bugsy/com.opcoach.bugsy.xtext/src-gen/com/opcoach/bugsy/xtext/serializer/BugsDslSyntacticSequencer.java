@@ -69,7 +69,7 @@ public class BugsDslSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	/**
 	 * Ambiguous syntax:
-	 *     '=' | '<-'
+	 *     '<-' | '='
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     name=ArrayID (ambiguity) expressions+=Expression

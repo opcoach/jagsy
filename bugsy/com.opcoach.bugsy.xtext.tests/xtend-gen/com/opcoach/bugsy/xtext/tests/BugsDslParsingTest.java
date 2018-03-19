@@ -342,4 +342,29 @@ public class BugsDslParsingTest {
       throw Exceptions.sneakyThrow(_e);
     }
   }
+  
+  @Test
+  public void testVectorConstruction() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("model {");
+      _builder.newLine();
+      _builder.append("y <- c(x1, x2, x3)");
+      _builder.newLine();
+      _builder.append("v <- c(a)");
+      _builder.newLine();
+      _builder.append("v <- c(a[1,1], a[2,1], a[1,2], a[2,2])");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      final BugsModel result = this.parseHelper.parse(_builder);
+      Assert.assertNotNull(result);
+      EList<Resource.Diagnostic> _errors = result.eResource().getErrors();
+      String _plus = ("Errors in testVectorConstruction : " + _errors);
+      InputOutput.<String>println(_plus);
+      Assert.assertTrue(result.eResource().getErrors().isEmpty());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
 }
