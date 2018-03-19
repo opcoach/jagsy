@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.ArrayID#getName <em>Name</em>}</li>
- *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.ArrayID#getIndex <em>Index</em>}</li>
+ *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.ArrayID#getIndexes <em>Indexes</em>}</li>
  * </ul>
  *
  * @see com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage#getArrayID()
@@ -53,19 +53,19 @@ public interface ArrayID extends EObject
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Index</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.String}.
+   * Returns the value of the '<em><b>Indexes</b></em>' containment reference list.
+   * The list contents are of type {@link com.opcoach.bugsy.xtext.bugsDsl.ArrayRange}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Index</em>' attribute list isn't clear,
+   * If the meaning of the '<em>Indexes</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Index</em>' attribute list.
-   * @see com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage#getArrayID_Index()
-   * @model unique="false"
+   * @return the value of the '<em>Indexes</em>' containment reference list.
+   * @see com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage#getArrayID_Indexes()
+   * @model containment="true"
    * @generated
    */
-  EList<String> getIndex();
+  EList<ArrayRange> getIndexes();
 
 } // ArrayID

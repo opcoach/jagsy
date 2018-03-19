@@ -48,9 +48,16 @@
     <genClasses ecoreClass="BugsDsl.ecore#//Instruction"/>
     <genClasses ecoreClass="BugsDsl.ecore#//For">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BugsDsl.ecore#//For/variable"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BugsDsl.ecore#//For/low"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BugsDsl.ecore#//For/high"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BugsDsl.ecore#//For/range"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BugsDsl.ecore#//For/contents"/>
+    </genClasses>
+    <genClasses ecoreClass="BugsDsl.ecore#//ForRange">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BugsDsl.ecore#//ForRange/low"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BugsDsl.ecore#//ForRange/high"/>
+    </genClasses>
+    <genClasses ecoreClass="BugsDsl.ecore#//ArrayRange">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BugsDsl.ecore#//ArrayRange/low"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BugsDsl.ecore#//ArrayRange/high"/>
     </genClasses>
     <genClasses ecoreClass="BugsDsl.ecore#//Value">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BugsDsl.ecore#//Value/value"/>
@@ -58,7 +65,7 @@
     </genClasses>
     <genClasses ecoreClass="BugsDsl.ecore#//ArrayID">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BugsDsl.ecore#//ArrayID/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BugsDsl.ecore#//ArrayID/index"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BugsDsl.ecore#//ArrayID/indexes"/>
     </genClasses>
     <genClasses ecoreClass="BugsDsl.ecore#//Relation">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BugsDsl.ecore#//Relation/name"/>

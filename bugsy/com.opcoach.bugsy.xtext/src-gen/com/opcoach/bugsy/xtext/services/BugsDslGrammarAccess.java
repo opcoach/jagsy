@@ -95,22 +95,19 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cVariableAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cVariableIDTerminalRuleCall_3_0 = (RuleCall)cVariableAssignment_3.eContents().get(0);
 		private final Keyword cInKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cLowAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cLowIndexParserRuleCall_5_0 = (RuleCall)cLowAssignment_5.eContents().get(0);
-		private final Keyword cColonKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Assignment cHighAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cHighIndexParserRuleCall_7_0 = (RuleCall)cHighAssignment_7.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_8 = (Keyword)cGroup.eContents().get(8);
-		private final Keyword cLeftCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
-		private final Assignment cContentsAssignment_10 = (Assignment)cGroup.eContents().get(10);
-		private final RuleCall cContentsInstructionParserRuleCall_10_0 = (RuleCall)cContentsAssignment_10.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_11 = (Keyword)cGroup.eContents().get(11);
+		private final Assignment cRangeAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cRangeForRangeParserRuleCall_5_0 = (RuleCall)cRangeAssignment_5.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Keyword cLeftCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Assignment cContentsAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cContentsInstructionParserRuleCall_8_0 = (RuleCall)cContentsAssignment_8.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		
 		//For:
-		//	{For} 'for' '(' variable=ID 'in' low=Index ':' high=Index ')' '{' contents+=Instruction* '}';
+		//	{For} 'for' '(' variable=ID 'in' range=ForRange ')' '{' contents+=Instruction* '}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{For} 'for' '(' variable=ID 'in' low=Index ':' high=Index ')' '{' contents+=Instruction* '}'
+		//{For} 'for' '(' variable=ID 'in' range=ForRange ')' '{' contents+=Instruction* '}'
 		public Group getGroup() { return cGroup; }
 		
 		//{For}
@@ -131,35 +128,26 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		//'in'
 		public Keyword getInKeyword_4() { return cInKeyword_4; }
 		
-		//low=Index
-		public Assignment getLowAssignment_5() { return cLowAssignment_5; }
+		//range=ForRange
+		public Assignment getRangeAssignment_5() { return cRangeAssignment_5; }
 		
-		//Index
-		public RuleCall getLowIndexParserRuleCall_5_0() { return cLowIndexParserRuleCall_5_0; }
-		
-		//':'
-		public Keyword getColonKeyword_6() { return cColonKeyword_6; }
-		
-		//high=Index
-		public Assignment getHighAssignment_7() { return cHighAssignment_7; }
-		
-		//Index
-		public RuleCall getHighIndexParserRuleCall_7_0() { return cHighIndexParserRuleCall_7_0; }
+		//ForRange
+		public RuleCall getRangeForRangeParserRuleCall_5_0() { return cRangeForRangeParserRuleCall_5_0; }
 		
 		//')'
-		public Keyword getRightParenthesisKeyword_8() { return cRightParenthesisKeyword_8; }
+		public Keyword getRightParenthesisKeyword_6() { return cRightParenthesisKeyword_6; }
 		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_9() { return cLeftCurlyBracketKeyword_9; }
+		public Keyword getLeftCurlyBracketKeyword_7() { return cLeftCurlyBracketKeyword_7; }
 		
 		//contents+=Instruction*
-		public Assignment getContentsAssignment_10() { return cContentsAssignment_10; }
+		public Assignment getContentsAssignment_8() { return cContentsAssignment_8; }
 		
 		//Instruction
-		public RuleCall getContentsInstructionParserRuleCall_10_0() { return cContentsInstructionParserRuleCall_10_0; }
+		public RuleCall getContentsInstructionParserRuleCall_8_0() { return cContentsInstructionParserRuleCall_8_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_11() { return cRightCurlyBracketKeyword_11; }
+		public Keyword getRightCurlyBracketKeyword_9() { return cRightCurlyBracketKeyword_9; }
 	}
 	public class NumericElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.opcoach.bugsy.xtext.BugsDsl.Numeric");
@@ -198,6 +186,72 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//ID
 		public RuleCall getIDTerminalRuleCall_1() { return cIDTerminalRuleCall_1; }
+	}
+	public class ForRangeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.opcoach.bugsy.xtext.BugsDsl.ForRange");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cLowAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cLowIndexParserRuleCall_0_0 = (RuleCall)cLowAssignment_0.eContents().get(0);
+		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cHighAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cHighIndexParserRuleCall_2_0 = (RuleCall)cHighAssignment_2.eContents().get(0);
+		
+		//ForRange:
+		//	low=Index ':' high=Index;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//low=Index ':' high=Index
+		public Group getGroup() { return cGroup; }
+		
+		//low=Index
+		public Assignment getLowAssignment_0() { return cLowAssignment_0; }
+		
+		//Index
+		public RuleCall getLowIndexParserRuleCall_0_0() { return cLowIndexParserRuleCall_0_0; }
+		
+		//':'
+		public Keyword getColonKeyword_1() { return cColonKeyword_1; }
+		
+		//high=Index
+		public Assignment getHighAssignment_2() { return cHighAssignment_2; }
+		
+		//Index
+		public RuleCall getHighIndexParserRuleCall_2_0() { return cHighIndexParserRuleCall_2_0; }
+	}
+	public class ArrayRangeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.opcoach.bugsy.xtext.BugsDsl.ArrayRange");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cLowAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cLowIndexParserRuleCall_0_0 = (RuleCall)cLowAssignment_0.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cColonKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cHighAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cHighIndexParserRuleCall_1_1_0 = (RuleCall)cHighAssignment_1_1.eContents().get(0);
+		
+		//ArrayRange:
+		//	low=Index (':' high=Index)?;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//low=Index (':' high=Index)?
+		public Group getGroup() { return cGroup; }
+		
+		//low=Index
+		public Assignment getLowAssignment_0() { return cLowAssignment_0; }
+		
+		//Index
+		public RuleCall getLowIndexParserRuleCall_0_0() { return cLowIndexParserRuleCall_0_0; }
+		
+		//(':' high=Index)?
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//':'
+		public Keyword getColonKeyword_1_0() { return cColonKeyword_1_0; }
+		
+		//high=Index
+		public Assignment getHighAssignment_1_1() { return cHighAssignment_1_1; }
+		
+		//Index
+		public RuleCall getHighIndexParserRuleCall_1_1_0() { return cHighIndexParserRuleCall_1_1_0; }
 	}
 	public class FloatElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.opcoach.bugsy.xtext.BugsDsl.Float");
@@ -288,19 +342,19 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
 		private final Keyword cLeftSquareBracketKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Assignment cIndexAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cIndexIndexParserRuleCall_1_1_0 = (RuleCall)cIndexAssignment_1_1.eContents().get(0);
+		private final Assignment cIndexesAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cIndexesArrayRangeParserRuleCall_1_1_0 = (RuleCall)cIndexesAssignment_1_1.eContents().get(0);
 		private final Group cGroup_1_2 = (Group)cGroup_1.eContents().get(2);
 		private final Keyword cCommaKeyword_1_2_0 = (Keyword)cGroup_1_2.eContents().get(0);
-		private final Assignment cIndexAssignment_1_2_1 = (Assignment)cGroup_1_2.eContents().get(1);
-		private final RuleCall cIndexIndexParserRuleCall_1_2_1_0 = (RuleCall)cIndexAssignment_1_2_1.eContents().get(0);
+		private final Assignment cIndexesAssignment_1_2_1 = (Assignment)cGroup_1_2.eContents().get(1);
+		private final RuleCall cIndexesArrayRangeParserRuleCall_1_2_1_0 = (RuleCall)cIndexesAssignment_1_2_1.eContents().get(0);
 		private final Keyword cRightSquareBracketKeyword_1_3 = (Keyword)cGroup_1.eContents().get(3);
 		
 		//ArrayID:
-		//	name=ID ('[' index+=Index (',' index+=Index)* ']')?;
+		//	name=ID ('[' indexes+=ArrayRange (',' indexes+=ArrayRange)* ']')?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=ID ('[' index+=Index (',' index+=Index)* ']')?
+		//name=ID ('[' indexes+=ArrayRange (',' indexes+=ArrayRange)* ']')?
 		public Group getGroup() { return cGroup; }
 		
 		//name=ID
@@ -309,29 +363,29 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
 		
-		//('[' index+=Index (',' index+=Index)* ']')?
+		//('[' indexes+=ArrayRange (',' indexes+=ArrayRange)* ']')?
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//'['
 		public Keyword getLeftSquareBracketKeyword_1_0() { return cLeftSquareBracketKeyword_1_0; }
 		
-		//index+=Index
-		public Assignment getIndexAssignment_1_1() { return cIndexAssignment_1_1; }
+		//indexes+=ArrayRange
+		public Assignment getIndexesAssignment_1_1() { return cIndexesAssignment_1_1; }
 		
-		//Index
-		public RuleCall getIndexIndexParserRuleCall_1_1_0() { return cIndexIndexParserRuleCall_1_1_0; }
+		//ArrayRange
+		public RuleCall getIndexesArrayRangeParserRuleCall_1_1_0() { return cIndexesArrayRangeParserRuleCall_1_1_0; }
 		
-		//(',' index+=Index)*
+		//(',' indexes+=ArrayRange)*
 		public Group getGroup_1_2() { return cGroup_1_2; }
 		
 		//','
 		public Keyword getCommaKeyword_1_2_0() { return cCommaKeyword_1_2_0; }
 		
-		//index+=Index
-		public Assignment getIndexAssignment_1_2_1() { return cIndexAssignment_1_2_1; }
+		//indexes+=ArrayRange
+		public Assignment getIndexesAssignment_1_2_1() { return cIndexesAssignment_1_2_1; }
 		
-		//Index
-		public RuleCall getIndexIndexParserRuleCall_1_2_1_0() { return cIndexIndexParserRuleCall_1_2_1_0; }
+		//ArrayRange
+		public RuleCall getIndexesArrayRangeParserRuleCall_1_2_1_0() { return cIndexesArrayRangeParserRuleCall_1_2_1_0; }
 		
 		//']'
 		public Keyword getRightSquareBracketKeyword_1_3() { return cRightSquareBracketKeyword_1_3; }
@@ -1027,6 +1081,8 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 	private final ForElements pFor;
 	private final NumericElements pNumeric;
 	private final IndexElements pIndex;
+	private final ForRangeElements pForRange;
+	private final ArrayRangeElements pArrayRange;
 	private final FloatElements pFloat;
 	private final ValueElements pValue;
 	private final ArrayIDElements pArrayID;
@@ -1058,6 +1114,8 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.pFor = new ForElements();
 		this.pNumeric = new NumericElements();
 		this.pIndex = new IndexElements();
+		this.pForRange = new ForRangeElements();
+		this.pArrayRange = new ArrayRangeElements();
 		this.pFloat = new FloatElements();
 		this.pValue = new ValueElements();
 		this.pArrayID = new ArrayIDElements();
@@ -1140,7 +1198,7 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//For:
-	//	{For} 'for' '(' variable=ID 'in' low=Index ':' high=Index ')' '{' contents+=Instruction* '}';
+	//	{For} 'for' '(' variable=ID 'in' range=ForRange ')' '{' contents+=Instruction* '}';
 	public ForElements getForAccess() {
 		return pFor;
 	}
@@ -1169,6 +1227,26 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getIndexAccess().getRule();
 	}
 	
+	//ForRange:
+	//	low=Index ':' high=Index;
+	public ForRangeElements getForRangeAccess() {
+		return pForRange;
+	}
+	
+	public ParserRule getForRangeRule() {
+		return getForRangeAccess().getRule();
+	}
+	
+	//ArrayRange:
+	//	low=Index (':' high=Index)?;
+	public ArrayRangeElements getArrayRangeAccess() {
+		return pArrayRange;
+	}
+	
+	public ParserRule getArrayRangeRule() {
+		return getArrayRangeAccess().getRule();
+	}
+	
 	//Float ecore::EFloat:
 	//	INT '.' INT ('E' ('+' | '-') INT)?;
 	public FloatElements getFloatAccess() {
@@ -1190,7 +1268,7 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ArrayID:
-	//	name=ID ('[' index+=Index (',' index+=Index)* ']')?;
+	//	name=ID ('[' indexes+=ArrayRange (',' indexes+=ArrayRange)* ']')?;
 	public ArrayIDElements getArrayIDAccess() {
 		return pArrayID;
 	}

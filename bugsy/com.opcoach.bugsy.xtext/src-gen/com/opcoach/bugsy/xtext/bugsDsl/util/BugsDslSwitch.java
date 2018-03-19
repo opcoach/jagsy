@@ -95,6 +95,20 @@ public class BugsDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case BugsDslPackage.FOR_RANGE:
+      {
+        ForRange forRange = (ForRange)theEObject;
+        T result = caseForRange(forRange);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BugsDslPackage.ARRAY_RANGE:
+      {
+        ArrayRange arrayRange = (ArrayRange)theEObject;
+        T result = caseArrayRange(arrayRange);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case BugsDslPackage.VALUE:
       {
         Value value = (Value)theEObject;
@@ -204,6 +218,38 @@ public class BugsDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseFor(For object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>For Range</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>For Range</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseForRange(ForRange object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Array Range</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Array Range</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseArrayRange(ArrayRange object)
   {
     return null;
   }

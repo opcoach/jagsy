@@ -91,6 +91,16 @@ public class BugsDslAdapterFactory extends AdapterFactoryImpl
         return createForAdapter();
       }
       @Override
+      public Adapter caseForRange(ForRange object)
+      {
+        return createForRangeAdapter();
+      }
+      @Override
+      public Adapter caseArrayRange(ArrayRange object)
+      {
+        return createArrayRangeAdapter();
+      }
+      @Override
       public Adapter caseValue(Value object)
       {
         return createValueAdapter();
@@ -193,6 +203,36 @@ public class BugsDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createForAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.opcoach.bugsy.xtext.bugsDsl.ForRange <em>For Range</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.opcoach.bugsy.xtext.bugsDsl.ForRange
+   * @generated
+   */
+  public Adapter createForRangeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.opcoach.bugsy.xtext.bugsDsl.ArrayRange <em>Array Range</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.opcoach.bugsy.xtext.bugsDsl.ArrayRange
+   * @generated
+   */
+  public Adapter createArrayRangeAdapter()
   {
     return null;
   }

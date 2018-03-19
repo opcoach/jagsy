@@ -125,22 +125,13 @@ public interface BugsDslPackage extends EPackage
   int FOR__VARIABLE = INSTRUCTION_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Low</b></em>' attribute.
+   * The feature id for the '<em><b>Range</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FOR__LOW = INSTRUCTION_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>High</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FOR__HIGH = INSTRUCTION_FEATURE_COUNT + 2;
+  int FOR__RANGE = INSTRUCTION_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Contents</b></em>' containment reference list.
@@ -149,7 +140,7 @@ public interface BugsDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FOR__CONTENTS = INSTRUCTION_FEATURE_COUNT + 3;
+  int FOR__CONTENTS = INSTRUCTION_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>For</em>' class.
@@ -158,7 +149,81 @@ public interface BugsDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FOR_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 4;
+  int FOR_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link com.opcoach.bugsy.xtext.bugsDsl.impl.ForRangeImpl <em>For Range</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.opcoach.bugsy.xtext.bugsDsl.impl.ForRangeImpl
+   * @see com.opcoach.bugsy.xtext.bugsDsl.impl.BugsDslPackageImpl#getForRange()
+   * @generated
+   */
+  int FOR_RANGE = 3;
+
+  /**
+   * The feature id for the '<em><b>Low</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOR_RANGE__LOW = 0;
+
+  /**
+   * The feature id for the '<em><b>High</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOR_RANGE__HIGH = 1;
+
+  /**
+   * The number of structural features of the '<em>For Range</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOR_RANGE_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link com.opcoach.bugsy.xtext.bugsDsl.impl.ArrayRangeImpl <em>Array Range</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.opcoach.bugsy.xtext.bugsDsl.impl.ArrayRangeImpl
+   * @see com.opcoach.bugsy.xtext.bugsDsl.impl.BugsDslPackageImpl#getArrayRange()
+   * @generated
+   */
+  int ARRAY_RANGE = 4;
+
+  /**
+   * The feature id for the '<em><b>Low</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_RANGE__LOW = 0;
+
+  /**
+   * The feature id for the '<em><b>High</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_RANGE__HIGH = 1;
+
+  /**
+   * The number of structural features of the '<em>Array Range</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_RANGE_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link com.opcoach.bugsy.xtext.bugsDsl.impl.ValueImpl <em>Value</em>}' class.
@@ -168,7 +233,7 @@ public interface BugsDslPackage extends EPackage
    * @see com.opcoach.bugsy.xtext.bugsDsl.impl.BugsDslPackageImpl#getValue()
    * @generated
    */
-  int VALUE = 3;
+  int VALUE = 5;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -205,7 +270,7 @@ public interface BugsDslPackage extends EPackage
    * @see com.opcoach.bugsy.xtext.bugsDsl.impl.BugsDslPackageImpl#getArrayID()
    * @generated
    */
-  int ARRAY_ID = 4;
+  int ARRAY_ID = 6;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -217,13 +282,13 @@ public interface BugsDslPackage extends EPackage
   int ARRAY_ID__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Index</b></em>' attribute list.
+   * The feature id for the '<em><b>Indexes</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ARRAY_ID__INDEX = 1;
+  int ARRAY_ID__INDEXES = 1;
 
   /**
    * The number of structural features of the '<em>Array ID</em>' class.
@@ -242,7 +307,7 @@ public interface BugsDslPackage extends EPackage
    * @see com.opcoach.bugsy.xtext.bugsDsl.impl.BugsDslPackageImpl#getRelation()
    * @generated
    */
-  int RELATION = 5;
+  int RELATION = 7;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' containment reference.
@@ -270,7 +335,7 @@ public interface BugsDslPackage extends EPackage
    * @see com.opcoach.bugsy.xtext.bugsDsl.impl.BugsDslPackageImpl#getStochasticRelation()
    * @generated
    */
-  int STOCHASTIC_RELATION = 6;
+  int STOCHASTIC_RELATION = 8;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' containment reference.
@@ -316,7 +381,7 @@ public interface BugsDslPackage extends EPackage
    * @see com.opcoach.bugsy.xtext.bugsDsl.impl.BugsDslPackageImpl#getDeterministicRelation()
    * @generated
    */
-  int DETERMINISTIC_RELATION = 7;
+  int DETERMINISTIC_RELATION = 9;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' containment reference.
@@ -353,7 +418,7 @@ public interface BugsDslPackage extends EPackage
    * @see com.opcoach.bugsy.xtext.bugsDsl.impl.BugsDslPackageImpl#getFunction()
    * @generated
    */
-  int FUNCTION = 8;
+  int FUNCTION = 10;
 
   /**
    * The feature id for the '<em><b>Operation</b></em>' attribute.
@@ -390,7 +455,7 @@ public interface BugsDslPackage extends EPackage
    * @see com.opcoach.bugsy.xtext.bugsDsl.impl.BugsDslPackageImpl#getDistribution()
    * @generated
    */
-  int DISTRIBUTION = 9;
+  int DISTRIBUTION = 11;
 
   /**
    * The feature id for the '<em><b>Distrib</b></em>' attribute.
@@ -427,7 +492,7 @@ public interface BugsDslPackage extends EPackage
    * @see com.opcoach.bugsy.xtext.bugsDsl.impl.BugsDslPackageImpl#getExpression()
    * @generated
    */
-  int EXPRESSION = 10;
+  int EXPRESSION = 12;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -500,7 +565,7 @@ public interface BugsDslPackage extends EPackage
    * @see com.opcoach.bugsy.xtext.bugsDsl.impl.BugsDslPackageImpl#getDistributionOperator()
    * @generated
    */
-  int DISTRIBUTION_OPERATOR = 11;
+  int DISTRIBUTION_OPERATOR = 13;
 
   /**
    * The meta object id for the '{@link com.opcoach.bugsy.xtext.bugsDsl.Density <em>Density</em>}' enum.
@@ -510,7 +575,7 @@ public interface BugsDslPackage extends EPackage
    * @see com.opcoach.bugsy.xtext.bugsDsl.impl.BugsDslPackageImpl#getDensity()
    * @generated
    */
-  int DENSITY = 12;
+  int DENSITY = 14;
 
   /**
    * The meta object id for the '{@link com.opcoach.bugsy.xtext.bugsDsl.FunctionOperator <em>Function Operator</em>}' enum.
@@ -520,7 +585,7 @@ public interface BugsDslPackage extends EPackage
    * @see com.opcoach.bugsy.xtext.bugsDsl.impl.BugsDslPackageImpl#getFunctionOperator()
    * @generated
    */
-  int FUNCTION_OPERATOR = 13;
+  int FUNCTION_OPERATOR = 15;
 
 
   /**
@@ -576,26 +641,15 @@ public interface BugsDslPackage extends EPackage
   EAttribute getFor_Variable();
 
   /**
-   * Returns the meta object for the attribute '{@link com.opcoach.bugsy.xtext.bugsDsl.For#getLow <em>Low</em>}'.
+   * Returns the meta object for the containment reference '{@link com.opcoach.bugsy.xtext.bugsDsl.For#getRange <em>Range</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Low</em>'.
-   * @see com.opcoach.bugsy.xtext.bugsDsl.For#getLow()
+   * @return the meta object for the containment reference '<em>Range</em>'.
+   * @see com.opcoach.bugsy.xtext.bugsDsl.For#getRange()
    * @see #getFor()
    * @generated
    */
-  EAttribute getFor_Low();
-
-  /**
-   * Returns the meta object for the attribute '{@link com.opcoach.bugsy.xtext.bugsDsl.For#getHigh <em>High</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>High</em>'.
-   * @see com.opcoach.bugsy.xtext.bugsDsl.For#getHigh()
-   * @see #getFor()
-   * @generated
-   */
-  EAttribute getFor_High();
+  EReference getFor_Range();
 
   /**
    * Returns the meta object for the containment reference list '{@link com.opcoach.bugsy.xtext.bugsDsl.For#getContents <em>Contents</em>}'.
@@ -607,6 +661,70 @@ public interface BugsDslPackage extends EPackage
    * @generated
    */
   EReference getFor_Contents();
+
+  /**
+   * Returns the meta object for class '{@link com.opcoach.bugsy.xtext.bugsDsl.ForRange <em>For Range</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>For Range</em>'.
+   * @see com.opcoach.bugsy.xtext.bugsDsl.ForRange
+   * @generated
+   */
+  EClass getForRange();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.opcoach.bugsy.xtext.bugsDsl.ForRange#getLow <em>Low</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Low</em>'.
+   * @see com.opcoach.bugsy.xtext.bugsDsl.ForRange#getLow()
+   * @see #getForRange()
+   * @generated
+   */
+  EAttribute getForRange_Low();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.opcoach.bugsy.xtext.bugsDsl.ForRange#getHigh <em>High</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>High</em>'.
+   * @see com.opcoach.bugsy.xtext.bugsDsl.ForRange#getHigh()
+   * @see #getForRange()
+   * @generated
+   */
+  EAttribute getForRange_High();
+
+  /**
+   * Returns the meta object for class '{@link com.opcoach.bugsy.xtext.bugsDsl.ArrayRange <em>Array Range</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Array Range</em>'.
+   * @see com.opcoach.bugsy.xtext.bugsDsl.ArrayRange
+   * @generated
+   */
+  EClass getArrayRange();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.opcoach.bugsy.xtext.bugsDsl.ArrayRange#getLow <em>Low</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Low</em>'.
+   * @see com.opcoach.bugsy.xtext.bugsDsl.ArrayRange#getLow()
+   * @see #getArrayRange()
+   * @generated
+   */
+  EAttribute getArrayRange_Low();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.opcoach.bugsy.xtext.bugsDsl.ArrayRange#getHigh <em>High</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>High</em>'.
+   * @see com.opcoach.bugsy.xtext.bugsDsl.ArrayRange#getHigh()
+   * @see #getArrayRange()
+   * @generated
+   */
+  EAttribute getArrayRange_High();
 
   /**
    * Returns the meta object for class '{@link com.opcoach.bugsy.xtext.bugsDsl.Value <em>Value</em>}'.
@@ -662,15 +780,15 @@ public interface BugsDslPackage extends EPackage
   EAttribute getArrayID_Name();
 
   /**
-   * Returns the meta object for the attribute list '{@link com.opcoach.bugsy.xtext.bugsDsl.ArrayID#getIndex <em>Index</em>}'.
+   * Returns the meta object for the containment reference list '{@link com.opcoach.bugsy.xtext.bugsDsl.ArrayID#getIndexes <em>Indexes</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Index</em>'.
-   * @see com.opcoach.bugsy.xtext.bugsDsl.ArrayID#getIndex()
+   * @return the meta object for the containment reference list '<em>Indexes</em>'.
+   * @see com.opcoach.bugsy.xtext.bugsDsl.ArrayID#getIndexes()
    * @see #getArrayID()
    * @generated
    */
-  EAttribute getArrayID_Index();
+  EReference getArrayID_Indexes();
 
   /**
    * Returns the meta object for class '{@link com.opcoach.bugsy.xtext.bugsDsl.Relation <em>Relation</em>}'.
@@ -986,20 +1104,12 @@ public interface BugsDslPackage extends EPackage
     EAttribute FOR__VARIABLE = eINSTANCE.getFor_Variable();
 
     /**
-     * The meta object literal for the '<em><b>Low</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Range</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute FOR__LOW = eINSTANCE.getFor_Low();
-
-    /**
-     * The meta object literal for the '<em><b>High</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute FOR__HIGH = eINSTANCE.getFor_High();
+    EReference FOR__RANGE = eINSTANCE.getFor_Range();
 
     /**
      * The meta object literal for the '<em><b>Contents</b></em>' containment reference list feature.
@@ -1008,6 +1118,58 @@ public interface BugsDslPackage extends EPackage
      * @generated
      */
     EReference FOR__CONTENTS = eINSTANCE.getFor_Contents();
+
+    /**
+     * The meta object literal for the '{@link com.opcoach.bugsy.xtext.bugsDsl.impl.ForRangeImpl <em>For Range</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.opcoach.bugsy.xtext.bugsDsl.impl.ForRangeImpl
+     * @see com.opcoach.bugsy.xtext.bugsDsl.impl.BugsDslPackageImpl#getForRange()
+     * @generated
+     */
+    EClass FOR_RANGE = eINSTANCE.getForRange();
+
+    /**
+     * The meta object literal for the '<em><b>Low</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FOR_RANGE__LOW = eINSTANCE.getForRange_Low();
+
+    /**
+     * The meta object literal for the '<em><b>High</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FOR_RANGE__HIGH = eINSTANCE.getForRange_High();
+
+    /**
+     * The meta object literal for the '{@link com.opcoach.bugsy.xtext.bugsDsl.impl.ArrayRangeImpl <em>Array Range</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.opcoach.bugsy.xtext.bugsDsl.impl.ArrayRangeImpl
+     * @see com.opcoach.bugsy.xtext.bugsDsl.impl.BugsDslPackageImpl#getArrayRange()
+     * @generated
+     */
+    EClass ARRAY_RANGE = eINSTANCE.getArrayRange();
+
+    /**
+     * The meta object literal for the '<em><b>Low</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ARRAY_RANGE__LOW = eINSTANCE.getArrayRange_Low();
+
+    /**
+     * The meta object literal for the '<em><b>High</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ARRAY_RANGE__HIGH = eINSTANCE.getArrayRange_High();
 
     /**
      * The meta object literal for the '{@link com.opcoach.bugsy.xtext.bugsDsl.impl.ValueImpl <em>Value</em>}' class.
@@ -1054,12 +1216,12 @@ public interface BugsDslPackage extends EPackage
     EAttribute ARRAY_ID__NAME = eINSTANCE.getArrayID_Name();
 
     /**
-     * The meta object literal for the '<em><b>Index</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Indexes</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ARRAY_ID__INDEX = eINSTANCE.getArrayID_Index();
+    EReference ARRAY_ID__INDEXES = eINSTANCE.getArrayID_Indexes();
 
     /**
      * The meta object literal for the '{@link com.opcoach.bugsy.xtext.bugsDsl.impl.RelationImpl <em>Relation</em>}' class.

@@ -210,59 +210,36 @@ ruleFor returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getForAccess().getLowIndexParserRuleCall_5_0());
+					newCompositeNode(grammarAccess.getForAccess().getRangeForRangeParserRuleCall_5_0());
 				}
-				lv_low_5_0=ruleIndex
+				lv_range_5_0=ruleForRange
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getForRule());
 					}
 					set(
 						$current,
-						"low",
-						lv_low_5_0,
-						"com.opcoach.bugsy.xtext.BugsDsl.Index");
+						"range",
+						lv_range_5_0,
+						"com.opcoach.bugsy.xtext.BugsDsl.ForRange");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		otherlv_6=':'
+		otherlv_6=')'
 		{
-			newLeafNode(otherlv_6, grammarAccess.getForAccess().getColonKeyword_6());
+			newLeafNode(otherlv_6, grammarAccess.getForAccess().getRightParenthesisKeyword_6());
+		}
+		otherlv_7='{'
+		{
+			newLeafNode(otherlv_7, grammarAccess.getForAccess().getLeftCurlyBracketKeyword_7());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getForAccess().getHighIndexParserRuleCall_7_0());
+					newCompositeNode(grammarAccess.getForAccess().getContentsInstructionParserRuleCall_8_0());
 				}
-				lv_high_7_0=ruleIndex
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getForRule());
-					}
-					set(
-						$current,
-						"high",
-						lv_high_7_0,
-						"com.opcoach.bugsy.xtext.BugsDsl.Index");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		otherlv_8=')'
-		{
-			newLeafNode(otherlv_8, grammarAccess.getForAccess().getRightParenthesisKeyword_8());
-		}
-		otherlv_9='{'
-		{
-			newLeafNode(otherlv_9, grammarAccess.getForAccess().getLeftCurlyBracketKeyword_9());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getForAccess().getContentsInstructionParserRuleCall_10_0());
-				}
-				lv_contents_10_0=ruleInstruction
+				lv_contents_8_0=ruleInstruction
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getForRule());
@@ -270,15 +247,15 @@ ruleFor returns [EObject current=null]
 					add(
 						$current,
 						"contents",
-						lv_contents_10_0,
+						lv_contents_8_0,
 						"com.opcoach.bugsy.xtext.BugsDsl.Instruction");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
-		otherlv_11='}'
+		otherlv_9='}'
 		{
-			newLeafNode(otherlv_11, grammarAccess.getForAccess().getRightCurlyBracketKeyword_11());
+			newLeafNode(otherlv_9, grammarAccess.getForAccess().getRightCurlyBracketKeyword_9());
 		}
 	)
 ;
@@ -351,6 +328,130 @@ ruleIndex returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 		{
 			newLeafNode(this_ID_1, grammarAccess.getIndexAccess().getIDTerminalRuleCall_1());
 		}
+	)
+;
+
+// Entry rule entryRuleForRange
+entryRuleForRange returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getForRangeRule()); }
+	iv_ruleForRange=ruleForRange
+	{ $current=$iv_ruleForRange.current; }
+	EOF;
+
+// Rule ForRange
+ruleForRange returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getForRangeAccess().getLowIndexParserRuleCall_0_0());
+				}
+				lv_low_0_0=ruleIndex
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getForRangeRule());
+					}
+					set(
+						$current,
+						"low",
+						lv_low_0_0,
+						"com.opcoach.bugsy.xtext.BugsDsl.Index");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_1=':'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getForRangeAccess().getColonKeyword_1());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getForRangeAccess().getHighIndexParserRuleCall_2_0());
+				}
+				lv_high_2_0=ruleIndex
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getForRangeRule());
+					}
+					set(
+						$current,
+						"high",
+						lv_high_2_0,
+						"com.opcoach.bugsy.xtext.BugsDsl.Index");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleArrayRange
+entryRuleArrayRange returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getArrayRangeRule()); }
+	iv_ruleArrayRange=ruleArrayRange
+	{ $current=$iv_ruleArrayRange.current; }
+	EOF;
+
+// Rule ArrayRange
+ruleArrayRange returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getArrayRangeAccess().getLowIndexParserRuleCall_0_0());
+				}
+				lv_low_0_0=ruleIndex
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getArrayRangeRule());
+					}
+					set(
+						$current,
+						"low",
+						lv_low_0_0,
+						"com.opcoach.bugsy.xtext.BugsDsl.Index");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			otherlv_1=':'
+			{
+				newLeafNode(otherlv_1, grammarAccess.getArrayRangeAccess().getColonKeyword_1_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getArrayRangeAccess().getHighIndexParserRuleCall_1_1_0());
+					}
+					lv_high_2_0=ruleIndex
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getArrayRangeRule());
+						}
+						set(
+							$current,
+							"high",
+							lv_high_2_0,
+							"com.opcoach.bugsy.xtext.BugsDsl.Index");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
 	)
 ;
 
@@ -528,18 +629,18 @@ ruleArrayID returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getArrayIDAccess().getIndexIndexParserRuleCall_1_1_0());
+						newCompositeNode(grammarAccess.getArrayIDAccess().getIndexesArrayRangeParserRuleCall_1_1_0());
 					}
-					lv_index_2_0=ruleIndex
+					lv_indexes_2_0=ruleArrayRange
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getArrayIDRule());
 						}
 						add(
 							$current,
-							"index",
-							lv_index_2_0,
-							"com.opcoach.bugsy.xtext.BugsDsl.Index");
+							"indexes",
+							lv_indexes_2_0,
+							"com.opcoach.bugsy.xtext.BugsDsl.ArrayRange");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -552,18 +653,18 @@ ruleArrayID returns [EObject current=null]
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getArrayIDAccess().getIndexIndexParserRuleCall_1_2_1_0());
+							newCompositeNode(grammarAccess.getArrayIDAccess().getIndexesArrayRangeParserRuleCall_1_2_1_0());
 						}
-						lv_index_4_0=ruleIndex
+						lv_indexes_4_0=ruleArrayRange
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getArrayIDRule());
 							}
 							add(
 								$current,
-								"index",
-								lv_index_4_0,
-								"com.opcoach.bugsy.xtext.BugsDsl.Index");
+								"indexes",
+								lv_indexes_4_0,
+								"com.opcoach.bugsy.xtext.BugsDsl.ArrayRange");
 							afterParserOrEnumRuleCall();
 						}
 					)

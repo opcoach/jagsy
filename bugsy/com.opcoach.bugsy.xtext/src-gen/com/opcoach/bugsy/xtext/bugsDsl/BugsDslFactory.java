@@ -51,6 +51,24 @@ public interface BugsDslFactory extends EFactory
   For createFor();
 
   /**
+   * Returns a new object of class '<em>For Range</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>For Range</em>'.
+   * @generated
+   */
+  ForRange createForRange();
+
+  /**
+   * Returns a new object of class '<em>Array Range</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Array Range</em>'.
+   * @generated
+   */
+  ArrayRange createArrayRange();
+
+  /**
    * Returns a new object of class '<em>Value</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

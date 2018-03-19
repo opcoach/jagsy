@@ -4,6 +4,7 @@
 package com.opcoach.bugsy.xtext.bugsDsl.impl;
 
 import com.opcoach.bugsy.xtext.bugsDsl.ArrayID;
+import com.opcoach.bugsy.xtext.bugsDsl.ArrayRange;
 import com.opcoach.bugsy.xtext.bugsDsl.BugsDslFactory;
 import com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage;
 import com.opcoach.bugsy.xtext.bugsDsl.BugsModel;
@@ -13,6 +14,7 @@ import com.opcoach.bugsy.xtext.bugsDsl.Distribution;
 import com.opcoach.bugsy.xtext.bugsDsl.DistributionOperator;
 import com.opcoach.bugsy.xtext.bugsDsl.Expression;
 import com.opcoach.bugsy.xtext.bugsDsl.For;
+import com.opcoach.bugsy.xtext.bugsDsl.ForRange;
 import com.opcoach.bugsy.xtext.bugsDsl.Function;
 import com.opcoach.bugsy.xtext.bugsDsl.FunctionOperator;
 import com.opcoach.bugsy.xtext.bugsDsl.Instruction;
@@ -56,6 +58,20 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
    * @generated
    */
   private EClass forEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass forRangeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass arrayRangeEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -252,19 +268,9 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFor_Low()
+  public EReference getFor_Range()
   {
-    return (EAttribute)forEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getFor_High()
-  {
-    return (EAttribute)forEClass.getEStructuralFeatures().get(2);
+    return (EReference)forEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -274,7 +280,67 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
    */
   public EReference getFor_Contents()
   {
-    return (EReference)forEClass.getEStructuralFeatures().get(3);
+    return (EReference)forEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getForRange()
+  {
+    return forRangeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getForRange_Low()
+  {
+    return (EAttribute)forRangeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getForRange_High()
+  {
+    return (EAttribute)forRangeEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getArrayRange()
+  {
+    return arrayRangeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getArrayRange_Low()
+  {
+    return (EAttribute)arrayRangeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getArrayRange_High()
+  {
+    return (EAttribute)arrayRangeEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -332,9 +398,9 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getArrayID_Index()
+  public EReference getArrayID_Indexes()
   {
-    return (EAttribute)arrayIDEClass.getEStructuralFeatures().get(1);
+    return (EReference)arrayIDEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -604,9 +670,16 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
 
     forEClass = createEClass(FOR);
     createEAttribute(forEClass, FOR__VARIABLE);
-    createEAttribute(forEClass, FOR__LOW);
-    createEAttribute(forEClass, FOR__HIGH);
+    createEReference(forEClass, FOR__RANGE);
     createEReference(forEClass, FOR__CONTENTS);
+
+    forRangeEClass = createEClass(FOR_RANGE);
+    createEAttribute(forRangeEClass, FOR_RANGE__LOW);
+    createEAttribute(forRangeEClass, FOR_RANGE__HIGH);
+
+    arrayRangeEClass = createEClass(ARRAY_RANGE);
+    createEAttribute(arrayRangeEClass, ARRAY_RANGE__LOW);
+    createEAttribute(arrayRangeEClass, ARRAY_RANGE__HIGH);
 
     valueEClass = createEClass(VALUE);
     createEAttribute(valueEClass, VALUE__VALUE);
@@ -614,7 +687,7 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
 
     arrayIDEClass = createEClass(ARRAY_ID);
     createEAttribute(arrayIDEClass, ARRAY_ID__NAME);
-    createEAttribute(arrayIDEClass, ARRAY_ID__INDEX);
+    createEReference(arrayIDEClass, ARRAY_ID__INDEXES);
 
     relationEClass = createEClass(RELATION);
     createEReference(relationEClass, RELATION__NAME);
@@ -690,9 +763,16 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
 
     initEClass(forEClass, For.class, "For", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getFor_Variable(), ecorePackage.getEString(), "variable", null, 0, 1, For.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getFor_Low(), ecorePackage.getEString(), "low", null, 0, 1, For.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getFor_High(), ecorePackage.getEString(), "high", null, 0, 1, For.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFor_Range(), this.getForRange(), null, "range", null, 0, 1, For.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFor_Contents(), this.getInstruction(), null, "contents", null, 0, -1, For.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(forRangeEClass, ForRange.class, "ForRange", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getForRange_Low(), ecorePackage.getEString(), "low", null, 0, 1, ForRange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getForRange_High(), ecorePackage.getEString(), "high", null, 0, 1, ForRange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(arrayRangeEClass, ArrayRange.class, "ArrayRange", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getArrayRange_Low(), ecorePackage.getEString(), "low", null, 0, 1, ArrayRange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getArrayRange_High(), ecorePackage.getEString(), "high", null, 0, 1, ArrayRange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(valueEClass, Value.class, "Value", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getValue_Value(), ecorePackage.getEString(), "value", null, 0, 1, Value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -700,7 +780,7 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
 
     initEClass(arrayIDEClass, ArrayID.class, "ArrayID", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getArrayID_Name(), ecorePackage.getEString(), "name", null, 0, 1, ArrayID.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getArrayID_Index(), ecorePackage.getEString(), "index", null, 0, -1, ArrayID.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getArrayID_Indexes(), this.getArrayRange(), null, "indexes", null, 0, -1, ArrayID.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(relationEClass, Relation.class, "Relation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getRelation_Name(), this.getArrayID(), null, "name", null, 0, 1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

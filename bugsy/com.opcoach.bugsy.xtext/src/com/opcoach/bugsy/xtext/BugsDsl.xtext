@@ -21,12 +21,17 @@ Instruction:
 	For | Relation;
 
 For:
-	{For} 'for' '(' variable=ID 'in' low=Index ':' high=Index ')' '{' contents+=Instruction* '}';
+	{For} 'for' '(' variable=ID 'in' range=ForRange ')' '{' contents+=Instruction* '}';
 
 Numeric:
 	INT | Float;
 
-	Index : INT | ID;
+Index:
+	INT | ID;
+
+ForRange : low=Index ':' high=Index;
+
+ArrayRange : low=Index (':' high=Index)?;
 
 Float returns ecore::EFloat:
 	INT '.' INT ('E' ('+' | '-') INT)?;
@@ -35,7 +40,7 @@ Value:
 	{Value} value=Numeric | id=ArrayID;
 
 ArrayID:
-	name=ID ('[' index+=Index  (',' (index+=Index))*']')?;
+	name=ID ('[' indexes+=ArrayRange (',' (indexes+=ArrayRange))* ']')?;
 
 Relation:
 	StochasticRelation | DeterministicRelation;
@@ -50,9 +55,11 @@ DeterministicRelation:
 Operator:
 	'+' | '-' | '*' | '/';
 
-Function : operation = FunctionOperator ('()' | '(' (=> (params+=Expression) (',' (params+=Expression))* ')')?) ;
+Function:
+	operation=FunctionOperator ('()' | '(' (=> (params+=Expression) (',' (params+=Expression))* ')')?);
 
-Distribution : distrib=DistributionOperator ('()' | '(' (=> (params+=Expression) (',' (params+=Expression))* ')')?)  ;
+Distribution:
+	distrib=DistributionOperator ('()' | '(' (=> (params+=Expression) (',' (params+=Expression))* ')')?);
 
 Expression:
 	TerminalExpression ({Expression.left=current} op=Operator

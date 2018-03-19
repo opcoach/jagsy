@@ -15,8 +15,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.For#getVariable <em>Variable</em>}</li>
- *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.For#getLow <em>Low</em>}</li>
- *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.For#getHigh <em>High</em>}</li>
+ *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.For#getRange <em>Range</em>}</li>
  *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.For#getContents <em>Contents</em>}</li>
  * </ul>
  *
@@ -53,56 +52,30 @@ public interface For extends Instruction
   void setVariable(String value);
 
   /**
-   * Returns the value of the '<em><b>Low</b></em>' attribute.
+   * Returns the value of the '<em><b>Range</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Low</em>' attribute isn't clear,
+   * If the meaning of the '<em>Range</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Low</em>' attribute.
-   * @see #setLow(String)
-   * @see com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage#getFor_Low()
-   * @model
+   * @return the value of the '<em>Range</em>' containment reference.
+   * @see #setRange(ForRange)
+   * @see com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage#getFor_Range()
+   * @model containment="true"
    * @generated
    */
-  String getLow();
+  ForRange getRange();
 
   /**
-   * Sets the value of the '{@link com.opcoach.bugsy.xtext.bugsDsl.For#getLow <em>Low</em>}' attribute.
+   * Sets the value of the '{@link com.opcoach.bugsy.xtext.bugsDsl.For#getRange <em>Range</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Low</em>' attribute.
-   * @see #getLow()
+   * @param value the new value of the '<em>Range</em>' containment reference.
+   * @see #getRange()
    * @generated
    */
-  void setLow(String value);
-
-  /**
-   * Returns the value of the '<em><b>High</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>High</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>High</em>' attribute.
-   * @see #setHigh(String)
-   * @see com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage#getFor_High()
-   * @model
-   * @generated
-   */
-  String getHigh();
-
-  /**
-   * Sets the value of the '{@link com.opcoach.bugsy.xtext.bugsDsl.For#getHigh <em>High</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>High</em>' attribute.
-   * @see #getHigh()
-   * @generated
-   */
-  void setHigh(String value);
+  void setRange(ForRange value);
 
   /**
    * Returns the value of the '<em><b>Contents</b></em>' containment reference list.

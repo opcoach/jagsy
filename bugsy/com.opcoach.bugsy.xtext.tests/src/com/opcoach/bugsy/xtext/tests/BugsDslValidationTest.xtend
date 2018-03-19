@@ -25,7 +25,7 @@ class BugsDslValidationTest {
 	extension ValidationTestHelper validHelper
 
 	@Test   // For issue #15
-	def void testUniqueIdentifier() {
+	def void testIssue15_UniqueIdentifier() {
 		'''model{
 		for(j in 1:M){
 		for(i in 1:N){

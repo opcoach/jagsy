@@ -77,7 +77,7 @@ class BugsDslParsingTest {
 	}
 
 	@Test
-	def void testIssue2() {
+	def void testIssue2_mismatchedVariable() {
 		// mismatched input 'a' expected '}' 
 		// See : https://github.com/opcoach/jagsy/issues/2
 		val result = parseHelper.parse('''
@@ -123,7 +123,7 @@ class BugsDslParsingTest {
 	}
 
 	@Test
-	def void testIssue5() {
+	def void testIssue5_ParenthesesInExpression() {
 		// Obligation to use parentheses in expression 
 		// See : https://github.com/opcoach/jagsy/issues/5
 		val result = parseHelper.parse('''
@@ -138,7 +138,7 @@ class BugsDslParsingTest {
 	}
 
 	@Test
-	def void testIssue7() {
+	def void testIssue7_IndexedVariablesNotWorking() {
 		// Indexed Variables not working
 		// See : https://github.com/opcoach/jagsy/issues/7
 		val result = parseHelper.parse('''
@@ -154,7 +154,7 @@ class BugsDslParsingTest {
 	}
 
 	@Test
-	def void testIssue8() {
+	def void testIssue8_MaximumLimitForRange() {
 		// maximum limit of the definition of a range of indices tagged as error
 		// See : https://github.com/opcoach/jagsy/issues/8
 		val result = parseHelper.parse('''
@@ -169,7 +169,7 @@ class BugsDslParsingTest {
 	}
 
 	@Test
-	def void testIssue9() {
+	def void testIssue9_LiteralExpressionsAsParametersTaggedAsError() {
 		// See : https://github.com/opcoach/jagsy/issues/9
 		val result = parseHelper.parse('''
 			model{
@@ -183,7 +183,7 @@ class BugsDslParsingTest {
 	}
 
 	@Test
-	def void testIssue10() {
+	def void testIssue10_ManageMultiDimensionalArrays() {
 		// See : https://github.com/opcoach/jagsy/issues/10
 		val result = parseHelper.parse('''
 			model {
@@ -210,6 +210,27 @@ class BugsDslParsingTest {
 		''')
 		Assert.assertNotNull(result)
 		println("Errors in testVectorConstruction : " + result.eResource.errors)
+		Assert.assertTrue(result.eResource.errors.isEmpty)
+	}
+
+	@Test
+	def void testIssue16_RangeIndexNotAllowed() {
+		// See : https://github.com/opcoach/jagsy/issues/16
+		val result = parseHelper.parse('''
+			model{
+			for(j in 1:M){
+			for(i in 1:N){
+			a[j,i] ~ dnorm(mu[j],taub)
+			}
+			mu[j] ~ dnorm(0,1)
+			}
+			tau[1:2,1:2] ~ dnorm( x2[1:2, 1:2], 2)
+			taub ~ dgamma(0.01,0.01)
+			mu ~ dnorm(0,1)
+			}
+		''')
+		Assert.assertNotNull(result)
+		println("Errors in Issue 16 : " + result.eResource.errors)
 		Assert.assertTrue(result.eResource.errors.isEmpty)
 	}
 

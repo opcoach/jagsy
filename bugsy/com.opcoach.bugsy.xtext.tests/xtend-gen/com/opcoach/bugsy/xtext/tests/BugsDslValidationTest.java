@@ -31,7 +31,7 @@ public class BugsDslValidationTest {
   private ValidationTestHelper validHelper;
   
   @Test
-  public void testUniqueIdentifier() {
+  public void testIssue15_UniqueIdentifier() {
     try {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("model{");

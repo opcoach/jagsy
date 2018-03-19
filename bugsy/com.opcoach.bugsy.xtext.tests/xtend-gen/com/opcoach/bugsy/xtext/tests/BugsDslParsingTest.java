@@ -158,7 +158,7 @@ public class BugsDslParsingTest {
   }
   
   @Test
-  public void testIssue2() {
+  public void testIssue2_mismatchedVariable() {
     try {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("model{");
@@ -223,7 +223,7 @@ public class BugsDslParsingTest {
   }
   
   @Test
-  public void testIssue5() {
+  public void testIssue5_ParenthesesInExpression() {
     try {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("model{");
@@ -244,7 +244,7 @@ public class BugsDslParsingTest {
   }
   
   @Test
-  public void testIssue7() {
+  public void testIssue7_IndexedVariablesNotWorking() {
     try {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("model{");
@@ -267,7 +267,7 @@ public class BugsDslParsingTest {
   }
   
   @Test
-  public void testIssue8() {
+  public void testIssue8_MaximumLimitForRange() {
     try {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("model{");
@@ -290,7 +290,7 @@ public class BugsDslParsingTest {
   }
   
   @Test
-  public void testIssue9() {
+  public void testIssue9_LiteralExpressionsAsParametersTaggedAsError() {
     try {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("model{");
@@ -315,7 +315,7 @@ public class BugsDslParsingTest {
   }
   
   @Test
-  public void testIssue10() {
+  public void testIssue10_ManageMultiDimensionalArrays() {
     try {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("model {");
@@ -361,6 +361,43 @@ public class BugsDslParsingTest {
       Assert.assertNotNull(result);
       EList<Resource.Diagnostic> _errors = result.eResource().getErrors();
       String _plus = ("Errors in testVectorConstruction : " + _errors);
+      InputOutput.<String>println(_plus);
+      Assert.assertTrue(result.eResource().getErrors().isEmpty());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void testIssue16_RangeIndexNotAllowed() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("model{");
+      _builder.newLine();
+      _builder.append("for(j in 1:M){");
+      _builder.newLine();
+      _builder.append("for(i in 1:N){");
+      _builder.newLine();
+      _builder.append("a[j,i] ~ dnorm(mu[j],taub)");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("mu[j] ~ dnorm(0,1)");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("tau[1:2,1:2] ~ dnorm( x2[1:2, 1:2], 2)");
+      _builder.newLine();
+      _builder.append("taub ~ dgamma(0.01,0.01)");
+      _builder.newLine();
+      _builder.append("mu ~ dnorm(0,1)");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      final BugsModel result = this.parseHelper.parse(_builder);
+      Assert.assertNotNull(result);
+      EList<Resource.Diagnostic> _errors = result.eResource().getErrors();
+      String _plus = ("Errors in Issue 16 : " + _errors);
       InputOutput.<String>println(_plus);
       Assert.assertTrue(result.eResource().getErrors().isEmpty());
     } catch (Throwable _e) {

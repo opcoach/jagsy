@@ -5,12 +5,14 @@ package com.opcoach.bugsy.xtext.serializer;
 
 import com.google.inject.Inject;
 import com.opcoach.bugsy.xtext.bugsDsl.ArrayID;
+import com.opcoach.bugsy.xtext.bugsDsl.ArrayRange;
 import com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage;
 import com.opcoach.bugsy.xtext.bugsDsl.BugsModel;
 import com.opcoach.bugsy.xtext.bugsDsl.DeterministicRelation;
 import com.opcoach.bugsy.xtext.bugsDsl.Distribution;
 import com.opcoach.bugsy.xtext.bugsDsl.Expression;
 import com.opcoach.bugsy.xtext.bugsDsl.For;
+import com.opcoach.bugsy.xtext.bugsDsl.ForRange;
 import com.opcoach.bugsy.xtext.bugsDsl.Function;
 import com.opcoach.bugsy.xtext.bugsDsl.StochasticRelation;
 import com.opcoach.bugsy.xtext.bugsDsl.Value;
@@ -22,7 +24,9 @@ import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Parameter;
 import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.serializer.ISerializationContext;
+import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
+import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 
 @SuppressWarnings("all")
 public class BugsDslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
@@ -41,6 +45,9 @@ public class BugsDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 			case BugsDslPackage.ARRAY_ID:
 				sequence_ArrayID(context, (ArrayID) semanticObject); 
 				return; 
+			case BugsDslPackage.ARRAY_RANGE:
+				sequence_ArrayRange(context, (ArrayRange) semanticObject); 
+				return; 
 			case BugsDslPackage.BUGS_MODEL:
 				sequence_BugsModel(context, (BugsModel) semanticObject); 
 				return; 
@@ -55,6 +62,9 @@ public class BugsDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 				return; 
 			case BugsDslPackage.FOR:
 				sequence_For(context, (For) semanticObject); 
+				return; 
+			case BugsDslPackage.FOR_RANGE:
+				sequence_ForRange(context, (ForRange) semanticObject); 
 				return; 
 			case BugsDslPackage.FUNCTION:
 				sequence_Function(context, (Function) semanticObject); 
@@ -75,9 +85,21 @@ public class BugsDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     ArrayID returns ArrayID
 	 *
 	 * Constraint:
-	 *     (name=ID (index+=Index index+=Index*)?)
+	 *     (name=ID (indexes+=ArrayRange indexes+=ArrayRange*)?)
 	 */
 	protected void sequence_ArrayID(ISerializationContext context, ArrayID semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ArrayRange returns ArrayRange
+	 *
+	 * Constraint:
+	 *     (low=Index high=Index?)
+	 */
+	protected void sequence_ArrayRange(ISerializationContext context, ArrayRange semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -136,11 +158,32 @@ public class BugsDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
+	 *     ForRange returns ForRange
+	 *
+	 * Constraint:
+	 *     (low=Index high=Index)
+	 */
+	protected void sequence_ForRange(ISerializationContext context, ForRange semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, BugsDslPackage.Literals.FOR_RANGE__LOW) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BugsDslPackage.Literals.FOR_RANGE__LOW));
+			if (transientValues.isValueTransient(semanticObject, BugsDslPackage.Literals.FOR_RANGE__HIGH) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BugsDslPackage.Literals.FOR_RANGE__HIGH));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getForRangeAccess().getLowIndexParserRuleCall_0_0(), semanticObject.getLow());
+		feeder.accept(grammarAccess.getForRangeAccess().getHighIndexParserRuleCall_2_0(), semanticObject.getHigh());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Instruction returns For
 	 *     For returns For
 	 *
 	 * Constraint:
-	 *     (variable=ID low=Index high=Index contents+=Instruction*)
+	 *     (variable=ID range=ForRange contents+=Instruction*)
 	 */
 	protected void sequence_For(ISerializationContext context, For semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

@@ -69,6 +69,8 @@ public class BugsDslFactoryImpl extends EFactoryImpl implements BugsDslFactory
       case BugsDslPackage.BUGS_MODEL: return createBugsModel();
       case BugsDslPackage.INSTRUCTION: return createInstruction();
       case BugsDslPackage.FOR: return createFor();
+      case BugsDslPackage.FOR_RANGE: return createForRange();
+      case BugsDslPackage.ARRAY_RANGE: return createArrayRange();
       case BugsDslPackage.VALUE: return createValue();
       case BugsDslPackage.ARRAY_ID: return createArrayID();
       case BugsDslPackage.RELATION: return createRelation();
@@ -155,6 +157,28 @@ public class BugsDslFactoryImpl extends EFactoryImpl implements BugsDslFactory
   {
     ForImpl for_ = new ForImpl();
     return for_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ForRange createForRange()
+  {
+    ForRangeImpl forRange = new ForRangeImpl();
+    return forRange;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ArrayRange createArrayRange()
+  {
+    ArrayRangeImpl arrayRange = new ArrayRangeImpl();
+    return arrayRange;
   }
 
   /**

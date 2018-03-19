@@ -5,6 +5,7 @@ package com.opcoach.bugsy.xtext.bugsDsl.impl;
 
 import com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage;
 import com.opcoach.bugsy.xtext.bugsDsl.For;
+import com.opcoach.bugsy.xtext.bugsDsl.ForRange;
 import com.opcoach.bugsy.xtext.bugsDsl.Instruction;
 
 import java.util.Collection;
@@ -31,8 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.impl.ForImpl#getVariable <em>Variable</em>}</li>
- *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.impl.ForImpl#getLow <em>Low</em>}</li>
- *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.impl.ForImpl#getHigh <em>High</em>}</li>
+ *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.impl.ForImpl#getRange <em>Range</em>}</li>
  *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.impl.ForImpl#getContents <em>Contents</em>}</li>
  * </ul>
  *
@@ -61,44 +61,14 @@ public class ForImpl extends InstructionImpl implements For
   protected String variable = VARIABLE_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getLow() <em>Low</em>}' attribute.
+   * The cached value of the '{@link #getRange() <em>Range</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getLow()
+   * @see #getRange()
    * @generated
    * @ordered
    */
-  protected static final String LOW_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getLow() <em>Low</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getLow()
-   * @generated
-   * @ordered
-   */
-  protected String low = LOW_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getHigh() <em>High</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getHigh()
-   * @generated
-   * @ordered
-   */
-  protected static final String HIGH_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getHigh() <em>High</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getHigh()
-   * @generated
-   * @ordered
-   */
-  protected String high = HIGH_EDEFAULT;
+  protected ForRange range;
 
   /**
    * The cached value of the '{@link #getContents() <em>Contents</em>}' containment reference list.
@@ -159,9 +129,9 @@ public class ForImpl extends InstructionImpl implements For
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getLow()
+  public ForRange getRange()
   {
-    return low;
+    return range;
   }
 
   /**
@@ -169,12 +139,16 @@ public class ForImpl extends InstructionImpl implements For
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setLow(String newLow)
+  public NotificationChain basicSetRange(ForRange newRange, NotificationChain msgs)
   {
-    String oldLow = low;
-    low = newLow;
+    ForRange oldRange = range;
+    range = newRange;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BugsDslPackage.FOR__LOW, oldLow, low));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BugsDslPackage.FOR__RANGE, oldRange, newRange);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
   }
 
   /**
@@ -182,22 +156,20 @@ public class ForImpl extends InstructionImpl implements For
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getHigh()
+  public void setRange(ForRange newRange)
   {
-    return high;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setHigh(String newHigh)
-  {
-    String oldHigh = high;
-    high = newHigh;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BugsDslPackage.FOR__HIGH, oldHigh, high));
+    if (newRange != range)
+    {
+      NotificationChain msgs = null;
+      if (range != null)
+        msgs = ((InternalEObject)range).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BugsDslPackage.FOR__RANGE, null, msgs);
+      if (newRange != null)
+        msgs = ((InternalEObject)newRange).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BugsDslPackage.FOR__RANGE, null, msgs);
+      msgs = basicSetRange(newRange, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, BugsDslPackage.FOR__RANGE, newRange, newRange));
   }
 
   /**
@@ -224,6 +196,8 @@ public class ForImpl extends InstructionImpl implements For
   {
     switch (featureID)
     {
+      case BugsDslPackage.FOR__RANGE:
+        return basicSetRange(null, msgs);
       case BugsDslPackage.FOR__CONTENTS:
         return ((InternalEList<?>)getContents()).basicRemove(otherEnd, msgs);
     }
@@ -242,10 +216,8 @@ public class ForImpl extends InstructionImpl implements For
     {
       case BugsDslPackage.FOR__VARIABLE:
         return getVariable();
-      case BugsDslPackage.FOR__LOW:
-        return getLow();
-      case BugsDslPackage.FOR__HIGH:
-        return getHigh();
+      case BugsDslPackage.FOR__RANGE:
+        return getRange();
       case BugsDslPackage.FOR__CONTENTS:
         return getContents();
     }
@@ -266,11 +238,8 @@ public class ForImpl extends InstructionImpl implements For
       case BugsDslPackage.FOR__VARIABLE:
         setVariable((String)newValue);
         return;
-      case BugsDslPackage.FOR__LOW:
-        setLow((String)newValue);
-        return;
-      case BugsDslPackage.FOR__HIGH:
-        setHigh((String)newValue);
+      case BugsDslPackage.FOR__RANGE:
+        setRange((ForRange)newValue);
         return;
       case BugsDslPackage.FOR__CONTENTS:
         getContents().clear();
@@ -293,11 +262,8 @@ public class ForImpl extends InstructionImpl implements For
       case BugsDslPackage.FOR__VARIABLE:
         setVariable(VARIABLE_EDEFAULT);
         return;
-      case BugsDslPackage.FOR__LOW:
-        setLow(LOW_EDEFAULT);
-        return;
-      case BugsDslPackage.FOR__HIGH:
-        setHigh(HIGH_EDEFAULT);
+      case BugsDslPackage.FOR__RANGE:
+        setRange((ForRange)null);
         return;
       case BugsDslPackage.FOR__CONTENTS:
         getContents().clear();
@@ -318,10 +284,8 @@ public class ForImpl extends InstructionImpl implements For
     {
       case BugsDslPackage.FOR__VARIABLE:
         return VARIABLE_EDEFAULT == null ? variable != null : !VARIABLE_EDEFAULT.equals(variable);
-      case BugsDslPackage.FOR__LOW:
-        return LOW_EDEFAULT == null ? low != null : !LOW_EDEFAULT.equals(low);
-      case BugsDslPackage.FOR__HIGH:
-        return HIGH_EDEFAULT == null ? high != null : !HIGH_EDEFAULT.equals(high);
+      case BugsDslPackage.FOR__RANGE:
+        return range != null;
       case BugsDslPackage.FOR__CONTENTS:
         return contents != null && !contents.isEmpty();
     }
@@ -341,10 +305,6 @@ public class ForImpl extends InstructionImpl implements For
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (variable: ");
     result.append(variable);
-    result.append(", low: ");
-    result.append(low);
-    result.append(", high: ");
-    result.append(high);
     result.append(')');
     return result.toString();
   }
