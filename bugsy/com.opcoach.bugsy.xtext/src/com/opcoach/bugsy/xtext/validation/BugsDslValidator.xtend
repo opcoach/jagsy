@@ -3,23 +3,36 @@
  */
 package com.opcoach.bugsy.xtext.validation
 
+import com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage
+import com.opcoach.bugsy.xtext.bugsDsl.BugsModel
+import com.opcoach.bugsy.xtext.bugsDsl.For
+import com.opcoach.bugsy.xtext.bugsDsl.Relation
+import org.eclipse.xtext.validation.Check
 
 /**
  * This class contains custom validation rules. 
- *
+ * 
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#validation
  */
 class BugsDslValidator extends AbstractBugsDslValidator {
-	
-//	public static val INVALID_NAME = 'invalidName'
-//
-//	@Check
-//	def checkGreetingStartsWithCapital(Greeting greeting) {
-//		if (!Character.isUpperCase(greeting.name.charAt(0))) {
-//			warning('Name should start with a capital', 
-//					BugsDslPackage.Literals.GREETING__NAME,
-//					INVALID_NAME)
-//		}
-//	}
-	
+
+	public static val UNIQUE_VARIABLE_NAME = 'uniqueVariableName'
+
+	@Check
+	def uniqueRelationName(Relation r) {
+		val nameToCheck = r.name
+		// Check if another relation in the file has the same name...
+		val parent = r.eContainer // Can be the model or a for object...
+		if (parent instanceof BugsModel || parent instanceof For) {
+			for (c : parent.eContents) {
+				if ((c != r) && (c instanceof Relation)) {
+					val rc = c as Relation
+					if (rc.name.name.equals(nameToCheck.name))
+						warning('Variable names must be unique.', BugsDslPackage.Literals.RELATION__NAME,
+							UNIQUE_VARIABLE_NAME)
+				}
+			}
+		}
+	}
+
 }

@@ -3,7 +3,16 @@
  */
 package com.opcoach.bugsy.xtext.validation;
 
+import com.google.common.base.Objects;
+import com.opcoach.bugsy.xtext.bugsDsl.ArrayID;
+import com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage;
+import com.opcoach.bugsy.xtext.bugsDsl.BugsModel;
+import com.opcoach.bugsy.xtext.bugsDsl.For;
+import com.opcoach.bugsy.xtext.bugsDsl.Relation;
 import com.opcoach.bugsy.xtext.validation.AbstractBugsDslValidator;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.xtext.validation.Check;
 
 /**
  * This class contains custom validation rules.
@@ -12,4 +21,24 @@ import com.opcoach.bugsy.xtext.validation.AbstractBugsDslValidator;
  */
 @SuppressWarnings("all")
 public class BugsDslValidator extends AbstractBugsDslValidator {
+  public final static String UNIQUE_VARIABLE_NAME = "uniqueVariableName";
+  
+  @Check
+  public void uniqueRelationName(final Relation r) {
+    final ArrayID nameToCheck = r.getName();
+    final EObject parent = r.eContainer();
+    if (((parent instanceof BugsModel) || (parent instanceof For))) {
+      EList<EObject> _eContents = parent.eContents();
+      for (final EObject c : _eContents) {
+        if (((!Objects.equal(c, r)) && (c instanceof Relation))) {
+          final Relation rc = ((Relation) c);
+          boolean _equals = rc.getName().getName().equals(nameToCheck.getName());
+          if (_equals) {
+            this.warning("Variable names must be unique.", BugsDslPackage.Literals.RELATION__NAME, 
+              BugsDslValidator.UNIQUE_VARIABLE_NAME);
+          }
+        }
+      }
+    }
+  }
 }
