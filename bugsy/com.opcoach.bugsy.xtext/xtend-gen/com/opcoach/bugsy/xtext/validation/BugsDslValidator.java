@@ -4,6 +4,7 @@
 package com.opcoach.bugsy.xtext.validation;
 
 import com.google.common.base.Objects;
+import com.google.common.collect.Iterables;
 import com.opcoach.bugsy.xtext.bugsDsl.ArrayID;
 import com.opcoach.bugsy.xtext.bugsDsl.ArrayRange;
 import com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage;
@@ -150,14 +151,17 @@ public class BugsDslValidator extends AbstractBugsDslValidator {
    *  It returns null if no problem is found
    */
   public Object verifyCardinalityUsage(final BugsModel m, final String name, final int cardinality) {
-    return this.verifyCardinalityUsage(m.getInstructions(), name, cardinality);
+    EList<Instruction> _instructions = m.getInstructions();
+    EList<Instruction> _data = m.getData();
+    final Iterable<Instruction> allData = Iterables.<Instruction>concat(_instructions, _data);
+    return this.verifyCardinalityUsage(allData, name, cardinality);
   }
   
   public Object verifyCardinalityUsage(final For f, final String name, final int cardinality) {
     return this.verifyCardinalityUsage(f.getInstructions(), name, cardinality);
   }
   
-  public Object verifyCardinalityUsage(final List<Instruction> instructions, final String name, final int cardinality) {
+  public Object verifyCardinalityUsage(final Iterable<Instruction> instructions, final String name, final int cardinality) {
     for (final Instruction ins : instructions) {
       {
         final Object check = this.verifyCardinalityUsage(ins, name, cardinality);

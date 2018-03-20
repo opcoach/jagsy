@@ -126,7 +126,8 @@ class BugsDslValidator extends AbstractBugsDslValidator {
 	/** This method returns the object where  the relation name or expression name in the model is not used using the same cardinality
 	 *  It returns null if no problem is found */
 	def verifyCardinalityUsage(BugsModel m, String name, int cardinality) {
-		return verifyCardinalityUsage(m.instructions, name, cardinality)
+		val allData = m.instructions + m.data
+		return verifyCardinalityUsage(allData, name, cardinality)
 
 	}
 
@@ -134,7 +135,7 @@ class BugsDslValidator extends AbstractBugsDslValidator {
 		return verifyCardinalityUsage(f.instructions, name, cardinality)
 	}
 
-	def Object verifyCardinalityUsage(List<Instruction> instructions, String name, int cardinality) {
+	def Object verifyCardinalityUsage(Iterable<Instruction> instructions, String name, int cardinality) {
 
 		for (ins : instructions) {
 			val check = ins.verifyCardinalityUsage(name, cardinality)
