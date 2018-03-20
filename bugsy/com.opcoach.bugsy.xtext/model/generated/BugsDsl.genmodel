@@ -42,6 +42,7 @@
       <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//FunctionOperator/mean"/>
       <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//FunctionOperator/sqrt"/>
       <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//FunctionOperator/length"/>
+      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//FunctionOperator/inverse"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="BugsDsl.ecore#//IntOperator">
       <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//IntOperator/length"/>

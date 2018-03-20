@@ -1882,6 +1882,14 @@ ruleFunctionOperator returns [Enumerator current=null]
 				newLeafNode(enumLiteral_10, grammarAccess.getFunctionOperatorAccess().getLengthEnumLiteralDeclaration_10());
 			}
 		)
+		    |
+		(
+			enumLiteral_11='inverse'
+			{
+				$current = grammarAccess.getFunctionOperatorAccess().getInverseEnumLiteralDeclaration_11().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_11, grammarAccess.getFunctionOperatorAccess().getInverseEnumLiteralDeclaration_11());
+			}
+		)
 	)
 ;
 

@@ -128,7 +128,17 @@ public enum FunctionOperator implements Enumerator
    * @generated
    * @ordered
    */
-  LENGTH(10, "length", "length");
+  LENGTH(10, "length", "length"),
+
+  /**
+   * The '<em><b>Inverse</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #INVERSE_VALUE
+   * @generated
+   * @ordered
+   */
+  INVERSE(11, "inverse", "inverse");
 
   /**
    * The '<em><b>Acos</b></em>' literal value.
@@ -296,6 +306,21 @@ public enum FunctionOperator implements Enumerator
   public static final int LENGTH_VALUE = 10;
 
   /**
+   * The '<em><b>Inverse</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of '<em><b>Inverse</b></em>' literal object isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @see #INVERSE
+   * @model name="inverse"
+   * @generated
+   * @ordered
+   */
+  public static final int INVERSE_VALUE = 11;
+
+  /**
    * An array of all the '<em><b>Function Operator</b></em>' enumerators.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -315,6 +340,7 @@ public enum FunctionOperator implements Enumerator
       MEAN,
       SQRT,
       LENGTH,
+      INVERSE,
     };
 
   /**
@@ -390,6 +416,7 @@ public enum FunctionOperator implements Enumerator
       case MEAN_VALUE: return MEAN;
       case SQRT_VALUE: return SQRT;
       case LENGTH_VALUE: return LENGTH;
+      case INVERSE_VALUE: return INVERSE;
     }
     return null;
   }

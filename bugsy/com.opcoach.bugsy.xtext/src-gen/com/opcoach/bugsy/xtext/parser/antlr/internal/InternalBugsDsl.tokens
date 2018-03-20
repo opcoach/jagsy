@@ -30,7 +30,7 @@
 'dgamma'=52
 'dgen.gamma'=39
 'dhyper'=40
-'dim'=64
+'dim'=65
 'dlnorm'=42
 'dlogis'=41
 'dnchisqr'=44
@@ -44,6 +44,7 @@
 'exp'=59
 'for'=15
 'in'=17
+'inverse'=64
 'length'=63
 'log'=58
 'mean'=61
@@ -113,3 +114,4 @@ T__61=61
 T__62=62
 T__63=63
 T__64=64
+T__65=65

@@ -999,6 +999,7 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
     addEEnumLiteral(functionOperatorEEnum, FunctionOperator.MEAN);
     addEEnumLiteral(functionOperatorEEnum, FunctionOperator.SQRT);
     addEEnumLiteral(functionOperatorEEnum, FunctionOperator.LENGTH);
+    addEEnumLiteral(functionOperatorEEnum, FunctionOperator.INVERSE);
 
     initEEnum(intOperatorEEnum, IntOperator.class, "IntOperator");
     addEEnumLiteral(intOperatorEEnum, IntOperator.LENGTH);

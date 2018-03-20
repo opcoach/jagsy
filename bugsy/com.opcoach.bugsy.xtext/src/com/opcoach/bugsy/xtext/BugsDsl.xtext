@@ -93,7 +93,7 @@ enum DensityOperator:
 	dnorm='dnorm' | dunif='dunif' | dbeta='dbeta' | dgamma='dgamma';
 
 enum FunctionOperator: acos='acos' | acosh='acosh' | asin='asin' | asinh='asinh' | atan='atan' | log='log' | ep='exp' | c='c' | mean='mean' |
-	sqrt='sqrt' | length = 'length';
+	sqrt='sqrt' | length = 'length' | inverse = 'inverse';
 	
 /** Define the specific intoperator when it is used in for indexes */
 enum IntOperator : length = 'length' ;  

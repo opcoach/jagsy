@@ -284,6 +284,22 @@ class BugsDslParsingTest {
 		Assert.assertTrue(result.eResource.errors.isEmpty)
 	}
 	
+		@Test
+	def void testIssue24_inverseRaisesAnError() {
+		// See : https://github.com/opcoach/jagsy/issues/24
+		val result = parseHelper.parse('''
+			model{
+			A <- inverse(B)
+			}
+		''')
+		Assert.assertNotNull(result)
+		println("Errors in Issue 24 : " + result.eResource.errors)
+		Assert.assertTrue(result.eResource.errors.isEmpty)
+	}
+	
+	
+	
+	
 	
 
 }

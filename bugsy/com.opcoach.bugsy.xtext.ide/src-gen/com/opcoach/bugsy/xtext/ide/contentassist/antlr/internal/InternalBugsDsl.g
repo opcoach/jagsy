@@ -1162,6 +1162,12 @@ rule__FunctionOperator__Alternatives
 		('length')
 		{ after(grammarAccess.getFunctionOperatorAccess().getLengthEnumLiteralDeclaration_10()); }
 	)
+	|
+	(
+		{ before(grammarAccess.getFunctionOperatorAccess().getInverseEnumLiteralDeclaration_11()); }
+		('inverse')
+		{ after(grammarAccess.getFunctionOperatorAccess().getInverseEnumLiteralDeclaration_11()); }
+	)
 ;
 finally {
 	restoreStackSize(stackSize);
