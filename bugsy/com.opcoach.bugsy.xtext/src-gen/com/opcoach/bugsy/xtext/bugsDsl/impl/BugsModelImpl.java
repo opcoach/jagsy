@@ -29,6 +29,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.impl.BugsModelImpl#getData <em>Data</em>}</li>
  *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.impl.BugsModelImpl#getInstructions <em>Instructions</em>}</li>
  * </ul>
  *
@@ -36,6 +37,16 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class BugsModelImpl extends MinimalEObjectImpl.Container implements BugsModel
 {
+  /**
+   * The cached value of the '{@link #getData() <em>Data</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getData()
+   * @generated
+   * @ordered
+   */
+  protected EList<Instruction> data;
+
   /**
    * The cached value of the '{@link #getInstructions() <em>Instructions</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -72,6 +83,20 @@ public class BugsModelImpl extends MinimalEObjectImpl.Container implements BugsM
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<Instruction> getData()
+  {
+    if (data == null)
+    {
+      data = new EObjectContainmentEList<Instruction>(Instruction.class, this, BugsDslPackage.BUGS_MODEL__DATA);
+    }
+    return data;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<Instruction> getInstructions()
   {
     if (instructions == null)
@@ -91,6 +116,8 @@ public class BugsModelImpl extends MinimalEObjectImpl.Container implements BugsM
   {
     switch (featureID)
     {
+      case BugsDslPackage.BUGS_MODEL__DATA:
+        return ((InternalEList<?>)getData()).basicRemove(otherEnd, msgs);
       case BugsDslPackage.BUGS_MODEL__INSTRUCTIONS:
         return ((InternalEList<?>)getInstructions()).basicRemove(otherEnd, msgs);
     }
@@ -107,6 +134,8 @@ public class BugsModelImpl extends MinimalEObjectImpl.Container implements BugsM
   {
     switch (featureID)
     {
+      case BugsDslPackage.BUGS_MODEL__DATA:
+        return getData();
       case BugsDslPackage.BUGS_MODEL__INSTRUCTIONS:
         return getInstructions();
     }
@@ -124,6 +153,10 @@ public class BugsModelImpl extends MinimalEObjectImpl.Container implements BugsM
   {
     switch (featureID)
     {
+      case BugsDslPackage.BUGS_MODEL__DATA:
+        getData().clear();
+        getData().addAll((Collection<? extends Instruction>)newValue);
+        return;
       case BugsDslPackage.BUGS_MODEL__INSTRUCTIONS:
         getInstructions().clear();
         getInstructions().addAll((Collection<? extends Instruction>)newValue);
@@ -142,6 +175,9 @@ public class BugsModelImpl extends MinimalEObjectImpl.Container implements BugsM
   {
     switch (featureID)
     {
+      case BugsDslPackage.BUGS_MODEL__DATA:
+        getData().clear();
+        return;
       case BugsDslPackage.BUGS_MODEL__INSTRUCTIONS:
         getInstructions().clear();
         return;
@@ -159,6 +195,8 @@ public class BugsModelImpl extends MinimalEObjectImpl.Container implements BugsM
   {
     switch (featureID)
     {
+      case BugsDslPackage.BUGS_MODEL__DATA:
+        return data != null && !data.isEmpty();
       case BugsDslPackage.BUGS_MODEL__INSTRUCTIONS:
         return instructions != null && !instructions.isEmpty();
     }

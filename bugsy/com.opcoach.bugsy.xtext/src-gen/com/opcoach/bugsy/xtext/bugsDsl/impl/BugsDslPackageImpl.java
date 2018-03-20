@@ -228,9 +228,19 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getBugsModel_Instructions()
+  public EReference getBugsModel_Data()
   {
     return (EReference)bugsModelEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getBugsModel_Instructions()
+  {
+    return (EReference)bugsModelEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -664,6 +674,7 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
 
     // Create classes and their features
     bugsModelEClass = createEClass(BUGS_MODEL);
+    createEReference(bugsModelEClass, BUGS_MODEL__DATA);
     createEReference(bugsModelEClass, BUGS_MODEL__INSTRUCTIONS);
 
     instructionEClass = createEClass(INSTRUCTION);
@@ -757,6 +768,7 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
 
     // Initialize classes and features; add operations and parameters
     initEClass(bugsModelEClass, BugsModel.class, "BugsModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getBugsModel_Data(), this.getInstruction(), null, "data", null, 0, -1, BugsModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getBugsModel_Instructions(), this.getInstruction(), null, "instructions", null, 0, -1, BugsModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(instructionEClass, Instruction.class, "Instruction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

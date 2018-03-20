@@ -30,39 +30,65 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.opcoach.bugsy.xtext.BugsDsl.BugsModel");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cBugsModelAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cModelKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cInstructionsAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cInstructionsInstructionParserRuleCall_3_0 = (RuleCall)cInstructionsAssignment_3.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cDataKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
+		private final Assignment cDataAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
+		private final RuleCall cDataInstructionParserRuleCall_1_2_0 = (RuleCall)cDataAssignment_1_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_1_3 = (Keyword)cGroup_1.eContents().get(3);
+		private final Keyword cModelKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cInstructionsAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cInstructionsInstructionParserRuleCall_4_0 = (RuleCall)cInstructionsAssignment_4.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//BugsModel:
-		//	{BugsModel}
+		//	{BugsModel} ('data' '{'
+		//	data+=Instruction*
+		//	'}')?
 		//	'model' '{'
 		//	instructions+=Instruction*
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{BugsModel} 'model' '{' instructions+=Instruction* '}'
+		//{BugsModel} ('data' '{' data+=Instruction* '}')? 'model' '{' instructions+=Instruction* '}'
 		public Group getGroup() { return cGroup; }
 		
 		//{BugsModel}
 		public Action getBugsModelAction_0() { return cBugsModelAction_0; }
 		
-		//'model'
-		public Keyword getModelKeyword_1() { return cModelKeyword_1; }
+		//('data' '{' data+=Instruction* '}')?
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//'data'
+		public Keyword getDataKeyword_1_0() { return cDataKeyword_1_0; }
 		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		public Keyword getLeftCurlyBracketKeyword_1_1() { return cLeftCurlyBracketKeyword_1_1; }
 		
-		//instructions+=Instruction*
-		public Assignment getInstructionsAssignment_3() { return cInstructionsAssignment_3; }
+		//data+=Instruction*
+		public Assignment getDataAssignment_1_2() { return cDataAssignment_1_2; }
 		
 		//Instruction
-		public RuleCall getInstructionsInstructionParserRuleCall_3_0() { return cInstructionsInstructionParserRuleCall_3_0; }
+		public RuleCall getDataInstructionParserRuleCall_1_2_0() { return cDataInstructionParserRuleCall_1_2_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+		public Keyword getRightCurlyBracketKeyword_1_3() { return cRightCurlyBracketKeyword_1_3; }
+		
+		//'model'
+		public Keyword getModelKeyword_2() { return cModelKeyword_2; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
+		
+		//instructions+=Instruction*
+		public Assignment getInstructionsAssignment_4() { return cInstructionsAssignment_4; }
+		
+		//Instruction
+		public RuleCall getInstructionsInstructionParserRuleCall_4_0() { return cInstructionsInstructionParserRuleCall_4_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
 	}
 	public class InstructionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.opcoach.bugsy.xtext.BugsDsl.Instruction");
@@ -1160,7 +1186,9 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//BugsModel:
-	//	{BugsModel}
+	//	{BugsModel} ('data' '{'
+	//	data+=Instruction*
+	//	'}')?
 	//	'model' '{'
 	//	instructions+=Instruction*
 	//	'}';

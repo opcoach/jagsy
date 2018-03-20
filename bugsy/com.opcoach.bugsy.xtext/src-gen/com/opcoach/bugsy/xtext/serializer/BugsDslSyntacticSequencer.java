@@ -12,6 +12,7 @@ import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AlternativeAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.GroupAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
@@ -21,6 +22,7 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public class BugsDslSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected BugsDslGrammarAccess grammarAccess;
+	protected AbstractElementAlias match_BugsModel___DataKeyword_1_0_LeftCurlyBracketKeyword_1_1_RightCurlyBracketKeyword_1_3__q;
 	protected AbstractElementAlias match_DeterministicRelation_EqualsSignKeyword_2_1_or_LessThanSignHyphenMinusKeyword_2_0;
 	protected AbstractElementAlias match_Distribution_LeftParenthesisKeyword_1_1_0_or_LeftParenthesisRightParenthesisKeyword_1_0;
 	protected AbstractElementAlias match_Function_LeftParenthesisKeyword_1_1_0_or_LeftParenthesisRightParenthesisKeyword_1_0;
@@ -31,6 +33,7 @@ public class BugsDslSyntacticSequencer extends AbstractSyntacticSequencer {
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (BugsDslGrammarAccess) access;
+		match_BugsModel___DataKeyword_1_0_LeftCurlyBracketKeyword_1_1_RightCurlyBracketKeyword_1_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getBugsModelAccess().getDataKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getBugsModelAccess().getLeftCurlyBracketKeyword_1_1()), new TokenAlias(false, false, grammarAccess.getBugsModelAccess().getRightCurlyBracketKeyword_1_3()));
 		match_DeterministicRelation_EqualsSignKeyword_2_1_or_LessThanSignHyphenMinusKeyword_2_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getDeterministicRelationAccess().getEqualsSignKeyword_2_1()), new TokenAlias(false, false, grammarAccess.getDeterministicRelationAccess().getLessThanSignHyphenMinusKeyword_2_0()));
 		match_Distribution_LeftParenthesisKeyword_1_1_0_or_LeftParenthesisRightParenthesisKeyword_1_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getDistributionAccess().getLeftParenthesisKeyword_1_1_0()), new TokenAlias(false, false, grammarAccess.getDistributionAccess().getLeftParenthesisRightParenthesisKeyword_1_0()));
 		match_Function_LeftParenthesisKeyword_1_1_0_or_LeftParenthesisRightParenthesisKeyword_1_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getFunctionAccess().getLeftParenthesisKeyword_1_1_0()), new TokenAlias(false, false, grammarAccess.getFunctionAccess().getLeftParenthesisRightParenthesisKeyword_1_0()));
@@ -51,7 +54,9 @@ public class BugsDslSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_DeterministicRelation_EqualsSignKeyword_2_1_or_LessThanSignHyphenMinusKeyword_2_0.equals(syntax))
+			if (match_BugsModel___DataKeyword_1_0_LeftCurlyBracketKeyword_1_1_RightCurlyBracketKeyword_1_3__q.equals(syntax))
+				emit_BugsModel___DataKeyword_1_0_LeftCurlyBracketKeyword_1_1_RightCurlyBracketKeyword_1_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_DeterministicRelation_EqualsSignKeyword_2_1_or_LessThanSignHyphenMinusKeyword_2_0.equals(syntax))
 				emit_DeterministicRelation_EqualsSignKeyword_2_1_or_LessThanSignHyphenMinusKeyword_2_0(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Distribution_LeftParenthesisKeyword_1_1_0_or_LeftParenthesisRightParenthesisKeyword_1_0.equals(syntax))
 				emit_Distribution_LeftParenthesisKeyword_1_1_0_or_LeftParenthesisRightParenthesisKeyword_1_0(semanticObject, getLastNavigableState(), syntaxNodes);
@@ -69,7 +74,19 @@ public class BugsDslSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	/**
 	 * Ambiguous syntax:
-	 *     '=' | '<-'
+	 *     ('data' '{' '}')?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) 'model' '{' '}' (rule start)
+	 *     (rule start) (ambiguity) 'model' '{' instructions+=Instruction
+	 */
+	protected void emit_BugsModel___DataKeyword_1_0_LeftCurlyBracketKeyword_1_1_RightCurlyBracketKeyword_1_3__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     '<-' | '='
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     name=ArrayID (ambiguity) expressions+=Expression

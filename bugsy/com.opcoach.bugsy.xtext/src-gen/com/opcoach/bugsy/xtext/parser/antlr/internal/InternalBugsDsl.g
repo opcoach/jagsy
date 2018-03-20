@@ -84,20 +84,53 @@ ruleBugsModel returns [EObject current=null]
 					$current);
 			}
 		)
-		otherlv_1='model'
+		(
+			otherlv_1='data'
+			{
+				newLeafNode(otherlv_1, grammarAccess.getBugsModelAccess().getDataKeyword_1_0());
+			}
+			otherlv_2='{'
+			{
+				newLeafNode(otherlv_2, grammarAccess.getBugsModelAccess().getLeftCurlyBracketKeyword_1_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getBugsModelAccess().getDataInstructionParserRuleCall_1_2_0());
+					}
+					lv_data_3_0=ruleInstruction
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getBugsModelRule());
+						}
+						add(
+							$current,
+							"data",
+							lv_data_3_0,
+							"com.opcoach.bugsy.xtext.BugsDsl.Instruction");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)*
+			otherlv_4='}'
+			{
+				newLeafNode(otherlv_4, grammarAccess.getBugsModelAccess().getRightCurlyBracketKeyword_1_3());
+			}
+		)?
+		otherlv_5='model'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getBugsModelAccess().getModelKeyword_1());
+			newLeafNode(otherlv_5, grammarAccess.getBugsModelAccess().getModelKeyword_2());
 		}
-		otherlv_2='{'
+		otherlv_6='{'
 		{
-			newLeafNode(otherlv_2, grammarAccess.getBugsModelAccess().getLeftCurlyBracketKeyword_2());
+			newLeafNode(otherlv_6, grammarAccess.getBugsModelAccess().getLeftCurlyBracketKeyword_3());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getBugsModelAccess().getInstructionsInstructionParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getBugsModelAccess().getInstructionsInstructionParserRuleCall_4_0());
 				}
-				lv_instructions_3_0=ruleInstruction
+				lv_instructions_7_0=ruleInstruction
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getBugsModelRule());
@@ -105,15 +138,15 @@ ruleBugsModel returns [EObject current=null]
 					add(
 						$current,
 						"instructions",
-						lv_instructions_3_0,
+						lv_instructions_7_0,
 						"com.opcoach.bugsy.xtext.BugsDsl.Instruction");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
-		otherlv_4='}'
+		otherlv_8='}'
 		{
-			newLeafNode(otherlv_4, grammarAccess.getBugsModelAccess().getRightCurlyBracketKeyword_4());
+			newLeafNode(otherlv_8, grammarAccess.getBugsModelAccess().getRightCurlyBracketKeyword_5());
 		}
 	)
 ;

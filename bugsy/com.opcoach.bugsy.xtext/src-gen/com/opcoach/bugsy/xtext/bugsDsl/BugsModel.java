@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.BugsModel#getData <em>Data</em>}</li>
  *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.BugsModel#getInstructions <em>Instructions</em>}</li>
  * </ul>
  *
@@ -25,6 +26,22 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface BugsModel extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Data</b></em>' containment reference list.
+   * The list contents are of type {@link com.opcoach.bugsy.xtext.bugsDsl.Instruction}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Data</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Data</em>' containment reference list.
+   * @see com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage#getBugsModel_Data()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Instruction> getData();
+
   /**
    * Returns the value of the '<em><b>Instructions</b></em>' containment reference list.
    * The list contents are of type {@link com.opcoach.bugsy.xtext.bugsDsl.Instruction}.

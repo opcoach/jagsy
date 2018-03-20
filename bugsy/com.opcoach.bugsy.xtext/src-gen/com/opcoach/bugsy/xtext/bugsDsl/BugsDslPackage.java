@@ -69,13 +69,22 @@ public interface BugsDslPackage extends EPackage
   int BUGS_MODEL = 0;
 
   /**
+   * The feature id for the '<em><b>Data</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUGS_MODEL__DATA = 0;
+
+  /**
    * The feature id for the '<em><b>Instructions</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BUGS_MODEL__INSTRUCTIONS = 0;
+  int BUGS_MODEL__INSTRUCTIONS = 1;
 
   /**
    * The number of structural features of the '<em>Bugs Model</em>' class.
@@ -84,7 +93,7 @@ public interface BugsDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUGS_MODEL_FEATURE_COUNT = 1;
+  int BUGS_MODEL_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link com.opcoach.bugsy.xtext.bugsDsl.impl.InstructionImpl <em>Instruction</em>}' class.
@@ -599,6 +608,17 @@ public interface BugsDslPackage extends EPackage
   EClass getBugsModel();
 
   /**
+   * Returns the meta object for the containment reference list '{@link com.opcoach.bugsy.xtext.bugsDsl.BugsModel#getData <em>Data</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Data</em>'.
+   * @see com.opcoach.bugsy.xtext.bugsDsl.BugsModel#getData()
+   * @see #getBugsModel()
+   * @generated
+   */
+  EReference getBugsModel_Data();
+
+  /**
    * Returns the meta object for the containment reference list '{@link com.opcoach.bugsy.xtext.bugsDsl.BugsModel#getInstructions <em>Instructions</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1066,6 +1086,14 @@ public interface BugsDslPackage extends EPackage
      * @generated
      */
     EClass BUGS_MODEL = eINSTANCE.getBugsModel();
+
+    /**
+     * The meta object literal for the '<em><b>Data</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BUGS_MODEL__DATA = eINSTANCE.getBugsModel_Data();
 
     /**
      * The meta object literal for the '<em><b>Instructions</b></em>' containment reference list feature.

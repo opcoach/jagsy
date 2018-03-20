@@ -108,7 +108,7 @@ class BugsDslParsingTest {
 	}
 
 	@Test
-	def void testIssue4() {
+	def void testIssue4_SimpleAdditionInParameter() {
 		// Simple addition sign tagged as error
 		// See : https://github.com/opcoach/jagsy/issues/4
 		val result = parseHelper.parse('''
@@ -213,6 +213,28 @@ class BugsDslParsingTest {
 		Assert.assertTrue(result.eResource.errors.isEmpty)
 	}
 
+	@Test
+	def void testIssue13_ManageDataBlock() {
+		// See : https://github.com/opcoach/jagsy/issues/13
+		val result = parseHelper.parse('''
+			data {
+					D <- dnegbin(Y)  
+				}
+						
+						
+			model {
+				for (i in 1:N) {
+					for (j in 1:M) {
+					Z[i,j] <- dnegbin(alpha[i] + beta[j], tau)
+				}
+				}
+			}
+		''')
+		Assert.assertNotNull(result)
+		println("Errors in Issue 13 : " + result.eResource.errors)
+		Assert.assertTrue(result.eResource.errors.isEmpty)
+	}
+	
 	@Test
 	def void testIssue16_RangeIndexNotAllowed() {
 		// See : https://github.com/opcoach/jagsy/issues/16

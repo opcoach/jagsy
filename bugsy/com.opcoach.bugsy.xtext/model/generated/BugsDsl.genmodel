@@ -43,6 +43,7 @@
       <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//FunctionOperator/sqrt"/>
     </genEnums>
     <genClasses ecoreClass="BugsDsl.ecore#//BugsModel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BugsDsl.ecore#//BugsModel/data"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BugsDsl.ecore#//BugsModel/instructions"/>
     </genClasses>
     <genClasses ecoreClass="BugsDsl.ecore#//Instruction"/>

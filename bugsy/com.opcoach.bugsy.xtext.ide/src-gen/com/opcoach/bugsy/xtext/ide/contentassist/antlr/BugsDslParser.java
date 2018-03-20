@@ -47,6 +47,7 @@ public class BugsDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDensityAccess().getAlternatives(), "rule__Density__Alternatives");
 					put(grammarAccess.getFunctionOperatorAccess().getAlternatives(), "rule__FunctionOperator__Alternatives");
 					put(grammarAccess.getBugsModelAccess().getGroup(), "rule__BugsModel__Group__0");
+					put(grammarAccess.getBugsModelAccess().getGroup_1(), "rule__BugsModel__Group_1__0");
 					put(grammarAccess.getForAccess().getGroup(), "rule__For__Group__0");
 					put(grammarAccess.getForRangeAccess().getGroup(), "rule__ForRange__Group__0");
 					put(grammarAccess.getArrayRangeAccess().getGroup(), "rule__ArrayRange__Group__0");
@@ -75,7 +76,8 @@ public class BugsDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getExpressionAccess().getGroup(), "rule__Expression__Group__0");
 					put(grammarAccess.getExpressionAccess().getGroup_1(), "rule__Expression__Group_1__0");
 					put(grammarAccess.getTerminalExpressionAccess().getGroup_0(), "rule__TerminalExpression__Group_0__0");
-					put(grammarAccess.getBugsModelAccess().getInstructionsAssignment_3(), "rule__BugsModel__InstructionsAssignment_3");
+					put(grammarAccess.getBugsModelAccess().getDataAssignment_1_2(), "rule__BugsModel__DataAssignment_1_2");
+					put(grammarAccess.getBugsModelAccess().getInstructionsAssignment_4(), "rule__BugsModel__InstructionsAssignment_4");
 					put(grammarAccess.getForAccess().getVariableAssignment_3(), "rule__For__VariableAssignment_3");
 					put(grammarAccess.getForAccess().getRangeAssignment_5(), "rule__For__RangeAssignment_5");
 					put(grammarAccess.getForAccess().getInstructionsAssignment_8(), "rule__For__InstructionsAssignment_8");

@@ -5,6 +5,9 @@ generate bugsDsl "http://www.opcoach.com/bugsy/xtext/BugsDsl"
 
 BugsModel:
 	{BugsModel}
+	('data' '{'
+	   data+=Instruction*
+	   '}')?
 	'model' '{'
 	instructions+=Instruction*
 	'}';

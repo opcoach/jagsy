@@ -109,7 +109,7 @@ public class BugsDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     BugsModel returns BugsModel
 	 *
 	 * Constraint:
-	 *     instructions+=Instruction*
+	 *     (data+=Instruction* instructions+=Instruction*)
 	 */
 	protected void sequence_BugsModel(ISerializationContext context, BugsModel semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
