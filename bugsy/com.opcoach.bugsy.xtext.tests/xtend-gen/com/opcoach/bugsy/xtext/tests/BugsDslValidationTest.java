@@ -31,6 +31,52 @@ public class BugsDslValidationTest {
   private ValidationTestHelper validHelper;
   
   @Test
+  public void testIssue14_ValidIndexesInLoop1() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("model {");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("for (i in 1:N) {");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("y[i] ~ dnorm(mu, tau)");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("}");
+      this.validHelper.assertNoErrors(this.parseHelper.parse(_builder));
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void testIssue14_InvalidIndexesInLoop1() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("model {");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("for (i in 1:N) {");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("y[k] ~ dnorm(mu, tau)");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("}");
+      this.validHelper.assertError(this.parseHelper.parse(_builder), BugsDslPackage.eINSTANCE.getArrayRange(), BugsDslValidator.CHECK_INVALID_INDEX_IN_LOOP);
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
   public void testIssue15_UniqueIdentifier() {
     try {
       StringConcatenation _builder = new StringConcatenation();

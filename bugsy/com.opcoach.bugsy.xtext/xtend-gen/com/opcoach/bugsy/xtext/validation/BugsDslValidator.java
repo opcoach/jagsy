@@ -5,6 +5,7 @@ package com.opcoach.bugsy.xtext.validation;
 
 import com.google.common.base.Objects;
 import com.opcoach.bugsy.xtext.bugsDsl.ArrayID;
+import com.opcoach.bugsy.xtext.bugsDsl.ArrayRange;
 import com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage;
 import com.opcoach.bugsy.xtext.bugsDsl.BugsModel;
 import com.opcoach.bugsy.xtext.bugsDsl.Distribution;
@@ -14,6 +15,7 @@ import com.opcoach.bugsy.xtext.bugsDsl.Function;
 import com.opcoach.bugsy.xtext.bugsDsl.Instruction;
 import com.opcoach.bugsy.xtext.bugsDsl.Relation;
 import com.opcoach.bugsy.xtext.validation.AbstractBugsDslValidator;
+import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
@@ -30,11 +32,13 @@ public class BugsDslValidator extends AbstractBugsDslValidator {
   
   public final static String CHECK_VARIABLE_DIMENSION_COMPLIANCE = "variableDimensionCompliance";
   
+  public final static String CHECK_INVALID_INDEX_IN_LOOP = "invalidIndexInLoop";
+  
   /**
    * Check unique name for relations
    */
   @Check
-  public void uniqueRelationName(final Relation r) {
+  public void checkUniqueRelationName(final Relation r) {
     final ArrayID nameToCheck = r.getName();
     final EObject parent = r.eContainer();
     if (((parent instanceof BugsModel) || (parent instanceof For))) {
@@ -53,17 +57,17 @@ public class BugsDslValidator extends AbstractBugsDslValidator {
   }
   
   /**
-   * Check unique mode for variables in expressions : if a variable is used without indexes, it must be used like this
+   * Check dimension compliance for variables in expressions : if a variable is used without indexes, it must be used like this
    */
   @Check
-  public void uniqueVariableMode(final Expression e) {
+  public void checkDimensionCompliance(final Expression e) {
     final ArrayID id = e.getValue().getId();
     if ((id != null)) {
       EObject _model = this.getModel(e);
       final BugsModel bugsModel = ((BugsModel) _model);
       final int cardinality = id.getIndexes().size();
-      Object _checkCardinalityUsage = this.checkCardinalityUsage(bugsModel, id.getName(), cardinality);
-      boolean _tripleNotEquals = (_checkCardinalityUsage != null);
+      Object _verifyCardinalityUsage = this.verifyCardinalityUsage(bugsModel, id.getName(), cardinality);
+      boolean _tripleNotEquals = (_verifyCardinalityUsage != null);
       if (_tripleNotEquals) {
         String _name = id.getName();
         String _plus = ("The expression variable " + _name);
@@ -75,38 +79,88 @@ public class BugsDslValidator extends AbstractBugsDslValidator {
   }
   
   /**
-   * Check unique mode for variables in relations : if a variable is used without indexes, it must be used like this
+   * Check dimension compliance for variables in relations : if a variable is used without indexes, it must be used like this
    */
   @Check
-  public void uniqueVariableMode(final Relation r) {
+  public void checkDimensionCompliance(final Relation r) {
     final int cardinality = r.getName().getIndexes().size();
     final String name = r.getName().getName();
     EObject _model = this.getModel(r);
     final BugsModel bugsModel = ((BugsModel) _model);
-    Object _checkCardinalityUsage = this.checkCardinalityUsage(bugsModel, name, cardinality);
-    boolean _tripleNotEquals = (_checkCardinalityUsage != null);
+    Object _verifyCardinalityUsage = this.verifyCardinalityUsage(bugsModel, name, cardinality);
+    boolean _tripleNotEquals = (_verifyCardinalityUsage != null);
     if (_tripleNotEquals) {
       this.error((("The relation variable " + name) + " is used with different dimensions in the file "), 
         BugsDslPackage.Literals.RELATION__NAME, BugsDslValidator.CHECK_VARIABLE_DIMENSION_COMPLIANCE);
     }
   }
   
+  @Check
+  public void checkArrayIndexIsInScope(final ArrayRange ar) {
+    final ArrayList<String> parentScope = this.getVariableNamesInScope(ar);
+    this.checkIndexIsInScope(this.getIndexName(ar.getLow()), parentScope);
+    this.checkIndexIsInScope(this.getIndexName(ar.getHigh()), parentScope);
+  }
+  
+  public void checkIndexIsInScope(final String indexName, final List<String> scope) {
+    if ((indexName != null)) {
+      boolean _contains = scope.contains(indexName);
+      boolean _not = (!_contains);
+      if (_not) {
+        this.error((("The index variable " + indexName) + " is not defined at this location "), 
+          BugsDslPackage.Literals.ARRAY_RANGE__LOW, BugsDslValidator.CHECK_INVALID_INDEX_IN_LOOP);
+      }
+    }
+  }
+  
+  /**
+   * Returns the index name if this is a string or null if it is a string
+   */
+  public String getIndexName(final String value) {
+    if (((value != null) && (!Character.isDigit(value.charAt(0))))) {
+      return value;
+    }
+    return null;
+  }
+  
+  /**
+   * This method returns the list of variable names in the scope of current object
+   */
+  public ArrayList<String> getVariableNamesInScope(final EObject o) {
+    ArrayList<String> _xblockexpression = null;
+    {
+      final ArrayList<String> result = new ArrayList<String>();
+      EObject parent = o.eContainer();
+      while ((parent != null)) {
+        {
+          if ((parent instanceof For)) {
+            final For forobject = ((For) parent);
+            result.add(forobject.getVariable());
+          }
+          parent = parent.eContainer();
+        }
+      }
+      _xblockexpression = result;
+    }
+    return _xblockexpression;
+  }
+  
   /**
    * This method returns the object where  the relation name or expression name in the model is not used using the same cardinality
    *  It returns null if no problem is found
    */
-  public Object checkCardinalityUsage(final BugsModel m, final String name, final int cardinality) {
-    return this.checkCardinalityUsage(m.getInstructions(), name, cardinality);
+  public Object verifyCardinalityUsage(final BugsModel m, final String name, final int cardinality) {
+    return this.verifyCardinalityUsage(m.getInstructions(), name, cardinality);
   }
   
-  public Object checkCardinalityUsage(final For f, final String name, final int cardinality) {
-    return this.checkCardinalityUsage(f.getInstructions(), name, cardinality);
+  public Object verifyCardinalityUsage(final For f, final String name, final int cardinality) {
+    return this.verifyCardinalityUsage(f.getInstructions(), name, cardinality);
   }
   
-  public Object checkCardinalityUsage(final List<Instruction> instructions, final String name, final int cardinality) {
+  public Object verifyCardinalityUsage(final List<Instruction> instructions, final String name, final int cardinality) {
     for (final Instruction ins : instructions) {
       {
-        final Object check = this.checkCardinalityUsage(ins, name, cardinality);
+        final Object check = this.verifyCardinalityUsage(ins, name, cardinality);
         if ((check != null)) {
           return check;
         }
@@ -115,18 +169,18 @@ public class BugsDslValidator extends AbstractBugsDslValidator {
     return null;
   }
   
-  public Object checkCardinalityUsage(final Instruction ins, final String name, final int cardinality) {
+  public Object verifyCardinalityUsage(final Instruction ins, final String name, final int cardinality) {
     if ((ins instanceof For)) {
-      return this.checkCardinalityUsage(((For) ins), name, cardinality);
+      return this.verifyCardinalityUsage(((For) ins), name, cardinality);
     } else {
       if ((ins instanceof Relation)) {
-        return this.checkCardinalityUsage(((Relation) ins), name, cardinality);
+        return this.verifyCardinalityUsage(((Relation) ins), name, cardinality);
       }
     }
     return null;
   }
   
-  public Object checkCardinalityUsage(final Expression e, final String name, final int cardinality) {
+  public Object verifyCardinalityUsage(final Expression e, final String name, final int cardinality) {
     if ((e == null)) {
       return null;
     }
@@ -135,7 +189,7 @@ public class BugsDslValidator extends AbstractBugsDslValidator {
     if (_tripleNotEquals) {
       EList<Expression> _params = e.getFunction().getParams();
       for (final Expression p : _params) {
-        return this.checkCardinalityUsage(p, name, cardinality);
+        return this.verifyCardinalityUsage(p, name, cardinality);
       }
     } else {
       Distribution _distribution = e.getDistribution();
@@ -143,19 +197,19 @@ public class BugsDslValidator extends AbstractBugsDslValidator {
       if (_tripleNotEquals_1) {
         EList<Expression> _params_1 = e.getDistribution().getParams();
         for (final Expression p_1 : _params_1) {
-          return this.checkCardinalityUsage(p_1, name, cardinality);
+          return this.verifyCardinalityUsage(p_1, name, cardinality);
         }
       } else {
         if (((e.getValue() != null) && (e.getValue().getId() != null))) {
-          ArrayID _checkCardinalityUsage = this.checkCardinalityUsage(e.getValue().getId(), name, cardinality);
-          boolean _tripleNotEquals_2 = (_checkCardinalityUsage != null);
+          ArrayID _verifyCardinalityUsage = this.verifyCardinalityUsage(e.getValue().getId(), name, cardinality);
+          boolean _tripleNotEquals_2 = (_verifyCardinalityUsage != null);
           if (_tripleNotEquals_2) {
             return e.getValue();
           }
         } else {
-          Object result = this.checkCardinalityUsage(e.getLeft(), name, cardinality);
+          Object result = this.verifyCardinalityUsage(e.getLeft(), name, cardinality);
           if ((result == null)) {
-            result = this.checkCardinalityUsage(e.getRight(), name, cardinality);
+            result = this.verifyCardinalityUsage(e.getRight(), name, cardinality);
           }
           return result;
         }
@@ -164,16 +218,16 @@ public class BugsDslValidator extends AbstractBugsDslValidator {
     return null;
   }
   
-  public Relation checkCardinalityUsage(final Relation r, final String name, final int cardinality) {
-    ArrayID _checkCardinalityUsage = this.checkCardinalityUsage(r.getName(), name, cardinality);
-    boolean _tripleNotEquals = (_checkCardinalityUsage != null);
+  public Relation verifyCardinalityUsage(final Relation r, final String name, final int cardinality) {
+    ArrayID _verifyCardinalityUsage = this.verifyCardinalityUsage(r.getName(), name, cardinality);
+    boolean _tripleNotEquals = (_verifyCardinalityUsage != null);
     if (_tripleNotEquals) {
       return r;
     }
     return null;
   }
   
-  public ArrayID checkCardinalityUsage(final ArrayID ai, final String name, final int cardinality) {
+  public ArrayID verifyCardinalityUsage(final ArrayID ai, final String name, final int cardinality) {
     if ((Objects.equal(name, ai.getName()) && (ai.getIndexes().size() != cardinality))) {
       return ai;
     }

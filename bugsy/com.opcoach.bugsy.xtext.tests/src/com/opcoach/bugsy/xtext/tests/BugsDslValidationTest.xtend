@@ -23,6 +23,30 @@ class BugsDslValidationTest {
 	@Inject
 	extension ValidationTestHelper validHelper
 
+
+	@Test // For issue #14   https://github.com/opcoach/jagsy/issues/14
+	def void testIssue14_ValidIndexesInLoop1() {
+		'''model {
+		for (i in 1:N) {
+		y[i] ~ dnorm(mu, tau)
+		}
+		}'''.parse.assertNoErrors
+
+	}
+
+	
+	@Test // For issue #14   https://github.com/opcoach/jagsy/issues/14
+	def void testIssue14_InvalidIndexesInLoop1() {
+		'''model {
+		for (i in 1:N) {
+		y[k] ~ dnorm(mu, tau)
+		}
+		}'''.parse.assertError(BugsDslPackage::eINSTANCE.arrayRange, BugsDslValidator::CHECK_INVALID_INDEX_IN_LOOP)
+
+	}
+
+
+
 	@Test // For issue #15   https://github.com/opcoach/jagsy/issues/15
 	def void testIssue15_UniqueIdentifier() {
 		'''model{
