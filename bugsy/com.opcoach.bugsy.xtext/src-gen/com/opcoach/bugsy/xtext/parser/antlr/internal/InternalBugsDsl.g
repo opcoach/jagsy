@@ -237,17 +237,17 @@ ruleFor returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getForAccess().getContentsInstructionParserRuleCall_8_0());
+					newCompositeNode(grammarAccess.getForAccess().getInstructionsInstructionParserRuleCall_8_0());
 				}
-				lv_contents_8_0=ruleInstruction
+				lv_instructions_8_0=ruleInstruction
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getForRule());
 					}
 					add(
 						$current,
-						"contents",
-						lv_contents_8_0,
+						"instructions",
+						lv_instructions_8_0,
 						"com.opcoach.bugsy.xtext.BugsDsl.Instruction");
 					afterParserOrEnumRuleCall();
 				}

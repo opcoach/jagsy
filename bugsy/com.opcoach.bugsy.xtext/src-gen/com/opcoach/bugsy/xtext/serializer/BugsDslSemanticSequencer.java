@@ -183,7 +183,7 @@ public class BugsDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     For returns For
 	 *
 	 * Constraint:
-	 *     (variable=ID range=ForRange contents+=Instruction*)
+	 *     (variable=ID range=ForRange instructions+=Instruction*)
 	 */
 	protected void sequence_For(ISerializationContext context, For semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

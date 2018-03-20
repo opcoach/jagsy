@@ -134,13 +134,13 @@ public interface BugsDslPackage extends EPackage
   int FOR__RANGE = INSTRUCTION_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Contents</b></em>' containment reference list.
+   * The feature id for the '<em><b>Instructions</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FOR__CONTENTS = INSTRUCTION_FEATURE_COUNT + 2;
+  int FOR__INSTRUCTIONS = INSTRUCTION_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>For</em>' class.
@@ -652,15 +652,15 @@ public interface BugsDslPackage extends EPackage
   EReference getFor_Range();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.opcoach.bugsy.xtext.bugsDsl.For#getContents <em>Contents</em>}'.
+   * Returns the meta object for the containment reference list '{@link com.opcoach.bugsy.xtext.bugsDsl.For#getInstructions <em>Instructions</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Contents</em>'.
-   * @see com.opcoach.bugsy.xtext.bugsDsl.For#getContents()
+   * @return the meta object for the containment reference list '<em>Instructions</em>'.
+   * @see com.opcoach.bugsy.xtext.bugsDsl.For#getInstructions()
    * @see #getFor()
    * @generated
    */
-  EReference getFor_Contents();
+  EReference getFor_Instructions();
 
   /**
    * Returns the meta object for class '{@link com.opcoach.bugsy.xtext.bugsDsl.ForRange <em>For Range</em>}'.
@@ -1112,12 +1112,12 @@ public interface BugsDslPackage extends EPackage
     EReference FOR__RANGE = eINSTANCE.getFor_Range();
 
     /**
-     * The meta object literal for the '<em><b>Contents</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Instructions</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference FOR__CONTENTS = eINSTANCE.getFor_Contents();
+    EReference FOR__INSTRUCTIONS = eINSTANCE.getFor_Instructions();
 
     /**
      * The meta object literal for the '{@link com.opcoach.bugsy.xtext.bugsDsl.impl.ForRangeImpl <em>For Range</em>}' class.

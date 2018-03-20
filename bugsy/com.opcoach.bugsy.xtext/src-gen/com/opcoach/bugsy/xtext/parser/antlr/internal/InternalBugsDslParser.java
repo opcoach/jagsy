@@ -477,7 +477,7 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleFor"
-    // InternalBugsDsl.g:165:1: ruleFor returns [EObject current=null] : ( () otherlv_1= 'for' otherlv_2= '(' ( (lv_variable_3_0= RULE_ID ) ) otherlv_4= 'in' ( (lv_range_5_0= ruleForRange ) ) otherlv_6= ')' otherlv_7= '{' ( (lv_contents_8_0= ruleInstruction ) )* otherlv_9= '}' ) ;
+    // InternalBugsDsl.g:165:1: ruleFor returns [EObject current=null] : ( () otherlv_1= 'for' otherlv_2= '(' ( (lv_variable_3_0= RULE_ID ) ) otherlv_4= 'in' ( (lv_range_5_0= ruleForRange ) ) otherlv_6= ')' otherlv_7= '{' ( (lv_instructions_8_0= ruleInstruction ) )* otherlv_9= '}' ) ;
     public final EObject ruleFor() throws RecognitionException {
         EObject current = null;
 
@@ -490,18 +490,18 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
         Token otherlv_9=null;
         EObject lv_range_5_0 = null;
 
-        EObject lv_contents_8_0 = null;
+        EObject lv_instructions_8_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalBugsDsl.g:171:2: ( ( () otherlv_1= 'for' otherlv_2= '(' ( (lv_variable_3_0= RULE_ID ) ) otherlv_4= 'in' ( (lv_range_5_0= ruleForRange ) ) otherlv_6= ')' otherlv_7= '{' ( (lv_contents_8_0= ruleInstruction ) )* otherlv_9= '}' ) )
-            // InternalBugsDsl.g:172:2: ( () otherlv_1= 'for' otherlv_2= '(' ( (lv_variable_3_0= RULE_ID ) ) otherlv_4= 'in' ( (lv_range_5_0= ruleForRange ) ) otherlv_6= ')' otherlv_7= '{' ( (lv_contents_8_0= ruleInstruction ) )* otherlv_9= '}' )
+            // InternalBugsDsl.g:171:2: ( ( () otherlv_1= 'for' otherlv_2= '(' ( (lv_variable_3_0= RULE_ID ) ) otherlv_4= 'in' ( (lv_range_5_0= ruleForRange ) ) otherlv_6= ')' otherlv_7= '{' ( (lv_instructions_8_0= ruleInstruction ) )* otherlv_9= '}' ) )
+            // InternalBugsDsl.g:172:2: ( () otherlv_1= 'for' otherlv_2= '(' ( (lv_variable_3_0= RULE_ID ) ) otherlv_4= 'in' ( (lv_range_5_0= ruleForRange ) ) otherlv_6= ')' otherlv_7= '{' ( (lv_instructions_8_0= ruleInstruction ) )* otherlv_9= '}' )
             {
-            // InternalBugsDsl.g:172:2: ( () otherlv_1= 'for' otherlv_2= '(' ( (lv_variable_3_0= RULE_ID ) ) otherlv_4= 'in' ( (lv_range_5_0= ruleForRange ) ) otherlv_6= ')' otherlv_7= '{' ( (lv_contents_8_0= ruleInstruction ) )* otherlv_9= '}' )
-            // InternalBugsDsl.g:173:3: () otherlv_1= 'for' otherlv_2= '(' ( (lv_variable_3_0= RULE_ID ) ) otherlv_4= 'in' ( (lv_range_5_0= ruleForRange ) ) otherlv_6= ')' otherlv_7= '{' ( (lv_contents_8_0= ruleInstruction ) )* otherlv_9= '}'
+            // InternalBugsDsl.g:172:2: ( () otherlv_1= 'for' otherlv_2= '(' ( (lv_variable_3_0= RULE_ID ) ) otherlv_4= 'in' ( (lv_range_5_0= ruleForRange ) ) otherlv_6= ')' otherlv_7= '{' ( (lv_instructions_8_0= ruleInstruction ) )* otherlv_9= '}' )
+            // InternalBugsDsl.g:173:3: () otherlv_1= 'for' otherlv_2= '(' ( (lv_variable_3_0= RULE_ID ) ) otherlv_4= 'in' ( (lv_range_5_0= ruleForRange ) ) otherlv_6= ')' otherlv_7= '{' ( (lv_instructions_8_0= ruleInstruction ) )* otherlv_9= '}'
             {
             // InternalBugsDsl.g:173:3: ()
             // InternalBugsDsl.g:174:4: 
@@ -611,7 +611,7 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
               			newLeafNode(otherlv_7, grammarAccess.getForAccess().getLeftCurlyBracketKeyword_7());
               		
             }
-            // InternalBugsDsl.g:237:3: ( (lv_contents_8_0= ruleInstruction ) )*
+            // InternalBugsDsl.g:237:3: ( (lv_instructions_8_0= ruleInstruction ) )*
             loop3:
             do {
                 int alt3=2;
@@ -624,18 +624,18 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
 
                 switch (alt3) {
             	case 1 :
-            	    // InternalBugsDsl.g:238:4: (lv_contents_8_0= ruleInstruction )
+            	    // InternalBugsDsl.g:238:4: (lv_instructions_8_0= ruleInstruction )
             	    {
-            	    // InternalBugsDsl.g:238:4: (lv_contents_8_0= ruleInstruction )
-            	    // InternalBugsDsl.g:239:5: lv_contents_8_0= ruleInstruction
+            	    // InternalBugsDsl.g:238:4: (lv_instructions_8_0= ruleInstruction )
+            	    // InternalBugsDsl.g:239:5: lv_instructions_8_0= ruleInstruction
             	    {
             	    if ( state.backtracking==0 ) {
 
-            	      					newCompositeNode(grammarAccess.getForAccess().getContentsInstructionParserRuleCall_8_0());
+            	      					newCompositeNode(grammarAccess.getForAccess().getInstructionsInstructionParserRuleCall_8_0());
             	      				
             	    }
             	    pushFollow(FOLLOW_4);
-            	    lv_contents_8_0=ruleInstruction();
+            	    lv_instructions_8_0=ruleInstruction();
 
             	    state._fsp--;
             	    if (state.failed) return current;
@@ -646,8 +646,8 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
             	      					}
             	      					add(
             	      						current,
-            	      						"contents",
-            	      						lv_contents_8_0,
+            	      						"instructions",
+            	      						lv_instructions_8_0,
             	      						"com.opcoach.bugsy.xtext.BugsDsl.Instruction");
             	      					afterParserOrEnumRuleCall();
             	      				

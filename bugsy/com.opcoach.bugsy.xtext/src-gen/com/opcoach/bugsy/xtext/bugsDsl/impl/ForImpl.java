@@ -33,7 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.impl.ForImpl#getVariable <em>Variable</em>}</li>
  *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.impl.ForImpl#getRange <em>Range</em>}</li>
- *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.impl.ForImpl#getContents <em>Contents</em>}</li>
+ *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.impl.ForImpl#getInstructions <em>Instructions</em>}</li>
  * </ul>
  *
  * @generated
@@ -71,14 +71,14 @@ public class ForImpl extends InstructionImpl implements For
   protected ForRange range;
 
   /**
-   * The cached value of the '{@link #getContents() <em>Contents</em>}' containment reference list.
+   * The cached value of the '{@link #getInstructions() <em>Instructions</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getContents()
+   * @see #getInstructions()
    * @generated
    * @ordered
    */
-  protected EList<Instruction> contents;
+  protected EList<Instruction> instructions;
 
   /**
    * <!-- begin-user-doc -->
@@ -177,13 +177,13 @@ public class ForImpl extends InstructionImpl implements For
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Instruction> getContents()
+  public EList<Instruction> getInstructions()
   {
-    if (contents == null)
+    if (instructions == null)
     {
-      contents = new EObjectContainmentEList<Instruction>(Instruction.class, this, BugsDslPackage.FOR__CONTENTS);
+      instructions = new EObjectContainmentEList<Instruction>(Instruction.class, this, BugsDslPackage.FOR__INSTRUCTIONS);
     }
-    return contents;
+    return instructions;
   }
 
   /**
@@ -198,8 +198,8 @@ public class ForImpl extends InstructionImpl implements For
     {
       case BugsDslPackage.FOR__RANGE:
         return basicSetRange(null, msgs);
-      case BugsDslPackage.FOR__CONTENTS:
-        return ((InternalEList<?>)getContents()).basicRemove(otherEnd, msgs);
+      case BugsDslPackage.FOR__INSTRUCTIONS:
+        return ((InternalEList<?>)getInstructions()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -218,8 +218,8 @@ public class ForImpl extends InstructionImpl implements For
         return getVariable();
       case BugsDslPackage.FOR__RANGE:
         return getRange();
-      case BugsDslPackage.FOR__CONTENTS:
-        return getContents();
+      case BugsDslPackage.FOR__INSTRUCTIONS:
+        return getInstructions();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -241,9 +241,9 @@ public class ForImpl extends InstructionImpl implements For
       case BugsDslPackage.FOR__RANGE:
         setRange((ForRange)newValue);
         return;
-      case BugsDslPackage.FOR__CONTENTS:
-        getContents().clear();
-        getContents().addAll((Collection<? extends Instruction>)newValue);
+      case BugsDslPackage.FOR__INSTRUCTIONS:
+        getInstructions().clear();
+        getInstructions().addAll((Collection<? extends Instruction>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -265,8 +265,8 @@ public class ForImpl extends InstructionImpl implements For
       case BugsDslPackage.FOR__RANGE:
         setRange((ForRange)null);
         return;
-      case BugsDslPackage.FOR__CONTENTS:
-        getContents().clear();
+      case BugsDslPackage.FOR__INSTRUCTIONS:
+        getInstructions().clear();
         return;
     }
     super.eUnset(featureID);
@@ -286,8 +286,8 @@ public class ForImpl extends InstructionImpl implements For
         return VARIABLE_EDEFAULT == null ? variable != null : !VARIABLE_EDEFAULT.equals(variable);
       case BugsDslPackage.FOR__RANGE:
         return range != null;
-      case BugsDslPackage.FOR__CONTENTS:
-        return contents != null && !contents.isEmpty();
+      case BugsDslPackage.FOR__INSTRUCTIONS:
+        return instructions != null && !instructions.isEmpty();
     }
     return super.eIsSet(featureID);
   }

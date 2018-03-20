@@ -99,15 +99,15 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cRangeForRangeParserRuleCall_5_0 = (RuleCall)cRangeAssignment_5.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		private final Keyword cLeftCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		private final Assignment cContentsAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final RuleCall cContentsInstructionParserRuleCall_8_0 = (RuleCall)cContentsAssignment_8.eContents().get(0);
+		private final Assignment cInstructionsAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cInstructionsInstructionParserRuleCall_8_0 = (RuleCall)cInstructionsAssignment_8.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		
 		//For:
-		//	{For} 'for' '(' variable=ID 'in' range=ForRange ')' '{' contents+=Instruction* '}';
+		//	{For} 'for' '(' variable=ID 'in' range=ForRange ')' '{' instructions+=Instruction* '}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{For} 'for' '(' variable=ID 'in' range=ForRange ')' '{' contents+=Instruction* '}'
+		//{For} 'for' '(' variable=ID 'in' range=ForRange ')' '{' instructions+=Instruction* '}'
 		public Group getGroup() { return cGroup; }
 		
 		//{For}
@@ -140,11 +140,11 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_7() { return cLeftCurlyBracketKeyword_7; }
 		
-		//contents+=Instruction*
-		public Assignment getContentsAssignment_8() { return cContentsAssignment_8; }
+		//instructions+=Instruction*
+		public Assignment getInstructionsAssignment_8() { return cInstructionsAssignment_8; }
 		
 		//Instruction
-		public RuleCall getContentsInstructionParserRuleCall_8_0() { return cContentsInstructionParserRuleCall_8_0; }
+		public RuleCall getInstructionsInstructionParserRuleCall_8_0() { return cInstructionsInstructionParserRuleCall_8_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_9() { return cRightCurlyBracketKeyword_9; }
@@ -1198,7 +1198,7 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//For:
-	//	{For} 'for' '(' variable=ID 'in' range=ForRange ')' '{' contents+=Instruction* '}';
+	//	{For} 'for' '(' variable=ID 'in' range=ForRange ')' '{' instructions+=Instruction* '}';
 	public ForElements getForAccess() {
 		return pFor;
 	}

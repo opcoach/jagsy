@@ -4,16 +4,15 @@
 package com.opcoach.bugsy.xtext.tests
 
 import com.google.inject.Inject
+import com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage
 import com.opcoach.bugsy.xtext.bugsDsl.BugsModel
+import com.opcoach.bugsy.xtext.validation.BugsDslValidator
 import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.testing.XtextRunner
 import org.eclipse.xtext.testing.util.ParseHelper
 import org.eclipse.xtext.testing.validation.ValidationTestHelper
-import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
-import com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage
-import com.opcoach.bugsy.xtext.validation.BugsDslValidator
 
 @RunWith(XtextRunner)
 @InjectWith(BugsDslInjectorProvider)
@@ -21,10 +20,10 @@ class BugsDslValidationTest {
 
 	@Inject
 	extension ParseHelper<BugsModel> parseHelper
-	@Inject 
+	@Inject
 	extension ValidationTestHelper validHelper
 
-	@Test   // For issue #15
+	@Test // For issue #15   https://github.com/opcoach/jagsy/issues/15
 	def void testIssue15_UniqueIdentifier() {
 		'''model{
 		for(j in 1:M){
@@ -35,10 +34,48 @@ class BugsDslValidationTest {
 		tau ~ dgamma(0.01,0.01)
 		mu ~ dnorm(0,1) 
 		mu ~ dnorm(5,10)
-		}'''.parse.assertWarning(BugsDslPackage::eINSTANCE.relation, BugsDslValidator::UNIQUE_VARIABLE_NAME)
+		}'''.parse.assertWarning(BugsDslPackage::eINSTANCE.relation, BugsDslValidator::CHECK_UNIQUE_VARIABLE_NAME)
+
+	}
+
+	@Test // For issue #17  https://github.com/opcoach/jagsy/issues/17
+	def void testIssue17_UniqueMode1() {
+
+		val model = '''model{
+		for(j in 1:M){
+		for(i in 1:N){
+		a[j,i,k] ~ dnorm(mu[j],taub)
+		}
+		}
+		mu <- log(1 + 2)
+		}'''.parse
+
+		/* val issues = model.validate    // Must validate to get errors.. Only the first one is found...
+		 * println("Errors in testIssue17_UniqueMode1 for Issue 17  : " + issues.size)
+		 * issues.forEach[println("   " + it)]
+		 println */
+		model.assertError(BugsDslPackage::eINSTANCE.expression, BugsDslValidator::CHECK_VARIABLE_DIMENSION_COMPLIANCE)
 		
 	}
 
-	
+	@Test // For issue #17  https://github.com/opcoach/jagsy/issues/17
+	def void testIssue17_UniqueMode2() {
+
+		val model = '''model{
+		for(j in 1:M){
+		for(i in 1:N){
+		a[j,i,k] ~ dnorm(mu[j,i],taub)
+		}
+		mu[j] <- log(1 + 2)
+		}
+		}'''.parse
+
+		/*  val issues = model.validate
+		 * println("Errors in testIssue17_UniqueMode2 for Issue 17  : " + issues.size)
+		 * issues.forEach[println("   " + it)]
+		 println */
+		model.assertError(BugsDslPackage::eINSTANCE.expression, BugsDslValidator::CHECK_VARIABLE_DIMENSION_COMPLIANCE)
+
+	}
 
 }

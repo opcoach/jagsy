@@ -1400,9 +1400,9 @@ rule__For__Group__8__Impl
 	}
 :
 (
-	{ before(grammarAccess.getForAccess().getContentsAssignment_8()); }
-	(rule__For__ContentsAssignment_8)*
-	{ after(grammarAccess.getForAccess().getContentsAssignment_8()); }
+	{ before(grammarAccess.getForAccess().getInstructionsAssignment_8()); }
+	(rule__For__InstructionsAssignment_8)*
+	{ after(grammarAccess.getForAccess().getInstructionsAssignment_8()); }
 )
 ;
 finally {
@@ -3317,15 +3317,15 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__For__ContentsAssignment_8
+rule__For__InstructionsAssignment_8
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getForAccess().getContentsInstructionParserRuleCall_8_0()); }
+		{ before(grammarAccess.getForAccess().getInstructionsInstructionParserRuleCall_8_0()); }
 		ruleInstruction
-		{ after(grammarAccess.getForAccess().getContentsInstructionParserRuleCall_8_0()); }
+		{ after(grammarAccess.getForAccess().getInstructionsInstructionParserRuleCall_8_0()); }
 	)
 ;
 finally {

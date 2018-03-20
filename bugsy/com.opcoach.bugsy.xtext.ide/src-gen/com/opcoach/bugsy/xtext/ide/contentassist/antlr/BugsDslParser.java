@@ -78,7 +78,7 @@ public class BugsDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getBugsModelAccess().getInstructionsAssignment_3(), "rule__BugsModel__InstructionsAssignment_3");
 					put(grammarAccess.getForAccess().getVariableAssignment_3(), "rule__For__VariableAssignment_3");
 					put(grammarAccess.getForAccess().getRangeAssignment_5(), "rule__For__RangeAssignment_5");
-					put(grammarAccess.getForAccess().getContentsAssignment_8(), "rule__For__ContentsAssignment_8");
+					put(grammarAccess.getForAccess().getInstructionsAssignment_8(), "rule__For__InstructionsAssignment_8");
 					put(grammarAccess.getForRangeAccess().getLowAssignment_0(), "rule__ForRange__LowAssignment_0");
 					put(grammarAccess.getForRangeAccess().getHighAssignment_2(), "rule__ForRange__HighAssignment_2");
 					put(grammarAccess.getArrayRangeAccess().getLowAssignment_0(), "rule__ArrayRange__LowAssignment_0");

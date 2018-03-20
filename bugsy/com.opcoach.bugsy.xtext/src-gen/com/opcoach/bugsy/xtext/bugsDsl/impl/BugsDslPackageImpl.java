@@ -278,7 +278,7 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getFor_Contents()
+  public EReference getFor_Instructions()
   {
     return (EReference)forEClass.getEStructuralFeatures().get(2);
   }
@@ -671,7 +671,7 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
     forEClass = createEClass(FOR);
     createEAttribute(forEClass, FOR__VARIABLE);
     createEReference(forEClass, FOR__RANGE);
-    createEReference(forEClass, FOR__CONTENTS);
+    createEReference(forEClass, FOR__INSTRUCTIONS);
 
     forRangeEClass = createEClass(FOR_RANGE);
     createEAttribute(forRangeEClass, FOR_RANGE__LOW);
@@ -764,7 +764,7 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
     initEClass(forEClass, For.class, "For", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getFor_Variable(), ecorePackage.getEString(), "variable", null, 0, 1, For.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFor_Range(), this.getForRange(), null, "range", null, 0, 1, For.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getFor_Contents(), this.getInstruction(), null, "contents", null, 0, -1, For.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFor_Instructions(), this.getInstruction(), null, "instructions", null, 0, -1, For.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(forRangeEClass, ForRange.class, "ForRange", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getForRange_Low(), ecorePackage.getEString(), "low", null, 0, 1, ForRange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

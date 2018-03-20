@@ -5116,22 +5116,22 @@ public class InternalBugsDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__For__Group__8__Impl"
-    // InternalBugsDsl.g:1397:1: rule__For__Group__8__Impl : ( ( rule__For__ContentsAssignment_8 )* ) ;
+    // InternalBugsDsl.g:1397:1: rule__For__Group__8__Impl : ( ( rule__For__InstructionsAssignment_8 )* ) ;
     public final void rule__For__Group__8__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBugsDsl.g:1401:1: ( ( ( rule__For__ContentsAssignment_8 )* ) )
-            // InternalBugsDsl.g:1402:1: ( ( rule__For__ContentsAssignment_8 )* )
+            // InternalBugsDsl.g:1401:1: ( ( ( rule__For__InstructionsAssignment_8 )* ) )
+            // InternalBugsDsl.g:1402:1: ( ( rule__For__InstructionsAssignment_8 )* )
             {
-            // InternalBugsDsl.g:1402:1: ( ( rule__For__ContentsAssignment_8 )* )
-            // InternalBugsDsl.g:1403:2: ( rule__For__ContentsAssignment_8 )*
+            // InternalBugsDsl.g:1402:1: ( ( rule__For__InstructionsAssignment_8 )* )
+            // InternalBugsDsl.g:1403:2: ( rule__For__InstructionsAssignment_8 )*
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getForAccess().getContentsAssignment_8()); 
+               before(grammarAccess.getForAccess().getInstructionsAssignment_8()); 
             }
-            // InternalBugsDsl.g:1404:2: ( rule__For__ContentsAssignment_8 )*
+            // InternalBugsDsl.g:1404:2: ( rule__For__InstructionsAssignment_8 )*
             loop17:
             do {
                 int alt17=2;
@@ -5144,10 +5144,10 @@ public class InternalBugsDslParser extends AbstractInternalContentAssistParser {
 
                 switch (alt17) {
             	case 1 :
-            	    // InternalBugsDsl.g:1404:3: rule__For__ContentsAssignment_8
+            	    // InternalBugsDsl.g:1404:3: rule__For__InstructionsAssignment_8
             	    {
             	    pushFollow(FOLLOW_6);
-            	    rule__For__ContentsAssignment_8();
+            	    rule__For__InstructionsAssignment_8();
 
             	    state._fsp--;
             	    if (state.failed) return ;
@@ -5161,7 +5161,7 @@ public class InternalBugsDslParser extends AbstractInternalContentAssistParser {
             } while (true);
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getForAccess().getContentsAssignment_8()); 
+               after(grammarAccess.getForAccess().getInstructionsAssignment_8()); 
             }
 
             }
@@ -11182,9 +11182,9 @@ public class InternalBugsDslParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__For__RangeAssignment_5"
 
 
-    // $ANTLR start "rule__For__ContentsAssignment_8"
-    // InternalBugsDsl.g:3320:1: rule__For__ContentsAssignment_8 : ( ruleInstruction ) ;
-    public final void rule__For__ContentsAssignment_8() throws RecognitionException {
+    // $ANTLR start "rule__For__InstructionsAssignment_8"
+    // InternalBugsDsl.g:3320:1: rule__For__InstructionsAssignment_8 : ( ruleInstruction ) ;
+    public final void rule__For__InstructionsAssignment_8() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -11196,7 +11196,7 @@ public class InternalBugsDslParser extends AbstractInternalContentAssistParser {
             // InternalBugsDsl.g:3326:3: ruleInstruction
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getForAccess().getContentsInstructionParserRuleCall_8_0()); 
+               before(grammarAccess.getForAccess().getInstructionsInstructionParserRuleCall_8_0()); 
             }
             pushFollow(FOLLOW_2);
             ruleInstruction();
@@ -11204,7 +11204,7 @@ public class InternalBugsDslParser extends AbstractInternalContentAssistParser {
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getForAccess().getContentsInstructionParserRuleCall_8_0()); 
+               after(grammarAccess.getForAccess().getInstructionsInstructionParserRuleCall_8_0()); 
             }
 
             }
@@ -11224,7 +11224,7 @@ public class InternalBugsDslParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__For__ContentsAssignment_8"
+    // $ANTLR end "rule__For__InstructionsAssignment_8"
 
 
     // $ANTLR start "rule__ForRange__LowAssignment_0"

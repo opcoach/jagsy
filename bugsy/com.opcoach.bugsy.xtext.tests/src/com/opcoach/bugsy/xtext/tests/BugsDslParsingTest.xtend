@@ -233,5 +233,7 @@ class BugsDslParsingTest {
 		println("Errors in Issue 16 : " + result.eResource.errors)
 		Assert.assertTrue(result.eResource.errors.isEmpty)
 	}
+	
+	
 
 }

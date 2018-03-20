@@ -49,7 +49,7 @@
     <genClasses ecoreClass="BugsDsl.ecore#//For">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BugsDsl.ecore#//For/variable"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BugsDsl.ecore#//For/range"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BugsDsl.ecore#//For/contents"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BugsDsl.ecore#//For/instructions"/>
     </genClasses>
     <genClasses ecoreClass="BugsDsl.ecore#//ForRange">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BugsDsl.ecore#//ForRange/low"/>

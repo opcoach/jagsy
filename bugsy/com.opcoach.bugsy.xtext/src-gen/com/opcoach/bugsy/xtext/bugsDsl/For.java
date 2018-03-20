@@ -16,7 +16,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.For#getVariable <em>Variable</em>}</li>
  *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.For#getRange <em>Range</em>}</li>
- *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.For#getContents <em>Contents</em>}</li>
+ *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.For#getInstructions <em>Instructions</em>}</li>
  * </ul>
  *
  * @see com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage#getFor()
@@ -78,19 +78,19 @@ public interface For extends Instruction
   void setRange(ForRange value);
 
   /**
-   * Returns the value of the '<em><b>Contents</b></em>' containment reference list.
+   * Returns the value of the '<em><b>Instructions</b></em>' containment reference list.
    * The list contents are of type {@link com.opcoach.bugsy.xtext.bugsDsl.Instruction}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Contents</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Instructions</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Contents</em>' containment reference list.
-   * @see com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage#getFor_Contents()
+   * @return the value of the '<em>Instructions</em>' containment reference list.
+   * @see com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage#getFor_Instructions()
    * @model containment="true"
    * @generated
    */
-  EList<Instruction> getContents();
+  EList<Instruction> getInstructions();
 
 } // For

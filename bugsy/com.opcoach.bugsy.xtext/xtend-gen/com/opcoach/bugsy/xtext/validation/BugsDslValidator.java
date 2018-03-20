@@ -7,9 +7,14 @@ import com.google.common.base.Objects;
 import com.opcoach.bugsy.xtext.bugsDsl.ArrayID;
 import com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage;
 import com.opcoach.bugsy.xtext.bugsDsl.BugsModel;
+import com.opcoach.bugsy.xtext.bugsDsl.Distribution;
+import com.opcoach.bugsy.xtext.bugsDsl.Expression;
 import com.opcoach.bugsy.xtext.bugsDsl.For;
+import com.opcoach.bugsy.xtext.bugsDsl.Function;
+import com.opcoach.bugsy.xtext.bugsDsl.Instruction;
 import com.opcoach.bugsy.xtext.bugsDsl.Relation;
 import com.opcoach.bugsy.xtext.validation.AbstractBugsDslValidator;
+import java.util.List;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.validation.Check;
@@ -21,8 +26,13 @@ import org.eclipse.xtext.validation.Check;
  */
 @SuppressWarnings("all")
 public class BugsDslValidator extends AbstractBugsDslValidator {
-  public final static String UNIQUE_VARIABLE_NAME = "uniqueVariableName";
+  public final static String CHECK_UNIQUE_VARIABLE_NAME = "uniqueVariableName";
   
+  public final static String CHECK_VARIABLE_DIMENSION_COMPLIANCE = "variableDimensionCompliance";
+  
+  /**
+   * Check unique name for relations
+   */
   @Check
   public void uniqueRelationName(final Relation r) {
     final ArrayID nameToCheck = r.getName();
@@ -35,10 +45,150 @@ public class BugsDslValidator extends AbstractBugsDslValidator {
           boolean _equals = rc.getName().getName().equals(nameToCheck.getName());
           if (_equals) {
             this.warning("Variable names must be unique.", BugsDslPackage.Literals.RELATION__NAME, 
-              BugsDslValidator.UNIQUE_VARIABLE_NAME);
+              BugsDslValidator.CHECK_UNIQUE_VARIABLE_NAME);
           }
         }
       }
     }
+  }
+  
+  /**
+   * Check unique mode for variables in expressions : if a variable is used without indexes, it must be used like this
+   */
+  @Check
+  public void uniqueVariableMode(final Expression e) {
+    final ArrayID id = e.getValue().getId();
+    if ((id != null)) {
+      EObject _model = this.getModel(e);
+      final BugsModel bugsModel = ((BugsModel) _model);
+      final int cardinality = id.getIndexes().size();
+      Object _checkCardinalityUsage = this.checkCardinalityUsage(bugsModel, id.getName(), cardinality);
+      boolean _tripleNotEquals = (_checkCardinalityUsage != null);
+      if (_tripleNotEquals) {
+        String _name = id.getName();
+        String _plus = ("The expression variable " + _name);
+        String _plus_1 = (_plus + " is used with different dimensions in the file ");
+        this.error(_plus_1, 
+          BugsDslPackage.Literals.EXPRESSION__VALUE, BugsDslValidator.CHECK_VARIABLE_DIMENSION_COMPLIANCE);
+      }
+    }
+  }
+  
+  /**
+   * Check unique mode for variables in relations : if a variable is used without indexes, it must be used like this
+   */
+  @Check
+  public void uniqueVariableMode(final Relation r) {
+    final int cardinality = r.getName().getIndexes().size();
+    final String name = r.getName().getName();
+    EObject _model = this.getModel(r);
+    final BugsModel bugsModel = ((BugsModel) _model);
+    Object _checkCardinalityUsage = this.checkCardinalityUsage(bugsModel, name, cardinality);
+    boolean _tripleNotEquals = (_checkCardinalityUsage != null);
+    if (_tripleNotEquals) {
+      this.error((("The relation variable " + name) + " is used with different dimensions in the file "), 
+        BugsDslPackage.Literals.RELATION__NAME, BugsDslValidator.CHECK_VARIABLE_DIMENSION_COMPLIANCE);
+    }
+  }
+  
+  /**
+   * This method returns the object where  the relation name or expression name in the model is not used using the same cardinality
+   *  It returns null if no problem is found
+   */
+  public Object checkCardinalityUsage(final BugsModel m, final String name, final int cardinality) {
+    return this.checkCardinalityUsage(m.getInstructions(), name, cardinality);
+  }
+  
+  public Object checkCardinalityUsage(final For f, final String name, final int cardinality) {
+    return this.checkCardinalityUsage(f.getInstructions(), name, cardinality);
+  }
+  
+  public Object checkCardinalityUsage(final List<Instruction> instructions, final String name, final int cardinality) {
+    for (final Instruction ins : instructions) {
+      {
+        final Object check = this.checkCardinalityUsage(ins, name, cardinality);
+        if ((check != null)) {
+          return check;
+        }
+      }
+    }
+    return null;
+  }
+  
+  public Object checkCardinalityUsage(final Instruction ins, final String name, final int cardinality) {
+    if ((ins instanceof For)) {
+      return this.checkCardinalityUsage(((For) ins), name, cardinality);
+    } else {
+      if ((ins instanceof Relation)) {
+        return this.checkCardinalityUsage(((Relation) ins), name, cardinality);
+      }
+    }
+    return null;
+  }
+  
+  public Object checkCardinalityUsage(final Expression e, final String name, final int cardinality) {
+    if ((e == null)) {
+      return null;
+    }
+    Function _function = e.getFunction();
+    boolean _tripleNotEquals = (_function != null);
+    if (_tripleNotEquals) {
+      EList<Expression> _params = e.getFunction().getParams();
+      for (final Expression p : _params) {
+        return this.checkCardinalityUsage(p, name, cardinality);
+      }
+    } else {
+      Distribution _distribution = e.getDistribution();
+      boolean _tripleNotEquals_1 = (_distribution != null);
+      if (_tripleNotEquals_1) {
+        EList<Expression> _params_1 = e.getDistribution().getParams();
+        for (final Expression p_1 : _params_1) {
+          return this.checkCardinalityUsage(p_1, name, cardinality);
+        }
+      } else {
+        if (((e.getValue() != null) && (e.getValue().getId() != null))) {
+          ArrayID _checkCardinalityUsage = this.checkCardinalityUsage(e.getValue().getId(), name, cardinality);
+          boolean _tripleNotEquals_2 = (_checkCardinalityUsage != null);
+          if (_tripleNotEquals_2) {
+            return e.getValue();
+          }
+        } else {
+          Object result = this.checkCardinalityUsage(e.getLeft(), name, cardinality);
+          if ((result == null)) {
+            result = this.checkCardinalityUsage(e.getRight(), name, cardinality);
+          }
+          return result;
+        }
+      }
+    }
+    return null;
+  }
+  
+  public Relation checkCardinalityUsage(final Relation r, final String name, final int cardinality) {
+    ArrayID _checkCardinalityUsage = this.checkCardinalityUsage(r.getName(), name, cardinality);
+    boolean _tripleNotEquals = (_checkCardinalityUsage != null);
+    if (_tripleNotEquals) {
+      return r;
+    }
+    return null;
+  }
+  
+  public ArrayID checkCardinalityUsage(final ArrayID ai, final String name, final int cardinality) {
+    if ((Objects.equal(name, ai.getName()) && (ai.getIndexes().size() != cardinality))) {
+      return ai;
+    }
+    return null;
+  }
+  
+  public EObject getModel(final EObject o) {
+    EObject _xblockexpression = null;
+    {
+      EObject parent = o.eContainer();
+      while (((parent != null) && ((parent instanceof BugsModel) == false))) {
+        parent = parent.eContainer();
+      }
+      _xblockexpression = parent;
+    }
+    return _xblockexpression;
   }
 }

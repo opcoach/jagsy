@@ -21,7 +21,7 @@ Instruction:
 	For | Relation;
 
 For:
-	{For} 'for' '(' variable=ID 'in' range=ForRange ')' '{' contents+=Instruction* '}';
+	{For} 'for' '(' variable=ID 'in' range=ForRange ')' '{' instructions+=Instruction* '}';
 
 Numeric:
 	INT | Float;

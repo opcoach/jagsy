@@ -62,7 +62,73 @@ public class BugsDslValidationTest {
       _builder.newLine();
       _builder.append("\t\t");
       _builder.append("}");
-      this.validHelper.assertWarning(this.parseHelper.parse(_builder), BugsDslPackage.eINSTANCE.getRelation(), BugsDslValidator.UNIQUE_VARIABLE_NAME);
+      this.validHelper.assertWarning(this.parseHelper.parse(_builder), BugsDslPackage.eINSTANCE.getRelation(), BugsDslValidator.CHECK_UNIQUE_VARIABLE_NAME);
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void testIssue17_UniqueMode1() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("model{");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("for(j in 1:M){");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("for(i in 1:N){");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("a[j,i,k] ~ dnorm(mu[j],taub)");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("mu <- log(1 + 2)");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("}");
+      final BugsModel model = this.parseHelper.parse(_builder);
+      this.validHelper.assertError(model, BugsDslPackage.eINSTANCE.getExpression(), BugsDslValidator.CHECK_VARIABLE_DIMENSION_COMPLIANCE);
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void testIssue17_UniqueMode2() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("model{");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("for(j in 1:M){");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("for(i in 1:N){");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("a[j,i,k] ~ dnorm(mu[j,i],taub)");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("mu[j] <- log(1 + 2)");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("}");
+      final BugsModel model = this.parseHelper.parse(_builder);
+      this.validHelper.assertError(model, BugsDslPackage.eINSTANCE.getExpression(), BugsDslValidator.CHECK_VARIABLE_DIMENSION_COMPLIANCE);
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }
