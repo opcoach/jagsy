@@ -35,7 +35,7 @@ Index:
 	// For Index are used to declare an index on an array or on a function of on array. 
 	// For instance :    V or length(V)
 	// And these values can be combined in low and high value in the for loop
-ForIndex :  (function=ArrayOperator '(' value=Index  ')' ) | value=Index;
+ForIndex :  (function=IntOperator '(' value=Index  ')' ) | value=Index;
 
  // ForRange is used to declare low and high range in a For loop
 ForRange : low=ForIndex ':' high=ForIndex;
@@ -56,7 +56,7 @@ Relation:
 	StochasticRelation | DeterministicRelation;
 
 StochasticRelation:
-	{StochasticRelation} name=ArrayID '~' distrib=Density ('()' | '(' ((params+=Expression) (',' (params+=Expression))*)
+	{StochasticRelation} name=ArrayID '~' distrib=DensityOperator ('()' | '(' ((params+=Expression) (',' (params+=Expression))*)
 	')')?;
 
 DeterministicRelation:
@@ -68,6 +68,7 @@ Operator:
 Function:
 	operation=FunctionOperator ('()' | '(' (=> (params+=Expression) (',' (params+=Expression))* ')')?);
 
+// An array function is defined to use the ArrayOperator (only in data block). 
 ArrayFunction:
 	operation=ArrayOperator ('()' | '(' (=> (params+=Expression) (',' (params+=Expression))* ')')?);
 
@@ -88,13 +89,16 @@ enum DistributionOperator:
 	dgengamm='dgen.gamma' | dhyper='dhyper' | dlogis='dlogis' | dlnorm='dlnorm' | dnegbin='dnegbin' | dnchisqr='dnchisqr'
 	| dpar='dpar' | dpois='dpois' | dt='dt' | dweib='dweib';
 
-enum Density:
+enum DensityOperator:
 	dnorm='dnorm' | dunif='dunif' | dbeta='dbeta' | dgamma='dgamma';
 
-enum FunctionOperator:
-	acos='acos' | acosh='acosh' | asin='asin' | asinh='asinh' | atan='atan' | log='log' | ep='exp' | c='c' | mean='mean' |
-	sqrt='sqrt';
+enum FunctionOperator: acos='acos' | acosh='acosh' | asin='asin' | asinh='asinh' | atan='atan' | log='log' | ep='exp' | c='c' | mean='mean' |
+	sqrt='sqrt' | length = 'length';
 	
-enum ArrayOperator : length = 'length' | dim = 'dim';
+/** Define the specific intoperator when it is used in for indexes */
+enum IntOperator : length = 'length' ;  
+	
+// Isolate the dim operator that can be used only in the data block 
+enum ArrayOperator : dim = 'dim';
 
 

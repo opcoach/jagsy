@@ -98,10 +98,12 @@ public class BugsDslFactoryImpl extends EFactoryImpl implements BugsDslFactory
     {
       case BugsDslPackage.DISTRIBUTION_OPERATOR:
         return createDistributionOperatorFromString(eDataType, initialValue);
-      case BugsDslPackage.DENSITY:
-        return createDensityFromString(eDataType, initialValue);
+      case BugsDslPackage.DENSITY_OPERATOR:
+        return createDensityOperatorFromString(eDataType, initialValue);
       case BugsDslPackage.FUNCTION_OPERATOR:
         return createFunctionOperatorFromString(eDataType, initialValue);
+      case BugsDslPackage.INT_OPERATOR:
+        return createIntOperatorFromString(eDataType, initialValue);
       case BugsDslPackage.ARRAY_OPERATOR:
         return createArrayOperatorFromString(eDataType, initialValue);
       default:
@@ -121,10 +123,12 @@ public class BugsDslFactoryImpl extends EFactoryImpl implements BugsDslFactory
     {
       case BugsDslPackage.DISTRIBUTION_OPERATOR:
         return convertDistributionOperatorToString(eDataType, instanceValue);
-      case BugsDslPackage.DENSITY:
-        return convertDensityToString(eDataType, instanceValue);
+      case BugsDslPackage.DENSITY_OPERATOR:
+        return convertDensityOperatorToString(eDataType, instanceValue);
       case BugsDslPackage.FUNCTION_OPERATOR:
         return convertFunctionOperatorToString(eDataType, instanceValue);
+      case BugsDslPackage.INT_OPERATOR:
+        return convertIntOperatorToString(eDataType, instanceValue);
       case BugsDslPackage.ARRAY_OPERATOR:
         return convertArrayOperatorToString(eDataType, instanceValue);
       default:
@@ -324,9 +328,9 @@ public class BugsDslFactoryImpl extends EFactoryImpl implements BugsDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Density createDensityFromString(EDataType eDataType, String initialValue)
+  public DensityOperator createDensityOperatorFromString(EDataType eDataType, String initialValue)
   {
-    Density result = Density.get(initialValue);
+    DensityOperator result = DensityOperator.get(initialValue);
     if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
     return result;
   }
@@ -336,7 +340,7 @@ public class BugsDslFactoryImpl extends EFactoryImpl implements BugsDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public String convertDensityToString(EDataType eDataType, Object instanceValue)
+  public String convertDensityOperatorToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }
@@ -359,6 +363,28 @@ public class BugsDslFactoryImpl extends EFactoryImpl implements BugsDslFactory
    * @generated
    */
   public String convertFunctionOperatorToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public IntOperator createIntOperatorFromString(EDataType eDataType, String initialValue)
+  {
+    IntOperator result = IntOperator.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertIntOperatorToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }

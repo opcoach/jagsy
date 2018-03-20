@@ -4,7 +4,7 @@
 package com.opcoach.bugsy.xtext.bugsDsl.impl;
 
 import com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage;
-import com.opcoach.bugsy.xtext.bugsDsl.Density;
+import com.opcoach.bugsy.xtext.bugsDsl.DensityOperator;
 import com.opcoach.bugsy.xtext.bugsDsl.Expression;
 import com.opcoach.bugsy.xtext.bugsDsl.StochasticRelation;
 
@@ -47,7 +47,7 @@ public class StochasticRelationImpl extends RelationImpl implements StochasticRe
    * @generated
    * @ordered
    */
-  protected static final Density DISTRIB_EDEFAULT = Density.DNORM;
+  protected static final DensityOperator DISTRIB_EDEFAULT = DensityOperator.DNORM;
 
   /**
    * The cached value of the '{@link #getDistrib() <em>Distrib</em>}' attribute.
@@ -57,7 +57,7 @@ public class StochasticRelationImpl extends RelationImpl implements StochasticRe
    * @generated
    * @ordered
    */
-  protected Density distrib = DISTRIB_EDEFAULT;
+  protected DensityOperator distrib = DISTRIB_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getParams() <em>Params</em>}' containment reference list.
@@ -95,7 +95,7 @@ public class StochasticRelationImpl extends RelationImpl implements StochasticRe
    * <!-- end-user-doc -->
    * @generated
    */
-  public Density getDistrib()
+  public DensityOperator getDistrib()
   {
     return distrib;
   }
@@ -105,9 +105,9 @@ public class StochasticRelationImpl extends RelationImpl implements StochasticRe
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDistrib(Density newDistrib)
+  public void setDistrib(DensityOperator newDistrib)
   {
-    Density oldDistrib = distrib;
+    DensityOperator oldDistrib = distrib;
     distrib = newDistrib == null ? DISTRIB_EDEFAULT : newDistrib;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, BugsDslPackage.STOCHASTIC_RELATION__DISTRIB, oldDistrib, distrib));
@@ -173,7 +173,7 @@ public class StochasticRelationImpl extends RelationImpl implements StochasticRe
     switch (featureID)
     {
       case BugsDslPackage.STOCHASTIC_RELATION__DISTRIB:
-        setDistrib((Density)newValue);
+        setDistrib((DensityOperator)newValue);
         return;
       case BugsDslPackage.STOCHASTIC_RELATION__PARAMS:
         getParams().clear();

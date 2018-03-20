@@ -101,7 +101,7 @@ public class BugsDslSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Ambiguous syntax:
-	 *     '<-' | '='
+	 *     '=' | '<-'
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     name=ArrayID (ambiguity) expressions+=Expression
@@ -137,7 +137,7 @@ public class BugsDslSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     '()'?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     distrib=Density (ambiguity) (rule end)
+	 *     distrib=DensityOperator (ambiguity) (rule end)
 	 */
 	protected void emit_StochasticRelation_LeftParenthesisRightParenthesisKeyword_4_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

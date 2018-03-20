@@ -566,16 +566,16 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-// Rule Density
-ruleDensity
+// Rule DensityOperator
+ruleDensityOperator
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getDensityAccess().getAlternatives()); }
-		(rule__Density__Alternatives)
-		{ after(grammarAccess.getDensityAccess().getAlternatives()); }
+		{ before(grammarAccess.getDensityOperatorAccess().getAlternatives()); }
+		(rule__DensityOperator__Alternatives)
+		{ after(grammarAccess.getDensityOperatorAccess().getAlternatives()); }
 	)
 ;
 finally {
@@ -598,6 +598,22 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+// Rule IntOperator
+ruleIntOperator
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getIntOperatorAccess().getLengthEnumLiteralDeclaration()); }
+		('length')
+		{ after(grammarAccess.getIntOperatorAccess().getLengthEnumLiteralDeclaration()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 // Rule ArrayOperator
 ruleArrayOperator
 	@init {
@@ -605,9 +621,9 @@ ruleArrayOperator
 	}
 :
 	(
-		{ before(grammarAccess.getArrayOperatorAccess().getAlternatives()); }
-		(rule__ArrayOperator__Alternatives)
-		{ after(grammarAccess.getArrayOperatorAccess().getAlternatives()); }
+		{ before(grammarAccess.getArrayOperatorAccess().getDimEnumLiteralDeclaration()); }
+		('dim')
+		{ after(grammarAccess.getArrayOperatorAccess().getDimEnumLiteralDeclaration()); }
 	)
 ;
 finally {
@@ -1043,33 +1059,33 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Density__Alternatives
+rule__DensityOperator__Alternatives
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getDensityAccess().getDnormEnumLiteralDeclaration_0()); }
+		{ before(grammarAccess.getDensityOperatorAccess().getDnormEnumLiteralDeclaration_0()); }
 		('dnorm')
-		{ after(grammarAccess.getDensityAccess().getDnormEnumLiteralDeclaration_0()); }
+		{ after(grammarAccess.getDensityOperatorAccess().getDnormEnumLiteralDeclaration_0()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getDensityAccess().getDunifEnumLiteralDeclaration_1()); }
+		{ before(grammarAccess.getDensityOperatorAccess().getDunifEnumLiteralDeclaration_1()); }
 		('dunif')
-		{ after(grammarAccess.getDensityAccess().getDunifEnumLiteralDeclaration_1()); }
+		{ after(grammarAccess.getDensityOperatorAccess().getDunifEnumLiteralDeclaration_1()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getDensityAccess().getDbetaEnumLiteralDeclaration_2()); }
+		{ before(grammarAccess.getDensityOperatorAccess().getDbetaEnumLiteralDeclaration_2()); }
 		('dbeta')
-		{ after(grammarAccess.getDensityAccess().getDbetaEnumLiteralDeclaration_2()); }
+		{ after(grammarAccess.getDensityOperatorAccess().getDbetaEnumLiteralDeclaration_2()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getDensityAccess().getDgammaEnumLiteralDeclaration_3()); }
+		{ before(grammarAccess.getDensityOperatorAccess().getDgammaEnumLiteralDeclaration_3()); }
 		('dgamma')
-		{ after(grammarAccess.getDensityAccess().getDgammaEnumLiteralDeclaration_3()); }
+		{ after(grammarAccess.getDensityOperatorAccess().getDgammaEnumLiteralDeclaration_3()); }
 	)
 ;
 finally {
@@ -1140,26 +1156,11 @@ rule__FunctionOperator__Alternatives
 		('sqrt')
 		{ after(grammarAccess.getFunctionOperatorAccess().getSqrtEnumLiteralDeclaration_9()); }
 	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__ArrayOperator__Alternatives
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	(
-		{ before(grammarAccess.getArrayOperatorAccess().getLengthEnumLiteralDeclaration_0()); }
-		('length')
-		{ after(grammarAccess.getArrayOperatorAccess().getLengthEnumLiteralDeclaration_0()); }
-	)
 	|
 	(
-		{ before(grammarAccess.getArrayOperatorAccess().getDimEnumLiteralDeclaration_1()); }
-		('dim')
-		{ after(grammarAccess.getArrayOperatorAccess().getDimEnumLiteralDeclaration_1()); }
+		{ before(grammarAccess.getFunctionOperatorAccess().getLengthEnumLiteralDeclaration_10()); }
+		('length')
+		{ after(grammarAccess.getFunctionOperatorAccess().getLengthEnumLiteralDeclaration_10()); }
 	)
 ;
 finally {
@@ -4001,9 +4002,9 @@ rule__ForIndex__FunctionAssignment_0_0
 	}
 :
 	(
-		{ before(grammarAccess.getForIndexAccess().getFunctionArrayOperatorEnumRuleCall_0_0_0()); }
-		ruleArrayOperator
-		{ after(grammarAccess.getForIndexAccess().getFunctionArrayOperatorEnumRuleCall_0_0_0()); }
+		{ before(grammarAccess.getForIndexAccess().getFunctionIntOperatorEnumRuleCall_0_0_0()); }
+		ruleIntOperator
+		{ after(grammarAccess.getForIndexAccess().getFunctionIntOperatorEnumRuleCall_0_0_0()); }
 	)
 ;
 finally {
@@ -4196,9 +4197,9 @@ rule__StochasticRelation__DistribAssignment_3
 	}
 :
 	(
-		{ before(grammarAccess.getStochasticRelationAccess().getDistribDensityEnumRuleCall_3_0()); }
-		ruleDensity
-		{ after(grammarAccess.getStochasticRelationAccess().getDistribDensityEnumRuleCall_3_0()); }
+		{ before(grammarAccess.getStochasticRelationAccess().getDistribDensityOperatorEnumRuleCall_3_0()); }
+		ruleDensityOperator
+		{ after(grammarAccess.getStochasticRelationAccess().getDistribDensityOperatorEnumRuleCall_3_0()); }
 	)
 ;
 finally {

@@ -10,7 +10,7 @@ import com.opcoach.bugsy.xtext.bugsDsl.ArrayRange;
 import com.opcoach.bugsy.xtext.bugsDsl.BugsDslFactory;
 import com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage;
 import com.opcoach.bugsy.xtext.bugsDsl.BugsModel;
-import com.opcoach.bugsy.xtext.bugsDsl.Density;
+import com.opcoach.bugsy.xtext.bugsDsl.DensityOperator;
 import com.opcoach.bugsy.xtext.bugsDsl.DeterministicRelation;
 import com.opcoach.bugsy.xtext.bugsDsl.Distribution;
 import com.opcoach.bugsy.xtext.bugsDsl.DistributionOperator;
@@ -21,6 +21,7 @@ import com.opcoach.bugsy.xtext.bugsDsl.ForRange;
 import com.opcoach.bugsy.xtext.bugsDsl.Function;
 import com.opcoach.bugsy.xtext.bugsDsl.FunctionOperator;
 import com.opcoach.bugsy.xtext.bugsDsl.Instruction;
+import com.opcoach.bugsy.xtext.bugsDsl.IntOperator;
 import com.opcoach.bugsy.xtext.bugsDsl.Relation;
 import com.opcoach.bugsy.xtext.bugsDsl.StochasticRelation;
 import com.opcoach.bugsy.xtext.bugsDsl.Value;
@@ -158,7 +159,7 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EEnum densityEEnum = null;
+  private EEnum densityOperatorEEnum = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -166,6 +167,13 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
    * @generated
    */
   private EEnum functionOperatorEEnum = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EEnum intOperatorEEnum = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -722,9 +730,9 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EEnum getDensity()
+  public EEnum getDensityOperator()
   {
-    return densityEEnum;
+    return densityOperatorEEnum;
   }
 
   /**
@@ -735,6 +743,16 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
   public EEnum getFunctionOperator()
   {
     return functionOperatorEEnum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EEnum getIntOperator()
+  {
+    return intOperatorEEnum;
   }
 
   /**
@@ -841,8 +859,9 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
 
     // Create enums
     distributionOperatorEEnum = createEEnum(DISTRIBUTION_OPERATOR);
-    densityEEnum = createEEnum(DENSITY);
+    densityOperatorEEnum = createEEnum(DENSITY_OPERATOR);
     functionOperatorEEnum = createEEnum(FUNCTION_OPERATOR);
+    intOperatorEEnum = createEEnum(INT_OPERATOR);
     arrayOperatorEEnum = createEEnum(ARRAY_OPERATOR);
   }
 
@@ -893,7 +912,7 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
     initEReference(getFor_Instructions(), this.getInstruction(), null, "instructions", null, 0, -1, For.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(forIndexEClass, ForIndex.class, "ForIndex", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getForIndex_Function(), this.getArrayOperator(), "function", null, 0, 1, ForIndex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getForIndex_Function(), this.getIntOperator(), "function", null, 0, 1, ForIndex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getForIndex_Value(), ecorePackage.getEString(), "value", null, 0, 1, ForIndex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(forRangeEClass, ForRange.class, "ForRange", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -916,7 +935,7 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
     initEReference(getRelation_Name(), this.getArrayID(), null, "name", null, 0, 1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(stochasticRelationEClass, StochasticRelation.class, "StochasticRelation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getStochasticRelation_Distrib(), this.getDensity(), "distrib", null, 0, 1, StochasticRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getStochasticRelation_Distrib(), this.getDensityOperator(), "distrib", null, 0, 1, StochasticRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getStochasticRelation_Params(), this.getExpression(), null, "params", null, 0, -1, StochasticRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(deterministicRelationEClass, DeterministicRelation.class, "DeterministicRelation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -962,11 +981,11 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
     addEEnumLiteral(distributionOperatorEEnum, DistributionOperator.DT);
     addEEnumLiteral(distributionOperatorEEnum, DistributionOperator.DWEIB);
 
-    initEEnum(densityEEnum, Density.class, "Density");
-    addEEnumLiteral(densityEEnum, Density.DNORM);
-    addEEnumLiteral(densityEEnum, Density.DUNIF);
-    addEEnumLiteral(densityEEnum, Density.DBETA);
-    addEEnumLiteral(densityEEnum, Density.DGAMMA);
+    initEEnum(densityOperatorEEnum, DensityOperator.class, "DensityOperator");
+    addEEnumLiteral(densityOperatorEEnum, DensityOperator.DNORM);
+    addEEnumLiteral(densityOperatorEEnum, DensityOperator.DUNIF);
+    addEEnumLiteral(densityOperatorEEnum, DensityOperator.DBETA);
+    addEEnumLiteral(densityOperatorEEnum, DensityOperator.DGAMMA);
 
     initEEnum(functionOperatorEEnum, FunctionOperator.class, "FunctionOperator");
     addEEnumLiteral(functionOperatorEEnum, FunctionOperator.ACOS);
@@ -979,9 +998,12 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
     addEEnumLiteral(functionOperatorEEnum, FunctionOperator.C);
     addEEnumLiteral(functionOperatorEEnum, FunctionOperator.MEAN);
     addEEnumLiteral(functionOperatorEEnum, FunctionOperator.SQRT);
+    addEEnumLiteral(functionOperatorEEnum, FunctionOperator.LENGTH);
+
+    initEEnum(intOperatorEEnum, IntOperator.class, "IntOperator");
+    addEEnumLiteral(intOperatorEEnum, IntOperator.LENGTH);
 
     initEEnum(arrayOperatorEEnum, ArrayOperator.class, "ArrayOperator");
-    addEEnumLiteral(arrayOperatorEEnum, ArrayOperator.LENGTH);
     addEEnumLiteral(arrayOperatorEEnum, ArrayOperator.DIM);
 
     // Create resource

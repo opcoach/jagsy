@@ -218,7 +218,7 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
 		private final Assignment cFunctionAssignment_0_0 = (Assignment)cGroup_0.eContents().get(0);
-		private final RuleCall cFunctionArrayOperatorEnumRuleCall_0_0_0 = (RuleCall)cFunctionAssignment_0_0.eContents().get(0);
+		private final RuleCall cFunctionIntOperatorEnumRuleCall_0_0_0 = (RuleCall)cFunctionAssignment_0_0.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
 		private final Assignment cValueAssignment_0_2 = (Assignment)cGroup_0.eContents().get(2);
 		private final RuleCall cValueIndexParserRuleCall_0_2_0 = (RuleCall)cValueAssignment_0_2.eContents().get(0);
@@ -230,20 +230,20 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		//// For instance :    V or length(V)
 		//// And these values can be combined in low and high value in the for loop
 		//ForIndex:
-		//	function=ArrayOperator '(' value=Index ')' | value=Index;
+		//	function=IntOperator '(' value=Index ')' | value=Index;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//function=ArrayOperator '(' value=Index ')' | value=Index
+		//function=IntOperator '(' value=Index ')' | value=Index
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//function=ArrayOperator '(' value=Index ')'
+		//function=IntOperator '(' value=Index ')'
 		public Group getGroup_0() { return cGroup_0; }
 		
-		//function=ArrayOperator
+		//function=IntOperator
 		public Assignment getFunctionAssignment_0_0() { return cFunctionAssignment_0_0; }
 		
-		//ArrayOperator
-		public RuleCall getFunctionArrayOperatorEnumRuleCall_0_0_0() { return cFunctionArrayOperatorEnumRuleCall_0_0_0; }
+		//IntOperator
+		public RuleCall getFunctionIntOperatorEnumRuleCall_0_0_0() { return cFunctionIntOperatorEnumRuleCall_0_0_0; }
 		
 		//'('
 		public Keyword getLeftParenthesisKeyword_0_1() { return cLeftParenthesisKeyword_0_1; }
@@ -495,7 +495,7 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameArrayIDParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cTildeKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cDistribAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cDistribDensityEnumRuleCall_3_0 = (RuleCall)cDistribAssignment_3.eContents().get(0);
+		private final RuleCall cDistribDensityOperatorEnumRuleCall_3_0 = (RuleCall)cDistribAssignment_3.eContents().get(0);
 		private final Alternatives cAlternatives_4 = (Alternatives)cGroup.eContents().get(4);
 		private final Keyword cLeftParenthesisRightParenthesisKeyword_4_0 = (Keyword)cAlternatives_4.eContents().get(0);
 		private final Group cGroup_4_1 = (Group)cAlternatives_4.eContents().get(1);
@@ -510,11 +510,13 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightParenthesisKeyword_4_1_2 = (Keyword)cGroup_4_1.eContents().get(2);
 		
 		//StochasticRelation:
-		//	{StochasticRelation} name=ArrayID '~' distrib=Density ('()' | '(' (params+=Expression (',' params+=Expression)*)
+		//	{StochasticRelation} name=ArrayID '~' distrib=DensityOperator ('()' | '(' (params+=Expression (','
+		//	params+=Expression)*)
 		//	')')?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{StochasticRelation} name=ArrayID '~' distrib=Density ('()' | '(' (params+=Expression (',' params+=Expression)*) ')')?
+		//{StochasticRelation} name=ArrayID '~' distrib=DensityOperator ('()' | '(' (params+=Expression (',' params+=Expression)*)
+		//')')?
 		public Group getGroup() { return cGroup; }
 		
 		//{StochasticRelation}
@@ -529,11 +531,11 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		//'~'
 		public Keyword getTildeKeyword_2() { return cTildeKeyword_2; }
 		
-		//distrib=Density
+		//distrib=DensityOperator
 		public Assignment getDistribAssignment_3() { return cDistribAssignment_3; }
 		
-		//Density
-		public RuleCall getDistribDensityEnumRuleCall_3_0() { return cDistribDensityEnumRuleCall_3_0; }
+		//DensityOperator
+		public RuleCall getDistribDensityOperatorEnumRuleCall_3_0() { return cDistribDensityOperatorEnumRuleCall_3_0; }
 		
 		//('()' | '(' (params+=Expression (',' params+=Expression)*) ')')?
 		public Alternatives getAlternatives_4() { return cAlternatives_4; }
@@ -731,6 +733,7 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cParamsExpressionParserRuleCall_1_1_1_1_1_0 = (RuleCall)cParamsAssignment_1_1_1_1_1.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_1_1_1_2 = (Keyword)cGroup_1_1_1.eContents().get(2);
 		
+		//// An array function is defined to use the ArrayOperator (only in data block). 
 		//ArrayFunction:
 		//	operation=ArrayOperator ('()' | '(' (=> (params+=Expression) (',' params+=Expression)* ')')?);
 		@Override public ParserRule getRule() { return rule; }
@@ -1096,8 +1099,8 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		//'dweib'
 		public Keyword getDweibDweibKeyword_15_0() { return cDweibDweibKeyword_15_0; }
 	}
-	public class DensityElements extends AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "com.opcoach.bugsy.xtext.BugsDsl.Density");
+	public class DensityOperatorElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "com.opcoach.bugsy.xtext.BugsDsl.DensityOperator");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final EnumLiteralDeclaration cDnormEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
 		private final Keyword cDnormDnormKeyword_0_0 = (Keyword)cDnormEnumLiteralDeclaration_0.eContents().get(0);
@@ -1108,7 +1111,7 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final EnumLiteralDeclaration cDgammaEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
 		private final Keyword cDgammaDgammaKeyword_3_0 = (Keyword)cDgammaEnumLiteralDeclaration_3.eContents().get(0);
 		
-		//enum Density:
+		//enum DensityOperator:
 		//	dnorm | dunif | dbeta | dgamma;
 		public EnumRule getRule() { return rule; }
 		
@@ -1162,13 +1165,15 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cMeanMeanKeyword_8_0 = (Keyword)cMeanEnumLiteralDeclaration_8.eContents().get(0);
 		private final EnumLiteralDeclaration cSqrtEnumLiteralDeclaration_9 = (EnumLiteralDeclaration)cAlternatives.eContents().get(9);
 		private final Keyword cSqrtSqrtKeyword_9_0 = (Keyword)cSqrtEnumLiteralDeclaration_9.eContents().get(0);
+		private final EnumLiteralDeclaration cLengthEnumLiteralDeclaration_10 = (EnumLiteralDeclaration)cAlternatives.eContents().get(10);
+		private final Keyword cLengthLengthKeyword_10_0 = (Keyword)cLengthEnumLiteralDeclaration_10.eContents().get(0);
 		
 		//enum FunctionOperator:
 		//	acos | acosh | asin | asinh | atan | log | ep='exp' | c | mean |
-		//	sqrt;
+		//	sqrt | length;
 		public EnumRule getRule() { return rule; }
 		
-		//acos | acosh | asin | asinh | atan | log | ep='exp' | c | mean | sqrt
+		//acos | acosh | asin | asinh | atan | log | ep='exp' | c | mean | sqrt | length
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//acos
@@ -1230,33 +1235,42 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//'sqrt'
 		public Keyword getSqrtSqrtKeyword_9_0() { return cSqrtSqrtKeyword_9_0; }
+		
+		//length
+		public EnumLiteralDeclaration getLengthEnumLiteralDeclaration_10() { return cLengthEnumLiteralDeclaration_10; }
+		
+		//'length'
+		public Keyword getLengthLengthKeyword_10_0() { return cLengthLengthKeyword_10_0; }
+	}
+	public class IntOperatorElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "com.opcoach.bugsy.xtext.BugsDsl.IntOperator");
+		private final EnumLiteralDeclaration cLengthEnumLiteralDeclaration = (EnumLiteralDeclaration)rule.eContents().get(1);
+		private final Keyword cLengthLengthKeyword_0 = (Keyword)cLengthEnumLiteralDeclaration.eContents().get(0);
+		
+		//enum IntOperator:
+		//	length;
+		public EnumRule getRule() { return rule; }
+		
+		//length
+		public EnumLiteralDeclaration getLengthEnumLiteralDeclaration() { return cLengthEnumLiteralDeclaration; }
+		
+		//'length'
+		public Keyword getLengthLengthKeyword_0() { return cLengthLengthKeyword_0; }
 	}
 	public class ArrayOperatorElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "com.opcoach.bugsy.xtext.BugsDsl.ArrayOperator");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final EnumLiteralDeclaration cLengthEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
-		private final Keyword cLengthLengthKeyword_0_0 = (Keyword)cLengthEnumLiteralDeclaration_0.eContents().get(0);
-		private final EnumLiteralDeclaration cDimEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cDimDimKeyword_1_0 = (Keyword)cDimEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cDimEnumLiteralDeclaration = (EnumLiteralDeclaration)rule.eContents().get(1);
+		private final Keyword cDimDimKeyword_0 = (Keyword)cDimEnumLiteralDeclaration.eContents().get(0);
 		
 		//enum ArrayOperator:
-		//	length | dim;
+		//	dim;
 		public EnumRule getRule() { return rule; }
 		
-		//length | dim
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//length
-		public EnumLiteralDeclaration getLengthEnumLiteralDeclaration_0() { return cLengthEnumLiteralDeclaration_0; }
-		
-		//'length'
-		public Keyword getLengthLengthKeyword_0_0() { return cLengthLengthKeyword_0_0; }
-		
 		//dim
-		public EnumLiteralDeclaration getDimEnumLiteralDeclaration_1() { return cDimEnumLiteralDeclaration_1; }
+		public EnumLiteralDeclaration getDimEnumLiteralDeclaration() { return cDimEnumLiteralDeclaration; }
 		
 		//'dim'
-		public Keyword getDimDimKeyword_1_0() { return cDimDimKeyword_1_0; }
+		public Keyword getDimDimKeyword_0() { return cDimDimKeyword_0; }
 	}
 	
 	private final BugsModelElements pBugsModel;
@@ -1282,8 +1296,9 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 	private final ExpressionElements pExpression;
 	private final TerminalExpressionElements pTerminalExpression;
 	private final DistributionOperatorElements eDistributionOperator;
-	private final DensityElements eDensity;
+	private final DensityOperatorElements eDensityOperator;
 	private final FunctionOperatorElements eFunctionOperator;
+	private final IntOperatorElements eIntOperator;
 	private final ArrayOperatorElements eArrayOperator;
 	
 	private final Grammar grammar;
@@ -1318,8 +1333,9 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.pExpression = new ExpressionElements();
 		this.pTerminalExpression = new TerminalExpressionElements();
 		this.eDistributionOperator = new DistributionOperatorElements();
-		this.eDensity = new DensityElements();
+		this.eDensityOperator = new DensityOperatorElements();
 		this.eFunctionOperator = new FunctionOperatorElements();
+		this.eIntOperator = new IntOperatorElements();
 		this.eArrayOperator = new ArrayOperatorElements();
 	}
 	
@@ -1424,7 +1440,7 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 	//// For instance :    V or length(V)
 	//// And these values can be combined in low and high value in the for loop
 	//ForIndex:
-	//	function=ArrayOperator '(' value=Index ')' | value=Index;
+	//	function=IntOperator '(' value=Index ')' | value=Index;
 	public ForIndexElements getForIndexAccess() {
 		return pForIndex;
 	}
@@ -1496,7 +1512,8 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//StochasticRelation:
-	//	{StochasticRelation} name=ArrayID '~' distrib=Density ('()' | '(' (params+=Expression (',' params+=Expression)*)
+	//	{StochasticRelation} name=ArrayID '~' distrib=DensityOperator ('()' | '(' (params+=Expression (','
+	//	params+=Expression)*)
 	//	')')?;
 	public StochasticRelationElements getStochasticRelationAccess() {
 		return pStochasticRelation;
@@ -1536,6 +1553,7 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getFunctionAccess().getRule();
 	}
 	
+	//// An array function is defined to use the ArrayOperator (only in data block). 
 	//ArrayFunction:
 	//	operation=ArrayOperator ('()' | '(' (=> (params+=Expression) (',' params+=Expression)* ')')?);
 	public ArrayFunctionElements getArrayFunctionAccess() {
@@ -1589,19 +1607,19 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getDistributionOperatorAccess().getRule();
 	}
 	
-	//enum Density:
+	//enum DensityOperator:
 	//	dnorm | dunif | dbeta | dgamma;
-	public DensityElements getDensityAccess() {
-		return eDensity;
+	public DensityOperatorElements getDensityOperatorAccess() {
+		return eDensityOperator;
 	}
 	
-	public EnumRule getDensityRule() {
-		return getDensityAccess().getRule();
+	public EnumRule getDensityOperatorRule() {
+		return getDensityOperatorAccess().getRule();
 	}
 	
 	//enum FunctionOperator:
 	//	acos | acosh | asin | asinh | atan | log | ep='exp' | c | mean |
-	//	sqrt;
+	//	sqrt | length;
 	public FunctionOperatorElements getFunctionOperatorAccess() {
 		return eFunctionOperator;
 	}
@@ -1610,8 +1628,18 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getFunctionOperatorAccess().getRule();
 	}
 	
+	//enum IntOperator:
+	//	length;
+	public IntOperatorElements getIntOperatorAccess() {
+		return eIntOperator;
+	}
+	
+	public EnumRule getIntOperatorRule() {
+		return getIntOperatorAccess().getRule();
+	}
+	
 	//enum ArrayOperator:
-	//	length | dim;
+	//	dim;
 	public ArrayOperatorElements getArrayOperatorAccess() {
 		return eArrayOperator;
 	}

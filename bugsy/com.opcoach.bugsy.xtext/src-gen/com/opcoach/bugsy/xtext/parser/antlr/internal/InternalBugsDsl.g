@@ -384,9 +384,9 @@ ruleForIndex returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getForIndexAccess().getFunctionArrayOperatorEnumRuleCall_0_0_0());
+						newCompositeNode(grammarAccess.getForIndexAccess().getFunctionIntOperatorEnumRuleCall_0_0_0());
 					}
-					lv_function_0_0=ruleArrayOperator
+					lv_function_0_0=ruleIntOperator
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getForIndexRule());
@@ -395,7 +395,7 @@ ruleForIndex returns [EObject current=null]
 							$current,
 							"function",
 							lv_function_0_0,
-							"com.opcoach.bugsy.xtext.BugsDsl.ArrayOperator");
+							"com.opcoach.bugsy.xtext.BugsDsl.IntOperator");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -883,9 +883,9 @@ ruleStochasticRelation returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getStochasticRelationAccess().getDistribDensityEnumRuleCall_3_0());
+					newCompositeNode(grammarAccess.getStochasticRelationAccess().getDistribDensityOperatorEnumRuleCall_3_0());
 				}
-				lv_distrib_3_0=ruleDensity
+				lv_distrib_3_0=ruleDensityOperator
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getStochasticRelationRule());
@@ -894,7 +894,7 @@ ruleStochasticRelation returns [EObject current=null]
 						$current,
 						"distrib",
 						lv_distrib_3_0,
-						"com.opcoach.bugsy.xtext.BugsDsl.Density");
+						"com.opcoach.bugsy.xtext.BugsDsl.DensityOperator");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -1743,8 +1743,8 @@ ruleDistributionOperator returns [Enumerator current=null]
 	)
 ;
 
-// Rule Density
-ruleDensity returns [Enumerator current=null]
+// Rule DensityOperator
+ruleDensityOperator returns [Enumerator current=null]
 @init {
 	enterRule();
 }
@@ -1755,32 +1755,32 @@ ruleDensity returns [Enumerator current=null]
 		(
 			enumLiteral_0='dnorm'
 			{
-				$current = grammarAccess.getDensityAccess().getDnormEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_0, grammarAccess.getDensityAccess().getDnormEnumLiteralDeclaration_0());
+				$current = grammarAccess.getDensityOperatorAccess().getDnormEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getDensityOperatorAccess().getDnormEnumLiteralDeclaration_0());
 			}
 		)
 		    |
 		(
 			enumLiteral_1='dunif'
 			{
-				$current = grammarAccess.getDensityAccess().getDunifEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_1, grammarAccess.getDensityAccess().getDunifEnumLiteralDeclaration_1());
+				$current = grammarAccess.getDensityOperatorAccess().getDunifEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getDensityOperatorAccess().getDunifEnumLiteralDeclaration_1());
 			}
 		)
 		    |
 		(
 			enumLiteral_2='dbeta'
 			{
-				$current = grammarAccess.getDensityAccess().getDbetaEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_2, grammarAccess.getDensityAccess().getDbetaEnumLiteralDeclaration_2());
+				$current = grammarAccess.getDensityOperatorAccess().getDbetaEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_2, grammarAccess.getDensityOperatorAccess().getDbetaEnumLiteralDeclaration_2());
 			}
 		)
 		    |
 		(
 			enumLiteral_3='dgamma'
 			{
-				$current = grammarAccess.getDensityAccess().getDgammaEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_3, grammarAccess.getDensityAccess().getDgammaEnumLiteralDeclaration_3());
+				$current = grammarAccess.getDensityOperatorAccess().getDgammaEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_3, grammarAccess.getDensityOperatorAccess().getDgammaEnumLiteralDeclaration_3());
 			}
 		)
 	)
@@ -1874,6 +1874,31 @@ ruleFunctionOperator returns [Enumerator current=null]
 				newLeafNode(enumLiteral_9, grammarAccess.getFunctionOperatorAccess().getSqrtEnumLiteralDeclaration_9());
 			}
 		)
+		    |
+		(
+			enumLiteral_10='length'
+			{
+				$current = grammarAccess.getFunctionOperatorAccess().getLengthEnumLiteralDeclaration_10().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_10, grammarAccess.getFunctionOperatorAccess().getLengthEnumLiteralDeclaration_10());
+			}
+		)
+	)
+;
+
+// Rule IntOperator
+ruleIntOperator returns [Enumerator current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		enumLiteral_0='length'
+		{
+			$current = grammarAccess.getIntOperatorAccess().getLengthEnumLiteralDeclaration().getEnumLiteral().getInstance();
+			newLeafNode(enumLiteral_0, grammarAccess.getIntOperatorAccess().getLengthEnumLiteralDeclaration());
+		}
 	)
 ;
 
@@ -1886,21 +1911,11 @@ ruleArrayOperator returns [Enumerator current=null]
 	leaveRule();
 }:
 	(
-		(
-			enumLiteral_0='length'
-			{
-				$current = grammarAccess.getArrayOperatorAccess().getLengthEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_0, grammarAccess.getArrayOperatorAccess().getLengthEnumLiteralDeclaration_0());
-			}
-		)
-		    |
-		(
-			enumLiteral_1='dim'
-			{
-				$current = grammarAccess.getArrayOperatorAccess().getDimEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_1, grammarAccess.getArrayOperatorAccess().getDimEnumLiteralDeclaration_1());
-			}
-		)
+		enumLiteral_0='dim'
+		{
+			$current = grammarAccess.getArrayOperatorAccess().getDimEnumLiteralDeclaration().getEnumLiteral().getInstance();
+			newLeafNode(enumLiteral_0, grammarAccess.getArrayOperatorAccess().getDimEnumLiteralDeclaration());
+		}
 	)
 ;
 

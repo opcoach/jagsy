@@ -26,7 +26,7 @@ public interface StochasticRelation extends Relation
 {
   /**
    * Returns the value of the '<em><b>Distrib</b></em>' attribute.
-   * The literals are from the enumeration {@link com.opcoach.bugsy.xtext.bugsDsl.Density}.
+   * The literals are from the enumeration {@link com.opcoach.bugsy.xtext.bugsDsl.DensityOperator}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Distrib</em>' attribute isn't clear,
@@ -34,24 +34,24 @@ public interface StochasticRelation extends Relation
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Distrib</em>' attribute.
-   * @see com.opcoach.bugsy.xtext.bugsDsl.Density
-   * @see #setDistrib(Density)
+   * @see com.opcoach.bugsy.xtext.bugsDsl.DensityOperator
+   * @see #setDistrib(DensityOperator)
    * @see com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage#getStochasticRelation_Distrib()
    * @model
    * @generated
    */
-  Density getDistrib();
+  DensityOperator getDistrib();
 
   /**
    * Sets the value of the '{@link com.opcoach.bugsy.xtext.bugsDsl.StochasticRelation#getDistrib <em>Distrib</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Distrib</em>' attribute.
-   * @see com.opcoach.bugsy.xtext.bugsDsl.Density
+   * @see com.opcoach.bugsy.xtext.bugsDsl.DensityOperator
    * @see #getDistrib()
    * @generated
    */
-  void setDistrib(Density value);
+  void setDistrib(DensityOperator value);
 
   /**
    * Returns the value of the '<em><b>Params</b></em>' containment reference list.

@@ -46,9 +46,8 @@ public class BugsDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDistributionAccess().getAlternatives_1(), "rule__Distribution__Alternatives_1");
 					put(grammarAccess.getTerminalExpressionAccess().getAlternatives(), "rule__TerminalExpression__Alternatives");
 					put(grammarAccess.getDistributionOperatorAccess().getAlternatives(), "rule__DistributionOperator__Alternatives");
-					put(grammarAccess.getDensityAccess().getAlternatives(), "rule__Density__Alternatives");
+					put(grammarAccess.getDensityOperatorAccess().getAlternatives(), "rule__DensityOperator__Alternatives");
 					put(grammarAccess.getFunctionOperatorAccess().getAlternatives(), "rule__FunctionOperator__Alternatives");
-					put(grammarAccess.getArrayOperatorAccess().getAlternatives(), "rule__ArrayOperator__Alternatives");
 					put(grammarAccess.getBugsModelAccess().getGroup(), "rule__BugsModel__Group__0");
 					put(grammarAccess.getBugsModelAccess().getGroup_1(), "rule__BugsModel__Group_1__0");
 					put(grammarAccess.getForAccess().getGroup(), "rule__For__Group__0");

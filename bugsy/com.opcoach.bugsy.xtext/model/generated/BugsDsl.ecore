@@ -17,7 +17,7 @@
         eType="#//Instruction" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ForIndex">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="function" eType="#//ArrayOperator"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="function" eType="#//IntOperator"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ForRange">
@@ -45,7 +45,7 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StochasticRelation" eSuperTypes="#//Relation">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="distrib" eType="#//Density"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="distrib" eType="#//DensityOperator"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="params" upperBound="-1"
         eType="#//Expression" containment="true"/>
   </eClassifiers>
@@ -101,7 +101,7 @@
     <eLiterals name="dt" value="14" literal="dt"/>
     <eLiterals name="dweib" value="15" literal="dweib"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="Density">
+  <eClassifiers xsi:type="ecore:EEnum" name="DensityOperator">
     <eLiterals name="dnorm" literal="dnorm"/>
     <eLiterals name="dunif" value="1" literal="dunif"/>
     <eLiterals name="dbeta" value="2" literal="dbeta"/>
@@ -118,9 +118,12 @@
     <eLiterals name="c" value="7" literal="c"/>
     <eLiterals name="mean" value="8" literal="mean"/>
     <eLiterals name="sqrt" value="9" literal="sqrt"/>
+    <eLiterals name="length" value="10" literal="length"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="IntOperator">
+    <eLiterals name="length" literal="length"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ArrayOperator">
-    <eLiterals name="length" literal="length"/>
-    <eLiterals name="dim" value="1" literal="dim"/>
+    <eLiterals name="dim" literal="dim"/>
   </eClassifiers>
 </ecore:EPackage>

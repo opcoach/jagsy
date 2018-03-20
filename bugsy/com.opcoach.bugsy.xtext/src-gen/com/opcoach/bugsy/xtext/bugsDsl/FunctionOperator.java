@@ -118,7 +118,17 @@ public enum FunctionOperator implements Enumerator
    * @generated
    * @ordered
    */
-  SQRT(9, "sqrt", "sqrt");
+  SQRT(9, "sqrt", "sqrt"),
+
+  /**
+   * The '<em><b>Length</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #LENGTH_VALUE
+   * @generated
+   * @ordered
+   */
+  LENGTH(10, "length", "length");
 
   /**
    * The '<em><b>Acos</b></em>' literal value.
@@ -271,6 +281,21 @@ public enum FunctionOperator implements Enumerator
   public static final int SQRT_VALUE = 9;
 
   /**
+   * The '<em><b>Length</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of '<em><b>Length</b></em>' literal object isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @see #LENGTH
+   * @model name="length"
+   * @generated
+   * @ordered
+   */
+  public static final int LENGTH_VALUE = 10;
+
+  /**
    * An array of all the '<em><b>Function Operator</b></em>' enumerators.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -289,6 +314,7 @@ public enum FunctionOperator implements Enumerator
       C,
       MEAN,
       SQRT,
+      LENGTH,
     };
 
   /**
@@ -363,6 +389,7 @@ public enum FunctionOperator implements Enumerator
       case C_VALUE: return C;
       case MEAN_VALUE: return MEAN;
       case SQRT_VALUE: return SQRT;
+      case LENGTH_VALUE: return LENGTH;
     }
     return null;
   }

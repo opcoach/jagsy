@@ -11,14 +11,14 @@ import org.eclipse.emf.common.util.Enumerator;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the literals of the enumeration '<em><b>Density</b></em>',
+ * A representation of the literals of the enumeration '<em><b>Density Operator</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage#getDensity()
+ * @see com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage#getDensityOperator()
  * @model
  * @generated
  */
-public enum Density implements Enumerator
+public enum DensityOperator implements Enumerator
 {
   /**
    * The '<em><b>Dnorm</b></em>' literal object.
@@ -121,13 +121,13 @@ public enum Density implements Enumerator
   public static final int DGAMMA_VALUE = 3;
 
   /**
-   * An array of all the '<em><b>Density</b></em>' enumerators.
+   * An array of all the '<em><b>Density Operator</b></em>' enumerators.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private static final Density[] VALUES_ARRAY =
-    new Density[]
+  private static final DensityOperator[] VALUES_ARRAY =
+    new DensityOperator[]
     {
       DNORM,
       DUNIF,
@@ -136,26 +136,26 @@ public enum Density implements Enumerator
     };
 
   /**
-   * A public read-only list of all the '<em><b>Density</b></em>' enumerators.
+   * A public read-only list of all the '<em><b>Density Operator</b></em>' enumerators.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  public static final List<Density> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+  public static final List<DensityOperator> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
   /**
-   * Returns the '<em><b>Density</b></em>' literal with the specified literal value.
+   * Returns the '<em><b>Density Operator</b></em>' literal with the specified literal value.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param literal the literal.
    * @return the matching enumerator or <code>null</code>.
    * @generated
    */
-  public static Density get(String literal)
+  public static DensityOperator get(String literal)
   {
     for (int i = 0; i < VALUES_ARRAY.length; ++i)
     {
-      Density result = VALUES_ARRAY[i];
+      DensityOperator result = VALUES_ARRAY[i];
       if (result.toString().equals(literal))
       {
         return result;
@@ -165,18 +165,18 @@ public enum Density implements Enumerator
   }
 
   /**
-   * Returns the '<em><b>Density</b></em>' literal with the specified name.
+   * Returns the '<em><b>Density Operator</b></em>' literal with the specified name.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param name the name.
    * @return the matching enumerator or <code>null</code>.
    * @generated
    */
-  public static Density getByName(String name)
+  public static DensityOperator getByName(String name)
   {
     for (int i = 0; i < VALUES_ARRAY.length; ++i)
     {
-      Density result = VALUES_ARRAY[i];
+      DensityOperator result = VALUES_ARRAY[i];
       if (result.getName().equals(name))
       {
         return result;
@@ -186,14 +186,14 @@ public enum Density implements Enumerator
   }
 
   /**
-   * Returns the '<em><b>Density</b></em>' literal with the specified integer value.
+   * Returns the '<em><b>Density Operator</b></em>' literal with the specified integer value.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the integer value.
    * @return the matching enumerator or <code>null</code>.
    * @generated
    */
-  public static Density get(int value)
+  public static DensityOperator get(int value)
   {
     switch (value)
     {
@@ -232,7 +232,7 @@ public enum Density implements Enumerator
    * <!-- end-user-doc -->
    * @generated
    */
-  private Density(int value, String name, String literal)
+  private DensityOperator(int value, String name, String literal)
   {
     this.value = value;
     this.name = name;
@@ -281,4 +281,4 @@ public enum Density implements Enumerator
     return literal;
   }
   
-} //Density
+} //DensityOperator

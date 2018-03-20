@@ -26,7 +26,7 @@ public interface ForIndex extends EObject
 {
   /**
    * Returns the value of the '<em><b>Function</b></em>' attribute.
-   * The literals are from the enumeration {@link com.opcoach.bugsy.xtext.bugsDsl.ArrayOperator}.
+   * The literals are from the enumeration {@link com.opcoach.bugsy.xtext.bugsDsl.IntOperator}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Function</em>' attribute isn't clear,
@@ -34,24 +34,24 @@ public interface ForIndex extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Function</em>' attribute.
-   * @see com.opcoach.bugsy.xtext.bugsDsl.ArrayOperator
-   * @see #setFunction(ArrayOperator)
+   * @see com.opcoach.bugsy.xtext.bugsDsl.IntOperator
+   * @see #setFunction(IntOperator)
    * @see com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage#getForIndex_Function()
    * @model
    * @generated
    */
-  ArrayOperator getFunction();
+  IntOperator getFunction();
 
   /**
    * Sets the value of the '{@link com.opcoach.bugsy.xtext.bugsDsl.ForIndex#getFunction <em>Function</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Function</em>' attribute.
-   * @see com.opcoach.bugsy.xtext.bugsDsl.ArrayOperator
+   * @see com.opcoach.bugsy.xtext.bugsDsl.IntOperator
    * @see #getFunction()
    * @generated
    */
-  void setFunction(ArrayOperator value);
+  void setFunction(IntOperator value);
 
   /**
    * Returns the value of the '<em><b>Value</b></em>' attribute.

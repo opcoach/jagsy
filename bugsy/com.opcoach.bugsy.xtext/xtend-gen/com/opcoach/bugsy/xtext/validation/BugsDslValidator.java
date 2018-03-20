@@ -5,7 +5,6 @@ package com.opcoach.bugsy.xtext.validation;
 
 import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
-import com.opcoach.bugsy.xtext.bugsDsl.ArrayFunction;
 import com.opcoach.bugsy.xtext.bugsDsl.ArrayID;
 import com.opcoach.bugsy.xtext.bugsDsl.ArrayRange;
 import com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage;
@@ -114,8 +113,8 @@ public class BugsDslValidator extends AbstractBugsDslValidator {
   @Check
   public void checkCorrectOperatorsInRelations(final Expression e) {
     if ((this.isInModelPart(e) && (e.getArrayFunction() != null))) {
-      ArrayFunction _arrayFunction = e.getArrayFunction();
-      String _plus = ("This expression uses an array function ( " + _arrayFunction);
+      String _name = e.getArrayFunction().getOperation().getName();
+      String _plus = ("This expression uses an array function ( " + _name);
       String _plus_1 = (_plus + ") which is available only in a data block");
       this.error(_plus_1, 
         BugsDslPackage.Literals.EXPRESSION__ARRAY_FUNCTION, BugsDslValidator.CHECK_ARRAY_FUNCTION_ONLY_IN_DATA_BLOCK);

@@ -271,6 +271,18 @@ class BugsDslParsingTest {
 		println("Errors in Issue 16 : " + result.eResource.errors)
 		Assert.assertTrue(result.eResource.errors.isEmpty)
 	}
+		@Test
+	def void testIssue26_lengthRaisesAnError() {
+		// See : https://github.com/opcoach/jagsy/issues/26
+		val result = parseHelper.parse('''
+			model{
+			A <- length(B)
+			}
+		''')
+		Assert.assertNotNull(result)
+		println("Errors in Issue 26 : " + result.eResource.errors)
+		Assert.assertTrue(result.eResource.errors.isEmpty)
+	}
 	
 	
 

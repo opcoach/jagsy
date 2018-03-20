@@ -99,7 +99,7 @@ class BugsDslValidator extends AbstractBugsDslValidator {
 		// Check in the model Part that no array functions are used...
 		if (e.isInModelPart && e.arrayFunction !== null)
 		{
-				error("This expression uses an array function ( " + e.arrayFunction + ") which is available only in a data block",  
+				error("This expression uses an array function ( " + e.arrayFunction.getOperation().getName() + ") which is available only in a data block",  
 				BugsDslPackage.Literals.EXPRESSION__ARRAY_FUNCTION, CHECK_ARRAY_FUNCTION_ONLY_IN_DATA_BLOCK)
 		}
 		

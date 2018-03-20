@@ -3,9 +3,9 @@
  */
 package com.opcoach.bugsy.xtext.bugsDsl.impl;
 
-import com.opcoach.bugsy.xtext.bugsDsl.ArrayOperator;
 import com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage;
 import com.opcoach.bugsy.xtext.bugsDsl.ForIndex;
+import com.opcoach.bugsy.xtext.bugsDsl.IntOperator;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -38,7 +38,7 @@ public class ForIndexImpl extends MinimalEObjectImpl.Container implements ForInd
    * @generated
    * @ordered
    */
-  protected static final ArrayOperator FUNCTION_EDEFAULT = ArrayOperator.LENGTH;
+  protected static final IntOperator FUNCTION_EDEFAULT = IntOperator.LENGTH;
 
   /**
    * The cached value of the '{@link #getFunction() <em>Function</em>}' attribute.
@@ -48,7 +48,7 @@ public class ForIndexImpl extends MinimalEObjectImpl.Container implements ForInd
    * @generated
    * @ordered
    */
-  protected ArrayOperator function = FUNCTION_EDEFAULT;
+  protected IntOperator function = FUNCTION_EDEFAULT;
 
   /**
    * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -96,7 +96,7 @@ public class ForIndexImpl extends MinimalEObjectImpl.Container implements ForInd
    * <!-- end-user-doc -->
    * @generated
    */
-  public ArrayOperator getFunction()
+  public IntOperator getFunction()
   {
     return function;
   }
@@ -106,9 +106,9 @@ public class ForIndexImpl extends MinimalEObjectImpl.Container implements ForInd
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setFunction(ArrayOperator newFunction)
+  public void setFunction(IntOperator newFunction)
   {
-    ArrayOperator oldFunction = function;
+    IntOperator oldFunction = function;
     function = newFunction == null ? FUNCTION_EDEFAULT : newFunction;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, BugsDslPackage.FOR_INDEX__FUNCTION, oldFunction, function));
@@ -166,7 +166,7 @@ public class ForIndexImpl extends MinimalEObjectImpl.Container implements ForInd
     switch (featureID)
     {
       case BugsDslPackage.FOR_INDEX__FUNCTION:
-        setFunction((ArrayOperator)newValue);
+        setFunction((IntOperator)newValue);
         return;
       case BugsDslPackage.FOR_INDEX__VALUE:
         setValue((String)newValue);

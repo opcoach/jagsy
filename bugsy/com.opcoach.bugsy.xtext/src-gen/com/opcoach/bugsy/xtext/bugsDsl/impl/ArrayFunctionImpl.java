@@ -48,7 +48,7 @@ public class ArrayFunctionImpl extends MinimalEObjectImpl.Container implements A
    * @generated
    * @ordered
    */
-  protected static final ArrayOperator OPERATION_EDEFAULT = ArrayOperator.LENGTH;
+  protected static final ArrayOperator OPERATION_EDEFAULT = ArrayOperator.DIM;
 
   /**
    * The cached value of the '{@link #getOperation() <em>Operation</em>}' attribute.

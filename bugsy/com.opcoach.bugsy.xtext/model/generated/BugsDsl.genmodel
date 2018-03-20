@@ -24,11 +24,11 @@
       <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//DistributionOperator/dt"/>
       <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//DistributionOperator/dweib"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="BugsDsl.ecore#//Density">
-      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//Density/dnorm"/>
-      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//Density/dunif"/>
-      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//Density/dbeta"/>
-      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//Density/dgamma"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="BugsDsl.ecore#//DensityOperator">
+      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//DensityOperator/dnorm"/>
+      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//DensityOperator/dunif"/>
+      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//DensityOperator/dbeta"/>
+      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//DensityOperator/dgamma"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="BugsDsl.ecore#//FunctionOperator">
       <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//FunctionOperator/acos"/>
@@ -41,9 +41,12 @@
       <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//FunctionOperator/c"/>
       <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//FunctionOperator/mean"/>
       <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//FunctionOperator/sqrt"/>
+      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//FunctionOperator/length"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="BugsDsl.ecore#//IntOperator">
+      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//IntOperator/length"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="BugsDsl.ecore#//ArrayOperator">
-      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//ArrayOperator/length"/>
       <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//ArrayOperator/dim"/>
     </genEnums>
     <genClasses ecoreClass="BugsDsl.ecore#//BugsModel">

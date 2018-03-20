@@ -660,14 +660,14 @@ public interface BugsDslPackage extends EPackage
   int DISTRIBUTION_OPERATOR = 15;
 
   /**
-   * The meta object id for the '{@link com.opcoach.bugsy.xtext.bugsDsl.Density <em>Density</em>}' enum.
+   * The meta object id for the '{@link com.opcoach.bugsy.xtext.bugsDsl.DensityOperator <em>Density Operator</em>}' enum.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see com.opcoach.bugsy.xtext.bugsDsl.Density
-   * @see com.opcoach.bugsy.xtext.bugsDsl.impl.BugsDslPackageImpl#getDensity()
+   * @see com.opcoach.bugsy.xtext.bugsDsl.DensityOperator
+   * @see com.opcoach.bugsy.xtext.bugsDsl.impl.BugsDslPackageImpl#getDensityOperator()
    * @generated
    */
-  int DENSITY = 16;
+  int DENSITY_OPERATOR = 16;
 
   /**
    * The meta object id for the '{@link com.opcoach.bugsy.xtext.bugsDsl.FunctionOperator <em>Function Operator</em>}' enum.
@@ -680,6 +680,16 @@ public interface BugsDslPackage extends EPackage
   int FUNCTION_OPERATOR = 17;
 
   /**
+   * The meta object id for the '{@link com.opcoach.bugsy.xtext.bugsDsl.IntOperator <em>Int Operator</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.opcoach.bugsy.xtext.bugsDsl.IntOperator
+   * @see com.opcoach.bugsy.xtext.bugsDsl.impl.BugsDslPackageImpl#getIntOperator()
+   * @generated
+   */
+  int INT_OPERATOR = 18;
+
+  /**
    * The meta object id for the '{@link com.opcoach.bugsy.xtext.bugsDsl.ArrayOperator <em>Array Operator</em>}' enum.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -687,7 +697,7 @@ public interface BugsDslPackage extends EPackage
    * @see com.opcoach.bugsy.xtext.bugsDsl.impl.BugsDslPackageImpl#getArrayOperator()
    * @generated
    */
-  int ARRAY_OPERATOR = 18;
+  int ARRAY_OPERATOR = 19;
 
 
   /**
@@ -1203,14 +1213,14 @@ public interface BugsDslPackage extends EPackage
   EEnum getDistributionOperator();
 
   /**
-   * Returns the meta object for enum '{@link com.opcoach.bugsy.xtext.bugsDsl.Density <em>Density</em>}'.
+   * Returns the meta object for enum '{@link com.opcoach.bugsy.xtext.bugsDsl.DensityOperator <em>Density Operator</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for enum '<em>Density</em>'.
-   * @see com.opcoach.bugsy.xtext.bugsDsl.Density
+   * @return the meta object for enum '<em>Density Operator</em>'.
+   * @see com.opcoach.bugsy.xtext.bugsDsl.DensityOperator
    * @generated
    */
-  EEnum getDensity();
+  EEnum getDensityOperator();
 
   /**
    * Returns the meta object for enum '{@link com.opcoach.bugsy.xtext.bugsDsl.FunctionOperator <em>Function Operator</em>}'.
@@ -1221,6 +1231,16 @@ public interface BugsDslPackage extends EPackage
    * @generated
    */
   EEnum getFunctionOperator();
+
+  /**
+   * Returns the meta object for enum '{@link com.opcoach.bugsy.xtext.bugsDsl.IntOperator <em>Int Operator</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>Int Operator</em>'.
+   * @see com.opcoach.bugsy.xtext.bugsDsl.IntOperator
+   * @generated
+   */
+  EEnum getIntOperator();
 
   /**
    * Returns the meta object for enum '{@link com.opcoach.bugsy.xtext.bugsDsl.ArrayOperator <em>Array Operator</em>}'.
@@ -1672,14 +1692,14 @@ public interface BugsDslPackage extends EPackage
     EEnum DISTRIBUTION_OPERATOR = eINSTANCE.getDistributionOperator();
 
     /**
-     * The meta object literal for the '{@link com.opcoach.bugsy.xtext.bugsDsl.Density <em>Density</em>}' enum.
+     * The meta object literal for the '{@link com.opcoach.bugsy.xtext.bugsDsl.DensityOperator <em>Density Operator</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see com.opcoach.bugsy.xtext.bugsDsl.Density
-     * @see com.opcoach.bugsy.xtext.bugsDsl.impl.BugsDslPackageImpl#getDensity()
+     * @see com.opcoach.bugsy.xtext.bugsDsl.DensityOperator
+     * @see com.opcoach.bugsy.xtext.bugsDsl.impl.BugsDslPackageImpl#getDensityOperator()
      * @generated
      */
-    EEnum DENSITY = eINSTANCE.getDensity();
+    EEnum DENSITY_OPERATOR = eINSTANCE.getDensityOperator();
 
     /**
      * The meta object literal for the '{@link com.opcoach.bugsy.xtext.bugsDsl.FunctionOperator <em>Function Operator</em>}' enum.
@@ -1690,6 +1710,16 @@ public interface BugsDslPackage extends EPackage
      * @generated
      */
     EEnum FUNCTION_OPERATOR = eINSTANCE.getFunctionOperator();
+
+    /**
+     * The meta object literal for the '{@link com.opcoach.bugsy.xtext.bugsDsl.IntOperator <em>Int Operator</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.opcoach.bugsy.xtext.bugsDsl.IntOperator
+     * @see com.opcoach.bugsy.xtext.bugsDsl.impl.BugsDslPackageImpl#getIntOperator()
+     * @generated
+     */
+    EEnum INT_OPERATOR = eINSTANCE.getIntOperator();
 
     /**
      * The meta object literal for the '{@link com.opcoach.bugsy.xtext.bugsDsl.ArrayOperator <em>Array Operator</em>}' enum.

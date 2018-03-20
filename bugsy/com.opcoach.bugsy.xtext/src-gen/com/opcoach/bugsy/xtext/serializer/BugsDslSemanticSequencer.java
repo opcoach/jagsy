@@ -187,7 +187,7 @@ public class BugsDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     ForIndex returns ForIndex
 	 *
 	 * Constraint:
-	 *     ((function=ArrayOperator value=Index) | value=Index)
+	 *     ((function=IntOperator value=Index) | value=Index)
 	 */
 	protected void sequence_ForIndex(ISerializationContext context, ForIndex semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -247,7 +247,7 @@ public class BugsDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     StochasticRelation returns StochasticRelation
 	 *
 	 * Constraint:
-	 *     (name=ArrayID distrib=Density (params+=Expression params+=Expression*)?)
+	 *     (name=ArrayID distrib=DensityOperator (params+=Expression params+=Expression*)?)
 	 */
 	protected void sequence_StochasticRelation(ISerializationContext context, StochasticRelation semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
