@@ -35,7 +35,7 @@ Index:
 	// For Index are used to declare an index on an array or on a function of on array. 
 	// For instance :    V or length(V)
 	// And these values can be combined in low and high value in the for loop
-ForIndex :  (function=ArrayFunction '(' value=Index  ')' ) | value=Index;
+ForIndex :  (function=ArrayOperator '(' value=Index  ')' ) | value=Index;
 
  // ForRange is used to declare low and high range in a For loop
 ForRange : low=ForIndex ':' high=ForIndex;
@@ -68,6 +68,10 @@ Operator:
 Function:
 	operation=FunctionOperator ('()' | '(' (=> (params+=Expression) (',' (params+=Expression))* ')')?);
 
+ArrayFunction:
+	operation=ArrayOperator ('()' | '(' (=> (params+=Expression) (',' (params+=Expression))* ')')?);
+
+
 Distribution:
 	distrib=DistributionOperator ('()' | '(' (=> (params+=Expression) (',' (params+=Expression))* ')')?);
 
@@ -75,8 +79,9 @@ Expression:
 	TerminalExpression ({Expression.left=current} op=Operator
 	right=TerminalExpression)*;
 
+  // Terminal expressions are used both in model and data, but for model, the validation will check that no arrayFunctions are used 
 TerminalExpression returns Expression:
-	'(' Expression ')' | (value=Value) | (function=Function) | (distribution=Distribution);
+	'(' Expression ')' | (value=Value) | (function=Function) | (distribution=Distribution) | (arrayFunction = ArrayFunction);
 
 enum DistributionOperator:
 	dbern='dbern' | dbin='dbin' | dchisqr='dchisqr' | ddexp='ddexp' | dexp='dexp' | df='df' |
@@ -90,6 +95,6 @@ enum FunctionOperator:
 	acos='acos' | acosh='acosh' | asin='asin' | asinh='asinh' | atan='atan' | log='log' | ep='exp' | c='c' | mean='mean' |
 	sqrt='sqrt';
 	
-enum ArrayFunction : length = 'length';
+enum ArrayOperator : length = 'length' | dim = 'dim';
 
 

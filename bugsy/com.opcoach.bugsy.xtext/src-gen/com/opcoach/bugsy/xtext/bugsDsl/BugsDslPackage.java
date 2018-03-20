@@ -494,6 +494,43 @@ public interface BugsDslPackage extends EPackage
   int FUNCTION_FEATURE_COUNT = 2;
 
   /**
+   * The meta object id for the '{@link com.opcoach.bugsy.xtext.bugsDsl.impl.ArrayFunctionImpl <em>Array Function</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.opcoach.bugsy.xtext.bugsDsl.impl.ArrayFunctionImpl
+   * @see com.opcoach.bugsy.xtext.bugsDsl.impl.BugsDslPackageImpl#getArrayFunction()
+   * @generated
+   */
+  int ARRAY_FUNCTION = 12;
+
+  /**
+   * The feature id for the '<em><b>Operation</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_FUNCTION__OPERATION = 0;
+
+  /**
+   * The feature id for the '<em><b>Params</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_FUNCTION__PARAMS = 1;
+
+  /**
+   * The number of structural features of the '<em>Array Function</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_FUNCTION_FEATURE_COUNT = 2;
+
+  /**
    * The meta object id for the '{@link com.opcoach.bugsy.xtext.bugsDsl.impl.DistributionImpl <em>Distribution</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -501,7 +538,7 @@ public interface BugsDslPackage extends EPackage
    * @see com.opcoach.bugsy.xtext.bugsDsl.impl.BugsDslPackageImpl#getDistribution()
    * @generated
    */
-  int DISTRIBUTION = 12;
+  int DISTRIBUTION = 13;
 
   /**
    * The feature id for the '<em><b>Distrib</b></em>' attribute.
@@ -538,7 +575,7 @@ public interface BugsDslPackage extends EPackage
    * @see com.opcoach.bugsy.xtext.bugsDsl.impl.BugsDslPackageImpl#getExpression()
    * @generated
    */
-  int EXPRESSION = 13;
+  int EXPRESSION = 14;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -595,13 +632,22 @@ public interface BugsDslPackage extends EPackage
   int EXPRESSION__DISTRIBUTION = 5;
 
   /**
+   * The feature id for the '<em><b>Array Function</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION__ARRAY_FUNCTION = 6;
+
+  /**
    * The number of structural features of the '<em>Expression</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPRESSION_FEATURE_COUNT = 6;
+  int EXPRESSION_FEATURE_COUNT = 7;
 
   /**
    * The meta object id for the '{@link com.opcoach.bugsy.xtext.bugsDsl.DistributionOperator <em>Distribution Operator</em>}' enum.
@@ -611,7 +657,7 @@ public interface BugsDslPackage extends EPackage
    * @see com.opcoach.bugsy.xtext.bugsDsl.impl.BugsDslPackageImpl#getDistributionOperator()
    * @generated
    */
-  int DISTRIBUTION_OPERATOR = 14;
+  int DISTRIBUTION_OPERATOR = 15;
 
   /**
    * The meta object id for the '{@link com.opcoach.bugsy.xtext.bugsDsl.Density <em>Density</em>}' enum.
@@ -621,7 +667,7 @@ public interface BugsDslPackage extends EPackage
    * @see com.opcoach.bugsy.xtext.bugsDsl.impl.BugsDslPackageImpl#getDensity()
    * @generated
    */
-  int DENSITY = 15;
+  int DENSITY = 16;
 
   /**
    * The meta object id for the '{@link com.opcoach.bugsy.xtext.bugsDsl.FunctionOperator <em>Function Operator</em>}' enum.
@@ -631,17 +677,17 @@ public interface BugsDslPackage extends EPackage
    * @see com.opcoach.bugsy.xtext.bugsDsl.impl.BugsDslPackageImpl#getFunctionOperator()
    * @generated
    */
-  int FUNCTION_OPERATOR = 16;
+  int FUNCTION_OPERATOR = 17;
 
   /**
-   * The meta object id for the '{@link com.opcoach.bugsy.xtext.bugsDsl.ArrayFunction <em>Array Function</em>}' enum.
+   * The meta object id for the '{@link com.opcoach.bugsy.xtext.bugsDsl.ArrayOperator <em>Array Operator</em>}' enum.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see com.opcoach.bugsy.xtext.bugsDsl.ArrayFunction
-   * @see com.opcoach.bugsy.xtext.bugsDsl.impl.BugsDslPackageImpl#getArrayFunction()
+   * @see com.opcoach.bugsy.xtext.bugsDsl.ArrayOperator
+   * @see com.opcoach.bugsy.xtext.bugsDsl.impl.BugsDslPackageImpl#getArrayOperator()
    * @generated
    */
-  int ARRAY_FUNCTION = 17;
+  int ARRAY_OPERATOR = 18;
 
 
   /**
@@ -996,6 +1042,38 @@ public interface BugsDslPackage extends EPackage
   EReference getFunction_Params();
 
   /**
+   * Returns the meta object for class '{@link com.opcoach.bugsy.xtext.bugsDsl.ArrayFunction <em>Array Function</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Array Function</em>'.
+   * @see com.opcoach.bugsy.xtext.bugsDsl.ArrayFunction
+   * @generated
+   */
+  EClass getArrayFunction();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.opcoach.bugsy.xtext.bugsDsl.ArrayFunction#getOperation <em>Operation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Operation</em>'.
+   * @see com.opcoach.bugsy.xtext.bugsDsl.ArrayFunction#getOperation()
+   * @see #getArrayFunction()
+   * @generated
+   */
+  EAttribute getArrayFunction_Operation();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link com.opcoach.bugsy.xtext.bugsDsl.ArrayFunction#getParams <em>Params</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Params</em>'.
+   * @see com.opcoach.bugsy.xtext.bugsDsl.ArrayFunction#getParams()
+   * @see #getArrayFunction()
+   * @generated
+   */
+  EReference getArrayFunction_Params();
+
+  /**
    * Returns the meta object for class '{@link com.opcoach.bugsy.xtext.bugsDsl.Distribution <em>Distribution</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1104,6 +1182,17 @@ public interface BugsDslPackage extends EPackage
   EReference getExpression_Distribution();
 
   /**
+   * Returns the meta object for the containment reference '{@link com.opcoach.bugsy.xtext.bugsDsl.Expression#getArrayFunction <em>Array Function</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Array Function</em>'.
+   * @see com.opcoach.bugsy.xtext.bugsDsl.Expression#getArrayFunction()
+   * @see #getExpression()
+   * @generated
+   */
+  EReference getExpression_ArrayFunction();
+
+  /**
    * Returns the meta object for enum '{@link com.opcoach.bugsy.xtext.bugsDsl.DistributionOperator <em>Distribution Operator</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1134,14 +1223,14 @@ public interface BugsDslPackage extends EPackage
   EEnum getFunctionOperator();
 
   /**
-   * Returns the meta object for enum '{@link com.opcoach.bugsy.xtext.bugsDsl.ArrayFunction <em>Array Function</em>}'.
+   * Returns the meta object for enum '{@link com.opcoach.bugsy.xtext.bugsDsl.ArrayOperator <em>Array Operator</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for enum '<em>Array Function</em>'.
-   * @see com.opcoach.bugsy.xtext.bugsDsl.ArrayFunction
+   * @return the meta object for enum '<em>Array Operator</em>'.
+   * @see com.opcoach.bugsy.xtext.bugsDsl.ArrayOperator
    * @generated
    */
-  EEnum getArrayFunction();
+  EEnum getArrayOperator();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -1455,6 +1544,32 @@ public interface BugsDslPackage extends EPackage
     EReference FUNCTION__PARAMS = eINSTANCE.getFunction_Params();
 
     /**
+     * The meta object literal for the '{@link com.opcoach.bugsy.xtext.bugsDsl.impl.ArrayFunctionImpl <em>Array Function</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.opcoach.bugsy.xtext.bugsDsl.impl.ArrayFunctionImpl
+     * @see com.opcoach.bugsy.xtext.bugsDsl.impl.BugsDslPackageImpl#getArrayFunction()
+     * @generated
+     */
+    EClass ARRAY_FUNCTION = eINSTANCE.getArrayFunction();
+
+    /**
+     * The meta object literal for the '<em><b>Operation</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ARRAY_FUNCTION__OPERATION = eINSTANCE.getArrayFunction_Operation();
+
+    /**
+     * The meta object literal for the '<em><b>Params</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARRAY_FUNCTION__PARAMS = eINSTANCE.getArrayFunction_Params();
+
+    /**
      * The meta object literal for the '{@link com.opcoach.bugsy.xtext.bugsDsl.impl.DistributionImpl <em>Distribution</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1539,6 +1654,14 @@ public interface BugsDslPackage extends EPackage
     EReference EXPRESSION__DISTRIBUTION = eINSTANCE.getExpression_Distribution();
 
     /**
+     * The meta object literal for the '<em><b>Array Function</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPRESSION__ARRAY_FUNCTION = eINSTANCE.getExpression_ArrayFunction();
+
+    /**
      * The meta object literal for the '{@link com.opcoach.bugsy.xtext.bugsDsl.DistributionOperator <em>Distribution Operator</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1569,14 +1692,14 @@ public interface BugsDslPackage extends EPackage
     EEnum FUNCTION_OPERATOR = eINSTANCE.getFunctionOperator();
 
     /**
-     * The meta object literal for the '{@link com.opcoach.bugsy.xtext.bugsDsl.ArrayFunction <em>Array Function</em>}' enum.
+     * The meta object literal for the '{@link com.opcoach.bugsy.xtext.bugsDsl.ArrayOperator <em>Array Operator</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see com.opcoach.bugsy.xtext.bugsDsl.ArrayFunction
-     * @see com.opcoach.bugsy.xtext.bugsDsl.impl.BugsDslPackageImpl#getArrayFunction()
+     * @see com.opcoach.bugsy.xtext.bugsDsl.ArrayOperator
+     * @see com.opcoach.bugsy.xtext.bugsDsl.impl.BugsDslPackageImpl#getArrayOperator()
      * @generated
      */
-    EEnum ARRAY_FUNCTION = eINSTANCE.getArrayFunction();
+    EEnum ARRAY_OPERATOR = eINSTANCE.getArrayOperator();
 
   }
 

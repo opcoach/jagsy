@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.Expression#getValue <em>Value</em>}</li>
  *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.Expression#getFunction <em>Function</em>}</li>
  *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.Expression#getDistribution <em>Distribution</em>}</li>
+ *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.Expression#getArrayFunction <em>Array Function</em>}</li>
  * </ul>
  *
  * @see com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage#getExpression()
@@ -183,5 +184,31 @@ public interface Expression extends EObject
    * @generated
    */
   void setDistribution(Distribution value);
+
+  /**
+   * Returns the value of the '<em><b>Array Function</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Array Function</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Array Function</em>' containment reference.
+   * @see #setArrayFunction(ArrayFunction)
+   * @see com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage#getExpression_ArrayFunction()
+   * @model containment="true"
+   * @generated
+   */
+  ArrayFunction getArrayFunction();
+
+  /**
+   * Sets the value of the '{@link com.opcoach.bugsy.xtext.bugsDsl.Expression#getArrayFunction <em>Array Function</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Array Function</em>' containment reference.
+   * @see #getArrayFunction()
+   * @generated
+   */
+  void setArrayFunction(ArrayFunction value);
 
 } // Expression

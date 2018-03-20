@@ -384,9 +384,9 @@ ruleForIndex returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getForIndexAccess().getFunctionArrayFunctionEnumRuleCall_0_0_0());
+						newCompositeNode(grammarAccess.getForIndexAccess().getFunctionArrayOperatorEnumRuleCall_0_0_0());
 					}
-					lv_function_0_0=ruleArrayFunction
+					lv_function_0_0=ruleArrayOperator
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getForIndexRule());
@@ -395,7 +395,7 @@ ruleForIndex returns [EObject current=null]
 							$current,
 							"function",
 							lv_function_0_0,
-							"com.opcoach.bugsy.xtext.BugsDsl.ArrayFunction");
+							"com.opcoach.bugsy.xtext.BugsDsl.ArrayOperator");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -1195,6 +1195,115 @@ ruleFunction returns [EObject current=null]
 	)
 ;
 
+// Entry rule entryRuleArrayFunction
+entryRuleArrayFunction returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getArrayFunctionRule()); }
+	iv_ruleArrayFunction=ruleArrayFunction
+	{ $current=$iv_ruleArrayFunction.current; }
+	EOF;
+
+// Rule ArrayFunction
+ruleArrayFunction returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getArrayFunctionAccess().getOperationArrayOperatorEnumRuleCall_0_0());
+				}
+				lv_operation_0_0=ruleArrayOperator
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getArrayFunctionRule());
+					}
+					set(
+						$current,
+						"operation",
+						lv_operation_0_0,
+						"com.opcoach.bugsy.xtext.BugsDsl.ArrayOperator");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			otherlv_1='()'
+			{
+				newLeafNode(otherlv_1, grammarAccess.getArrayFunctionAccess().getLeftParenthesisRightParenthesisKeyword_1_0());
+			}
+			    |
+			(
+				otherlv_2='('
+				{
+					newLeafNode(otherlv_2, grammarAccess.getArrayFunctionAccess().getLeftParenthesisKeyword_1_1_0());
+				}
+				(
+					(
+						((
+							(
+								ruleExpression
+							)
+						)
+						)=>
+						(
+							(
+								{
+									newCompositeNode(grammarAccess.getArrayFunctionAccess().getParamsExpressionParserRuleCall_1_1_1_0_0_0());
+								}
+								lv_params_3_0=ruleExpression
+								{
+									if ($current==null) {
+										$current = createModelElementForParent(grammarAccess.getArrayFunctionRule());
+									}
+									add(
+										$current,
+										"params",
+										lv_params_3_0,
+										"com.opcoach.bugsy.xtext.BugsDsl.Expression");
+									afterParserOrEnumRuleCall();
+								}
+							)
+						)
+					)
+					(
+						otherlv_4=','
+						{
+							newLeafNode(otherlv_4, grammarAccess.getArrayFunctionAccess().getCommaKeyword_1_1_1_1_0());
+						}
+						(
+							(
+								{
+									newCompositeNode(grammarAccess.getArrayFunctionAccess().getParamsExpressionParserRuleCall_1_1_1_1_1_0());
+								}
+								lv_params_5_0=ruleExpression
+								{
+									if ($current==null) {
+										$current = createModelElementForParent(grammarAccess.getArrayFunctionRule());
+									}
+									add(
+										$current,
+										"params",
+										lv_params_5_0,
+										"com.opcoach.bugsy.xtext.BugsDsl.Expression");
+									afterParserOrEnumRuleCall();
+								}
+							)
+						)
+					)*
+					otherlv_6=')'
+					{
+						newLeafNode(otherlv_6, grammarAccess.getArrayFunctionAccess().getRightParenthesisKeyword_1_1_1_2());
+					}
+				)?
+			)
+		)
+	)
+;
+
 // Entry rule entryRuleDistribution
 entryRuleDistribution returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getDistributionRule()); }
@@ -1468,6 +1577,26 @@ ruleTerminalExpression returns [EObject current=null]
 						"distribution",
 						lv_distribution_5_0,
 						"com.opcoach.bugsy.xtext.BugsDsl.Distribution");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		    |
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getTerminalExpressionAccess().getArrayFunctionArrayFunctionParserRuleCall_4_0());
+				}
+				lv_arrayFunction_6_0=ruleArrayFunction
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getTerminalExpressionRule());
+					}
+					set(
+						$current,
+						"arrayFunction",
+						lv_arrayFunction_6_0,
+						"com.opcoach.bugsy.xtext.BugsDsl.ArrayFunction");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -1748,8 +1877,8 @@ ruleFunctionOperator returns [Enumerator current=null]
 	)
 ;
 
-// Rule ArrayFunction
-ruleArrayFunction returns [Enumerator current=null]
+// Rule ArrayOperator
+ruleArrayOperator returns [Enumerator current=null]
 @init {
 	enterRule();
 }
@@ -1757,11 +1886,21 @@ ruleArrayFunction returns [Enumerator current=null]
 	leaveRule();
 }:
 	(
-		enumLiteral_0='length'
-		{
-			$current = grammarAccess.getArrayFunctionAccess().getLengthEnumLiteralDeclaration().getEnumLiteral().getInstance();
-			newLeafNode(enumLiteral_0, grammarAccess.getArrayFunctionAccess().getLengthEnumLiteralDeclaration());
-		}
+		(
+			enumLiteral_0='length'
+			{
+				$current = grammarAccess.getArrayOperatorAccess().getLengthEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getArrayOperatorAccess().getLengthEnumLiteralDeclaration_0());
+			}
+		)
+		    |
+		(
+			enumLiteral_1='dim'
+			{
+				$current = grammarAccess.getArrayOperatorAccess().getDimEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getArrayOperatorAccess().getDimEnumLiteralDeclaration_1());
+			}
+		)
 	)
 ;
 

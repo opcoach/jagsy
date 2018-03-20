@@ -3,201 +3,72 @@
  */
 package com.opcoach.bugsy.xtext.bugsDsl;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.common.util.Enumerator;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the literals of the enumeration '<em><b>Array Function</b></em>',
- * and utility methods for working with them.
+ * A representation of the model object '<em><b>Array Function</b></em>'.
  * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.ArrayFunction#getOperation <em>Operation</em>}</li>
+ *   <li>{@link com.opcoach.bugsy.xtext.bugsDsl.ArrayFunction#getParams <em>Params</em>}</li>
+ * </ul>
+ *
  * @see com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage#getArrayFunction()
  * @model
  * @generated
  */
-public enum ArrayFunction implements Enumerator
+public interface ArrayFunction extends EObject
 {
   /**
-   * The '<em><b>Length</b></em>' literal object.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #LENGTH_VALUE
-   * @generated
-   * @ordered
-   */
-  LENGTH(0, "length", "length");
-
-  /**
-   * The '<em><b>Length</b></em>' literal value.
+   * Returns the value of the '<em><b>Operation</b></em>' attribute.
+   * The literals are from the enumeration {@link com.opcoach.bugsy.xtext.bugsDsl.ArrayOperator}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of '<em><b>Length</b></em>' literal object isn't clear,
+   * If the meaning of the '<em>Operation</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @see #LENGTH
-   * @model name="length"
+   * @return the value of the '<em>Operation</em>' attribute.
+   * @see com.opcoach.bugsy.xtext.bugsDsl.ArrayOperator
+   * @see #setOperation(ArrayOperator)
+   * @see com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage#getArrayFunction_Operation()
+   * @model
    * @generated
-   * @ordered
    */
-  public static final int LENGTH_VALUE = 0;
+  ArrayOperator getOperation();
 
   /**
-   * An array of all the '<em><b>Array Function</b></em>' enumerators.
+   * Sets the value of the '{@link com.opcoach.bugsy.xtext.bugsDsl.ArrayFunction#getOperation <em>Operation</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Operation</em>' attribute.
+   * @see com.opcoach.bugsy.xtext.bugsDsl.ArrayOperator
+   * @see #getOperation()
    * @generated
    */
-  private static final ArrayFunction[] VALUES_ARRAY =
-    new ArrayFunction[]
-    {
-      LENGTH,
-    };
+  void setOperation(ArrayOperator value);
 
   /**
-   * A public read-only list of all the '<em><b>Array Function</b></em>' enumerators.
+   * Returns the value of the '<em><b>Params</b></em>' containment reference list.
+   * The list contents are of type {@link com.opcoach.bugsy.xtext.bugsDsl.Expression}.
    * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Params</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
    * <!-- end-user-doc -->
+   * @return the value of the '<em>Params</em>' containment reference list.
+   * @see com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage#getArrayFunction_Params()
+   * @model containment="true"
    * @generated
    */
-  public static final List<ArrayFunction> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+  EList<Expression> getParams();
 
-  /**
-   * Returns the '<em><b>Array Function</b></em>' literal with the specified literal value.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param literal the literal.
-   * @return the matching enumerator or <code>null</code>.
-   * @generated
-   */
-  public static ArrayFunction get(String literal)
-  {
-    for (int i = 0; i < VALUES_ARRAY.length; ++i)
-    {
-      ArrayFunction result = VALUES_ARRAY[i];
-      if (result.toString().equals(literal))
-      {
-        return result;
-      }
-    }
-    return null;
-  }
-
-  /**
-   * Returns the '<em><b>Array Function</b></em>' literal with the specified name.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param name the name.
-   * @return the matching enumerator or <code>null</code>.
-   * @generated
-   */
-  public static ArrayFunction getByName(String name)
-  {
-    for (int i = 0; i < VALUES_ARRAY.length; ++i)
-    {
-      ArrayFunction result = VALUES_ARRAY[i];
-      if (result.getName().equals(name))
-      {
-        return result;
-      }
-    }
-    return null;
-  }
-
-  /**
-   * Returns the '<em><b>Array Function</b></em>' literal with the specified integer value.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the integer value.
-   * @return the matching enumerator or <code>null</code>.
-   * @generated
-   */
-  public static ArrayFunction get(int value)
-  {
-    switch (value)
-    {
-      case LENGTH_VALUE: return LENGTH;
-    }
-    return null;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private final int value;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private final String name;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private final String literal;
-
-  /**
-   * Only this class can construct instances.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private ArrayFunction(int value, String name, String literal)
-  {
-    this.value = value;
-    this.name = name;
-    this.literal = literal;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public int getValue()
-  {
-    return value;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getName()
-  {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getLiteral()
-  {
-    return literal;
-  }
-
-  /**
-   * Returns the literal value of the enumerator, which is its string representation.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    return literal;
-  }
-  
-} //ArrayFunction
+} // ArrayFunction

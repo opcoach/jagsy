@@ -42,8 +42,9 @@
       <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//FunctionOperator/mean"/>
       <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//FunctionOperator/sqrt"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="BugsDsl.ecore#//ArrayFunction">
-      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//ArrayFunction/length"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="BugsDsl.ecore#//ArrayOperator">
+      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//ArrayOperator/length"/>
+      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//ArrayOperator/dim"/>
     </genEnums>
     <genClasses ecoreClass="BugsDsl.ecore#//BugsModel">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BugsDsl.ecore#//BugsModel/data"/>
@@ -89,6 +90,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BugsDsl.ecore#//Function/operation"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BugsDsl.ecore#//Function/params"/>
     </genClasses>
+    <genClasses ecoreClass="BugsDsl.ecore#//ArrayFunction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BugsDsl.ecore#//ArrayFunction/operation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BugsDsl.ecore#//ArrayFunction/params"/>
+    </genClasses>
     <genClasses ecoreClass="BugsDsl.ecore#//Distribution">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BugsDsl.ecore#//Distribution/distrib"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BugsDsl.ecore#//Distribution/params"/>
@@ -100,6 +105,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BugsDsl.ecore#//Expression/value"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BugsDsl.ecore#//Expression/function"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BugsDsl.ecore#//Expression/distribution"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BugsDsl.ecore#//Expression/arrayFunction"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

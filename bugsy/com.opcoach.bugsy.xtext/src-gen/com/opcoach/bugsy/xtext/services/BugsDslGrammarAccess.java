@@ -218,7 +218,7 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
 		private final Assignment cFunctionAssignment_0_0 = (Assignment)cGroup_0.eContents().get(0);
-		private final RuleCall cFunctionArrayFunctionEnumRuleCall_0_0_0 = (RuleCall)cFunctionAssignment_0_0.eContents().get(0);
+		private final RuleCall cFunctionArrayOperatorEnumRuleCall_0_0_0 = (RuleCall)cFunctionAssignment_0_0.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
 		private final Assignment cValueAssignment_0_2 = (Assignment)cGroup_0.eContents().get(2);
 		private final RuleCall cValueIndexParserRuleCall_0_2_0 = (RuleCall)cValueAssignment_0_2.eContents().get(0);
@@ -230,20 +230,20 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		//// For instance :    V or length(V)
 		//// And these values can be combined in low and high value in the for loop
 		//ForIndex:
-		//	function=ArrayFunction '(' value=Index ')' | value=Index;
+		//	function=ArrayOperator '(' value=Index ')' | value=Index;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//function=ArrayFunction '(' value=Index ')' | value=Index
+		//function=ArrayOperator '(' value=Index ')' | value=Index
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//function=ArrayFunction '(' value=Index ')'
+		//function=ArrayOperator '(' value=Index ')'
 		public Group getGroup_0() { return cGroup_0; }
 		
-		//function=ArrayFunction
+		//function=ArrayOperator
 		public Assignment getFunctionAssignment_0_0() { return cFunctionAssignment_0_0; }
 		
-		//ArrayFunction
-		public RuleCall getFunctionArrayFunctionEnumRuleCall_0_0_0() { return cFunctionArrayFunctionEnumRuleCall_0_0_0; }
+		//ArrayOperator
+		public RuleCall getFunctionArrayOperatorEnumRuleCall_0_0_0() { return cFunctionArrayOperatorEnumRuleCall_0_0_0; }
 		
 		//'('
 		public Keyword getLeftParenthesisKeyword_0_1() { return cLeftParenthesisKeyword_0_1; }
@@ -712,6 +712,77 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		//')'
 		public Keyword getRightParenthesisKeyword_1_1_1_2() { return cRightParenthesisKeyword_1_1_1_2; }
 	}
+	public class ArrayFunctionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.opcoach.bugsy.xtext.BugsDsl.ArrayFunction");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cOperationAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cOperationArrayOperatorEnumRuleCall_0_0 = (RuleCall)cOperationAssignment_0.eContents().get(0);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final Keyword cLeftParenthesisRightParenthesisKeyword_1_0 = (Keyword)cAlternatives_1.eContents().get(0);
+		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_1_1_0 = (Keyword)cGroup_1_1.eContents().get(0);
+		private final Group cGroup_1_1_1 = (Group)cGroup_1_1.eContents().get(1);
+		private final Group cGroup_1_1_1_0 = (Group)cGroup_1_1_1.eContents().get(0);
+		private final Assignment cParamsAssignment_1_1_1_0_0 = (Assignment)cGroup_1_1_1_0.eContents().get(0);
+		private final RuleCall cParamsExpressionParserRuleCall_1_1_1_0_0_0 = (RuleCall)cParamsAssignment_1_1_1_0_0.eContents().get(0);
+		private final Group cGroup_1_1_1_1 = (Group)cGroup_1_1_1.eContents().get(1);
+		private final Keyword cCommaKeyword_1_1_1_1_0 = (Keyword)cGroup_1_1_1_1.eContents().get(0);
+		private final Assignment cParamsAssignment_1_1_1_1_1 = (Assignment)cGroup_1_1_1_1.eContents().get(1);
+		private final RuleCall cParamsExpressionParserRuleCall_1_1_1_1_1_0 = (RuleCall)cParamsAssignment_1_1_1_1_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_1_1_1_2 = (Keyword)cGroup_1_1_1.eContents().get(2);
+		
+		//ArrayFunction:
+		//	operation=ArrayOperator ('()' | '(' (=> (params+=Expression) (',' params+=Expression)* ')')?);
+		@Override public ParserRule getRule() { return rule; }
+		
+		//operation=ArrayOperator ('()' | '(' (=> (params+=Expression) (',' params+=Expression)* ')')?)
+		public Group getGroup() { return cGroup; }
+		
+		//operation=ArrayOperator
+		public Assignment getOperationAssignment_0() { return cOperationAssignment_0; }
+		
+		//ArrayOperator
+		public RuleCall getOperationArrayOperatorEnumRuleCall_0_0() { return cOperationArrayOperatorEnumRuleCall_0_0; }
+		
+		//'()' | '(' (=> (params+=Expression) (',' params+=Expression)* ')')?
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+		
+		//'()'
+		public Keyword getLeftParenthesisRightParenthesisKeyword_1_0() { return cLeftParenthesisRightParenthesisKeyword_1_0; }
+		
+		//'(' (=> (params+=Expression) (',' params+=Expression)* ')')?
+		public Group getGroup_1_1() { return cGroup_1_1; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_1_1_0() { return cLeftParenthesisKeyword_1_1_0; }
+		
+		//(=> (params+=Expression) (',' params+=Expression)* ')')?
+		public Group getGroup_1_1_1() { return cGroup_1_1_1; }
+		
+		//=> (params+=Expression)
+		public Group getGroup_1_1_1_0() { return cGroup_1_1_1_0; }
+		
+		//params+=Expression
+		public Assignment getParamsAssignment_1_1_1_0_0() { return cParamsAssignment_1_1_1_0_0; }
+		
+		//Expression
+		public RuleCall getParamsExpressionParserRuleCall_1_1_1_0_0_0() { return cParamsExpressionParserRuleCall_1_1_1_0_0_0; }
+		
+		//(',' params+=Expression)*
+		public Group getGroup_1_1_1_1() { return cGroup_1_1_1_1; }
+		
+		//','
+		public Keyword getCommaKeyword_1_1_1_1_0() { return cCommaKeyword_1_1_1_1_0; }
+		
+		//params+=Expression
+		public Assignment getParamsAssignment_1_1_1_1_1() { return cParamsAssignment_1_1_1_1_1; }
+		
+		//Expression
+		public RuleCall getParamsExpressionParserRuleCall_1_1_1_1_1_0() { return cParamsExpressionParserRuleCall_1_1_1_1_1_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_1_1_1_2() { return cRightParenthesisKeyword_1_1_1_2; }
+	}
 	public class DistributionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.opcoach.bugsy.xtext.BugsDsl.Distribution");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -836,12 +907,15 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cFunctionFunctionParserRuleCall_2_0 = (RuleCall)cFunctionAssignment_2.eContents().get(0);
 		private final Assignment cDistributionAssignment_3 = (Assignment)cAlternatives.eContents().get(3);
 		private final RuleCall cDistributionDistributionParserRuleCall_3_0 = (RuleCall)cDistributionAssignment_3.eContents().get(0);
+		private final Assignment cArrayFunctionAssignment_4 = (Assignment)cAlternatives.eContents().get(4);
+		private final RuleCall cArrayFunctionArrayFunctionParserRuleCall_4_0 = (RuleCall)cArrayFunctionAssignment_4.eContents().get(0);
 		
+		//// Terminal expressions are used both in model and data, but for model, the validation will check that no arrayFunctions are used 
 		//TerminalExpression Expression:
-		//	'(' Expression ')' | value=Value | function=Function | distribution=Distribution;
+		//	'(' Expression ')' | value=Value | function=Function | distribution=Distribution | arrayFunction=ArrayFunction;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'(' Expression ')' | value=Value | function=Function | distribution=Distribution
+		//'(' Expression ')' | value=Value | function=Function | distribution=Distribution | arrayFunction=ArrayFunction
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//'(' Expression ')'
@@ -873,6 +947,12 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Distribution
 		public RuleCall getDistributionDistributionParserRuleCall_3_0() { return cDistributionDistributionParserRuleCall_3_0; }
+		
+		//arrayFunction=ArrayFunction
+		public Assignment getArrayFunctionAssignment_4() { return cArrayFunctionAssignment_4; }
+		
+		//ArrayFunction
+		public RuleCall getArrayFunctionArrayFunctionParserRuleCall_4_0() { return cArrayFunctionArrayFunctionParserRuleCall_4_0; }
 	}
 	
 	public class DistributionOperatorElements extends AbstractEnumRuleElementFinder {
@@ -1151,20 +1231,32 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		//'sqrt'
 		public Keyword getSqrtSqrtKeyword_9_0() { return cSqrtSqrtKeyword_9_0; }
 	}
-	public class ArrayFunctionElements extends AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "com.opcoach.bugsy.xtext.BugsDsl.ArrayFunction");
-		private final EnumLiteralDeclaration cLengthEnumLiteralDeclaration = (EnumLiteralDeclaration)rule.eContents().get(1);
-		private final Keyword cLengthLengthKeyword_0 = (Keyword)cLengthEnumLiteralDeclaration.eContents().get(0);
+	public class ArrayOperatorElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "com.opcoach.bugsy.xtext.BugsDsl.ArrayOperator");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cLengthEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cLengthLengthKeyword_0_0 = (Keyword)cLengthEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cDimEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cDimDimKeyword_1_0 = (Keyword)cDimEnumLiteralDeclaration_1.eContents().get(0);
 		
-		//enum ArrayFunction:
-		//	length;
+		//enum ArrayOperator:
+		//	length | dim;
 		public EnumRule getRule() { return rule; }
 		
+		//length | dim
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
 		//length
-		public EnumLiteralDeclaration getLengthEnumLiteralDeclaration() { return cLengthEnumLiteralDeclaration; }
+		public EnumLiteralDeclaration getLengthEnumLiteralDeclaration_0() { return cLengthEnumLiteralDeclaration_0; }
 		
 		//'length'
-		public Keyword getLengthLengthKeyword_0() { return cLengthLengthKeyword_0; }
+		public Keyword getLengthLengthKeyword_0_0() { return cLengthLengthKeyword_0_0; }
+		
+		//dim
+		public EnumLiteralDeclaration getDimEnumLiteralDeclaration_1() { return cDimEnumLiteralDeclaration_1; }
+		
+		//'dim'
+		public Keyword getDimDimKeyword_1_0() { return cDimDimKeyword_1_0; }
 	}
 	
 	private final BugsModelElements pBugsModel;
@@ -1185,13 +1277,14 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 	private final DeterministicRelationElements pDeterministicRelation;
 	private final OperatorElements pOperator;
 	private final FunctionElements pFunction;
+	private final ArrayFunctionElements pArrayFunction;
 	private final DistributionElements pDistribution;
 	private final ExpressionElements pExpression;
 	private final TerminalExpressionElements pTerminalExpression;
 	private final DistributionOperatorElements eDistributionOperator;
 	private final DensityElements eDensity;
 	private final FunctionOperatorElements eFunctionOperator;
-	private final ArrayFunctionElements eArrayFunction;
+	private final ArrayOperatorElements eArrayOperator;
 	
 	private final Grammar grammar;
 	
@@ -1220,13 +1313,14 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.pDeterministicRelation = new DeterministicRelationElements();
 		this.pOperator = new OperatorElements();
 		this.pFunction = new FunctionElements();
+		this.pArrayFunction = new ArrayFunctionElements();
 		this.pDistribution = new DistributionElements();
 		this.pExpression = new ExpressionElements();
 		this.pTerminalExpression = new TerminalExpressionElements();
 		this.eDistributionOperator = new DistributionOperatorElements();
 		this.eDensity = new DensityElements();
 		this.eFunctionOperator = new FunctionOperatorElements();
-		this.eArrayFunction = new ArrayFunctionElements();
+		this.eArrayOperator = new ArrayOperatorElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -1330,7 +1424,7 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 	//// For instance :    V or length(V)
 	//// And these values can be combined in low and high value in the for loop
 	//ForIndex:
-	//	function=ArrayFunction '(' value=Index ')' | value=Index;
+	//	function=ArrayOperator '(' value=Index ')' | value=Index;
 	public ForIndexElements getForIndexAccess() {
 		return pForIndex;
 	}
@@ -1442,6 +1536,16 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getFunctionAccess().getRule();
 	}
 	
+	//ArrayFunction:
+	//	operation=ArrayOperator ('()' | '(' (=> (params+=Expression) (',' params+=Expression)* ')')?);
+	public ArrayFunctionElements getArrayFunctionAccess() {
+		return pArrayFunction;
+	}
+	
+	public ParserRule getArrayFunctionRule() {
+		return getArrayFunctionAccess().getRule();
+	}
+	
 	//Distribution:
 	//	distrib=DistributionOperator ('()' | '(' (=> (params+=Expression) (',' params+=Expression)* ')')?);
 	public DistributionElements getDistributionAccess() {
@@ -1463,8 +1567,9 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getExpressionAccess().getRule();
 	}
 	
+	//// Terminal expressions are used both in model and data, but for model, the validation will check that no arrayFunctions are used 
 	//TerminalExpression Expression:
-	//	'(' Expression ')' | value=Value | function=Function | distribution=Distribution;
+	//	'(' Expression ')' | value=Value | function=Function | distribution=Distribution | arrayFunction=ArrayFunction;
 	public TerminalExpressionElements getTerminalExpressionAccess() {
 		return pTerminalExpression;
 	}
@@ -1505,14 +1610,14 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getFunctionOperatorAccess().getRule();
 	}
 	
-	//enum ArrayFunction:
-	//	length;
-	public ArrayFunctionElements getArrayFunctionAccess() {
-		return eArrayFunction;
+	//enum ArrayOperator:
+	//	length | dim;
+	public ArrayOperatorElements getArrayOperatorAccess() {
+		return eArrayOperator;
 	}
 	
-	public EnumRule getArrayFunctionRule() {
-		return getArrayFunctionAccess().getRule();
+	public EnumRule getArrayOperatorRule() {
+		return getArrayOperatorAccess().getRule();
 	}
 	
 	//terminal INT returns ecore::EInt:

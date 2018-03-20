@@ -14,6 +14,7 @@ import com.opcoach.bugsy.xtext.bugsDsl.Relation
 import java.util.ArrayList
 import java.util.List
 import org.eclipse.emf.ecore.EObject
+import org.eclipse.emf.ecore.EReference
 import org.eclipse.xtext.validation.Check
 
 /**
@@ -26,6 +27,7 @@ class BugsDslValidator extends AbstractBugsDslValidator {
 	public static val CHECK_UNIQUE_VARIABLE_NAME = 'uniqueVariableName'
 	public static val CHECK_VARIABLE_DIMENSION_COMPLIANCE = 'variableDimensionCompliance' // Variables must be used with same dimensions
 	public static val CHECK_INVALID_INDEX_IN_LOOP = 'invalidIndexInLoop' // An index used in a variable must be in the loop scope
+	public static val CHECK_ARRAY_FUNCTION_ONLY_IN_DATA_BLOCK = "arrayFunctionMustBeUsedOnlyInDataBlock" // Raised if an array fucntion is used in the model part
 
 	/** Check unique name for relations */
 	@Check
@@ -88,6 +90,20 @@ class BugsDslValidator extends AbstractBugsDslValidator {
 		checkIndexIsInScope(getIndexName(ar.high), parentScope)
 
 	}
+	
+	/** This method checks operators defined in expression are valid regarding their super ancestor
+	 * For instance dim and length (array functions) are available only in the data ancestor */
+	@Check
+	def checkCorrectOperatorsInRelations(Expression e)
+	{
+		// Check in the model Part that no array functions are used...
+		if (e.isInModelPart && e.arrayFunction !== null)
+		{
+				error("This expression uses an array function ( " + e.arrayFunction + ") which is available only in a data block",  
+				BugsDslPackage.Literals.EXPRESSION__ARRAY_FUNCTION, CHECK_ARRAY_FUNCTION_ONLY_IN_DATA_BLOCK)
+		}
+		
+	}
 
 	def checkIndexIsInScope(String indexName, List<String> scope) {
 		if (indexName !== null) {
@@ -98,6 +114,9 @@ class BugsDslValidator extends AbstractBugsDslValidator {
 		}
 
 	}
+	
+	
+	
 
 	/** Returns the index name if this is a string or null if it is a string */
 	def getIndexName(String value) {
@@ -212,5 +231,33 @@ class BugsDslValidator extends AbstractBugsDslValidator {
 		parent
 
 	}
+	
+	// Check if an object is defined in the data part
+	def isInDataPart(EObject o)
+	{
+		return isDefinedInAncestorReference(o,BugsDslPackage.eINSTANCE.bugsModel_Data )
+	}
+	
+	// Check if an object is defined in the model part
+	def isInModelPart(EObject o)
+	{
+		return isDefinedInAncestorReference(o,BugsDslPackage.eINSTANCE.bugsModel_Instructions )
+	}
+	
+		// Check if an object is hosted directly or by an ancestor in the parentRef reference
+	def isDefinedInAncestorReference(EObject o, EReference parentRef)
+	{
+		// Must search a parent object that is hosted on the data composition
+		var parent = o.eContainer
+		while (parent !== null)
+		{
+			val ref = parent.eContainmentFeature
+			if (ref !== null && ref.equals(parentRef))
+			   return true;
+			parent = parent.eContainer
+		}
+		return false;
+	}
+	
 
 }

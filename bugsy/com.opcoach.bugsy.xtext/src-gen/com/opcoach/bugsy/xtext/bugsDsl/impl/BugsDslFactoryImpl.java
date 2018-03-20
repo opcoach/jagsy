@@ -78,6 +78,7 @@ public class BugsDslFactoryImpl extends EFactoryImpl implements BugsDslFactory
       case BugsDslPackage.STOCHASTIC_RELATION: return createStochasticRelation();
       case BugsDslPackage.DETERMINISTIC_RELATION: return createDeterministicRelation();
       case BugsDslPackage.FUNCTION: return createFunction();
+      case BugsDslPackage.ARRAY_FUNCTION: return createArrayFunction();
       case BugsDslPackage.DISTRIBUTION: return createDistribution();
       case BugsDslPackage.EXPRESSION: return createExpression();
       default:
@@ -101,8 +102,8 @@ public class BugsDslFactoryImpl extends EFactoryImpl implements BugsDslFactory
         return createDensityFromString(eDataType, initialValue);
       case BugsDslPackage.FUNCTION_OPERATOR:
         return createFunctionOperatorFromString(eDataType, initialValue);
-      case BugsDslPackage.ARRAY_FUNCTION:
-        return createArrayFunctionFromString(eDataType, initialValue);
+      case BugsDslPackage.ARRAY_OPERATOR:
+        return createArrayOperatorFromString(eDataType, initialValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -124,8 +125,8 @@ public class BugsDslFactoryImpl extends EFactoryImpl implements BugsDslFactory
         return convertDensityToString(eDataType, instanceValue);
       case BugsDslPackage.FUNCTION_OPERATOR:
         return convertFunctionOperatorToString(eDataType, instanceValue);
-      case BugsDslPackage.ARRAY_FUNCTION:
-        return convertArrayFunctionToString(eDataType, instanceValue);
+      case BugsDslPackage.ARRAY_OPERATOR:
+        return convertArrayOperatorToString(eDataType, instanceValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -268,6 +269,17 @@ public class BugsDslFactoryImpl extends EFactoryImpl implements BugsDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public ArrayFunction createArrayFunction()
+  {
+    ArrayFunctionImpl arrayFunction = new ArrayFunctionImpl();
+    return arrayFunction;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Distribution createDistribution()
   {
     DistributionImpl distribution = new DistributionImpl();
@@ -356,9 +368,9 @@ public class BugsDslFactoryImpl extends EFactoryImpl implements BugsDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public ArrayFunction createArrayFunctionFromString(EDataType eDataType, String initialValue)
+  public ArrayOperator createArrayOperatorFromString(EDataType eDataType, String initialValue)
   {
-    ArrayFunction result = ArrayFunction.get(initialValue);
+    ArrayOperator result = ArrayOperator.get(initialValue);
     if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
     return result;
   }
@@ -368,7 +380,7 @@ public class BugsDslFactoryImpl extends EFactoryImpl implements BugsDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public String convertArrayFunctionToString(EDataType eDataType, Object instanceValue)
+  public String convertArrayOperatorToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }

@@ -24,6 +24,38 @@ class BugsDslValidationTest {
 	extension ValidationTestHelper validHelper
 
 
+	@Test // For issue #12   https://github.com/opcoach/jagsy/issues/12
+	def void testIssue12_DimFunctionOnlyInDataBlock1() {
+		'''data {
+		D <- dim(Z)
+		} model { }'''.parse.assertNoErrors
+	}
+
+	@Test // For issue #12   https://github.com/opcoach/jagsy/issues/12
+	def void testIssue12_DimFunctionOnlyInDataBlock2() {
+		'''data {
+		D <- dim(Z)
+		}
+		model {
+				for (i in 1:N) {
+				y[i] ~ dnorm(mu, tau)
+				}
+				}'''.parse.assertNoErrors
+	}
+
+	@Test // For issue #12   https://github.com/opcoach/jagsy/issues/12
+	def void testIssue12_DimFunctionOnlyInDataBlock3() {
+		'''data {
+		D <- dim(Z)
+		}
+		model {
+				for (i in 1:N) {
+				y[i] <- dim()
+				}
+				}'''.parse.assertError(BugsDslPackage::eINSTANCE.expression, BugsDslValidator::CHECK_ARRAY_FUNCTION_ONLY_IN_DATA_BLOCK)
+	}
+
+
 	@Test // For issue #14   https://github.com/opcoach/jagsy/issues/14
 	def void testIssue14_ValidIndexesInLoop1() {
 		'''model {

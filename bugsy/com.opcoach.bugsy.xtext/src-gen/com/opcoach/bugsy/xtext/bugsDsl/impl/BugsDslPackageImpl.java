@@ -5,6 +5,7 @@ package com.opcoach.bugsy.xtext.bugsDsl.impl;
 
 import com.opcoach.bugsy.xtext.bugsDsl.ArrayFunction;
 import com.opcoach.bugsy.xtext.bugsDsl.ArrayID;
+import com.opcoach.bugsy.xtext.bugsDsl.ArrayOperator;
 import com.opcoach.bugsy.xtext.bugsDsl.ArrayRange;
 import com.opcoach.bugsy.xtext.bugsDsl.BugsDslFactory;
 import com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage;
@@ -129,6 +130,13 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass arrayFunctionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass distributionEClass = null;
 
   /**
@@ -164,7 +172,7 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EEnum arrayFunctionEEnum = null;
+  private EEnum arrayOperatorEEnum = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -564,6 +572,36 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getArrayFunction()
+  {
+    return arrayFunctionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getArrayFunction_Operation()
+  {
+    return (EAttribute)arrayFunctionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getArrayFunction_Params()
+  {
+    return (EReference)arrayFunctionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getDistribution()
   {
     return distributionEClass;
@@ -664,6 +702,16 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getExpression_ArrayFunction()
+  {
+    return (EReference)expressionEClass.getEStructuralFeatures().get(6);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EEnum getDistributionOperator()
   {
     return distributionOperatorEEnum;
@@ -694,9 +742,9 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EEnum getArrayFunction()
+  public EEnum getArrayOperator()
   {
-    return arrayFunctionEEnum;
+    return arrayOperatorEEnum;
   }
 
   /**
@@ -774,6 +822,10 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
     createEAttribute(functionEClass, FUNCTION__OPERATION);
     createEReference(functionEClass, FUNCTION__PARAMS);
 
+    arrayFunctionEClass = createEClass(ARRAY_FUNCTION);
+    createEAttribute(arrayFunctionEClass, ARRAY_FUNCTION__OPERATION);
+    createEReference(arrayFunctionEClass, ARRAY_FUNCTION__PARAMS);
+
     distributionEClass = createEClass(DISTRIBUTION);
     createEAttribute(distributionEClass, DISTRIBUTION__DISTRIB);
     createEReference(distributionEClass, DISTRIBUTION__PARAMS);
@@ -785,12 +837,13 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
     createEReference(expressionEClass, EXPRESSION__VALUE);
     createEReference(expressionEClass, EXPRESSION__FUNCTION);
     createEReference(expressionEClass, EXPRESSION__DISTRIBUTION);
+    createEReference(expressionEClass, EXPRESSION__ARRAY_FUNCTION);
 
     // Create enums
     distributionOperatorEEnum = createEEnum(DISTRIBUTION_OPERATOR);
     densityEEnum = createEEnum(DENSITY);
     functionOperatorEEnum = createEEnum(FUNCTION_OPERATOR);
-    arrayFunctionEEnum = createEEnum(ARRAY_FUNCTION);
+    arrayOperatorEEnum = createEEnum(ARRAY_OPERATOR);
   }
 
   /**
@@ -840,7 +893,7 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
     initEReference(getFor_Instructions(), this.getInstruction(), null, "instructions", null, 0, -1, For.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(forIndexEClass, ForIndex.class, "ForIndex", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getForIndex_Function(), this.getArrayFunction(), "function", null, 0, 1, ForIndex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getForIndex_Function(), this.getArrayOperator(), "function", null, 0, 1, ForIndex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getForIndex_Value(), ecorePackage.getEString(), "value", null, 0, 1, ForIndex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(forRangeEClass, ForRange.class, "ForRange", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -873,6 +926,10 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
     initEAttribute(getFunction_Operation(), this.getFunctionOperator(), "operation", null, 0, 1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFunction_Params(), this.getExpression(), null, "params", null, 0, -1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(arrayFunctionEClass, ArrayFunction.class, "ArrayFunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getArrayFunction_Operation(), this.getArrayOperator(), "operation", null, 0, 1, ArrayFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getArrayFunction_Params(), this.getExpression(), null, "params", null, 0, -1, ArrayFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(distributionEClass, Distribution.class, "Distribution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDistribution_Distrib(), this.getDistributionOperator(), "distrib", null, 0, 1, Distribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDistribution_Params(), this.getExpression(), null, "params", null, 0, -1, Distribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -884,6 +941,7 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
     initEReference(getExpression_Value(), this.getValue(), null, "value", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExpression_Function(), this.getFunction(), null, "function", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExpression_Distribution(), this.getDistribution(), null, "distribution", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExpression_ArrayFunction(), this.getArrayFunction(), null, "arrayFunction", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Initialize enums and add enum literals
     initEEnum(distributionOperatorEEnum, DistributionOperator.class, "DistributionOperator");
@@ -922,8 +980,9 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
     addEEnumLiteral(functionOperatorEEnum, FunctionOperator.MEAN);
     addEEnumLiteral(functionOperatorEEnum, FunctionOperator.SQRT);
 
-    initEEnum(arrayFunctionEEnum, ArrayFunction.class, "ArrayFunction");
-    addEEnumLiteral(arrayFunctionEEnum, ArrayFunction.LENGTH);
+    initEEnum(arrayOperatorEEnum, ArrayOperator.class, "ArrayOperator");
+    addEEnumLiteral(arrayOperatorEEnum, ArrayOperator.LENGTH);
+    addEEnumLiteral(arrayOperatorEEnum, ArrayOperator.DIM);
 
     // Create resource
     createResource(eNS_URI);

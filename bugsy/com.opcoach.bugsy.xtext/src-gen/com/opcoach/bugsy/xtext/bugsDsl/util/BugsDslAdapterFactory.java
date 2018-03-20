@@ -136,6 +136,11 @@ public class BugsDslAdapterFactory extends AdapterFactoryImpl
         return createFunctionAdapter();
       }
       @Override
+      public Adapter caseArrayFunction(ArrayFunction object)
+      {
+        return createArrayFunctionAdapter();
+      }
+      @Override
       public Adapter caseDistribution(Distribution object)
       {
         return createDistributionAdapter();
@@ -343,6 +348,21 @@ public class BugsDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createFunctionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.opcoach.bugsy.xtext.bugsDsl.ArrayFunction <em>Array Function</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.opcoach.bugsy.xtext.bugsDsl.ArrayFunction
+   * @generated
+   */
+  public Adapter createArrayFunctionAdapter()
   {
     return null;
   }

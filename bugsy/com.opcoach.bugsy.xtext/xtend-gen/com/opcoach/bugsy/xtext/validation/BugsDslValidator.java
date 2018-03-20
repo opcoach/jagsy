@@ -5,6 +5,7 @@ package com.opcoach.bugsy.xtext.validation;
 
 import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
+import com.opcoach.bugsy.xtext.bugsDsl.ArrayFunction;
 import com.opcoach.bugsy.xtext.bugsDsl.ArrayID;
 import com.opcoach.bugsy.xtext.bugsDsl.ArrayRange;
 import com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage;
@@ -20,6 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.xtext.validation.Check;
 
 /**
@@ -34,6 +36,8 @@ public class BugsDslValidator extends AbstractBugsDslValidator {
   public final static String CHECK_VARIABLE_DIMENSION_COMPLIANCE = "variableDimensionCompliance";
   
   public final static String CHECK_INVALID_INDEX_IN_LOOP = "invalidIndexInLoop";
+  
+  public final static String CHECK_ARRAY_FUNCTION_ONLY_IN_DATA_BLOCK = "arrayFunctionMustBeUsedOnlyInDataBlock";
   
   /**
    * Check unique name for relations
@@ -101,6 +105,21 @@ public class BugsDslValidator extends AbstractBugsDslValidator {
     final ArrayList<String> parentScope = this.getVariableNamesInScope(ar);
     this.checkIndexIsInScope(this.getIndexName(ar.getLow()), parentScope);
     this.checkIndexIsInScope(this.getIndexName(ar.getHigh()), parentScope);
+  }
+  
+  /**
+   * This method checks operators defined in expression are valid regarding their super ancestor
+   * For instance dim and length (array functions) are available only in the data ancestor
+   */
+  @Check
+  public void checkCorrectOperatorsInRelations(final Expression e) {
+    if ((this.isInModelPart(e) && (e.getArrayFunction() != null))) {
+      ArrayFunction _arrayFunction = e.getArrayFunction();
+      String _plus = ("This expression uses an array function ( " + _arrayFunction);
+      String _plus_1 = (_plus + ") which is available only in a data block");
+      this.error(_plus_1, 
+        BugsDslPackage.Literals.EXPRESSION__ARRAY_FUNCTION, BugsDslValidator.CHECK_ARRAY_FUNCTION_ONLY_IN_DATA_BLOCK);
+    }
   }
   
   public void checkIndexIsInScope(final String indexName, final List<String> scope) {
@@ -248,5 +267,27 @@ public class BugsDslValidator extends AbstractBugsDslValidator {
       _xblockexpression = parent;
     }
     return _xblockexpression;
+  }
+  
+  public boolean isInDataPart(final EObject o) {
+    return this.isDefinedInAncestorReference(o, BugsDslPackage.eINSTANCE.getBugsModel_Data());
+  }
+  
+  public boolean isInModelPart(final EObject o) {
+    return this.isDefinedInAncestorReference(o, BugsDslPackage.eINSTANCE.getBugsModel_Instructions());
+  }
+  
+  public boolean isDefinedInAncestorReference(final EObject o, final EReference parentRef) {
+    EObject parent = o.eContainer();
+    while ((parent != null)) {
+      {
+        final EReference ref = parent.eContainmentFeature();
+        if (((ref != null) && ref.equals(parentRef))) {
+          return true;
+        }
+        parent = parent.eContainer();
+      }
+    }
+    return false;
   }
 }

@@ -17,7 +17,7 @@
         eType="#//Instruction" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ForIndex">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="function" eType="#//ArrayFunction"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="function" eType="#//ArrayOperator"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ForRange">
@@ -58,6 +58,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="params" upperBound="-1"
         eType="#//Expression" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ArrayFunction">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operation" eType="#//ArrayOperator"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="params" upperBound="-1"
+        eType="#//Expression" containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Distribution">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="distrib" eType="#//DistributionOperator"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="params" upperBound="-1"
@@ -74,6 +79,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="function" eType="#//Function"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="distribution" eType="#//Distribution"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="arrayFunction" eType="#//ArrayFunction"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="DistributionOperator">
@@ -112,7 +119,8 @@
     <eLiterals name="mean" value="8" literal="mean"/>
     <eLiterals name="sqrt" value="9" literal="sqrt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="ArrayFunction">
+  <eClassifiers xsi:type="ecore:EEnum" name="ArrayOperator">
     <eLiterals name="length" literal="length"/>
+    <eLiterals name="dim" value="1" literal="dim"/>
   </eClassifiers>
 </ecore:EPackage>

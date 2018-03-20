@@ -132,6 +132,15 @@ public interface BugsDslFactory extends EFactory
   Function createFunction();
 
   /**
+   * Returns a new object of class '<em>Array Function</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Array Function</em>'.
+   * @generated
+   */
+  ArrayFunction createArrayFunction();
+
+  /**
    * Returns a new object of class '<em>Distribution</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

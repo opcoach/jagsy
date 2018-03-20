@@ -4,6 +4,7 @@
 package com.opcoach.bugsy.xtext.serializer;
 
 import com.google.inject.Inject;
+import com.opcoach.bugsy.xtext.bugsDsl.ArrayFunction;
 import com.opcoach.bugsy.xtext.bugsDsl.ArrayID;
 import com.opcoach.bugsy.xtext.bugsDsl.ArrayRange;
 import com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage;
@@ -43,6 +44,9 @@ public class BugsDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == BugsDslPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case BugsDslPackage.ARRAY_FUNCTION:
+				sequence_ArrayFunction(context, (ArrayFunction) semanticObject); 
+				return; 
 			case BugsDslPackage.ARRAY_ID:
 				sequence_ArrayID(context, (ArrayID) semanticObject); 
 				return; 
@@ -83,6 +87,18 @@ public class BugsDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
+	
+	/**
+	 * Contexts:
+	 *     ArrayFunction returns ArrayFunction
+	 *
+	 * Constraint:
+	 *     (operation=ArrayOperator (params+=Expression params+=Expression*)?)
+	 */
+	protected void sequence_ArrayFunction(ISerializationContext context, ArrayFunction semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
 	
 	/**
 	 * Contexts:
@@ -153,7 +169,13 @@ public class BugsDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     TerminalExpression returns Expression
 	 *
 	 * Constraint:
-	 *     ((left=Expression_Expression_1_0 op=Operator right=TerminalExpression) | value=Value | function=Function | distribution=Distribution)
+	 *     (
+	 *         (left=Expression_Expression_1_0 op=Operator right=TerminalExpression) | 
+	 *         value=Value | 
+	 *         function=Function | 
+	 *         distribution=Distribution | 
+	 *         arrayFunction=ArrayFunction
+	 *     )
 	 */
 	protected void sequence_Expression_TerminalExpression(ISerializationContext context, Expression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -165,7 +187,7 @@ public class BugsDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     ForIndex returns ForIndex
 	 *
 	 * Constraint:
-	 *     ((function=ArrayFunction value=Index) | value=Index)
+	 *     ((function=ArrayOperator value=Index) | value=Index)
 	 */
 	protected void sequence_ForIndex(ISerializationContext context, ForIndex semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

@@ -31,6 +31,87 @@ public class BugsDslValidationTest {
   private ValidationTestHelper validHelper;
   
   @Test
+  public void testIssue12_DimFunctionOnlyInDataBlock1() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("data {");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("D <- dim(Z)");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("} model { }");
+      this.validHelper.assertNoErrors(this.parseHelper.parse(_builder));
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void testIssue12_DimFunctionOnlyInDataBlock2() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("data {");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("D <- dim(Z)");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("model {");
+      _builder.newLine();
+      _builder.append("\t\t\t\t");
+      _builder.append("for (i in 1:N) {");
+      _builder.newLine();
+      _builder.append("\t\t\t\t");
+      _builder.append("y[i] ~ dnorm(mu, tau)");
+      _builder.newLine();
+      _builder.append("\t\t\t\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("\t\t\t\t");
+      _builder.append("}");
+      this.validHelper.assertNoErrors(this.parseHelper.parse(_builder));
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void testIssue12_DimFunctionOnlyInDataBlock3() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("data {");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("D <- dim(Z)");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("model {");
+      _builder.newLine();
+      _builder.append("\t\t\t\t");
+      _builder.append("for (i in 1:N) {");
+      _builder.newLine();
+      _builder.append("\t\t\t\t");
+      _builder.append("y[i] <- dim()");
+      _builder.newLine();
+      _builder.append("\t\t\t\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("\t\t\t\t");
+      _builder.append("}");
+      this.validHelper.assertError(this.parseHelper.parse(_builder), BugsDslPackage.eINSTANCE.getExpression(), BugsDslValidator.CHECK_ARRAY_FUNCTION_ONLY_IN_DATA_BLOCK);
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
   public void testIssue14_ValidIndexesInLoop1() {
     try {
       StringConcatenation _builder = new StringConcatenation();

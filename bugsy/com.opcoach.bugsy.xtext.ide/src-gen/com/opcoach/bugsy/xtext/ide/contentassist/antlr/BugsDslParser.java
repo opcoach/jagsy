@@ -42,11 +42,13 @@ public class BugsDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDeterministicRelationAccess().getAlternatives_2(), "rule__DeterministicRelation__Alternatives_2");
 					put(grammarAccess.getOperatorAccess().getAlternatives(), "rule__Operator__Alternatives");
 					put(grammarAccess.getFunctionAccess().getAlternatives_1(), "rule__Function__Alternatives_1");
+					put(grammarAccess.getArrayFunctionAccess().getAlternatives_1(), "rule__ArrayFunction__Alternatives_1");
 					put(grammarAccess.getDistributionAccess().getAlternatives_1(), "rule__Distribution__Alternatives_1");
 					put(grammarAccess.getTerminalExpressionAccess().getAlternatives(), "rule__TerminalExpression__Alternatives");
 					put(grammarAccess.getDistributionOperatorAccess().getAlternatives(), "rule__DistributionOperator__Alternatives");
 					put(grammarAccess.getDensityAccess().getAlternatives(), "rule__Density__Alternatives");
 					put(grammarAccess.getFunctionOperatorAccess().getAlternatives(), "rule__FunctionOperator__Alternatives");
+					put(grammarAccess.getArrayOperatorAccess().getAlternatives(), "rule__ArrayOperator__Alternatives");
 					put(grammarAccess.getBugsModelAccess().getGroup(), "rule__BugsModel__Group__0");
 					put(grammarAccess.getBugsModelAccess().getGroup_1(), "rule__BugsModel__Group_1__0");
 					put(grammarAccess.getForAccess().getGroup(), "rule__For__Group__0");
@@ -70,6 +72,11 @@ public class BugsDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getFunctionAccess().getGroup_1_1_1(), "rule__Function__Group_1_1_1__0");
 					put(grammarAccess.getFunctionAccess().getGroup_1_1_1_0(), "rule__Function__Group_1_1_1_0__0");
 					put(grammarAccess.getFunctionAccess().getGroup_1_1_1_1(), "rule__Function__Group_1_1_1_1__0");
+					put(grammarAccess.getArrayFunctionAccess().getGroup(), "rule__ArrayFunction__Group__0");
+					put(grammarAccess.getArrayFunctionAccess().getGroup_1_1(), "rule__ArrayFunction__Group_1_1__0");
+					put(grammarAccess.getArrayFunctionAccess().getGroup_1_1_1(), "rule__ArrayFunction__Group_1_1_1__0");
+					put(grammarAccess.getArrayFunctionAccess().getGroup_1_1_1_0(), "rule__ArrayFunction__Group_1_1_1_0__0");
+					put(grammarAccess.getArrayFunctionAccess().getGroup_1_1_1_1(), "rule__ArrayFunction__Group_1_1_1_1__0");
 					put(grammarAccess.getDistributionAccess().getGroup(), "rule__Distribution__Group__0");
 					put(grammarAccess.getDistributionAccess().getGroup_1_1(), "rule__Distribution__Group_1_1__0");
 					put(grammarAccess.getDistributionAccess().getGroup_1_1_1(), "rule__Distribution__Group_1_1_1__0");
@@ -104,6 +111,9 @@ public class BugsDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getFunctionAccess().getOperationAssignment_0(), "rule__Function__OperationAssignment_0");
 					put(grammarAccess.getFunctionAccess().getParamsAssignment_1_1_1_0_0(), "rule__Function__ParamsAssignment_1_1_1_0_0");
 					put(grammarAccess.getFunctionAccess().getParamsAssignment_1_1_1_1_1(), "rule__Function__ParamsAssignment_1_1_1_1_1");
+					put(grammarAccess.getArrayFunctionAccess().getOperationAssignment_0(), "rule__ArrayFunction__OperationAssignment_0");
+					put(grammarAccess.getArrayFunctionAccess().getParamsAssignment_1_1_1_0_0(), "rule__ArrayFunction__ParamsAssignment_1_1_1_0_0");
+					put(grammarAccess.getArrayFunctionAccess().getParamsAssignment_1_1_1_1_1(), "rule__ArrayFunction__ParamsAssignment_1_1_1_1_1");
 					put(grammarAccess.getDistributionAccess().getDistribAssignment_0(), "rule__Distribution__DistribAssignment_0");
 					put(grammarAccess.getDistributionAccess().getParamsAssignment_1_1_1_0_0(), "rule__Distribution__ParamsAssignment_1_1_1_0_0");
 					put(grammarAccess.getDistributionAccess().getParamsAssignment_1_1_1_1_1(), "rule__Distribution__ParamsAssignment_1_1_1_1_1");
@@ -112,6 +122,7 @@ public class BugsDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTerminalExpressionAccess().getValueAssignment_1(), "rule__TerminalExpression__ValueAssignment_1");
 					put(grammarAccess.getTerminalExpressionAccess().getFunctionAssignment_2(), "rule__TerminalExpression__FunctionAssignment_2");
 					put(grammarAccess.getTerminalExpressionAccess().getDistributionAssignment_3(), "rule__TerminalExpression__DistributionAssignment_3");
+					put(grammarAccess.getTerminalExpressionAccess().getArrayFunctionAssignment_4(), "rule__TerminalExpression__ArrayFunctionAssignment_4");
 				}
 			};
 		}
