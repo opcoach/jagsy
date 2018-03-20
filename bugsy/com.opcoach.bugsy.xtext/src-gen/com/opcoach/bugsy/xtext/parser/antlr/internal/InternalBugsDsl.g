@@ -364,6 +364,93 @@ ruleIndex returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 	)
 ;
 
+// Entry rule entryRuleForIndex
+entryRuleForIndex returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getForIndexRule()); }
+	iv_ruleForIndex=ruleForIndex
+	{ $current=$iv_ruleForIndex.current; }
+	EOF;
+
+// Rule ForIndex
+ruleForIndex returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getForIndexAccess().getFunctionArrayFunctionEnumRuleCall_0_0_0());
+					}
+					lv_function_0_0=ruleArrayFunction
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getForIndexRule());
+						}
+						set(
+							$current,
+							"function",
+							lv_function_0_0,
+							"com.opcoach.bugsy.xtext.BugsDsl.ArrayFunction");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			otherlv_1='('
+			{
+				newLeafNode(otherlv_1, grammarAccess.getForIndexAccess().getLeftParenthesisKeyword_0_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getForIndexAccess().getValueIndexParserRuleCall_0_2_0());
+					}
+					lv_value_2_0=ruleIndex
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getForIndexRule());
+						}
+						set(
+							$current,
+							"value",
+							lv_value_2_0,
+							"com.opcoach.bugsy.xtext.BugsDsl.Index");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			otherlv_3=')'
+			{
+				newLeafNode(otherlv_3, grammarAccess.getForIndexAccess().getRightParenthesisKeyword_0_3());
+			}
+		)
+		    |
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getForIndexAccess().getValueIndexParserRuleCall_1_0());
+				}
+				lv_value_4_0=ruleIndex
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getForIndexRule());
+					}
+					set(
+						$current,
+						"value",
+						lv_value_4_0,
+						"com.opcoach.bugsy.xtext.BugsDsl.Index");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
+;
+
 // Entry rule entryRuleForRange
 entryRuleForRange returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getForRangeRule()); }
@@ -383,9 +470,9 @@ ruleForRange returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getForRangeAccess().getLowIndexParserRuleCall_0_0());
+					newCompositeNode(grammarAccess.getForRangeAccess().getLowForIndexParserRuleCall_0_0());
 				}
-				lv_low_0_0=ruleIndex
+				lv_low_0_0=ruleForIndex
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getForRangeRule());
@@ -394,7 +481,7 @@ ruleForRange returns [EObject current=null]
 						$current,
 						"low",
 						lv_low_0_0,
-						"com.opcoach.bugsy.xtext.BugsDsl.Index");
+						"com.opcoach.bugsy.xtext.BugsDsl.ForIndex");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -406,9 +493,9 @@ ruleForRange returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getForRangeAccess().getHighIndexParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getForRangeAccess().getHighForIndexParserRuleCall_2_0());
 				}
-				lv_high_2_0=ruleIndex
+				lv_high_2_0=ruleForIndex
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getForRangeRule());
@@ -417,7 +504,7 @@ ruleForRange returns [EObject current=null]
 						$current,
 						"high",
 						lv_high_2_0,
-						"com.opcoach.bugsy.xtext.BugsDsl.Index");
+						"com.opcoach.bugsy.xtext.BugsDsl.ForIndex");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -1658,6 +1745,23 @@ ruleFunctionOperator returns [Enumerator current=null]
 				newLeafNode(enumLiteral_9, grammarAccess.getFunctionOperatorAccess().getSqrtEnumLiteralDeclaration_9());
 			}
 		)
+	)
+;
+
+// Rule ArrayFunction
+ruleArrayFunction returns [Enumerator current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		enumLiteral_0='length'
+		{
+			$current = grammarAccess.getArrayFunctionAccess().getLengthEnumLiteralDeclaration().getEnumLiteral().getInstance();
+			newLeafNode(enumLiteral_0, grammarAccess.getArrayFunctionAccess().getLengthEnumLiteralDeclaration());
+		}
 	)
 ;
 

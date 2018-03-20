@@ -213,36 +213,87 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getIDTerminalRuleCall_1() { return cIDTerminalRuleCall_1; }
 	}
+	public class ForIndexElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.opcoach.bugsy.xtext.BugsDsl.ForIndex");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Assignment cFunctionAssignment_0_0 = (Assignment)cGroup_0.eContents().get(0);
+		private final RuleCall cFunctionArrayFunctionEnumRuleCall_0_0_0 = (RuleCall)cFunctionAssignment_0_0.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
+		private final Assignment cValueAssignment_0_2 = (Assignment)cGroup_0.eContents().get(2);
+		private final RuleCall cValueIndexParserRuleCall_0_2_0 = (RuleCall)cValueAssignment_0_2.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_0_3 = (Keyword)cGroup_0.eContents().get(3);
+		private final Assignment cValueAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
+		private final RuleCall cValueIndexParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		
+		//// For Index are used to declare an index on an array or on a function of on array. 
+		//// For instance :    V or length(V)
+		//// And these values can be combined in low and high value in the for loop
+		//ForIndex:
+		//	function=ArrayFunction '(' value=Index ')' | value=Index;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//function=ArrayFunction '(' value=Index ')' | value=Index
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//function=ArrayFunction '(' value=Index ')'
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//function=ArrayFunction
+		public Assignment getFunctionAssignment_0_0() { return cFunctionAssignment_0_0; }
+		
+		//ArrayFunction
+		public RuleCall getFunctionArrayFunctionEnumRuleCall_0_0_0() { return cFunctionArrayFunctionEnumRuleCall_0_0_0; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_0_1() { return cLeftParenthesisKeyword_0_1; }
+		
+		//value=Index
+		public Assignment getValueAssignment_0_2() { return cValueAssignment_0_2; }
+		
+		//Index
+		public RuleCall getValueIndexParserRuleCall_0_2_0() { return cValueIndexParserRuleCall_0_2_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_0_3() { return cRightParenthesisKeyword_0_3; }
+		
+		//value=Index
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+		
+		//Index
+		public RuleCall getValueIndexParserRuleCall_1_0() { return cValueIndexParserRuleCall_1_0; }
+	}
 	public class ForRangeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.opcoach.bugsy.xtext.BugsDsl.ForRange");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cLowAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cLowIndexParserRuleCall_0_0 = (RuleCall)cLowAssignment_0.eContents().get(0);
+		private final RuleCall cLowForIndexParserRuleCall_0_0 = (RuleCall)cLowAssignment_0.eContents().get(0);
 		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cHighAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cHighIndexParserRuleCall_2_0 = (RuleCall)cHighAssignment_2.eContents().get(0);
+		private final RuleCall cHighForIndexParserRuleCall_2_0 = (RuleCall)cHighAssignment_2.eContents().get(0);
 		
+		//// ForRange is used to declare low and high range in a For loop
 		//ForRange:
-		//	low=Index ':' high=Index;
+		//	low=ForIndex ':' high=ForIndex;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//low=Index ':' high=Index
+		//low=ForIndex ':' high=ForIndex
 		public Group getGroup() { return cGroup; }
 		
-		//low=Index
+		//low=ForIndex
 		public Assignment getLowAssignment_0() { return cLowAssignment_0; }
 		
-		//Index
-		public RuleCall getLowIndexParserRuleCall_0_0() { return cLowIndexParserRuleCall_0_0; }
+		//ForIndex
+		public RuleCall getLowForIndexParserRuleCall_0_0() { return cLowForIndexParserRuleCall_0_0; }
 		
 		//':'
 		public Keyword getColonKeyword_1() { return cColonKeyword_1; }
 		
-		//high=Index
+		//high=ForIndex
 		public Assignment getHighAssignment_2() { return cHighAssignment_2; }
 		
-		//Index
-		public RuleCall getHighIndexParserRuleCall_2_0() { return cHighIndexParserRuleCall_2_0; }
+		//ForIndex
+		public RuleCall getHighForIndexParserRuleCall_2_0() { return cHighForIndexParserRuleCall_2_0; }
 	}
 	public class ArrayRangeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.opcoach.bugsy.xtext.BugsDsl.ArrayRange");
@@ -254,6 +305,7 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cHighAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cHighIndexParserRuleCall_1_1_0 = (RuleCall)cHighAssignment_1_1.eContents().get(0);
 		
+		//// ArrayRange is used to declare low and optional high range in a relation
 		//ArrayRange:
 		//	low=Index (':' high=Index)?;
 		@Override public ParserRule getRule() { return rule; }
@@ -1099,6 +1151,21 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		//'sqrt'
 		public Keyword getSqrtSqrtKeyword_9_0() { return cSqrtSqrtKeyword_9_0; }
 	}
+	public class ArrayFunctionElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "com.opcoach.bugsy.xtext.BugsDsl.ArrayFunction");
+		private final EnumLiteralDeclaration cLengthEnumLiteralDeclaration = (EnumLiteralDeclaration)rule.eContents().get(1);
+		private final Keyword cLengthLengthKeyword_0 = (Keyword)cLengthEnumLiteralDeclaration.eContents().get(0);
+		
+		//enum ArrayFunction:
+		//	length;
+		public EnumRule getRule() { return rule; }
+		
+		//length
+		public EnumLiteralDeclaration getLengthEnumLiteralDeclaration() { return cLengthEnumLiteralDeclaration; }
+		
+		//'length'
+		public Keyword getLengthLengthKeyword_0() { return cLengthLengthKeyword_0; }
+	}
 	
 	private final BugsModelElements pBugsModel;
 	private final TerminalRule tSL_COMMENT;
@@ -1107,6 +1174,7 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 	private final ForElements pFor;
 	private final NumericElements pNumeric;
 	private final IndexElements pIndex;
+	private final ForIndexElements pForIndex;
 	private final ForRangeElements pForRange;
 	private final ArrayRangeElements pArrayRange;
 	private final FloatElements pFloat;
@@ -1123,6 +1191,7 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 	private final DistributionOperatorElements eDistributionOperator;
 	private final DensityElements eDensity;
 	private final FunctionOperatorElements eFunctionOperator;
+	private final ArrayFunctionElements eArrayFunction;
 	
 	private final Grammar grammar;
 	
@@ -1140,6 +1209,7 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.pFor = new ForElements();
 		this.pNumeric = new NumericElements();
 		this.pIndex = new IndexElements();
+		this.pForIndex = new ForIndexElements();
 		this.pForRange = new ForRangeElements();
 		this.pArrayRange = new ArrayRangeElements();
 		this.pFloat = new FloatElements();
@@ -1156,6 +1226,7 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.eDistributionOperator = new DistributionOperatorElements();
 		this.eDensity = new DensityElements();
 		this.eFunctionOperator = new FunctionOperatorElements();
+		this.eArrayFunction = new ArrayFunctionElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -1255,8 +1326,22 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getIndexAccess().getRule();
 	}
 	
+	//// For Index are used to declare an index on an array or on a function of on array. 
+	//// For instance :    V or length(V)
+	//// And these values can be combined in low and high value in the for loop
+	//ForIndex:
+	//	function=ArrayFunction '(' value=Index ')' | value=Index;
+	public ForIndexElements getForIndexAccess() {
+		return pForIndex;
+	}
+	
+	public ParserRule getForIndexRule() {
+		return getForIndexAccess().getRule();
+	}
+	
+	//// ForRange is used to declare low and high range in a For loop
 	//ForRange:
-	//	low=Index ':' high=Index;
+	//	low=ForIndex ':' high=ForIndex;
 	public ForRangeElements getForRangeAccess() {
 		return pForRange;
 	}
@@ -1265,6 +1350,7 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getForRangeAccess().getRule();
 	}
 	
+	//// ArrayRange is used to declare low and optional high range in a relation
 	//ArrayRange:
 	//	low=Index (':' high=Index)?;
 	public ArrayRangeElements getArrayRangeAccess() {
@@ -1417,6 +1503,16 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public EnumRule getFunctionOperatorRule() {
 		return getFunctionOperatorAccess().getRule();
+	}
+	
+	//enum ArrayFunction:
+	//	length;
+	public ArrayFunctionElements getArrayFunctionAccess() {
+		return eArrayFunction;
+	}
+	
+	public EnumRule getArrayFunctionRule() {
+		return getArrayFunctionAccess().getRule();
 	}
 	
 	//terminal INT returns ecore::EInt:

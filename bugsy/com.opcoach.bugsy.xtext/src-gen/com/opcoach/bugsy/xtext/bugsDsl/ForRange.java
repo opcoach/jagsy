@@ -25,55 +25,55 @@ import org.eclipse.emf.ecore.EObject;
 public interface ForRange extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Low</b></em>' attribute.
+   * Returns the value of the '<em><b>Low</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Low</em>' attribute isn't clear,
+   * If the meaning of the '<em>Low</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Low</em>' attribute.
-   * @see #setLow(String)
+   * @return the value of the '<em>Low</em>' containment reference.
+   * @see #setLow(ForIndex)
    * @see com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage#getForRange_Low()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getLow();
+  ForIndex getLow();
 
   /**
-   * Sets the value of the '{@link com.opcoach.bugsy.xtext.bugsDsl.ForRange#getLow <em>Low</em>}' attribute.
+   * Sets the value of the '{@link com.opcoach.bugsy.xtext.bugsDsl.ForRange#getLow <em>Low</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Low</em>' attribute.
+   * @param value the new value of the '<em>Low</em>' containment reference.
    * @see #getLow()
    * @generated
    */
-  void setLow(String value);
+  void setLow(ForIndex value);
 
   /**
-   * Returns the value of the '<em><b>High</b></em>' attribute.
+   * Returns the value of the '<em><b>High</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>High</em>' attribute isn't clear,
+   * If the meaning of the '<em>High</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>High</em>' attribute.
-   * @see #setHigh(String)
+   * @return the value of the '<em>High</em>' containment reference.
+   * @see #setHigh(ForIndex)
    * @see com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage#getForRange_High()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getHigh();
+  ForIndex getHigh();
 
   /**
-   * Sets the value of the '{@link com.opcoach.bugsy.xtext.bugsDsl.ForRange#getHigh <em>High</em>}' attribute.
+   * Sets the value of the '{@link com.opcoach.bugsy.xtext.bugsDsl.ForRange#getHigh <em>High</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>High</em>' attribute.
+   * @param value the new value of the '<em>High</em>' containment reference.
    * @see #getHigh()
    * @generated
    */
-  void setHigh(String value);
+  void setHigh(ForIndex value);
 
 } // ForRange

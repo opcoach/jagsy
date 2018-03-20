@@ -34,6 +34,7 @@ public class BugsDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getInstructionAccess().getAlternatives(), "rule__Instruction__Alternatives");
 					put(grammarAccess.getNumericAccess().getAlternatives(), "rule__Numeric__Alternatives");
 					put(grammarAccess.getIndexAccess().getAlternatives(), "rule__Index__Alternatives");
+					put(grammarAccess.getForIndexAccess().getAlternatives(), "rule__ForIndex__Alternatives");
 					put(grammarAccess.getFloatAccess().getAlternatives_3_1(), "rule__Float__Alternatives_3_1");
 					put(grammarAccess.getValueAccess().getAlternatives(), "rule__Value__Alternatives");
 					put(grammarAccess.getRelationAccess().getAlternatives(), "rule__Relation__Alternatives");
@@ -49,6 +50,7 @@ public class BugsDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getBugsModelAccess().getGroup(), "rule__BugsModel__Group__0");
 					put(grammarAccess.getBugsModelAccess().getGroup_1(), "rule__BugsModel__Group_1__0");
 					put(grammarAccess.getForAccess().getGroup(), "rule__For__Group__0");
+					put(grammarAccess.getForIndexAccess().getGroup_0(), "rule__ForIndex__Group_0__0");
 					put(grammarAccess.getForRangeAccess().getGroup(), "rule__ForRange__Group__0");
 					put(grammarAccess.getArrayRangeAccess().getGroup(), "rule__ArrayRange__Group__0");
 					put(grammarAccess.getArrayRangeAccess().getGroup_1(), "rule__ArrayRange__Group_1__0");
@@ -81,6 +83,9 @@ public class BugsDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getForAccess().getVariableAssignment_3(), "rule__For__VariableAssignment_3");
 					put(grammarAccess.getForAccess().getRangeAssignment_5(), "rule__For__RangeAssignment_5");
 					put(grammarAccess.getForAccess().getInstructionsAssignment_8(), "rule__For__InstructionsAssignment_8");
+					put(grammarAccess.getForIndexAccess().getFunctionAssignment_0_0(), "rule__ForIndex__FunctionAssignment_0_0");
+					put(grammarAccess.getForIndexAccess().getValueAssignment_0_2(), "rule__ForIndex__ValueAssignment_0_2");
+					put(grammarAccess.getForIndexAccess().getValueAssignment_1(), "rule__ForIndex__ValueAssignment_1");
 					put(grammarAccess.getForRangeAccess().getLowAssignment_0(), "rule__ForRange__LowAssignment_0");
 					put(grammarAccess.getForRangeAccess().getHighAssignment_2(), "rule__ForRange__HighAssignment_2");
 					put(grammarAccess.getArrayRangeAccess().getLowAssignment_0(), "rule__ArrayRange__LowAssignment_0");

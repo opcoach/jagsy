@@ -91,6 +91,11 @@ public class BugsDslAdapterFactory extends AdapterFactoryImpl
         return createForAdapter();
       }
       @Override
+      public Adapter caseForIndex(ForIndex object)
+      {
+        return createForIndexAdapter();
+      }
+      @Override
       public Adapter caseForRange(ForRange object)
       {
         return createForRangeAdapter();
@@ -203,6 +208,21 @@ public class BugsDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createForAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.opcoach.bugsy.xtext.bugsDsl.ForIndex <em>For Index</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.opcoach.bugsy.xtext.bugsDsl.ForIndex
+   * @generated
+   */
+  public Adapter createForIndexAdapter()
   {
     return null;
   }

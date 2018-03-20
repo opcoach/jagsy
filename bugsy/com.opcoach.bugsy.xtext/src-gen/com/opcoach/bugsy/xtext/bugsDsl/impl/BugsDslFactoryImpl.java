@@ -69,6 +69,7 @@ public class BugsDslFactoryImpl extends EFactoryImpl implements BugsDslFactory
       case BugsDslPackage.BUGS_MODEL: return createBugsModel();
       case BugsDslPackage.INSTRUCTION: return createInstruction();
       case BugsDslPackage.FOR: return createFor();
+      case BugsDslPackage.FOR_INDEX: return createForIndex();
       case BugsDslPackage.FOR_RANGE: return createForRange();
       case BugsDslPackage.ARRAY_RANGE: return createArrayRange();
       case BugsDslPackage.VALUE: return createValue();
@@ -100,6 +101,8 @@ public class BugsDslFactoryImpl extends EFactoryImpl implements BugsDslFactory
         return createDensityFromString(eDataType, initialValue);
       case BugsDslPackage.FUNCTION_OPERATOR:
         return createFunctionOperatorFromString(eDataType, initialValue);
+      case BugsDslPackage.ARRAY_FUNCTION:
+        return createArrayFunctionFromString(eDataType, initialValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -121,6 +124,8 @@ public class BugsDslFactoryImpl extends EFactoryImpl implements BugsDslFactory
         return convertDensityToString(eDataType, instanceValue);
       case BugsDslPackage.FUNCTION_OPERATOR:
         return convertFunctionOperatorToString(eDataType, instanceValue);
+      case BugsDslPackage.ARRAY_FUNCTION:
+        return convertArrayFunctionToString(eDataType, instanceValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -157,6 +162,17 @@ public class BugsDslFactoryImpl extends EFactoryImpl implements BugsDslFactory
   {
     ForImpl for_ = new ForImpl();
     return for_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ForIndex createForIndex()
+  {
+    ForIndexImpl forIndex = new ForIndexImpl();
+    return forIndex;
   }
 
   /**
@@ -331,6 +347,28 @@ public class BugsDslFactoryImpl extends EFactoryImpl implements BugsDslFactory
    * @generated
    */
   public String convertFunctionOperatorToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ArrayFunction createArrayFunctionFromString(EDataType eDataType, String initialValue)
+  {
+    ArrayFunction result = ArrayFunction.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertArrayFunctionToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }

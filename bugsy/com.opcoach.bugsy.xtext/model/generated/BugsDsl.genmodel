@@ -42,6 +42,9 @@
       <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//FunctionOperator/mean"/>
       <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//FunctionOperator/sqrt"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="BugsDsl.ecore#//ArrayFunction">
+      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//ArrayFunction/length"/>
+    </genEnums>
     <genClasses ecoreClass="BugsDsl.ecore#//BugsModel">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BugsDsl.ecore#//BugsModel/data"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BugsDsl.ecore#//BugsModel/instructions"/>
@@ -52,9 +55,13 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BugsDsl.ecore#//For/range"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BugsDsl.ecore#//For/instructions"/>
     </genClasses>
+    <genClasses ecoreClass="BugsDsl.ecore#//ForIndex">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BugsDsl.ecore#//ForIndex/function"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BugsDsl.ecore#//ForIndex/value"/>
+    </genClasses>
     <genClasses ecoreClass="BugsDsl.ecore#//ForRange">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BugsDsl.ecore#//ForRange/low"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BugsDsl.ecore#//ForRange/high"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BugsDsl.ecore#//ForRange/low"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BugsDsl.ecore#//ForRange/high"/>
     </genClasses>
     <genClasses ecoreClass="BugsDsl.ecore#//ArrayRange">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BugsDsl.ecore#//ArrayRange/low"/>

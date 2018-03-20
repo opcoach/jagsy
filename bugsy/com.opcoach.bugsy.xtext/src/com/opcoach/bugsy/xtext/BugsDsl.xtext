@@ -31,9 +31,16 @@ Numeric:
 
 Index:
 	INT | ID;
+	
+	// For Index are used to declare an index on an array or on a function of on array. 
+	// For instance :    V or length(V)
+	// And these values can be combined in low and high value in the for loop
+ForIndex :  (function=ArrayFunction '(' value=Index  ')' ) | value=Index;
 
-ForRange : low=Index ':' high=Index;
+ // ForRange is used to declare low and high range in a For loop
+ForRange : low=ForIndex ':' high=ForIndex;
 
+ // ArrayRange is used to declare low and optional high range in a relation
 ArrayRange : low=Index (':' high=Index)?;
 
 Float returns ecore::EFloat:
@@ -82,5 +89,7 @@ enum Density:
 enum FunctionOperator:
 	acos='acos' | acosh='acosh' | asin='asin' | asinh='asinh' | atan='atan' | log='log' | ep='exp' | c='c' | mean='mean' |
 	sqrt='sqrt';
+	
+enum ArrayFunction : length = 'length';
 
 

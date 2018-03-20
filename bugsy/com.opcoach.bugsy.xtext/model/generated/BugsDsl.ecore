@@ -16,9 +16,15 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="instructions" upperBound="-1"
         eType="#//Instruction" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ForIndex">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="function" eType="#//ArrayFunction"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ForRange">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="low" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="high" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="low" eType="#//ForIndex"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="high" eType="#//ForIndex"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ArrayRange">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="low" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -105,5 +111,8 @@
     <eLiterals name="c" value="7" literal="c"/>
     <eLiterals name="mean" value="8" literal="mean"/>
     <eLiterals name="sqrt" value="9" literal="sqrt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ArrayFunction">
+    <eLiterals name="length" literal="length"/>
   </eClassifiers>
 </ecore:EPackage>

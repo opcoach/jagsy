@@ -4,11 +4,14 @@
 package com.opcoach.bugsy.xtext.bugsDsl.impl;
 
 import com.opcoach.bugsy.xtext.bugsDsl.BugsDslPackage;
+import com.opcoach.bugsy.xtext.bugsDsl.ForIndex;
 import com.opcoach.bugsy.xtext.bugsDsl.ForRange;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -30,44 +33,24 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class ForRangeImpl extends MinimalEObjectImpl.Container implements ForRange
 {
   /**
-   * The default value of the '{@link #getLow() <em>Low</em>}' attribute.
+   * The cached value of the '{@link #getLow() <em>Low</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getLow()
    * @generated
    * @ordered
    */
-  protected static final String LOW_EDEFAULT = null;
+  protected ForIndex low;
 
   /**
-   * The cached value of the '{@link #getLow() <em>Low</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getLow()
-   * @generated
-   * @ordered
-   */
-  protected String low = LOW_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getHigh() <em>High</em>}' attribute.
+   * The cached value of the '{@link #getHigh() <em>High</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getHigh()
    * @generated
    * @ordered
    */
-  protected static final String HIGH_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getHigh() <em>High</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getHigh()
-   * @generated
-   * @ordered
-   */
-  protected String high = HIGH_EDEFAULT;
+  protected ForIndex high;
 
   /**
    * <!-- begin-user-doc -->
@@ -95,7 +78,7 @@ public class ForRangeImpl extends MinimalEObjectImpl.Container implements ForRan
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getLow()
+  public ForIndex getLow()
   {
     return low;
   }
@@ -105,12 +88,16 @@ public class ForRangeImpl extends MinimalEObjectImpl.Container implements ForRan
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setLow(String newLow)
+  public NotificationChain basicSetLow(ForIndex newLow, NotificationChain msgs)
   {
-    String oldLow = low;
+    ForIndex oldLow = low;
     low = newLow;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BugsDslPackage.FOR_RANGE__LOW, oldLow, low));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BugsDslPackage.FOR_RANGE__LOW, oldLow, newLow);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
   }
 
   /**
@@ -118,7 +105,28 @@ public class ForRangeImpl extends MinimalEObjectImpl.Container implements ForRan
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getHigh()
+  public void setLow(ForIndex newLow)
+  {
+    if (newLow != low)
+    {
+      NotificationChain msgs = null;
+      if (low != null)
+        msgs = ((InternalEObject)low).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BugsDslPackage.FOR_RANGE__LOW, null, msgs);
+      if (newLow != null)
+        msgs = ((InternalEObject)newLow).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BugsDslPackage.FOR_RANGE__LOW, null, msgs);
+      msgs = basicSetLow(newLow, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, BugsDslPackage.FOR_RANGE__LOW, newLow, newLow));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ForIndex getHigh()
   {
     return high;
   }
@@ -128,12 +136,55 @@ public class ForRangeImpl extends MinimalEObjectImpl.Container implements ForRan
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setHigh(String newHigh)
+  public NotificationChain basicSetHigh(ForIndex newHigh, NotificationChain msgs)
   {
-    String oldHigh = high;
+    ForIndex oldHigh = high;
     high = newHigh;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BugsDslPackage.FOR_RANGE__HIGH, oldHigh, high));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BugsDslPackage.FOR_RANGE__HIGH, oldHigh, newHigh);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setHigh(ForIndex newHigh)
+  {
+    if (newHigh != high)
+    {
+      NotificationChain msgs = null;
+      if (high != null)
+        msgs = ((InternalEObject)high).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BugsDslPackage.FOR_RANGE__HIGH, null, msgs);
+      if (newHigh != null)
+        msgs = ((InternalEObject)newHigh).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BugsDslPackage.FOR_RANGE__HIGH, null, msgs);
+      msgs = basicSetHigh(newHigh, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, BugsDslPackage.FOR_RANGE__HIGH, newHigh, newHigh));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case BugsDslPackage.FOR_RANGE__LOW:
+        return basicSetLow(null, msgs);
+      case BugsDslPackage.FOR_RANGE__HIGH:
+        return basicSetHigh(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -165,10 +216,10 @@ public class ForRangeImpl extends MinimalEObjectImpl.Container implements ForRan
     switch (featureID)
     {
       case BugsDslPackage.FOR_RANGE__LOW:
-        setLow((String)newValue);
+        setLow((ForIndex)newValue);
         return;
       case BugsDslPackage.FOR_RANGE__HIGH:
-        setHigh((String)newValue);
+        setHigh((ForIndex)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -185,10 +236,10 @@ public class ForRangeImpl extends MinimalEObjectImpl.Container implements ForRan
     switch (featureID)
     {
       case BugsDslPackage.FOR_RANGE__LOW:
-        setLow(LOW_EDEFAULT);
+        setLow((ForIndex)null);
         return;
       case BugsDslPackage.FOR_RANGE__HIGH:
-        setHigh(HIGH_EDEFAULT);
+        setHigh((ForIndex)null);
         return;
     }
     super.eUnset(featureID);
@@ -205,30 +256,11 @@ public class ForRangeImpl extends MinimalEObjectImpl.Container implements ForRan
     switch (featureID)
     {
       case BugsDslPackage.FOR_RANGE__LOW:
-        return LOW_EDEFAULT == null ? low != null : !LOW_EDEFAULT.equals(low);
+        return low != null;
       case BugsDslPackage.FOR_RANGE__HIGH:
-        return HIGH_EDEFAULT == null ? high != null : !HIGH_EDEFAULT.equals(high);
+        return high != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (low: ");
-    result.append(low);
-    result.append(", high: ");
-    result.append(high);
-    result.append(')');
-    return result.toString();
   }
 
 } //ForRangeImpl

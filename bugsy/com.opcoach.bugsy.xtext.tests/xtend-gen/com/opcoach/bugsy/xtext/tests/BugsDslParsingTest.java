@@ -369,6 +369,36 @@ public class BugsDslParsingTest {
   }
   
   @Test
+  public void testIssue11_ManageLenghtFunction() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("\t");
+      _builder.newLine();
+      _builder.append("model {");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("for (i in 1:length(Y)) {");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("Y[i] ~ dnorm(mu[i], tau)");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      final BugsModel result = this.parseHelper.parse(_builder);
+      Assert.assertNotNull(result);
+      EList<Resource.Diagnostic> _errors = result.eResource().getErrors();
+      String _plus = ("Errors in Issue 11 : " + _errors);
+      InputOutput.<String>println(_plus);
+      Assert.assertTrue(result.eResource().getErrors().isEmpty());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
   public void testIssue13_ManageDataBlock() {
     try {
       StringConcatenation _builder = new StringConcatenation();

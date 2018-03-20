@@ -214,6 +214,22 @@ class BugsDslParsingTest {
 	}
 
 	@Test
+	def void testIssue11_ManageLenghtFunction() {
+		// See : https://github.com/opcoach/jagsy/issues/11
+		val result = parseHelper.parse('''
+				
+			model {
+					for (i in 1:length(Y)) {
+					Y[i] ~ dnorm(mu[i], tau)
+				}
+			}
+		''')
+		Assert.assertNotNull(result)
+		println("Errors in Issue 11 : " + result.eResource.errors)
+		Assert.assertTrue(result.eResource.errors.isEmpty)
+	}
+	
+	@Test
 	def void testIssue13_ManageDataBlock() {
 		// See : https://github.com/opcoach/jagsy/issues/13
 		val result = parseHelper.parse('''

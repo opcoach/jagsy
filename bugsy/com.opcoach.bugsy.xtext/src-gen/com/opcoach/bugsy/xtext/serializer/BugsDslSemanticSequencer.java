@@ -12,6 +12,7 @@ import com.opcoach.bugsy.xtext.bugsDsl.DeterministicRelation;
 import com.opcoach.bugsy.xtext.bugsDsl.Distribution;
 import com.opcoach.bugsy.xtext.bugsDsl.Expression;
 import com.opcoach.bugsy.xtext.bugsDsl.For;
+import com.opcoach.bugsy.xtext.bugsDsl.ForIndex;
 import com.opcoach.bugsy.xtext.bugsDsl.ForRange;
 import com.opcoach.bugsy.xtext.bugsDsl.Function;
 import com.opcoach.bugsy.xtext.bugsDsl.StochasticRelation;
@@ -62,6 +63,9 @@ public class BugsDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 				return; 
 			case BugsDslPackage.FOR:
 				sequence_For(context, (For) semanticObject); 
+				return; 
+			case BugsDslPackage.FOR_INDEX:
+				sequence_ForIndex(context, (ForIndex) semanticObject); 
 				return; 
 			case BugsDslPackage.FOR_RANGE:
 				sequence_ForRange(context, (ForRange) semanticObject); 
@@ -158,10 +162,22 @@ public class BugsDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
+	 *     ForIndex returns ForIndex
+	 *
+	 * Constraint:
+	 *     ((function=ArrayFunction value=Index) | value=Index)
+	 */
+	protected void sequence_ForIndex(ISerializationContext context, ForIndex semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     ForRange returns ForRange
 	 *
 	 * Constraint:
-	 *     (low=Index high=Index)
+	 *     (low=ForIndex high=ForIndex)
 	 */
 	protected void sequence_ForRange(ISerializationContext context, ForRange semanticObject) {
 		if (errorAcceptor != null) {
@@ -171,8 +187,8 @@ public class BugsDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BugsDslPackage.Literals.FOR_RANGE__HIGH));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getForRangeAccess().getLowIndexParserRuleCall_0_0(), semanticObject.getLow());
-		feeder.accept(grammarAccess.getForRangeAccess().getHighIndexParserRuleCall_2_0(), semanticObject.getHigh());
+		feeder.accept(grammarAccess.getForRangeAccess().getLowForIndexParserRuleCall_0_0(), semanticObject.getLow());
+		feeder.accept(grammarAccess.getForRangeAccess().getHighForIndexParserRuleCall_2_0(), semanticObject.getHigh());
 		feeder.finish();
 	}
 	

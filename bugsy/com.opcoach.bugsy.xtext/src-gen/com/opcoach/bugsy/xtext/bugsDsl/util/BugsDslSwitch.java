@@ -95,6 +95,13 @@ public class BugsDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case BugsDslPackage.FOR_INDEX:
+      {
+        ForIndex forIndex = (ForIndex)theEObject;
+        T result = caseForIndex(forIndex);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case BugsDslPackage.FOR_RANGE:
       {
         ForRange forRange = (ForRange)theEObject;
@@ -218,6 +225,22 @@ public class BugsDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseFor(For object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>For Index</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>For Index</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseForIndex(ForIndex object)
   {
     return null;
   }
