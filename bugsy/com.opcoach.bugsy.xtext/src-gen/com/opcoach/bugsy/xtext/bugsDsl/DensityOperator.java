@@ -58,7 +58,27 @@ public enum DensityOperator implements Enumerator
    * @generated
    * @ordered
    */
-  DGAMMA(3, "dgamma", "dgamma");
+  DGAMMA(3, "dgamma", "dgamma"),
+
+  /**
+   * The '<em><b>Dweib</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #DWEIB_VALUE
+   * @generated
+   * @ordered
+   */
+  DWEIB(4, "dweib", "dweib"),
+
+  /**
+   * The '<em><b>Weibul</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #WEIBUL_VALUE
+   * @generated
+   * @ordered
+   */
+  WEIBUL(5, "weibul", "weibul");
 
   /**
    * The '<em><b>Dnorm</b></em>' literal value.
@@ -121,6 +141,36 @@ public enum DensityOperator implements Enumerator
   public static final int DGAMMA_VALUE = 3;
 
   /**
+   * The '<em><b>Dweib</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of '<em><b>Dweib</b></em>' literal object isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @see #DWEIB
+   * @model name="dweib"
+   * @generated
+   * @ordered
+   */
+  public static final int DWEIB_VALUE = 4;
+
+  /**
+   * The '<em><b>Weibul</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of '<em><b>Weibul</b></em>' literal object isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @see #WEIBUL
+   * @model name="weibul"
+   * @generated
+   * @ordered
+   */
+  public static final int WEIBUL_VALUE = 5;
+
+  /**
    * An array of all the '<em><b>Density Operator</b></em>' enumerators.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -133,6 +183,8 @@ public enum DensityOperator implements Enumerator
       DUNIF,
       DBETA,
       DGAMMA,
+      DWEIB,
+      WEIBUL,
     };
 
   /**
@@ -201,6 +253,8 @@ public enum DensityOperator implements Enumerator
       case DUNIF_VALUE: return DUNIF;
       case DBETA_VALUE: return DBETA;
       case DGAMMA_VALUE: return DGAMMA;
+      case DWEIB_VALUE: return DWEIB;
+      case WEIBUL_VALUE: return WEIBUL;
     }
     return null;
   }

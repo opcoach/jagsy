@@ -228,7 +228,7 @@ class BugsDslParsingTest {
 		println("Errors in Issue 11 : " + result.eResource.errors)
 		Assert.assertTrue(result.eResource.errors.isEmpty)
 	}
-	
+
 	@Test
 	def void testIssue13_ManageDataBlock() {
 		// See : https://github.com/opcoach/jagsy/issues/13
@@ -250,7 +250,7 @@ class BugsDslParsingTest {
 		println("Errors in Issue 13 : " + result.eResource.errors)
 		Assert.assertTrue(result.eResource.errors.isEmpty)
 	}
-	
+
 	@Test
 	def void testIssue16_RangeIndexNotAllowed() {
 		// See : https://github.com/opcoach/jagsy/issues/16
@@ -271,20 +271,38 @@ class BugsDslParsingTest {
 		println("Errors in Issue 16 : " + result.eResource.errors)
 		Assert.assertTrue(result.eResource.errors.isEmpty)
 	}
-		@Test
-	def void testIssue26_lengthRaisesAnError() {
-		// See : https://github.com/opcoach/jagsy/issues/26
+
+	@Test
+	def void testIssue22_dweibDistributionFunction() {
+		// See : https://github.com/opcoach/jagsy/issues/22
 		val result = parseHelper.parse('''
 			model{
-			A <- length(B)
+			for(i in 1:N){
+			t[i] ~ dweib(r, mu[i])
+			}
 			}
 		''')
 		Assert.assertNotNull(result)
-		println("Errors in Issue 26 : " + result.eResource.errors)
+		println("Errors in Issue 22 : " + result.eResource.errors)
 		Assert.assertTrue(result.eResource.errors.isEmpty)
 	}
-	
-		@Test
+
+	@Test
+	def void testIssue22_weibulDistributionFunction() {
+		// See : https://github.com/opcoach/jagsy/issues/22
+		val result = parseHelper.parse('''
+			model{
+			for(i in 1:N){
+			t[i] ~ weibul(r, mu[i])
+			}
+			}
+		''')
+		Assert.assertNotNull(result)
+		println("Errors in Issue 22 : " + result.eResource.errors)
+		Assert.assertTrue(result.eResource.errors.isEmpty)
+	}
+
+	@Test
 	def void testIssue24_inverseRaisesAnError() {
 		// See : https://github.com/opcoach/jagsy/issues/24
 		val result = parseHelper.parse('''
@@ -296,10 +314,18 @@ class BugsDslParsingTest {
 		println("Errors in Issue 24 : " + result.eResource.errors)
 		Assert.assertTrue(result.eResource.errors.isEmpty)
 	}
-	
-	
-	
-	
-	
+
+	@Test
+	def void testIssue26_lengthRaisesAnError() {
+		// See : https://github.com/opcoach/jagsy/issues/26
+		val result = parseHelper.parse('''
+			model{
+			A <- length(B)
+			}
+		''')
+		Assert.assertNotNull(result)
+		println("Errors in Issue 26 : " + result.eResource.errors)
+		Assert.assertTrue(result.eResource.errors.isEmpty)
+	}
 
 }

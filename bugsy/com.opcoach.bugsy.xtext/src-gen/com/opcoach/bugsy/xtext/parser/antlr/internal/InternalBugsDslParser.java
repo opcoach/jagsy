@@ -23,7 +23,7 @@ import java.util.HashMap;
 @SuppressWarnings("all")
 public class InternalBugsDslParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_SL_COMMENT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'data'", "'{'", "'}'", "'model'", "'for'", "'('", "'in'", "')'", "':'", "'.'", "'E'", "'+'", "'-'", "'['", "','", "']'", "'~'", "'()'", "'<-'", "'='", "'*'", "'/'", "'dbern'", "'dbin'", "'dchisqr'", "'ddexp'", "'dexp'", "'df'", "'dgen.gamma'", "'dhyper'", "'dlogis'", "'dlnorm'", "'dnegbin'", "'dnchisqr'", "'dpar'", "'dpois'", "'dt'", "'dweib'", "'dnorm'", "'dunif'", "'dbeta'", "'dgamma'", "'acos'", "'acosh'", "'asin'", "'asinh'", "'atan'", "'log'", "'exp'", "'c'", "'mean'", "'sqrt'", "'length'", "'inverse'", "'dim'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_SL_COMMENT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'data'", "'{'", "'}'", "'model'", "'for'", "'('", "'in'", "')'", "':'", "'.'", "'E'", "'+'", "'-'", "'['", "','", "']'", "'~'", "'()'", "'<-'", "'='", "'*'", "'/'", "'dbern'", "'dbin'", "'dchisqr'", "'ddexp'", "'dexp'", "'df'", "'dgen.gamma'", "'dhyper'", "'dlogis'", "'dlnorm'", "'dnegbin'", "'dnchisqr'", "'dpar'", "'dpois'", "'dt'", "'dnorm'", "'dunif'", "'dbeta'", "'dgamma'", "'dweib'", "'weibul'", "'acos'", "'acosh'", "'asin'", "'asinh'", "'atan'", "'log'", "'exp'", "'c'", "'mean'", "'sqrt'", "'length'", "'inverse'", "'dim'"
     };
     public static final int T__50=50;
     public static final int T__19=19;
@@ -53,6 +53,7 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
     public static final int RULE_INT=5;
     public static final int T__29=29;
     public static final int T__22=22;
+    public static final int T__66=66;
     public static final int RULE_ML_COMMENT=8;
     public static final int T__23=23;
     public static final int T__24=24;
@@ -1139,7 +1140,7 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
             int alt8=2;
             int LA8_0 = input.LA(1);
 
-            if ( (LA8_0==63) ) {
+            if ( (LA8_0==64) ) {
                 alt8=1;
             }
             else if ( ((LA8_0>=RULE_ID && LA8_0<=RULE_INT)) ) {
@@ -4327,7 +4328,6 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
                 alt30=2;
                 }
                 break;
-            case 53:
             case 54:
             case 55:
             case 56:
@@ -4339,6 +4339,7 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
             case 62:
             case 63:
             case 64:
+            case 65:
                 {
                 alt30=3;
                 }
@@ -4358,12 +4359,11 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
             case 45:
             case 46:
             case 47:
-            case 48:
                 {
                 alt30=4;
                 }
                 break;
-            case 65:
+            case 66:
                 {
                 alt30=5;
                 }
@@ -4606,7 +4606,7 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDistributionOperator"
-    // InternalBugsDsl.g:1608:1: ruleDistributionOperator returns [Enumerator current=null] : ( (enumLiteral_0= 'dbern' ) | (enumLiteral_1= 'dbin' ) | (enumLiteral_2= 'dchisqr' ) | (enumLiteral_3= 'ddexp' ) | (enumLiteral_4= 'dexp' ) | (enumLiteral_5= 'df' ) | (enumLiteral_6= 'dgen.gamma' ) | (enumLiteral_7= 'dhyper' ) | (enumLiteral_8= 'dlogis' ) | (enumLiteral_9= 'dlnorm' ) | (enumLiteral_10= 'dnegbin' ) | (enumLiteral_11= 'dnchisqr' ) | (enumLiteral_12= 'dpar' ) | (enumLiteral_13= 'dpois' ) | (enumLiteral_14= 'dt' ) | (enumLiteral_15= 'dweib' ) ) ;
+    // InternalBugsDsl.g:1608:1: ruleDistributionOperator returns [Enumerator current=null] : ( (enumLiteral_0= 'dbern' ) | (enumLiteral_1= 'dbin' ) | (enumLiteral_2= 'dchisqr' ) | (enumLiteral_3= 'ddexp' ) | (enumLiteral_4= 'dexp' ) | (enumLiteral_5= 'df' ) | (enumLiteral_6= 'dgen.gamma' ) | (enumLiteral_7= 'dhyper' ) | (enumLiteral_8= 'dlogis' ) | (enumLiteral_9= 'dlnorm' ) | (enumLiteral_10= 'dnegbin' ) | (enumLiteral_11= 'dnchisqr' ) | (enumLiteral_12= 'dpar' ) | (enumLiteral_13= 'dpois' ) | (enumLiteral_14= 'dt' ) ) ;
     public final Enumerator ruleDistributionOperator() throws RecognitionException {
         Enumerator current = null;
 
@@ -4625,17 +4625,16 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
         Token enumLiteral_12=null;
         Token enumLiteral_13=null;
         Token enumLiteral_14=null;
-        Token enumLiteral_15=null;
 
 
         	enterRule();
 
         try {
-            // InternalBugsDsl.g:1614:2: ( ( (enumLiteral_0= 'dbern' ) | (enumLiteral_1= 'dbin' ) | (enumLiteral_2= 'dchisqr' ) | (enumLiteral_3= 'ddexp' ) | (enumLiteral_4= 'dexp' ) | (enumLiteral_5= 'df' ) | (enumLiteral_6= 'dgen.gamma' ) | (enumLiteral_7= 'dhyper' ) | (enumLiteral_8= 'dlogis' ) | (enumLiteral_9= 'dlnorm' ) | (enumLiteral_10= 'dnegbin' ) | (enumLiteral_11= 'dnchisqr' ) | (enumLiteral_12= 'dpar' ) | (enumLiteral_13= 'dpois' ) | (enumLiteral_14= 'dt' ) | (enumLiteral_15= 'dweib' ) ) )
-            // InternalBugsDsl.g:1615:2: ( (enumLiteral_0= 'dbern' ) | (enumLiteral_1= 'dbin' ) | (enumLiteral_2= 'dchisqr' ) | (enumLiteral_3= 'ddexp' ) | (enumLiteral_4= 'dexp' ) | (enumLiteral_5= 'df' ) | (enumLiteral_6= 'dgen.gamma' ) | (enumLiteral_7= 'dhyper' ) | (enumLiteral_8= 'dlogis' ) | (enumLiteral_9= 'dlnorm' ) | (enumLiteral_10= 'dnegbin' ) | (enumLiteral_11= 'dnchisqr' ) | (enumLiteral_12= 'dpar' ) | (enumLiteral_13= 'dpois' ) | (enumLiteral_14= 'dt' ) | (enumLiteral_15= 'dweib' ) )
+            // InternalBugsDsl.g:1614:2: ( ( (enumLiteral_0= 'dbern' ) | (enumLiteral_1= 'dbin' ) | (enumLiteral_2= 'dchisqr' ) | (enumLiteral_3= 'ddexp' ) | (enumLiteral_4= 'dexp' ) | (enumLiteral_5= 'df' ) | (enumLiteral_6= 'dgen.gamma' ) | (enumLiteral_7= 'dhyper' ) | (enumLiteral_8= 'dlogis' ) | (enumLiteral_9= 'dlnorm' ) | (enumLiteral_10= 'dnegbin' ) | (enumLiteral_11= 'dnchisqr' ) | (enumLiteral_12= 'dpar' ) | (enumLiteral_13= 'dpois' ) | (enumLiteral_14= 'dt' ) ) )
+            // InternalBugsDsl.g:1615:2: ( (enumLiteral_0= 'dbern' ) | (enumLiteral_1= 'dbin' ) | (enumLiteral_2= 'dchisqr' ) | (enumLiteral_3= 'ddexp' ) | (enumLiteral_4= 'dexp' ) | (enumLiteral_5= 'df' ) | (enumLiteral_6= 'dgen.gamma' ) | (enumLiteral_7= 'dhyper' ) | (enumLiteral_8= 'dlogis' ) | (enumLiteral_9= 'dlnorm' ) | (enumLiteral_10= 'dnegbin' ) | (enumLiteral_11= 'dnchisqr' ) | (enumLiteral_12= 'dpar' ) | (enumLiteral_13= 'dpois' ) | (enumLiteral_14= 'dt' ) )
             {
-            // InternalBugsDsl.g:1615:2: ( (enumLiteral_0= 'dbern' ) | (enumLiteral_1= 'dbin' ) | (enumLiteral_2= 'dchisqr' ) | (enumLiteral_3= 'ddexp' ) | (enumLiteral_4= 'dexp' ) | (enumLiteral_5= 'df' ) | (enumLiteral_6= 'dgen.gamma' ) | (enumLiteral_7= 'dhyper' ) | (enumLiteral_8= 'dlogis' ) | (enumLiteral_9= 'dlnorm' ) | (enumLiteral_10= 'dnegbin' ) | (enumLiteral_11= 'dnchisqr' ) | (enumLiteral_12= 'dpar' ) | (enumLiteral_13= 'dpois' ) | (enumLiteral_14= 'dt' ) | (enumLiteral_15= 'dweib' ) )
-            int alt31=16;
+            // InternalBugsDsl.g:1615:2: ( (enumLiteral_0= 'dbern' ) | (enumLiteral_1= 'dbin' ) | (enumLiteral_2= 'dchisqr' ) | (enumLiteral_3= 'ddexp' ) | (enumLiteral_4= 'dexp' ) | (enumLiteral_5= 'df' ) | (enumLiteral_6= 'dgen.gamma' ) | (enumLiteral_7= 'dhyper' ) | (enumLiteral_8= 'dlogis' ) | (enumLiteral_9= 'dlnorm' ) | (enumLiteral_10= 'dnegbin' ) | (enumLiteral_11= 'dnchisqr' ) | (enumLiteral_12= 'dpar' ) | (enumLiteral_13= 'dpois' ) | (enumLiteral_14= 'dt' ) )
+            int alt31=15;
             switch ( input.LA(1) ) {
             case 33:
                 {
@@ -4710,11 +4709,6 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
             case 47:
                 {
                 alt31=15;
-                }
-                break;
-            case 48:
-                {
-                alt31=16;
                 }
                 break;
             default:
@@ -5011,25 +5005,6 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
 
                     }
                     break;
-                case 16 :
-                    // InternalBugsDsl.g:1736:3: (enumLiteral_15= 'dweib' )
-                    {
-                    // InternalBugsDsl.g:1736:3: (enumLiteral_15= 'dweib' )
-                    // InternalBugsDsl.g:1737:4: enumLiteral_15= 'dweib'
-                    {
-                    enumLiteral_15=(Token)match(input,48,FOLLOW_2); if (state.failed) return current;
-                    if ( state.backtracking==0 ) {
-
-                      				current = grammarAccess.getDistributionOperatorAccess().getDweibEnumLiteralDeclaration_15().getEnumLiteral().getInstance();
-                      				newLeafNode(enumLiteral_15, grammarAccess.getDistributionOperatorAccess().getDweibEnumLiteralDeclaration_15());
-                      			
-                    }
-
-                    }
-
-
-                    }
-                    break;
 
             }
 
@@ -5055,7 +5030,7 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDensityOperator"
-    // InternalBugsDsl.g:1747:1: ruleDensityOperator returns [Enumerator current=null] : ( (enumLiteral_0= 'dnorm' ) | (enumLiteral_1= 'dunif' ) | (enumLiteral_2= 'dbeta' ) | (enumLiteral_3= 'dgamma' ) ) ;
+    // InternalBugsDsl.g:1739:1: ruleDensityOperator returns [Enumerator current=null] : ( (enumLiteral_0= 'dnorm' ) | (enumLiteral_1= 'dunif' ) | (enumLiteral_2= 'dbeta' ) | (enumLiteral_3= 'dgamma' ) | (enumLiteral_4= 'dweib' ) | (enumLiteral_5= 'weibul' ) ) ;
     public final Enumerator ruleDensityOperator() throws RecognitionException {
         Enumerator current = null;
 
@@ -5063,35 +5038,47 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
         Token enumLiteral_1=null;
         Token enumLiteral_2=null;
         Token enumLiteral_3=null;
+        Token enumLiteral_4=null;
+        Token enumLiteral_5=null;
 
 
         	enterRule();
 
         try {
-            // InternalBugsDsl.g:1753:2: ( ( (enumLiteral_0= 'dnorm' ) | (enumLiteral_1= 'dunif' ) | (enumLiteral_2= 'dbeta' ) | (enumLiteral_3= 'dgamma' ) ) )
-            // InternalBugsDsl.g:1754:2: ( (enumLiteral_0= 'dnorm' ) | (enumLiteral_1= 'dunif' ) | (enumLiteral_2= 'dbeta' ) | (enumLiteral_3= 'dgamma' ) )
+            // InternalBugsDsl.g:1745:2: ( ( (enumLiteral_0= 'dnorm' ) | (enumLiteral_1= 'dunif' ) | (enumLiteral_2= 'dbeta' ) | (enumLiteral_3= 'dgamma' ) | (enumLiteral_4= 'dweib' ) | (enumLiteral_5= 'weibul' ) ) )
+            // InternalBugsDsl.g:1746:2: ( (enumLiteral_0= 'dnorm' ) | (enumLiteral_1= 'dunif' ) | (enumLiteral_2= 'dbeta' ) | (enumLiteral_3= 'dgamma' ) | (enumLiteral_4= 'dweib' ) | (enumLiteral_5= 'weibul' ) )
             {
-            // InternalBugsDsl.g:1754:2: ( (enumLiteral_0= 'dnorm' ) | (enumLiteral_1= 'dunif' ) | (enumLiteral_2= 'dbeta' ) | (enumLiteral_3= 'dgamma' ) )
-            int alt32=4;
+            // InternalBugsDsl.g:1746:2: ( (enumLiteral_0= 'dnorm' ) | (enumLiteral_1= 'dunif' ) | (enumLiteral_2= 'dbeta' ) | (enumLiteral_3= 'dgamma' ) | (enumLiteral_4= 'dweib' ) | (enumLiteral_5= 'weibul' ) )
+            int alt32=6;
             switch ( input.LA(1) ) {
-            case 49:
+            case 48:
                 {
                 alt32=1;
                 }
                 break;
-            case 50:
+            case 49:
                 {
                 alt32=2;
                 }
                 break;
-            case 51:
+            case 50:
                 {
                 alt32=3;
                 }
                 break;
-            case 52:
+            case 51:
                 {
                 alt32=4;
+                }
+                break;
+            case 52:
+                {
+                alt32=5;
+                }
+                break;
+            case 53:
+                {
+                alt32=6;
                 }
                 break;
             default:
@@ -5104,12 +5091,12 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
 
             switch (alt32) {
                 case 1 :
-                    // InternalBugsDsl.g:1755:3: (enumLiteral_0= 'dnorm' )
+                    // InternalBugsDsl.g:1747:3: (enumLiteral_0= 'dnorm' )
                     {
-                    // InternalBugsDsl.g:1755:3: (enumLiteral_0= 'dnorm' )
-                    // InternalBugsDsl.g:1756:4: enumLiteral_0= 'dnorm'
+                    // InternalBugsDsl.g:1747:3: (enumLiteral_0= 'dnorm' )
+                    // InternalBugsDsl.g:1748:4: enumLiteral_0= 'dnorm'
                     {
-                    enumLiteral_0=(Token)match(input,49,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_0=(Token)match(input,48,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getDensityOperatorAccess().getDnormEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
@@ -5123,12 +5110,12 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalBugsDsl.g:1763:3: (enumLiteral_1= 'dunif' )
+                    // InternalBugsDsl.g:1755:3: (enumLiteral_1= 'dunif' )
                     {
-                    // InternalBugsDsl.g:1763:3: (enumLiteral_1= 'dunif' )
-                    // InternalBugsDsl.g:1764:4: enumLiteral_1= 'dunif'
+                    // InternalBugsDsl.g:1755:3: (enumLiteral_1= 'dunif' )
+                    // InternalBugsDsl.g:1756:4: enumLiteral_1= 'dunif'
                     {
-                    enumLiteral_1=(Token)match(input,50,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_1=(Token)match(input,49,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getDensityOperatorAccess().getDunifEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
@@ -5142,12 +5129,12 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalBugsDsl.g:1771:3: (enumLiteral_2= 'dbeta' )
+                    // InternalBugsDsl.g:1763:3: (enumLiteral_2= 'dbeta' )
                     {
-                    // InternalBugsDsl.g:1771:3: (enumLiteral_2= 'dbeta' )
-                    // InternalBugsDsl.g:1772:4: enumLiteral_2= 'dbeta'
+                    // InternalBugsDsl.g:1763:3: (enumLiteral_2= 'dbeta' )
+                    // InternalBugsDsl.g:1764:4: enumLiteral_2= 'dbeta'
                     {
-                    enumLiteral_2=(Token)match(input,51,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_2=(Token)match(input,50,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getDensityOperatorAccess().getDbetaEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
@@ -5161,16 +5148,54 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalBugsDsl.g:1779:3: (enumLiteral_3= 'dgamma' )
+                    // InternalBugsDsl.g:1771:3: (enumLiteral_3= 'dgamma' )
                     {
-                    // InternalBugsDsl.g:1779:3: (enumLiteral_3= 'dgamma' )
-                    // InternalBugsDsl.g:1780:4: enumLiteral_3= 'dgamma'
+                    // InternalBugsDsl.g:1771:3: (enumLiteral_3= 'dgamma' )
+                    // InternalBugsDsl.g:1772:4: enumLiteral_3= 'dgamma'
                     {
-                    enumLiteral_3=(Token)match(input,52,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_3=(Token)match(input,51,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getDensityOperatorAccess().getDgammaEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
                       				newLeafNode(enumLiteral_3, grammarAccess.getDensityOperatorAccess().getDgammaEnumLiteralDeclaration_3());
+                      			
+                    }
+
+                    }
+
+
+                    }
+                    break;
+                case 5 :
+                    // InternalBugsDsl.g:1779:3: (enumLiteral_4= 'dweib' )
+                    {
+                    // InternalBugsDsl.g:1779:3: (enumLiteral_4= 'dweib' )
+                    // InternalBugsDsl.g:1780:4: enumLiteral_4= 'dweib'
+                    {
+                    enumLiteral_4=(Token)match(input,52,FOLLOW_2); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      				current = grammarAccess.getDensityOperatorAccess().getDweibEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
+                      				newLeafNode(enumLiteral_4, grammarAccess.getDensityOperatorAccess().getDweibEnumLiteralDeclaration_4());
+                      			
+                    }
+
+                    }
+
+
+                    }
+                    break;
+                case 6 :
+                    // InternalBugsDsl.g:1787:3: (enumLiteral_5= 'weibul' )
+                    {
+                    // InternalBugsDsl.g:1787:3: (enumLiteral_5= 'weibul' )
+                    // InternalBugsDsl.g:1788:4: enumLiteral_5= 'weibul'
+                    {
+                    enumLiteral_5=(Token)match(input,53,FOLLOW_2); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      				current = grammarAccess.getDensityOperatorAccess().getWeibulEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
+                      				newLeafNode(enumLiteral_5, grammarAccess.getDensityOperatorAccess().getWeibulEnumLiteralDeclaration_5());
                       			
                     }
 
@@ -5204,7 +5229,7 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleFunctionOperator"
-    // InternalBugsDsl.g:1790:1: ruleFunctionOperator returns [Enumerator current=null] : ( (enumLiteral_0= 'acos' ) | (enumLiteral_1= 'acosh' ) | (enumLiteral_2= 'asin' ) | (enumLiteral_3= 'asinh' ) | (enumLiteral_4= 'atan' ) | (enumLiteral_5= 'log' ) | (enumLiteral_6= 'exp' ) | (enumLiteral_7= 'c' ) | (enumLiteral_8= 'mean' ) | (enumLiteral_9= 'sqrt' ) | (enumLiteral_10= 'length' ) | (enumLiteral_11= 'inverse' ) ) ;
+    // InternalBugsDsl.g:1798:1: ruleFunctionOperator returns [Enumerator current=null] : ( (enumLiteral_0= 'acos' ) | (enumLiteral_1= 'acosh' ) | (enumLiteral_2= 'asin' ) | (enumLiteral_3= 'asinh' ) | (enumLiteral_4= 'atan' ) | (enumLiteral_5= 'log' ) | (enumLiteral_6= 'exp' ) | (enumLiteral_7= 'c' ) | (enumLiteral_8= 'mean' ) | (enumLiteral_9= 'sqrt' ) | (enumLiteral_10= 'length' ) | (enumLiteral_11= 'inverse' ) ) ;
     public final Enumerator ruleFunctionOperator() throws RecognitionException {
         Enumerator current = null;
 
@@ -5225,68 +5250,68 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBugsDsl.g:1796:2: ( ( (enumLiteral_0= 'acos' ) | (enumLiteral_1= 'acosh' ) | (enumLiteral_2= 'asin' ) | (enumLiteral_3= 'asinh' ) | (enumLiteral_4= 'atan' ) | (enumLiteral_5= 'log' ) | (enumLiteral_6= 'exp' ) | (enumLiteral_7= 'c' ) | (enumLiteral_8= 'mean' ) | (enumLiteral_9= 'sqrt' ) | (enumLiteral_10= 'length' ) | (enumLiteral_11= 'inverse' ) ) )
-            // InternalBugsDsl.g:1797:2: ( (enumLiteral_0= 'acos' ) | (enumLiteral_1= 'acosh' ) | (enumLiteral_2= 'asin' ) | (enumLiteral_3= 'asinh' ) | (enumLiteral_4= 'atan' ) | (enumLiteral_5= 'log' ) | (enumLiteral_6= 'exp' ) | (enumLiteral_7= 'c' ) | (enumLiteral_8= 'mean' ) | (enumLiteral_9= 'sqrt' ) | (enumLiteral_10= 'length' ) | (enumLiteral_11= 'inverse' ) )
+            // InternalBugsDsl.g:1804:2: ( ( (enumLiteral_0= 'acos' ) | (enumLiteral_1= 'acosh' ) | (enumLiteral_2= 'asin' ) | (enumLiteral_3= 'asinh' ) | (enumLiteral_4= 'atan' ) | (enumLiteral_5= 'log' ) | (enumLiteral_6= 'exp' ) | (enumLiteral_7= 'c' ) | (enumLiteral_8= 'mean' ) | (enumLiteral_9= 'sqrt' ) | (enumLiteral_10= 'length' ) | (enumLiteral_11= 'inverse' ) ) )
+            // InternalBugsDsl.g:1805:2: ( (enumLiteral_0= 'acos' ) | (enumLiteral_1= 'acosh' ) | (enumLiteral_2= 'asin' ) | (enumLiteral_3= 'asinh' ) | (enumLiteral_4= 'atan' ) | (enumLiteral_5= 'log' ) | (enumLiteral_6= 'exp' ) | (enumLiteral_7= 'c' ) | (enumLiteral_8= 'mean' ) | (enumLiteral_9= 'sqrt' ) | (enumLiteral_10= 'length' ) | (enumLiteral_11= 'inverse' ) )
             {
-            // InternalBugsDsl.g:1797:2: ( (enumLiteral_0= 'acos' ) | (enumLiteral_1= 'acosh' ) | (enumLiteral_2= 'asin' ) | (enumLiteral_3= 'asinh' ) | (enumLiteral_4= 'atan' ) | (enumLiteral_5= 'log' ) | (enumLiteral_6= 'exp' ) | (enumLiteral_7= 'c' ) | (enumLiteral_8= 'mean' ) | (enumLiteral_9= 'sqrt' ) | (enumLiteral_10= 'length' ) | (enumLiteral_11= 'inverse' ) )
+            // InternalBugsDsl.g:1805:2: ( (enumLiteral_0= 'acos' ) | (enumLiteral_1= 'acosh' ) | (enumLiteral_2= 'asin' ) | (enumLiteral_3= 'asinh' ) | (enumLiteral_4= 'atan' ) | (enumLiteral_5= 'log' ) | (enumLiteral_6= 'exp' ) | (enumLiteral_7= 'c' ) | (enumLiteral_8= 'mean' ) | (enumLiteral_9= 'sqrt' ) | (enumLiteral_10= 'length' ) | (enumLiteral_11= 'inverse' ) )
             int alt33=12;
             switch ( input.LA(1) ) {
-            case 53:
+            case 54:
                 {
                 alt33=1;
                 }
                 break;
-            case 54:
+            case 55:
                 {
                 alt33=2;
                 }
                 break;
-            case 55:
+            case 56:
                 {
                 alt33=3;
                 }
                 break;
-            case 56:
+            case 57:
                 {
                 alt33=4;
                 }
                 break;
-            case 57:
+            case 58:
                 {
                 alt33=5;
                 }
                 break;
-            case 58:
+            case 59:
                 {
                 alt33=6;
                 }
                 break;
-            case 59:
+            case 60:
                 {
                 alt33=7;
                 }
                 break;
-            case 60:
+            case 61:
                 {
                 alt33=8;
                 }
                 break;
-            case 61:
+            case 62:
                 {
                 alt33=9;
                 }
                 break;
-            case 62:
+            case 63:
                 {
                 alt33=10;
                 }
                 break;
-            case 63:
+            case 64:
                 {
                 alt33=11;
                 }
                 break;
-            case 64:
+            case 65:
                 {
                 alt33=12;
                 }
@@ -5301,12 +5326,12 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
 
             switch (alt33) {
                 case 1 :
-                    // InternalBugsDsl.g:1798:3: (enumLiteral_0= 'acos' )
+                    // InternalBugsDsl.g:1806:3: (enumLiteral_0= 'acos' )
                     {
-                    // InternalBugsDsl.g:1798:3: (enumLiteral_0= 'acos' )
-                    // InternalBugsDsl.g:1799:4: enumLiteral_0= 'acos'
+                    // InternalBugsDsl.g:1806:3: (enumLiteral_0= 'acos' )
+                    // InternalBugsDsl.g:1807:4: enumLiteral_0= 'acos'
                     {
-                    enumLiteral_0=(Token)match(input,53,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_0=(Token)match(input,54,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getFunctionOperatorAccess().getAcosEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
@@ -5320,12 +5345,12 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalBugsDsl.g:1806:3: (enumLiteral_1= 'acosh' )
+                    // InternalBugsDsl.g:1814:3: (enumLiteral_1= 'acosh' )
                     {
-                    // InternalBugsDsl.g:1806:3: (enumLiteral_1= 'acosh' )
-                    // InternalBugsDsl.g:1807:4: enumLiteral_1= 'acosh'
+                    // InternalBugsDsl.g:1814:3: (enumLiteral_1= 'acosh' )
+                    // InternalBugsDsl.g:1815:4: enumLiteral_1= 'acosh'
                     {
-                    enumLiteral_1=(Token)match(input,54,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_1=(Token)match(input,55,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getFunctionOperatorAccess().getAcoshEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
@@ -5339,12 +5364,12 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalBugsDsl.g:1814:3: (enumLiteral_2= 'asin' )
+                    // InternalBugsDsl.g:1822:3: (enumLiteral_2= 'asin' )
                     {
-                    // InternalBugsDsl.g:1814:3: (enumLiteral_2= 'asin' )
-                    // InternalBugsDsl.g:1815:4: enumLiteral_2= 'asin'
+                    // InternalBugsDsl.g:1822:3: (enumLiteral_2= 'asin' )
+                    // InternalBugsDsl.g:1823:4: enumLiteral_2= 'asin'
                     {
-                    enumLiteral_2=(Token)match(input,55,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_2=(Token)match(input,56,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getFunctionOperatorAccess().getAsinEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
@@ -5358,12 +5383,12 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalBugsDsl.g:1822:3: (enumLiteral_3= 'asinh' )
+                    // InternalBugsDsl.g:1830:3: (enumLiteral_3= 'asinh' )
                     {
-                    // InternalBugsDsl.g:1822:3: (enumLiteral_3= 'asinh' )
-                    // InternalBugsDsl.g:1823:4: enumLiteral_3= 'asinh'
+                    // InternalBugsDsl.g:1830:3: (enumLiteral_3= 'asinh' )
+                    // InternalBugsDsl.g:1831:4: enumLiteral_3= 'asinh'
                     {
-                    enumLiteral_3=(Token)match(input,56,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_3=(Token)match(input,57,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getFunctionOperatorAccess().getAsinhEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
@@ -5377,12 +5402,12 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalBugsDsl.g:1830:3: (enumLiteral_4= 'atan' )
+                    // InternalBugsDsl.g:1838:3: (enumLiteral_4= 'atan' )
                     {
-                    // InternalBugsDsl.g:1830:3: (enumLiteral_4= 'atan' )
-                    // InternalBugsDsl.g:1831:4: enumLiteral_4= 'atan'
+                    // InternalBugsDsl.g:1838:3: (enumLiteral_4= 'atan' )
+                    // InternalBugsDsl.g:1839:4: enumLiteral_4= 'atan'
                     {
-                    enumLiteral_4=(Token)match(input,57,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_4=(Token)match(input,58,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getFunctionOperatorAccess().getAtanEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
@@ -5396,12 +5421,12 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // InternalBugsDsl.g:1838:3: (enumLiteral_5= 'log' )
+                    // InternalBugsDsl.g:1846:3: (enumLiteral_5= 'log' )
                     {
-                    // InternalBugsDsl.g:1838:3: (enumLiteral_5= 'log' )
-                    // InternalBugsDsl.g:1839:4: enumLiteral_5= 'log'
+                    // InternalBugsDsl.g:1846:3: (enumLiteral_5= 'log' )
+                    // InternalBugsDsl.g:1847:4: enumLiteral_5= 'log'
                     {
-                    enumLiteral_5=(Token)match(input,58,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_5=(Token)match(input,59,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getFunctionOperatorAccess().getLogEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
@@ -5415,12 +5440,12 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 7 :
-                    // InternalBugsDsl.g:1846:3: (enumLiteral_6= 'exp' )
+                    // InternalBugsDsl.g:1854:3: (enumLiteral_6= 'exp' )
                     {
-                    // InternalBugsDsl.g:1846:3: (enumLiteral_6= 'exp' )
-                    // InternalBugsDsl.g:1847:4: enumLiteral_6= 'exp'
+                    // InternalBugsDsl.g:1854:3: (enumLiteral_6= 'exp' )
+                    // InternalBugsDsl.g:1855:4: enumLiteral_6= 'exp'
                     {
-                    enumLiteral_6=(Token)match(input,59,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_6=(Token)match(input,60,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getFunctionOperatorAccess().getEpEnumLiteralDeclaration_6().getEnumLiteral().getInstance();
@@ -5434,12 +5459,12 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 8 :
-                    // InternalBugsDsl.g:1854:3: (enumLiteral_7= 'c' )
+                    // InternalBugsDsl.g:1862:3: (enumLiteral_7= 'c' )
                     {
-                    // InternalBugsDsl.g:1854:3: (enumLiteral_7= 'c' )
-                    // InternalBugsDsl.g:1855:4: enumLiteral_7= 'c'
+                    // InternalBugsDsl.g:1862:3: (enumLiteral_7= 'c' )
+                    // InternalBugsDsl.g:1863:4: enumLiteral_7= 'c'
                     {
-                    enumLiteral_7=(Token)match(input,60,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_7=(Token)match(input,61,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getFunctionOperatorAccess().getCEnumLiteralDeclaration_7().getEnumLiteral().getInstance();
@@ -5453,12 +5478,12 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 9 :
-                    // InternalBugsDsl.g:1862:3: (enumLiteral_8= 'mean' )
+                    // InternalBugsDsl.g:1870:3: (enumLiteral_8= 'mean' )
                     {
-                    // InternalBugsDsl.g:1862:3: (enumLiteral_8= 'mean' )
-                    // InternalBugsDsl.g:1863:4: enumLiteral_8= 'mean'
+                    // InternalBugsDsl.g:1870:3: (enumLiteral_8= 'mean' )
+                    // InternalBugsDsl.g:1871:4: enumLiteral_8= 'mean'
                     {
-                    enumLiteral_8=(Token)match(input,61,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_8=(Token)match(input,62,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getFunctionOperatorAccess().getMeanEnumLiteralDeclaration_8().getEnumLiteral().getInstance();
@@ -5472,12 +5497,12 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 10 :
-                    // InternalBugsDsl.g:1870:3: (enumLiteral_9= 'sqrt' )
+                    // InternalBugsDsl.g:1878:3: (enumLiteral_9= 'sqrt' )
                     {
-                    // InternalBugsDsl.g:1870:3: (enumLiteral_9= 'sqrt' )
-                    // InternalBugsDsl.g:1871:4: enumLiteral_9= 'sqrt'
+                    // InternalBugsDsl.g:1878:3: (enumLiteral_9= 'sqrt' )
+                    // InternalBugsDsl.g:1879:4: enumLiteral_9= 'sqrt'
                     {
-                    enumLiteral_9=(Token)match(input,62,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_9=(Token)match(input,63,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getFunctionOperatorAccess().getSqrtEnumLiteralDeclaration_9().getEnumLiteral().getInstance();
@@ -5491,12 +5516,12 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 11 :
-                    // InternalBugsDsl.g:1878:3: (enumLiteral_10= 'length' )
+                    // InternalBugsDsl.g:1886:3: (enumLiteral_10= 'length' )
                     {
-                    // InternalBugsDsl.g:1878:3: (enumLiteral_10= 'length' )
-                    // InternalBugsDsl.g:1879:4: enumLiteral_10= 'length'
+                    // InternalBugsDsl.g:1886:3: (enumLiteral_10= 'length' )
+                    // InternalBugsDsl.g:1887:4: enumLiteral_10= 'length'
                     {
-                    enumLiteral_10=(Token)match(input,63,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_10=(Token)match(input,64,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getFunctionOperatorAccess().getLengthEnumLiteralDeclaration_10().getEnumLiteral().getInstance();
@@ -5510,12 +5535,12 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 12 :
-                    // InternalBugsDsl.g:1886:3: (enumLiteral_11= 'inverse' )
+                    // InternalBugsDsl.g:1894:3: (enumLiteral_11= 'inverse' )
                     {
-                    // InternalBugsDsl.g:1886:3: (enumLiteral_11= 'inverse' )
-                    // InternalBugsDsl.g:1887:4: enumLiteral_11= 'inverse'
+                    // InternalBugsDsl.g:1894:3: (enumLiteral_11= 'inverse' )
+                    // InternalBugsDsl.g:1895:4: enumLiteral_11= 'inverse'
                     {
-                    enumLiteral_11=(Token)match(input,64,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_11=(Token)match(input,65,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getFunctionOperatorAccess().getInverseEnumLiteralDeclaration_11().getEnumLiteral().getInstance();
@@ -5553,7 +5578,7 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleIntOperator"
-    // InternalBugsDsl.g:1897:1: ruleIntOperator returns [Enumerator current=null] : (enumLiteral_0= 'length' ) ;
+    // InternalBugsDsl.g:1905:1: ruleIntOperator returns [Enumerator current=null] : (enumLiteral_0= 'length' ) ;
     public final Enumerator ruleIntOperator() throws RecognitionException {
         Enumerator current = null;
 
@@ -5563,13 +5588,13 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBugsDsl.g:1903:2: ( (enumLiteral_0= 'length' ) )
-            // InternalBugsDsl.g:1904:2: (enumLiteral_0= 'length' )
+            // InternalBugsDsl.g:1911:2: ( (enumLiteral_0= 'length' ) )
+            // InternalBugsDsl.g:1912:2: (enumLiteral_0= 'length' )
             {
-            // InternalBugsDsl.g:1904:2: (enumLiteral_0= 'length' )
-            // InternalBugsDsl.g:1905:3: enumLiteral_0= 'length'
+            // InternalBugsDsl.g:1912:2: (enumLiteral_0= 'length' )
+            // InternalBugsDsl.g:1913:3: enumLiteral_0= 'length'
             {
-            enumLiteral_0=(Token)match(input,63,FOLLOW_2); if (state.failed) return current;
+            enumLiteral_0=(Token)match(input,64,FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			current = grammarAccess.getIntOperatorAccess().getLengthEnumLiteralDeclaration().getEnumLiteral().getInstance();
@@ -5601,7 +5626,7 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleArrayOperator"
-    // InternalBugsDsl.g:1914:1: ruleArrayOperator returns [Enumerator current=null] : (enumLiteral_0= 'dim' ) ;
+    // InternalBugsDsl.g:1922:1: ruleArrayOperator returns [Enumerator current=null] : (enumLiteral_0= 'dim' ) ;
     public final Enumerator ruleArrayOperator() throws RecognitionException {
         Enumerator current = null;
 
@@ -5611,13 +5636,13 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBugsDsl.g:1920:2: ( (enumLiteral_0= 'dim' ) )
-            // InternalBugsDsl.g:1921:2: (enumLiteral_0= 'dim' )
+            // InternalBugsDsl.g:1928:2: ( (enumLiteral_0= 'dim' ) )
+            // InternalBugsDsl.g:1929:2: (enumLiteral_0= 'dim' )
             {
-            // InternalBugsDsl.g:1921:2: (enumLiteral_0= 'dim' )
-            // InternalBugsDsl.g:1922:3: enumLiteral_0= 'dim'
+            // InternalBugsDsl.g:1929:2: (enumLiteral_0= 'dim' )
+            // InternalBugsDsl.g:1930:3: enumLiteral_0= 'dim'
             {
-            enumLiteral_0=(Token)match(input,65,FOLLOW_2); if (state.failed) return current;
+            enumLiteral_0=(Token)match(input,66,FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			current = grammarAccess.getArrayOperatorAccess().getDimEnumLiteralDeclaration().getEnumLiteral().getInstance();
@@ -5827,20 +5852,17 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
             return "816:2: (this_StochasticRelation_0= ruleStochasticRelation | this_DeterministicRelation_1= ruleDeterministicRelation )";
         }
     }
-    static final String dfa_7s = "\65\uffff";
-    static final String dfa_8s = "\1\41\64\uffff";
-    static final String dfa_9s = "\1\4\2\uffff\1\22\36\uffff\1\4\6\uffff\2\23\2\4\1\22\2\31\2\23\1\4\2\31";
-    static final String dfa_10s = "\1\101\2\uffff\1\40\36\uffff\1\5\6\uffff\2\32\2\5\1\40\4\32\1\5\2\32";
-    static final String dfa_11s = "\1\uffff\2\1\1\uffff\35\1\1\2\1\uffff\6\1\14\uffff";
-    static final String dfa_12s = "\1\1\2\uffff\1\2\51\uffff\1\0\7\uffff}>";
+    static final String dfa_7s = "\64\uffff";
+    static final String dfa_8s = "\1\40\63\uffff";
+    static final String dfa_9s = "\1\4\2\uffff\1\22\35\uffff\1\4\6\uffff\2\23\2\4\1\22\2\31\2\23\1\4\2\31";
+    static final String dfa_10s = "\1\102\2\uffff\1\40\35\uffff\1\5\6\uffff\2\32\2\5\1\40\4\32\1\5\2\32";
+    static final String dfa_11s = "\1\uffff\2\1\1\uffff\34\1\1\2\1\uffff\6\1\14\uffff";
+    static final String dfa_12s = "\1\1\2\uffff\1\2\50\uffff\1\0\7\uffff}>";
     static final String[] dfa_13s = {
-            "\1\3\1\2\7\uffff\1\41\1\uffff\1\41\1\1\1\uffff\1\41\3\uffff\2\41\1\uffff\1\41\5\uffff\2\41\1\20\1\21\1\22\1\23\1\24\1\25\1\26\1\27\1\30\1\31\1\32\1\33\1\34\1\35\1\36\1\37\4\uffff\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\16\1\17\1\40",
+            "\1\3\1\2\7\uffff\1\40\1\uffff\1\40\1\1\1\uffff\1\40\3\uffff\2\40\1\uffff\1\40\5\uffff\2\40\1\20\1\21\1\22\1\23\1\24\1\25\1\26\1\27\1\30\1\31\1\32\1\33\1\34\1\35\1\36\6\uffff\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\16\1\17\1\37",
             "",
             "",
-            "\1\50\3\uffff\1\43\1\44\1\42\1\47\1\uffff\1\41\1\uffff\2\41\1\45\1\46",
-            "",
-            "",
-            "",
+            "\1\47\3\uffff\1\42\1\43\1\41\1\46\1\uffff\1\40\1\uffff\2\40\1\44\1\45",
             "",
             "",
             "",
@@ -5868,25 +5890,27 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
             "",
             "",
             "",
-            "\1\52\1\51",
+            "",
+            "",
+            "\1\51\1\50",
             "",
             "",
             "",
             "",
             "",
             "",
-            "\1\53\5\uffff\1\54\1\55",
-            "\1\53\5\uffff\1\54\1\55",
-            "\1\57\1\56",
-            "\1\61\1\60",
-            "\1\50\3\uffff\1\43\1\44\1\uffff\1\47\1\uffff\1\41\1\uffff\2\41\1\45\1\46",
-            "\1\54\1\55",
-            "\1\54\1\55",
-            "\1\62\5\uffff\1\54\1\55",
-            "\1\62\5\uffff\1\54\1\55",
-            "\1\64\1\63",
-            "\1\54\1\55",
-            "\1\54\1\55"
+            "\1\52\5\uffff\1\53\1\54",
+            "\1\52\5\uffff\1\53\1\54",
+            "\1\56\1\55",
+            "\1\60\1\57",
+            "\1\47\3\uffff\1\42\1\43\1\uffff\1\46\1\uffff\1\40\1\uffff\2\40\1\44\1\45",
+            "\1\53\1\54",
+            "\1\53\1\54",
+            "\1\61\5\uffff\1\53\1\54",
+            "\1\61\5\uffff\1\53\1\54",
+            "\1\63\1\62",
+            "\1\53\1\54",
+            "\1\53\1\54"
     };
 
     static final short[] dfa_7 = DFA.unpackEncodedString(dfa_7s);
@@ -5918,28 +5942,28 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA21_45 = input.LA(1);
+                        int LA21_44 = input.LA(1);
 
                          
-                        int index21_45 = input.index();
+                        int index21_44 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (LA21_45==27||(LA21_45>=29 && LA21_45<=30)) ) {s = 33;}
+                        if ( (LA21_44==27||(LA21_44>=29 && LA21_44<=30)) ) {s = 32;}
 
-                        else if ( (LA21_45==22) && (synpred2_InternalBugsDsl())) {s = 35;}
+                        else if ( (LA21_44==22) && (synpred2_InternalBugsDsl())) {s = 34;}
 
-                        else if ( (LA21_45==23) && (synpred2_InternalBugsDsl())) {s = 36;}
+                        else if ( (LA21_44==23) && (synpred2_InternalBugsDsl())) {s = 35;}
 
-                        else if ( (LA21_45==31) && (synpred2_InternalBugsDsl())) {s = 37;}
+                        else if ( (LA21_44==31) && (synpred2_InternalBugsDsl())) {s = 36;}
 
-                        else if ( (LA21_45==32) && (synpred2_InternalBugsDsl())) {s = 38;}
+                        else if ( (LA21_44==32) && (synpred2_InternalBugsDsl())) {s = 37;}
 
-                        else if ( (LA21_45==25) && (synpred2_InternalBugsDsl())) {s = 39;}
+                        else if ( (LA21_44==25) && (synpred2_InternalBugsDsl())) {s = 38;}
 
-                        else if ( (LA21_45==18) && (synpred2_InternalBugsDsl())) {s = 40;}
+                        else if ( (LA21_44==18) && (synpred2_InternalBugsDsl())) {s = 39;}
 
                          
-                        input.seek(index21_45);
+                        input.seek(index21_44);
                         if ( s>=0 ) return s;
                         break;
                     case 1 : 
@@ -5955,29 +5979,29 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
 
                         else if ( (LA21_0==RULE_ID) ) {s = 3;}
 
-                        else if ( (LA21_0==53) && (synpred2_InternalBugsDsl())) {s = 4;}
+                        else if ( (LA21_0==54) && (synpred2_InternalBugsDsl())) {s = 4;}
 
-                        else if ( (LA21_0==54) && (synpred2_InternalBugsDsl())) {s = 5;}
+                        else if ( (LA21_0==55) && (synpred2_InternalBugsDsl())) {s = 5;}
 
-                        else if ( (LA21_0==55) && (synpred2_InternalBugsDsl())) {s = 6;}
+                        else if ( (LA21_0==56) && (synpred2_InternalBugsDsl())) {s = 6;}
 
-                        else if ( (LA21_0==56) && (synpred2_InternalBugsDsl())) {s = 7;}
+                        else if ( (LA21_0==57) && (synpred2_InternalBugsDsl())) {s = 7;}
 
-                        else if ( (LA21_0==57) && (synpred2_InternalBugsDsl())) {s = 8;}
+                        else if ( (LA21_0==58) && (synpred2_InternalBugsDsl())) {s = 8;}
 
-                        else if ( (LA21_0==58) && (synpred2_InternalBugsDsl())) {s = 9;}
+                        else if ( (LA21_0==59) && (synpred2_InternalBugsDsl())) {s = 9;}
 
-                        else if ( (LA21_0==59) && (synpred2_InternalBugsDsl())) {s = 10;}
+                        else if ( (LA21_0==60) && (synpred2_InternalBugsDsl())) {s = 10;}
 
-                        else if ( (LA21_0==60) && (synpred2_InternalBugsDsl())) {s = 11;}
+                        else if ( (LA21_0==61) && (synpred2_InternalBugsDsl())) {s = 11;}
 
-                        else if ( (LA21_0==61) && (synpred2_InternalBugsDsl())) {s = 12;}
+                        else if ( (LA21_0==62) && (synpred2_InternalBugsDsl())) {s = 12;}
 
-                        else if ( (LA21_0==62) && (synpred2_InternalBugsDsl())) {s = 13;}
+                        else if ( (LA21_0==63) && (synpred2_InternalBugsDsl())) {s = 13;}
 
-                        else if ( (LA21_0==63) && (synpred2_InternalBugsDsl())) {s = 14;}
+                        else if ( (LA21_0==64) && (synpred2_InternalBugsDsl())) {s = 14;}
 
-                        else if ( (LA21_0==64) && (synpred2_InternalBugsDsl())) {s = 15;}
+                        else if ( (LA21_0==65) && (synpred2_InternalBugsDsl())) {s = 15;}
 
                         else if ( (LA21_0==33) && (synpred2_InternalBugsDsl())) {s = 16;}
 
@@ -6009,11 +6033,9 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
 
                         else if ( (LA21_0==47) && (synpred2_InternalBugsDsl())) {s = 30;}
 
-                        else if ( (LA21_0==48) && (synpred2_InternalBugsDsl())) {s = 31;}
+                        else if ( (LA21_0==66) && (synpred2_InternalBugsDsl())) {s = 31;}
 
-                        else if ( (LA21_0==65) && (synpred2_InternalBugsDsl())) {s = 32;}
-
-                        else if ( (LA21_0==EOF||LA21_0==13||LA21_0==15||LA21_0==18||(LA21_0>=22 && LA21_0<=23)||LA21_0==25||(LA21_0>=31 && LA21_0<=32)) ) {s = 33;}
+                        else if ( (LA21_0==EOF||LA21_0==13||LA21_0==15||LA21_0==18||(LA21_0>=22 && LA21_0<=23)||LA21_0==25||(LA21_0>=31 && LA21_0<=32)) ) {s = 32;}
 
                          
                         input.seek(index21_0);
@@ -6026,21 +6048,21 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
                         int index21_3 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (LA21_3==24) ) {s = 34;}
+                        if ( (LA21_3==24) ) {s = 33;}
 
-                        else if ( (LA21_3==27||(LA21_3>=29 && LA21_3<=30)) ) {s = 33;}
+                        else if ( (LA21_3==27||(LA21_3>=29 && LA21_3<=30)) ) {s = 32;}
 
-                        else if ( (LA21_3==22) && (synpred2_InternalBugsDsl())) {s = 35;}
+                        else if ( (LA21_3==22) && (synpred2_InternalBugsDsl())) {s = 34;}
 
-                        else if ( (LA21_3==23) && (synpred2_InternalBugsDsl())) {s = 36;}
+                        else if ( (LA21_3==23) && (synpred2_InternalBugsDsl())) {s = 35;}
 
-                        else if ( (LA21_3==31) && (synpred2_InternalBugsDsl())) {s = 37;}
+                        else if ( (LA21_3==31) && (synpred2_InternalBugsDsl())) {s = 36;}
 
-                        else if ( (LA21_3==32) && (synpred2_InternalBugsDsl())) {s = 38;}
+                        else if ( (LA21_3==32) && (synpred2_InternalBugsDsl())) {s = 37;}
 
-                        else if ( (LA21_3==25) && (synpred2_InternalBugsDsl())) {s = 39;}
+                        else if ( (LA21_3==25) && (synpred2_InternalBugsDsl())) {s = 38;}
 
-                        else if ( (LA21_3==18) && (synpred2_InternalBugsDsl())) {s = 40;}
+                        else if ( (LA21_3==18) && (synpred2_InternalBugsDsl())) {s = 39;}
 
                          
                         input.seek(index21_3);
@@ -6054,7 +6076,7 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
             throw nvae;
         }
     }
-    static final String dfa_14s = "\1\1\2\uffff\1\0\51\uffff\1\2\7\uffff}>";
+    static final String dfa_14s = "\1\1\2\uffff\1\0\50\uffff\1\2\7\uffff}>";
     static final short[] dfa_14 = DFA.unpackEncodedString(dfa_14s);
 
     class DFA24 extends DFA {
@@ -6084,21 +6106,21 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
                         int index24_3 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (LA24_3==24) ) {s = 34;}
+                        if ( (LA24_3==24) ) {s = 33;}
 
-                        else if ( (LA24_3==27||(LA24_3>=29 && LA24_3<=30)) ) {s = 33;}
+                        else if ( (LA24_3==27||(LA24_3>=29 && LA24_3<=30)) ) {s = 32;}
 
-                        else if ( (LA24_3==22) && (synpred3_InternalBugsDsl())) {s = 35;}
+                        else if ( (LA24_3==22) && (synpred3_InternalBugsDsl())) {s = 34;}
 
-                        else if ( (LA24_3==23) && (synpred3_InternalBugsDsl())) {s = 36;}
+                        else if ( (LA24_3==23) && (synpred3_InternalBugsDsl())) {s = 35;}
 
-                        else if ( (LA24_3==31) && (synpred3_InternalBugsDsl())) {s = 37;}
+                        else if ( (LA24_3==31) && (synpred3_InternalBugsDsl())) {s = 36;}
 
-                        else if ( (LA24_3==32) && (synpred3_InternalBugsDsl())) {s = 38;}
+                        else if ( (LA24_3==32) && (synpred3_InternalBugsDsl())) {s = 37;}
 
-                        else if ( (LA24_3==25) && (synpred3_InternalBugsDsl())) {s = 39;}
+                        else if ( (LA24_3==25) && (synpred3_InternalBugsDsl())) {s = 38;}
 
-                        else if ( (LA24_3==18) && (synpred3_InternalBugsDsl())) {s = 40;}
+                        else if ( (LA24_3==18) && (synpred3_InternalBugsDsl())) {s = 39;}
 
                          
                         input.seek(index24_3);
@@ -6117,29 +6139,29 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
 
                         else if ( (LA24_0==RULE_ID) ) {s = 3;}
 
-                        else if ( (LA24_0==53) && (synpred3_InternalBugsDsl())) {s = 4;}
+                        else if ( (LA24_0==54) && (synpred3_InternalBugsDsl())) {s = 4;}
 
-                        else if ( (LA24_0==54) && (synpred3_InternalBugsDsl())) {s = 5;}
+                        else if ( (LA24_0==55) && (synpred3_InternalBugsDsl())) {s = 5;}
 
-                        else if ( (LA24_0==55) && (synpred3_InternalBugsDsl())) {s = 6;}
+                        else if ( (LA24_0==56) && (synpred3_InternalBugsDsl())) {s = 6;}
 
-                        else if ( (LA24_0==56) && (synpred3_InternalBugsDsl())) {s = 7;}
+                        else if ( (LA24_0==57) && (synpred3_InternalBugsDsl())) {s = 7;}
 
-                        else if ( (LA24_0==57) && (synpred3_InternalBugsDsl())) {s = 8;}
+                        else if ( (LA24_0==58) && (synpred3_InternalBugsDsl())) {s = 8;}
 
-                        else if ( (LA24_0==58) && (synpred3_InternalBugsDsl())) {s = 9;}
+                        else if ( (LA24_0==59) && (synpred3_InternalBugsDsl())) {s = 9;}
 
-                        else if ( (LA24_0==59) && (synpred3_InternalBugsDsl())) {s = 10;}
+                        else if ( (LA24_0==60) && (synpred3_InternalBugsDsl())) {s = 10;}
 
-                        else if ( (LA24_0==60) && (synpred3_InternalBugsDsl())) {s = 11;}
+                        else if ( (LA24_0==61) && (synpred3_InternalBugsDsl())) {s = 11;}
 
-                        else if ( (LA24_0==61) && (synpred3_InternalBugsDsl())) {s = 12;}
+                        else if ( (LA24_0==62) && (synpred3_InternalBugsDsl())) {s = 12;}
 
-                        else if ( (LA24_0==62) && (synpred3_InternalBugsDsl())) {s = 13;}
+                        else if ( (LA24_0==63) && (synpred3_InternalBugsDsl())) {s = 13;}
 
-                        else if ( (LA24_0==63) && (synpred3_InternalBugsDsl())) {s = 14;}
+                        else if ( (LA24_0==64) && (synpred3_InternalBugsDsl())) {s = 14;}
 
-                        else if ( (LA24_0==64) && (synpred3_InternalBugsDsl())) {s = 15;}
+                        else if ( (LA24_0==65) && (synpred3_InternalBugsDsl())) {s = 15;}
 
                         else if ( (LA24_0==33) && (synpred3_InternalBugsDsl())) {s = 16;}
 
@@ -6171,39 +6193,37 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
 
                         else if ( (LA24_0==47) && (synpred3_InternalBugsDsl())) {s = 30;}
 
-                        else if ( (LA24_0==48) && (synpred3_InternalBugsDsl())) {s = 31;}
+                        else if ( (LA24_0==66) && (synpred3_InternalBugsDsl())) {s = 31;}
 
-                        else if ( (LA24_0==65) && (synpred3_InternalBugsDsl())) {s = 32;}
-
-                        else if ( (LA24_0==EOF||LA24_0==13||LA24_0==15||LA24_0==18||(LA24_0>=22 && LA24_0<=23)||LA24_0==25||(LA24_0>=31 && LA24_0<=32)) ) {s = 33;}
+                        else if ( (LA24_0==EOF||LA24_0==13||LA24_0==15||LA24_0==18||(LA24_0>=22 && LA24_0<=23)||LA24_0==25||(LA24_0>=31 && LA24_0<=32)) ) {s = 32;}
 
                          
                         input.seek(index24_0);
                         if ( s>=0 ) return s;
                         break;
                     case 2 : 
-                        int LA24_45 = input.LA(1);
+                        int LA24_44 = input.LA(1);
 
                          
-                        int index24_45 = input.index();
+                        int index24_44 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (LA24_45==22) && (synpred3_InternalBugsDsl())) {s = 35;}
+                        if ( (LA24_44==22) && (synpred3_InternalBugsDsl())) {s = 34;}
 
-                        else if ( (LA24_45==23) && (synpred3_InternalBugsDsl())) {s = 36;}
+                        else if ( (LA24_44==23) && (synpred3_InternalBugsDsl())) {s = 35;}
 
-                        else if ( (LA24_45==31) && (synpred3_InternalBugsDsl())) {s = 37;}
+                        else if ( (LA24_44==31) && (synpred3_InternalBugsDsl())) {s = 36;}
 
-                        else if ( (LA24_45==32) && (synpred3_InternalBugsDsl())) {s = 38;}
+                        else if ( (LA24_44==32) && (synpred3_InternalBugsDsl())) {s = 37;}
 
-                        else if ( (LA24_45==25) && (synpred3_InternalBugsDsl())) {s = 39;}
+                        else if ( (LA24_44==25) && (synpred3_InternalBugsDsl())) {s = 38;}
 
-                        else if ( (LA24_45==18) && (synpred3_InternalBugsDsl())) {s = 40;}
+                        else if ( (LA24_44==18) && (synpred3_InternalBugsDsl())) {s = 39;}
 
-                        else if ( (LA24_45==27||(LA24_45>=29 && LA24_45<=30)) ) {s = 33;}
+                        else if ( (LA24_44==27||(LA24_44>=29 && LA24_44<=30)) ) {s = 32;}
 
                          
-                        input.seek(index24_45);
+                        input.seek(index24_44);
                         if ( s>=0 ) return s;
                         break;
             }
@@ -6242,21 +6262,21 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
                         int index27_3 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (LA27_3==24) ) {s = 34;}
+                        if ( (LA27_3==24) ) {s = 33;}
 
-                        else if ( (LA27_3==27||(LA27_3>=29 && LA27_3<=30)) ) {s = 33;}
+                        else if ( (LA27_3==27||(LA27_3>=29 && LA27_3<=30)) ) {s = 32;}
 
-                        else if ( (LA27_3==22) && (synpred4_InternalBugsDsl())) {s = 35;}
+                        else if ( (LA27_3==22) && (synpred4_InternalBugsDsl())) {s = 34;}
 
-                        else if ( (LA27_3==23) && (synpred4_InternalBugsDsl())) {s = 36;}
+                        else if ( (LA27_3==23) && (synpred4_InternalBugsDsl())) {s = 35;}
 
-                        else if ( (LA27_3==31) && (synpred4_InternalBugsDsl())) {s = 37;}
+                        else if ( (LA27_3==31) && (synpred4_InternalBugsDsl())) {s = 36;}
 
-                        else if ( (LA27_3==32) && (synpred4_InternalBugsDsl())) {s = 38;}
+                        else if ( (LA27_3==32) && (synpred4_InternalBugsDsl())) {s = 37;}
 
-                        else if ( (LA27_3==25) && (synpred4_InternalBugsDsl())) {s = 39;}
+                        else if ( (LA27_3==25) && (synpred4_InternalBugsDsl())) {s = 38;}
 
-                        else if ( (LA27_3==18) && (synpred4_InternalBugsDsl())) {s = 40;}
+                        else if ( (LA27_3==18) && (synpred4_InternalBugsDsl())) {s = 39;}
 
                          
                         input.seek(index27_3);
@@ -6275,29 +6295,29 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
 
                         else if ( (LA27_0==RULE_ID) ) {s = 3;}
 
-                        else if ( (LA27_0==53) && (synpred4_InternalBugsDsl())) {s = 4;}
+                        else if ( (LA27_0==54) && (synpred4_InternalBugsDsl())) {s = 4;}
 
-                        else if ( (LA27_0==54) && (synpred4_InternalBugsDsl())) {s = 5;}
+                        else if ( (LA27_0==55) && (synpred4_InternalBugsDsl())) {s = 5;}
 
-                        else if ( (LA27_0==55) && (synpred4_InternalBugsDsl())) {s = 6;}
+                        else if ( (LA27_0==56) && (synpred4_InternalBugsDsl())) {s = 6;}
 
-                        else if ( (LA27_0==56) && (synpred4_InternalBugsDsl())) {s = 7;}
+                        else if ( (LA27_0==57) && (synpred4_InternalBugsDsl())) {s = 7;}
 
-                        else if ( (LA27_0==57) && (synpred4_InternalBugsDsl())) {s = 8;}
+                        else if ( (LA27_0==58) && (synpred4_InternalBugsDsl())) {s = 8;}
 
-                        else if ( (LA27_0==58) && (synpred4_InternalBugsDsl())) {s = 9;}
+                        else if ( (LA27_0==59) && (synpred4_InternalBugsDsl())) {s = 9;}
 
-                        else if ( (LA27_0==59) && (synpred4_InternalBugsDsl())) {s = 10;}
+                        else if ( (LA27_0==60) && (synpred4_InternalBugsDsl())) {s = 10;}
 
-                        else if ( (LA27_0==60) && (synpred4_InternalBugsDsl())) {s = 11;}
+                        else if ( (LA27_0==61) && (synpred4_InternalBugsDsl())) {s = 11;}
 
-                        else if ( (LA27_0==61) && (synpred4_InternalBugsDsl())) {s = 12;}
+                        else if ( (LA27_0==62) && (synpred4_InternalBugsDsl())) {s = 12;}
 
-                        else if ( (LA27_0==62) && (synpred4_InternalBugsDsl())) {s = 13;}
+                        else if ( (LA27_0==63) && (synpred4_InternalBugsDsl())) {s = 13;}
 
-                        else if ( (LA27_0==63) && (synpred4_InternalBugsDsl())) {s = 14;}
+                        else if ( (LA27_0==64) && (synpred4_InternalBugsDsl())) {s = 14;}
 
-                        else if ( (LA27_0==64) && (synpred4_InternalBugsDsl())) {s = 15;}
+                        else if ( (LA27_0==65) && (synpred4_InternalBugsDsl())) {s = 15;}
 
                         else if ( (LA27_0==33) && (synpred4_InternalBugsDsl())) {s = 16;}
 
@@ -6329,39 +6349,37 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
 
                         else if ( (LA27_0==47) && (synpred4_InternalBugsDsl())) {s = 30;}
 
-                        else if ( (LA27_0==48) && (synpred4_InternalBugsDsl())) {s = 31;}
+                        else if ( (LA27_0==66) && (synpred4_InternalBugsDsl())) {s = 31;}
 
-                        else if ( (LA27_0==65) && (synpred4_InternalBugsDsl())) {s = 32;}
-
-                        else if ( (LA27_0==EOF||LA27_0==13||LA27_0==15||LA27_0==18||(LA27_0>=22 && LA27_0<=23)||LA27_0==25||(LA27_0>=31 && LA27_0<=32)) ) {s = 33;}
+                        else if ( (LA27_0==EOF||LA27_0==13||LA27_0==15||LA27_0==18||(LA27_0>=22 && LA27_0<=23)||LA27_0==25||(LA27_0>=31 && LA27_0<=32)) ) {s = 32;}
 
                          
                         input.seek(index27_0);
                         if ( s>=0 ) return s;
                         break;
                     case 2 : 
-                        int LA27_45 = input.LA(1);
+                        int LA27_44 = input.LA(1);
 
                          
-                        int index27_45 = input.index();
+                        int index27_44 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (LA27_45==22) && (synpred4_InternalBugsDsl())) {s = 35;}
+                        if ( (LA27_44==22) && (synpred4_InternalBugsDsl())) {s = 34;}
 
-                        else if ( (LA27_45==23) && (synpred4_InternalBugsDsl())) {s = 36;}
+                        else if ( (LA27_44==23) && (synpred4_InternalBugsDsl())) {s = 35;}
 
-                        else if ( (LA27_45==31) && (synpred4_InternalBugsDsl())) {s = 37;}
+                        else if ( (LA27_44==31) && (synpred4_InternalBugsDsl())) {s = 36;}
 
-                        else if ( (LA27_45==32) && (synpred4_InternalBugsDsl())) {s = 38;}
+                        else if ( (LA27_44==32) && (synpred4_InternalBugsDsl())) {s = 37;}
 
-                        else if ( (LA27_45==25) && (synpred4_InternalBugsDsl())) {s = 39;}
+                        else if ( (LA27_44==25) && (synpred4_InternalBugsDsl())) {s = 38;}
 
-                        else if ( (LA27_45==18) && (synpred4_InternalBugsDsl())) {s = 40;}
+                        else if ( (LA27_44==18) && (synpred4_InternalBugsDsl())) {s = 39;}
 
-                        else if ( (LA27_45==27||(LA27_45>=29 && LA27_45<=30)) ) {s = 33;}
+                        else if ( (LA27_44==27||(LA27_44>=29 && LA27_44<=30)) ) {s = 32;}
 
                          
-                        input.seek(index27_45);
+                        input.seek(index27_44);
                         if ( s>=0 ) return s;
                         break;
             }
@@ -6382,7 +6400,7 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000010000L});
     public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x8000000000000030L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000000030L,0x0000000000000001L});
     public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000040000L});
     public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000080000L});
     public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000080002L});
@@ -6393,13 +6411,13 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000001000002L});
     public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000006000000L});
     public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000008000000L});
-    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x001E000000000000L});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x003F000000000000L});
     public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000010010002L});
-    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0xFFE1FFFE00010030L,0x0000000000000003L});
+    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0xFFC0FFFE00010030L,0x0000000000000007L});
     public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000002040000L});
     public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000060000000L});
     public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000010010000L});
-    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0xFFE1FFFE00010032L,0x0000000000000003L});
+    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0xFFC0FFFE00010032L,0x0000000000000007L});
     public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000000180C00002L});
 
 }

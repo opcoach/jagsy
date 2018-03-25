@@ -22,13 +22,14 @@
       <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//DistributionOperator/dpar"/>
       <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//DistributionOperator/dpois"/>
       <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//DistributionOperator/dt"/>
-      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//DistributionOperator/dweib"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="BugsDsl.ecore#//DensityOperator">
       <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//DensityOperator/dnorm"/>
       <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//DensityOperator/dunif"/>
       <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//DensityOperator/dbeta"/>
       <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//DensityOperator/dgamma"/>
+      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//DensityOperator/dweib"/>
+      <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//DensityOperator/weibul"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="BugsDsl.ecore#//FunctionOperator">
       <genEnumLiterals ecoreEnumLiteral="BugsDsl.ecore#//FunctionOperator/acos"/>

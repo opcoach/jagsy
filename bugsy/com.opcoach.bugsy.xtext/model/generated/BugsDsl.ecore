@@ -99,13 +99,14 @@
     <eLiterals name="dpar" value="12" literal="dpar"/>
     <eLiterals name="dpois" value="13" literal="dpois"/>
     <eLiterals name="dt" value="14" literal="dt"/>
-    <eLiterals name="dweib" value="15" literal="dweib"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="DensityOperator">
     <eLiterals name="dnorm" literal="dnorm"/>
     <eLiterals name="dunif" value="1" literal="dunif"/>
     <eLiterals name="dbeta" value="2" literal="dbeta"/>
     <eLiterals name="dgamma" value="3" literal="dgamma"/>
+    <eLiterals name="dweib" value="4" literal="dweib"/>
+    <eLiterals name="weibul" value="5" literal="weibul"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="FunctionOperator">
     <eLiterals name="acos" literal="acos"/>

@@ -979,13 +979,14 @@ public class BugsDslPackageImpl extends EPackageImpl implements BugsDslPackage
     addEEnumLiteral(distributionOperatorEEnum, DistributionOperator.DPAR);
     addEEnumLiteral(distributionOperatorEEnum, DistributionOperator.DPOIS);
     addEEnumLiteral(distributionOperatorEEnum, DistributionOperator.DT);
-    addEEnumLiteral(distributionOperatorEEnum, DistributionOperator.DWEIB);
 
     initEEnum(densityOperatorEEnum, DensityOperator.class, "DensityOperator");
     addEEnumLiteral(densityOperatorEEnum, DensityOperator.DNORM);
     addEEnumLiteral(densityOperatorEEnum, DensityOperator.DUNIF);
     addEEnumLiteral(densityOperatorEEnum, DensityOperator.DBETA);
     addEEnumLiteral(densityOperatorEEnum, DensityOperator.DGAMMA);
+    addEEnumLiteral(densityOperatorEEnum, DensityOperator.DWEIB);
+    addEEnumLiteral(densityOperatorEEnum, DensityOperator.WEIBUL);
 
     initEEnum(functionOperatorEEnum, FunctionOperator.class, "FunctionOperator");
     addEEnumLiteral(functionOperatorEEnum, FunctionOperator.ACOS);

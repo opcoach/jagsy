@@ -1048,12 +1048,6 @@ rule__DistributionOperator__Alternatives
 		('dt')
 		{ after(grammarAccess.getDistributionOperatorAccess().getDtEnumLiteralDeclaration_14()); }
 	)
-	|
-	(
-		{ before(grammarAccess.getDistributionOperatorAccess().getDweibEnumLiteralDeclaration_15()); }
-		('dweib')
-		{ after(grammarAccess.getDistributionOperatorAccess().getDweibEnumLiteralDeclaration_15()); }
-	)
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -1086,6 +1080,18 @@ rule__DensityOperator__Alternatives
 		{ before(grammarAccess.getDensityOperatorAccess().getDgammaEnumLiteralDeclaration_3()); }
 		('dgamma')
 		{ after(grammarAccess.getDensityOperatorAccess().getDgammaEnumLiteralDeclaration_3()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getDensityOperatorAccess().getDweibEnumLiteralDeclaration_4()); }
+		('dweib')
+		{ after(grammarAccess.getDensityOperatorAccess().getDweibEnumLiteralDeclaration_4()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getDensityOperatorAccess().getWeibulEnumLiteralDeclaration_5()); }
+		('weibul')
+		{ after(grammarAccess.getDensityOperatorAccess().getWeibulEnumLiteralDeclaration_5()); }
 	)
 ;
 finally {

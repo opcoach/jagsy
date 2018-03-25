@@ -991,16 +991,14 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cDpoisDpoisKeyword_13_0 = (Keyword)cDpoisEnumLiteralDeclaration_13.eContents().get(0);
 		private final EnumLiteralDeclaration cDtEnumLiteralDeclaration_14 = (EnumLiteralDeclaration)cAlternatives.eContents().get(14);
 		private final Keyword cDtDtKeyword_14_0 = (Keyword)cDtEnumLiteralDeclaration_14.eContents().get(0);
-		private final EnumLiteralDeclaration cDweibEnumLiteralDeclaration_15 = (EnumLiteralDeclaration)cAlternatives.eContents().get(15);
-		private final Keyword cDweibDweibKeyword_15_0 = (Keyword)cDweibEnumLiteralDeclaration_15.eContents().get(0);
 		
 		//enum DistributionOperator:
 		//	dbern | dbin | dchisqr | ddexp | dexp | df |
-		//	dgengamm='dgen.gamma' | dhyper | dlogis | dlnorm | dnegbin | dnchisqr | dpar | dpois | dt | dweib;
+		//	dgengamm='dgen.gamma' | dhyper | dlogis | dlnorm | dnegbin | dnchisqr | dpar | dpois | dt;
 		public EnumRule getRule() { return rule; }
 		
 		//dbern | dbin | dchisqr | ddexp | dexp | df | dgengamm='dgen.gamma' | dhyper | dlogis | dlnorm | dnegbin | dnchisqr |
-		//dpar | dpois | dt | dweib
+		//dpar | dpois | dt
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//dbern
@@ -1092,12 +1090,6 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//'dt'
 		public Keyword getDtDtKeyword_14_0() { return cDtDtKeyword_14_0; }
-		
-		//dweib
-		public EnumLiteralDeclaration getDweibEnumLiteralDeclaration_15() { return cDweibEnumLiteralDeclaration_15; }
-		
-		//'dweib'
-		public Keyword getDweibDweibKeyword_15_0() { return cDweibDweibKeyword_15_0; }
 	}
 	public class DensityOperatorElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "com.opcoach.bugsy.xtext.BugsDsl.DensityOperator");
@@ -1110,12 +1102,16 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cDbetaDbetaKeyword_2_0 = (Keyword)cDbetaEnumLiteralDeclaration_2.eContents().get(0);
 		private final EnumLiteralDeclaration cDgammaEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
 		private final Keyword cDgammaDgammaKeyword_3_0 = (Keyword)cDgammaEnumLiteralDeclaration_3.eContents().get(0);
+		private final EnumLiteralDeclaration cDweibEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
+		private final Keyword cDweibDweibKeyword_4_0 = (Keyword)cDweibEnumLiteralDeclaration_4.eContents().get(0);
+		private final EnumLiteralDeclaration cWeibulEnumLiteralDeclaration_5 = (EnumLiteralDeclaration)cAlternatives.eContents().get(5);
+		private final Keyword cWeibulWeibulKeyword_5_0 = (Keyword)cWeibulEnumLiteralDeclaration_5.eContents().get(0);
 		
 		//enum DensityOperator:
-		//	dnorm | dunif | dbeta | dgamma;
+		//	dnorm | dunif | dbeta | dgamma | dweib | weibul;
 		public EnumRule getRule() { return rule; }
 		
-		//dnorm | dunif | dbeta | dgamma
+		//dnorm | dunif | dbeta | dgamma | dweib | weibul
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//dnorm
@@ -1141,6 +1137,18 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//'dgamma'
 		public Keyword getDgammaDgammaKeyword_3_0() { return cDgammaDgammaKeyword_3_0; }
+		
+		//dweib
+		public EnumLiteralDeclaration getDweibEnumLiteralDeclaration_4() { return cDweibEnumLiteralDeclaration_4; }
+		
+		//'dweib'
+		public Keyword getDweibDweibKeyword_4_0() { return cDweibDweibKeyword_4_0; }
+		
+		//weibul
+		public EnumLiteralDeclaration getWeibulEnumLiteralDeclaration_5() { return cWeibulEnumLiteralDeclaration_5; }
+		
+		//'weibul'
+		public Keyword getWeibulWeibulKeyword_5_0() { return cWeibulWeibulKeyword_5_0; }
 	}
 	public class FunctionOperatorElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "com.opcoach.bugsy.xtext.BugsDsl.FunctionOperator");
@@ -1606,7 +1614,7 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//enum DistributionOperator:
 	//	dbern | dbin | dchisqr | ddexp | dexp | df |
-	//	dgengamm='dgen.gamma' | dhyper | dlogis | dlnorm | dnegbin | dnchisqr | dpar | dpois | dt | dweib;
+	//	dgengamm='dgen.gamma' | dhyper | dlogis | dlnorm | dnegbin | dnchisqr | dpar | dpois | dt;
 	public DistributionOperatorElements getDistributionOperatorAccess() {
 		return eDistributionOperator;
 	}
@@ -1616,7 +1624,7 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//enum DensityOperator:
-	//	dnorm | dunif | dbeta | dgamma;
+	//	dnorm | dunif | dbeta | dgamma | dweib | weibul;
 	public DensityOperatorElements getDensityOperatorAccess() {
 		return eDensityOperator;
 	}

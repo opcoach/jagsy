@@ -168,17 +168,7 @@ public enum DistributionOperator implements Enumerator
    * @generated
    * @ordered
    */
-  DT(14, "dt", "dt"),
-
-  /**
-   * The '<em><b>Dweib</b></em>' literal object.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #DWEIB_VALUE
-   * @generated
-   * @ordered
-   */
-  DWEIB(15, "dweib", "dweib");
+  DT(14, "dt", "dt");
 
   /**
    * The '<em><b>Dbern</b></em>' literal value.
@@ -406,21 +396,6 @@ public enum DistributionOperator implements Enumerator
   public static final int DT_VALUE = 14;
 
   /**
-   * The '<em><b>Dweib</b></em>' literal value.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of '<em><b>Dweib</b></em>' literal object isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @see #DWEIB
-   * @model name="dweib"
-   * @generated
-   * @ordered
-   */
-  public static final int DWEIB_VALUE = 15;
-
-  /**
    * An array of all the '<em><b>Distribution Operator</b></em>' enumerators.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -444,7 +419,6 @@ public enum DistributionOperator implements Enumerator
       DPAR,
       DPOIS,
       DT,
-      DWEIB,
     };
 
   /**
@@ -524,7 +498,6 @@ public enum DistributionOperator implements Enumerator
       case DPAR_VALUE: return DPAR;
       case DPOIS_VALUE: return DPOIS;
       case DT_VALUE: return DT;
-      case DWEIB_VALUE: return DWEIB;
     }
     return null;
   }

@@ -87,10 +87,10 @@ TerminalExpression returns Expression:
 enum DistributionOperator:
 	dbern='dbern' | dbin='dbin' | dchisqr='dchisqr' | ddexp='ddexp' | dexp='dexp' | df='df' |
 	dgengamm='dgen.gamma' | dhyper='dhyper' | dlogis='dlogis' | dlnorm='dlnorm' | dnegbin='dnegbin' | dnchisqr='dnchisqr'
-	| dpar='dpar' | dpois='dpois' | dt='dt' | dweib='dweib';
+	| dpar='dpar' | dpois='dpois' | dt='dt';
 
 enum DensityOperator:
-	dnorm='dnorm' | dunif='dunif' | dbeta='dbeta' | dgamma='dgamma';
+	dnorm='dnorm' | dunif='dunif' | dbeta='dbeta' | dgamma='dgamma' | dweib = 'dweib' | weibul = 'weibul' ;
 
 enum FunctionOperator: acos='acos' | acosh='acosh' | asin='asin' | asinh='asinh' | atan='atan' | log='log' | ep='exp' | c='c' | mean='mean' |
 	sqrt='sqrt' | length = 'length' | inverse = 'inverse';

@@ -1732,14 +1732,6 @@ ruleDistributionOperator returns [Enumerator current=null]
 				newLeafNode(enumLiteral_14, grammarAccess.getDistributionOperatorAccess().getDtEnumLiteralDeclaration_14());
 			}
 		)
-		    |
-		(
-			enumLiteral_15='dweib'
-			{
-				$current = grammarAccess.getDistributionOperatorAccess().getDweibEnumLiteralDeclaration_15().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_15, grammarAccess.getDistributionOperatorAccess().getDweibEnumLiteralDeclaration_15());
-			}
-		)
 	)
 ;
 
@@ -1781,6 +1773,22 @@ ruleDensityOperator returns [Enumerator current=null]
 			{
 				$current = grammarAccess.getDensityOperatorAccess().getDgammaEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
 				newLeafNode(enumLiteral_3, grammarAccess.getDensityOperatorAccess().getDgammaEnumLiteralDeclaration_3());
+			}
+		)
+		    |
+		(
+			enumLiteral_4='dweib'
+			{
+				$current = grammarAccess.getDensityOperatorAccess().getDweibEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_4, grammarAccess.getDensityOperatorAccess().getDweibEnumLiteralDeclaration_4());
+			}
+		)
+		    |
+		(
+			enumLiteral_5='weibul'
+			{
+				$current = grammarAccess.getDensityOperatorAccess().getWeibulEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_5, grammarAccess.getDensityOperatorAccess().getWeibulEnumLiteralDeclaration_5());
 			}
 		)
 	)
