@@ -1177,13 +1177,15 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLengthLengthKeyword_10_0 = (Keyword)cLengthEnumLiteralDeclaration_10.eContents().get(0);
 		private final EnumLiteralDeclaration cInverseEnumLiteralDeclaration_11 = (EnumLiteralDeclaration)cAlternatives.eContents().get(11);
 		private final Keyword cInverseInverseKeyword_11_0 = (Keyword)cInverseEnumLiteralDeclaration_11.eContents().get(0);
+		private final EnumLiteralDeclaration cSortEnumLiteralDeclaration_12 = (EnumLiteralDeclaration)cAlternatives.eContents().get(12);
+		private final Keyword cSortSortKeyword_12_0 = (Keyword)cSortEnumLiteralDeclaration_12.eContents().get(0);
 		
 		//enum FunctionOperator:
 		//	acos | acosh | asin | asinh | atan | log | ep='exp' | c | mean |
-		//	sqrt | length | inverse;
+		//	sqrt | length | inverse | sort;
 		public EnumRule getRule() { return rule; }
 		
-		//acos | acosh | asin | asinh | atan | log | ep='exp' | c | mean | sqrt | length | inverse
+		//acos | acosh | asin | asinh | atan | log | ep='exp' | c | mean | sqrt | length | inverse | sort
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//acos
@@ -1257,6 +1259,12 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//'inverse'
 		public Keyword getInverseInverseKeyword_11_0() { return cInverseInverseKeyword_11_0; }
+		
+		//sort
+		public EnumLiteralDeclaration getSortEnumLiteralDeclaration_12() { return cSortEnumLiteralDeclaration_12; }
+		
+		//'sort'
+		public Keyword getSortSortKeyword_12_0() { return cSortSortKeyword_12_0; }
 	}
 	public class IntOperatorElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "com.opcoach.bugsy.xtext.BugsDsl.IntOperator");
@@ -1635,7 +1643,7 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//enum FunctionOperator:
 	//	acos | acosh | asin | asinh | atan | log | ep='exp' | c | mean |
-	//	sqrt | length | inverse;
+	//	sqrt | length | inverse | sort;
 	public FunctionOperatorElements getFunctionOperatorAccess() {
 		return eFunctionOperator;
 	}

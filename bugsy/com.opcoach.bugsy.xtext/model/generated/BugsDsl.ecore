@@ -121,6 +121,7 @@
     <eLiterals name="sqrt" value="9" literal="sqrt"/>
     <eLiterals name="length" value="10" literal="length"/>
     <eLiterals name="inverse" value="11" literal="inverse"/>
+    <eLiterals name="sort" value="12" literal="sort"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="IntOperator">
     <eLiterals name="length" literal="length"/>

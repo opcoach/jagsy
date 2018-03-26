@@ -1174,6 +1174,12 @@ rule__FunctionOperator__Alternatives
 		('inverse')
 		{ after(grammarAccess.getFunctionOperatorAccess().getInverseEnumLiteralDeclaration_11()); }
 	)
+	|
+	(
+		{ before(grammarAccess.getFunctionOperatorAccess().getSortEnumLiteralDeclaration_12()); }
+		('sort')
+		{ after(grammarAccess.getFunctionOperatorAccess().getSortEnumLiteralDeclaration_12()); }
+	)
 ;
 finally {
 	restoreStackSize(stackSize);

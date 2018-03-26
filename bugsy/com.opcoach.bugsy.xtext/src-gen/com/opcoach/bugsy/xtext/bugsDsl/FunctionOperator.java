@@ -138,7 +138,17 @@ public enum FunctionOperator implements Enumerator
    * @generated
    * @ordered
    */
-  INVERSE(11, "inverse", "inverse");
+  INVERSE(11, "inverse", "inverse"),
+
+  /**
+   * The '<em><b>Sort</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #SORT_VALUE
+   * @generated
+   * @ordered
+   */
+  SORT(12, "sort", "sort");
 
   /**
    * The '<em><b>Acos</b></em>' literal value.
@@ -321,6 +331,21 @@ public enum FunctionOperator implements Enumerator
   public static final int INVERSE_VALUE = 11;
 
   /**
+   * The '<em><b>Sort</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of '<em><b>Sort</b></em>' literal object isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @see #SORT
+   * @model name="sort"
+   * @generated
+   * @ordered
+   */
+  public static final int SORT_VALUE = 12;
+
+  /**
    * An array of all the '<em><b>Function Operator</b></em>' enumerators.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -341,6 +366,7 @@ public enum FunctionOperator implements Enumerator
       SQRT,
       LENGTH,
       INVERSE,
+      SORT,
     };
 
   /**
@@ -417,6 +443,7 @@ public enum FunctionOperator implements Enumerator
       case SQRT_VALUE: return SQRT;
       case LENGTH_VALUE: return LENGTH;
       case INVERSE_VALUE: return INVERSE;
+      case SORT_VALUE: return SORT;
     }
     return null;
   }

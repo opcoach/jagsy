@@ -286,6 +286,20 @@ class BugsDslParsingTest {
 		println("Errors in Issue 22 : " + result.eResource.errors)
 		Assert.assertTrue(result.eResource.errors.isEmpty)
 	}
+	
+		@Test
+	def void testIssue23_sortFunction() {
+		// See : https://github.com/opcoach/jagsy/issues/23
+		val result = parseHelper.parse('''
+			model{
+			alpha[1:3] <- sort(alpha0)
+			}
+		''')
+		Assert.assertNotNull(result)
+		println("Errors in Issue 23 : " + result.eResource.errors)
+		Assert.assertTrue(result.eResource.errors.isEmpty)
+	}
+	
 
 	@Test
 	def void testIssue22_weibulDistributionFunction() {

@@ -507,6 +507,27 @@ public class BugsDslParsingTest {
   }
   
   @Test
+  public void testIssue23_sortFunction() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("model{");
+      _builder.newLine();
+      _builder.append("alpha[1:3] <- sort(alpha0)");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      final BugsModel result = this.parseHelper.parse(_builder);
+      Assert.assertNotNull(result);
+      EList<Resource.Diagnostic> _errors = result.eResource().getErrors();
+      String _plus = ("Errors in Issue 23 : " + _errors);
+      InputOutput.<String>println(_plus);
+      Assert.assertTrue(result.eResource().getErrors().isEmpty());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
   public void testIssue22_weibulDistributionFunction() {
     try {
       StringConcatenation _builder = new StringConcatenation();
