@@ -179,7 +179,8 @@ class BugsDslParsingTest {
 		''')
 		Assert.assertNotNull(result)
 		println("Errors in Issue 9 : " + result.eResource.errors)
-		Assert.assertTrue(!result.eResource.errors.isEmpty)
+		Assert.assertTrue(result.eResource.errors.isEmpty
+		)
 	}
 
 	@Test

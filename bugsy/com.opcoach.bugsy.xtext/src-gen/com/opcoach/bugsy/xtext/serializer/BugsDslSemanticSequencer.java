@@ -170,7 +170,7 @@ public class BugsDslSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *
 	 * Constraint:
 	 *     (
-	 *         (left=Expression_Expression_1_0 op=Operator right=TerminalExpression) | 
+	 *         (left=Expression_Expression_1_0 op=Operator? right=TerminalExpression) | 
 	 *         value=Value | 
 	 *         function=Function | 
 	 *         distribution=Distribution | 

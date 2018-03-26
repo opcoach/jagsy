@@ -869,23 +869,23 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cRightTerminalExpressionParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
 		
 		//Expression:
-		//	TerminalExpression ({Expression.left=current} op=Operator
+		//	TerminalExpression ({Expression.left=current} op=Operator?
 		//	right=TerminalExpression)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//TerminalExpression ({Expression.left=current} op=Operator right=TerminalExpression)*
+		//TerminalExpression ({Expression.left=current} op=Operator? right=TerminalExpression)*
 		public Group getGroup() { return cGroup; }
 		
 		//TerminalExpression
 		public RuleCall getTerminalExpressionParserRuleCall_0() { return cTerminalExpressionParserRuleCall_0; }
 		
-		//({Expression.left=current} op=Operator right=TerminalExpression)*
+		//({Expression.left=current} op=Operator? right=TerminalExpression)*
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//{Expression.left=current}
 		public Action getExpressionLeftAction_1_0() { return cExpressionLeftAction_1_0; }
 		
-		//op=Operator
+		//op=Operator?
 		public Assignment getOpAssignment_1_1() { return cOpAssignment_1_1; }
 		
 		//Operator
@@ -1599,7 +1599,7 @@ public class BugsDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Expression:
-	//	TerminalExpression ({Expression.left=current} op=Operator
+	//	TerminalExpression ({Expression.left=current} op=Operator?
 	//	right=TerminalExpression)*;
 	public ExpressionElements getExpressionAccess() {
 		return pExpression;

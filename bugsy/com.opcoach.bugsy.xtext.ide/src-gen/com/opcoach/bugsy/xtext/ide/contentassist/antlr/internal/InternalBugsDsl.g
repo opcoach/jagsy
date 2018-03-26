@@ -3823,7 +3823,7 @@ rule__Expression__Group_1__1__Impl
 :
 (
 	{ before(grammarAccess.getExpressionAccess().getOpAssignment_1_1()); }
-	(rule__Expression__OpAssignment_1_1)
+	(rule__Expression__OpAssignment_1_1)?
 	{ after(grammarAccess.getExpressionAccess().getOpAssignment_1_1()); }
 )
 ;

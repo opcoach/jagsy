@@ -306,9 +306,7 @@ public class BugsDslParsingTest {
       EList<Resource.Diagnostic> _errors = result.eResource().getErrors();
       String _plus = ("Errors in Issue 9 : " + _errors);
       InputOutput.<String>println(_plus);
-      boolean _isEmpty = result.eResource().getErrors().isEmpty();
-      boolean _not = (!_isEmpty);
-      Assert.assertTrue(_not);
+      Assert.assertTrue(result.eResource().getErrors().isEmpty());
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }

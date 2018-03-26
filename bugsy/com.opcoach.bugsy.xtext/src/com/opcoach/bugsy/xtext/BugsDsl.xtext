@@ -77,7 +77,7 @@ Distribution:
 	distrib=DistributionOperator ('()' | '(' (=> (params+=Expression) (',' (params+=Expression))* ')')?);
 
 Expression:
-	TerminalExpression ({Expression.left=current} op=Operator
+	TerminalExpression ({Expression.left=current} (op=Operator)?
 	right=TerminalExpression)*;
 
   // Terminal expressions are used both in model and data, but for model, the validation will check that no arrayFunctions are used 

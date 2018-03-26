@@ -2175,11 +2175,11 @@ public class InternalBugsDslParser extends AbstractInternalContentAssistParser {
             if ( (LA2_0==RULE_INT) ) {
                 int LA2_1 = input.LA(2);
 
-                if ( (LA2_1==62) ) {
-                    alt2=2;
-                }
-                else if ( (LA2_1==EOF||LA2_1==RULE_ID||(LA2_1>=13 && LA2_1<=14)||(LA2_1>=18 && LA2_1<=19)||LA2_1==55||LA2_1==57||LA2_1==60||LA2_1==66) ) {
+                if ( (LA2_1==EOF||(LA2_1>=RULE_INT && LA2_1<=RULE_ID)||(LA2_1>=11 && LA2_1<=14)||(LA2_1>=18 && LA2_1<=34)||(LA2_1>=41 && LA2_1<=52)||LA2_1==55||(LA2_1>=57 && LA2_1<=58)||LA2_1==60||LA2_1==66) ) {
                     alt2=1;
+                }
+                else if ( (LA2_1==62) ) {
+                    alt2=2;
                 }
                 else {
                     if (state.backtracking>0) {state.failed=true; return ;}
@@ -12760,13 +12760,7 @@ public class InternalBugsDslParser extends AbstractInternalContentAssistParser {
             loop34:
             do {
                 int alt34=2;
-                int LA34_0 = input.LA(1);
-
-                if ( ((LA34_0>=13 && LA34_0<=14)||(LA34_0>=18 && LA34_0<=19)) ) {
-                    alt34=1;
-                }
-
-
+                alt34 = dfa34.predict(input);
                 switch (alt34) {
             	case 1 :
             	    // InternalBugsDsl.g:3771:3: rule__Expression__Group_1__0
@@ -12898,7 +12892,7 @@ public class InternalBugsDslParser extends AbstractInternalContentAssistParser {
             // InternalBugsDsl.g:3811:1: ( rule__Expression__Group_1__1__Impl rule__Expression__Group_1__2 )
             // InternalBugsDsl.g:3812:2: rule__Expression__Group_1__1__Impl rule__Expression__Group_1__2
             {
-            pushFollow(FOLLOW_24);
+            pushFollow(FOLLOW_29);
             rule__Expression__Group_1__1__Impl();
 
             state._fsp--;
@@ -12927,29 +12921,40 @@ public class InternalBugsDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Expression__Group_1__1__Impl"
-    // InternalBugsDsl.g:3819:1: rule__Expression__Group_1__1__Impl : ( ( rule__Expression__OpAssignment_1_1 ) ) ;
+    // InternalBugsDsl.g:3819:1: rule__Expression__Group_1__1__Impl : ( ( rule__Expression__OpAssignment_1_1 )? ) ;
     public final void rule__Expression__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBugsDsl.g:3823:1: ( ( ( rule__Expression__OpAssignment_1_1 ) ) )
-            // InternalBugsDsl.g:3824:1: ( ( rule__Expression__OpAssignment_1_1 ) )
+            // InternalBugsDsl.g:3823:1: ( ( ( rule__Expression__OpAssignment_1_1 )? ) )
+            // InternalBugsDsl.g:3824:1: ( ( rule__Expression__OpAssignment_1_1 )? )
             {
-            // InternalBugsDsl.g:3824:1: ( ( rule__Expression__OpAssignment_1_1 ) )
-            // InternalBugsDsl.g:3825:2: ( rule__Expression__OpAssignment_1_1 )
+            // InternalBugsDsl.g:3824:1: ( ( rule__Expression__OpAssignment_1_1 )? )
+            // InternalBugsDsl.g:3825:2: ( rule__Expression__OpAssignment_1_1 )?
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getExpressionAccess().getOpAssignment_1_1()); 
             }
-            // InternalBugsDsl.g:3826:2: ( rule__Expression__OpAssignment_1_1 )
-            // InternalBugsDsl.g:3826:3: rule__Expression__OpAssignment_1_1
-            {
-            pushFollow(FOLLOW_2);
-            rule__Expression__OpAssignment_1_1();
+            // InternalBugsDsl.g:3826:2: ( rule__Expression__OpAssignment_1_1 )?
+            int alt35=2;
+            int LA35_0 = input.LA(1);
 
-            state._fsp--;
-            if (state.failed) return ;
+            if ( ((LA35_0>=13 && LA35_0<=14)||(LA35_0>=18 && LA35_0<=19)) ) {
+                alt35=1;
+            }
+            switch (alt35) {
+                case 1 :
+                    // InternalBugsDsl.g:3826:3: rule__Expression__OpAssignment_1_1
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__Expression__OpAssignment_1_1();
+
+                    state._fsp--;
+                    if (state.failed) return ;
+
+                    }
+                    break;
 
             }
 
@@ -14998,21 +15003,110 @@ public class InternalBugsDslParser extends AbstractInternalContentAssistParser {
     }
     // $ANTLR end "rule__TerminalExpression__ArrayFunctionAssignment_4"
 
+    // $ANTLR start synpred61_InternalBugsDsl
+    public final void synpred61_InternalBugsDsl_fragment() throws RecognitionException {   
+        // InternalBugsDsl.g:3015:3: ( rule__Function__Group_1_1_1__0 )
+        // InternalBugsDsl.g:3015:3: rule__Function__Group_1_1_1__0
+        {
+        pushFollow(FOLLOW_2);
+        rule__Function__Group_1_1_1__0();
+
+        state._fsp--;
+        if (state.failed) return ;
+
+        }
+    }
+    // $ANTLR end synpred61_InternalBugsDsl
+
+    // $ANTLR start synpred63_InternalBugsDsl
+    public final void synpred63_InternalBugsDsl_fragment() throws RecognitionException {   
+        // InternalBugsDsl.g:3285:3: ( rule__ArrayFunction__Group_1_1_1__0 )
+        // InternalBugsDsl.g:3285:3: rule__ArrayFunction__Group_1_1_1__0
+        {
+        pushFollow(FOLLOW_2);
+        rule__ArrayFunction__Group_1_1_1__0();
+
+        state._fsp--;
+        if (state.failed) return ;
+
+        }
+    }
+    // $ANTLR end synpred63_InternalBugsDsl
+
+    // $ANTLR start synpred65_InternalBugsDsl
+    public final void synpred65_InternalBugsDsl_fragment() throws RecognitionException {   
+        // InternalBugsDsl.g:3555:3: ( rule__Distribution__Group_1_1_1__0 )
+        // InternalBugsDsl.g:3555:3: rule__Distribution__Group_1_1_1__0
+        {
+        pushFollow(FOLLOW_2);
+        rule__Distribution__Group_1_1_1__0();
+
+        state._fsp--;
+        if (state.failed) return ;
+
+        }
+    }
+    // $ANTLR end synpred65_InternalBugsDsl
+
     // Delegated rules
+
+    public final boolean synpred63_InternalBugsDsl() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred63_InternalBugsDsl_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred65_InternalBugsDsl() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred65_InternalBugsDsl_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred61_InternalBugsDsl() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred61_InternalBugsDsl_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
 
 
     protected DFA7 dfa7 = new DFA7(this);
     protected DFA28 dfa28 = new DFA28(this);
     protected DFA30 dfa30 = new DFA30(this);
     protected DFA32 dfa32 = new DFA32(this);
+    protected DFA34 dfa34 = new DFA34(this);
     static final String dfa_1s = "\21\uffff";
     static final String dfa_2s = "\1\5\1\20\1\4\2\uffff\2\75\2\4\1\20\2\101\2\75\1\4\2\101";
     static final String dfa_3s = "\1\5\1\103\1\5\2\uffff\2\102\2\5\1\103\4\102\1\5\2\102";
-    static final String dfa_4s = "\3\uffff\1\2\1\1\14\uffff";
+    static final String dfa_4s = "\3\uffff\1\1\1\2\14\uffff";
     static final String dfa_5s = "\21\uffff}>";
     static final String[] dfa_6s = {
             "\1\1",
-            "\2\3\56\uffff\1\2\2\uffff\1\4",
+            "\2\4\56\uffff\1\2\2\uffff\1\3",
             "\1\5\1\6",
             "",
             "",
@@ -15020,7 +15114,7 @@ public class InternalBugsDslParser extends AbstractInternalContentAssistParser {
             "\1\7\3\uffff\1\11\1\10",
             "\1\12\1\13",
             "\1\14\1\15",
-            "\2\3\61\uffff\1\4",
+            "\2\4\61\uffff\1\3",
             "\1\11\1\10",
             "\1\11\1\10",
             "\1\16\3\uffff\1\11\1\10",
@@ -15054,50 +15148,572 @@ public class InternalBugsDslParser extends AbstractInternalContentAssistParser {
             return "759:1: rule__Relation__Alternatives : ( ( ruleStochasticRelation ) | ( ruleDeterministicRelation ) );";
         }
     }
-    static final String dfa_7s = "\1\3\20\uffff";
-    static final String dfa_8s = "\1\4\1\uffff\1\15\1\uffff\1\4\2\75\2\4\1\15\2\101\2\75\1\4\2\101";
-    static final String dfa_9s = "\1\102\1\uffff\1\103\1\uffff\1\5\2\102\2\5\1\103\4\102\1\5\2\102";
-    static final String dfa_10s = "\1\uffff\1\1\1\uffff\1\2\15\uffff";
-    static final String[] dfa_11s = {
-            "\1\1\1\2\5\uffff\2\1\2\3\3\uffff\2\3\17\1\6\uffff\14\1\2\uffff\1\3\1\uffff\1\3\1\1\1\uffff\1\3\5\uffff\1\3",
+    static final String dfa_7s = "\53\uffff";
+    static final String dfa_8s = "\1\41\52\uffff";
+    static final String dfa_9s = "\1\4\40\0\12\uffff";
+    static final String dfa_10s = "\1\102\40\0\12\uffff";
+    static final String dfa_11s = "\41\uffff\1\2\10\uffff\1\1";
+    static final String dfa_12s = "\1\uffff\1\0\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\16\1\17\1\20\1\21\1\22\1\23\1\24\1\25\1\26\1\27\1\30\1\31\1\32\1\33\1\34\1\35\1\36\1\37\12\uffff}>";
+    static final String[] dfa_13s = {
+            "\1\2\1\3\5\uffff\1\16\1\40\2\41\3\uffff\2\41\1\21\1\22\1\23\1\24\1\25\1\26\1\27\1\30\1\31\1\32\1\33\1\34\1\35\1\36\1\37\6\uffff\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\17\1\20\2\uffff\1\41\1\uffff\1\41\1\1\1\uffff\1\41\5\uffff\1\41",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
             "",
-            "\2\1\1\uffff\2\3\2\1\50\uffff\1\1\3\uffff\1\4\1\uffff\1\1\1\3",
             "",
-            "\1\5\1\6",
-            "\1\7\3\uffff\1\11\1\10",
-            "\1\7\3\uffff\1\11\1\10",
-            "\1\12\1\13",
-            "\1\14\1\15",
-            "\2\1\1\uffff\2\3\2\1\50\uffff\1\1\5\uffff\1\1\1\3",
-            "\1\11\1\10",
-            "\1\11\1\10",
-            "\1\16\3\uffff\1\11\1\10",
-            "\1\16\3\uffff\1\11\1\10",
-            "\1\17\1\20",
-            "\1\11\1\10",
-            "\1\11\1\10"
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
     };
+
     static final short[] dfa_7 = DFA.unpackEncodedString(dfa_7s);
-    static final char[] dfa_8 = DFA.unpackEncodedStringToUnsignedChars(dfa_8s);
+    static final short[] dfa_8 = DFA.unpackEncodedString(dfa_8s);
     static final char[] dfa_9 = DFA.unpackEncodedStringToUnsignedChars(dfa_9s);
-    static final short[] dfa_10 = DFA.unpackEncodedString(dfa_10s);
-    static final short[][] dfa_11 = unpackEncodedStringArray(dfa_11s);
+    static final char[] dfa_10 = DFA.unpackEncodedStringToUnsignedChars(dfa_10s);
+    static final short[] dfa_11 = DFA.unpackEncodedString(dfa_11s);
+    static final short[] dfa_12 = DFA.unpackEncodedString(dfa_12s);
+    static final short[][] dfa_13 = unpackEncodedStringArray(dfa_13s);
 
     class DFA28 extends DFA {
 
         public DFA28(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
             this.decisionNumber = 28;
-            this.eot = dfa_1;
-            this.eof = dfa_7;
-            this.min = dfa_8;
-            this.max = dfa_9;
-            this.accept = dfa_10;
-            this.special = dfa_5;
-            this.transition = dfa_11;
+            this.eot = dfa_7;
+            this.eof = dfa_8;
+            this.min = dfa_9;
+            this.max = dfa_10;
+            this.accept = dfa_11;
+            this.special = dfa_12;
+            this.transition = dfa_13;
         }
         public String getDescription() {
             return "3015:2: ( rule__Function__Group_1_1_1__0 )?";
+        }
+        public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
+            TokenStream input = (TokenStream)_input;
+        	int _s = s;
+            switch ( s ) {
+                    case 0 : 
+                        int LA28_1 = input.LA(1);
+
+                         
+                        int index28_1 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred61_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index28_1);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 1 : 
+                        int LA28_2 = input.LA(1);
+
+                         
+                        int index28_2 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred61_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index28_2);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 2 : 
+                        int LA28_3 = input.LA(1);
+
+                         
+                        int index28_3 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred61_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index28_3);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 3 : 
+                        int LA28_4 = input.LA(1);
+
+                         
+                        int index28_4 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred61_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index28_4);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 4 : 
+                        int LA28_5 = input.LA(1);
+
+                         
+                        int index28_5 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred61_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index28_5);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 5 : 
+                        int LA28_6 = input.LA(1);
+
+                         
+                        int index28_6 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred61_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index28_6);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 6 : 
+                        int LA28_7 = input.LA(1);
+
+                         
+                        int index28_7 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred61_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index28_7);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 7 : 
+                        int LA28_8 = input.LA(1);
+
+                         
+                        int index28_8 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred61_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index28_8);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 8 : 
+                        int LA28_9 = input.LA(1);
+
+                         
+                        int index28_9 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred61_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index28_9);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 9 : 
+                        int LA28_10 = input.LA(1);
+
+                         
+                        int index28_10 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred61_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index28_10);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 10 : 
+                        int LA28_11 = input.LA(1);
+
+                         
+                        int index28_11 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred61_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index28_11);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 11 : 
+                        int LA28_12 = input.LA(1);
+
+                         
+                        int index28_12 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred61_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index28_12);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 12 : 
+                        int LA28_13 = input.LA(1);
+
+                         
+                        int index28_13 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred61_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index28_13);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 13 : 
+                        int LA28_14 = input.LA(1);
+
+                         
+                        int index28_14 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred61_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index28_14);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 14 : 
+                        int LA28_15 = input.LA(1);
+
+                         
+                        int index28_15 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred61_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index28_15);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 15 : 
+                        int LA28_16 = input.LA(1);
+
+                         
+                        int index28_16 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred61_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index28_16);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 16 : 
+                        int LA28_17 = input.LA(1);
+
+                         
+                        int index28_17 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred61_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index28_17);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 17 : 
+                        int LA28_18 = input.LA(1);
+
+                         
+                        int index28_18 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred61_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index28_18);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 18 : 
+                        int LA28_19 = input.LA(1);
+
+                         
+                        int index28_19 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred61_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index28_19);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 19 : 
+                        int LA28_20 = input.LA(1);
+
+                         
+                        int index28_20 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred61_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index28_20);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 20 : 
+                        int LA28_21 = input.LA(1);
+
+                         
+                        int index28_21 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred61_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index28_21);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 21 : 
+                        int LA28_22 = input.LA(1);
+
+                         
+                        int index28_22 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred61_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index28_22);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 22 : 
+                        int LA28_23 = input.LA(1);
+
+                         
+                        int index28_23 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred61_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index28_23);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 23 : 
+                        int LA28_24 = input.LA(1);
+
+                         
+                        int index28_24 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred61_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index28_24);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 24 : 
+                        int LA28_25 = input.LA(1);
+
+                         
+                        int index28_25 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred61_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index28_25);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 25 : 
+                        int LA28_26 = input.LA(1);
+
+                         
+                        int index28_26 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred61_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index28_26);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 26 : 
+                        int LA28_27 = input.LA(1);
+
+                         
+                        int index28_27 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred61_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index28_27);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 27 : 
+                        int LA28_28 = input.LA(1);
+
+                         
+                        int index28_28 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred61_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index28_28);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 28 : 
+                        int LA28_29 = input.LA(1);
+
+                         
+                        int index28_29 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred61_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index28_29);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 29 : 
+                        int LA28_30 = input.LA(1);
+
+                         
+                        int index28_30 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred61_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index28_30);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 30 : 
+                        int LA28_31 = input.LA(1);
+
+                         
+                        int index28_31 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred61_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index28_31);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 31 : 
+                        int LA28_32 = input.LA(1);
+
+                         
+                        int index28_32 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred61_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index28_32);
+                        if ( s>=0 ) return s;
+                        break;
+            }
+            if (state.backtracking>0) {state.failed=true; return -1;}
+            NoViableAltException nvae =
+                new NoViableAltException(getDescription(), 28, _s, input);
+            error(nvae);
+            throw nvae;
         }
     }
 
@@ -15106,16 +15722,507 @@ public class InternalBugsDslParser extends AbstractInternalContentAssistParser {
         public DFA30(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
             this.decisionNumber = 30;
-            this.eot = dfa_1;
-            this.eof = dfa_7;
-            this.min = dfa_8;
-            this.max = dfa_9;
-            this.accept = dfa_10;
-            this.special = dfa_5;
-            this.transition = dfa_11;
+            this.eot = dfa_7;
+            this.eof = dfa_8;
+            this.min = dfa_9;
+            this.max = dfa_10;
+            this.accept = dfa_11;
+            this.special = dfa_12;
+            this.transition = dfa_13;
         }
         public String getDescription() {
             return "3285:2: ( rule__ArrayFunction__Group_1_1_1__0 )?";
+        }
+        public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
+            TokenStream input = (TokenStream)_input;
+        	int _s = s;
+            switch ( s ) {
+                    case 0 : 
+                        int LA30_1 = input.LA(1);
+
+                         
+                        int index30_1 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred63_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index30_1);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 1 : 
+                        int LA30_2 = input.LA(1);
+
+                         
+                        int index30_2 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred63_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index30_2);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 2 : 
+                        int LA30_3 = input.LA(1);
+
+                         
+                        int index30_3 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred63_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index30_3);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 3 : 
+                        int LA30_4 = input.LA(1);
+
+                         
+                        int index30_4 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred63_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index30_4);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 4 : 
+                        int LA30_5 = input.LA(1);
+
+                         
+                        int index30_5 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred63_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index30_5);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 5 : 
+                        int LA30_6 = input.LA(1);
+
+                         
+                        int index30_6 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred63_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index30_6);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 6 : 
+                        int LA30_7 = input.LA(1);
+
+                         
+                        int index30_7 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred63_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index30_7);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 7 : 
+                        int LA30_8 = input.LA(1);
+
+                         
+                        int index30_8 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred63_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index30_8);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 8 : 
+                        int LA30_9 = input.LA(1);
+
+                         
+                        int index30_9 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred63_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index30_9);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 9 : 
+                        int LA30_10 = input.LA(1);
+
+                         
+                        int index30_10 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred63_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index30_10);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 10 : 
+                        int LA30_11 = input.LA(1);
+
+                         
+                        int index30_11 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred63_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index30_11);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 11 : 
+                        int LA30_12 = input.LA(1);
+
+                         
+                        int index30_12 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred63_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index30_12);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 12 : 
+                        int LA30_13 = input.LA(1);
+
+                         
+                        int index30_13 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred63_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index30_13);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 13 : 
+                        int LA30_14 = input.LA(1);
+
+                         
+                        int index30_14 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred63_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index30_14);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 14 : 
+                        int LA30_15 = input.LA(1);
+
+                         
+                        int index30_15 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred63_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index30_15);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 15 : 
+                        int LA30_16 = input.LA(1);
+
+                         
+                        int index30_16 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred63_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index30_16);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 16 : 
+                        int LA30_17 = input.LA(1);
+
+                         
+                        int index30_17 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred63_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index30_17);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 17 : 
+                        int LA30_18 = input.LA(1);
+
+                         
+                        int index30_18 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred63_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index30_18);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 18 : 
+                        int LA30_19 = input.LA(1);
+
+                         
+                        int index30_19 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred63_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index30_19);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 19 : 
+                        int LA30_20 = input.LA(1);
+
+                         
+                        int index30_20 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred63_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index30_20);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 20 : 
+                        int LA30_21 = input.LA(1);
+
+                         
+                        int index30_21 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred63_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index30_21);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 21 : 
+                        int LA30_22 = input.LA(1);
+
+                         
+                        int index30_22 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred63_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index30_22);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 22 : 
+                        int LA30_23 = input.LA(1);
+
+                         
+                        int index30_23 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred63_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index30_23);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 23 : 
+                        int LA30_24 = input.LA(1);
+
+                         
+                        int index30_24 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred63_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index30_24);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 24 : 
+                        int LA30_25 = input.LA(1);
+
+                         
+                        int index30_25 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred63_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index30_25);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 25 : 
+                        int LA30_26 = input.LA(1);
+
+                         
+                        int index30_26 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred63_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index30_26);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 26 : 
+                        int LA30_27 = input.LA(1);
+
+                         
+                        int index30_27 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred63_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index30_27);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 27 : 
+                        int LA30_28 = input.LA(1);
+
+                         
+                        int index30_28 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred63_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index30_28);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 28 : 
+                        int LA30_29 = input.LA(1);
+
+                         
+                        int index30_29 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred63_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index30_29);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 29 : 
+                        int LA30_30 = input.LA(1);
+
+                         
+                        int index30_30 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred63_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index30_30);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 30 : 
+                        int LA30_31 = input.LA(1);
+
+                         
+                        int index30_31 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred63_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index30_31);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 31 : 
+                        int LA30_32 = input.LA(1);
+
+                         
+                        int index30_32 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred63_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index30_32);
+                        if ( s>=0 ) return s;
+                        break;
+            }
+            if (state.backtracking>0) {state.failed=true; return -1;}
+            NoViableAltException nvae =
+                new NoViableAltException(getDescription(), 30, _s, input);
+            error(nvae);
+            throw nvae;
         }
     }
 
@@ -15124,16 +16231,553 @@ public class InternalBugsDslParser extends AbstractInternalContentAssistParser {
         public DFA32(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
             this.decisionNumber = 32;
-            this.eot = dfa_1;
-            this.eof = dfa_7;
-            this.min = dfa_8;
-            this.max = dfa_9;
-            this.accept = dfa_10;
-            this.special = dfa_5;
-            this.transition = dfa_11;
+            this.eot = dfa_7;
+            this.eof = dfa_8;
+            this.min = dfa_9;
+            this.max = dfa_10;
+            this.accept = dfa_11;
+            this.special = dfa_12;
+            this.transition = dfa_13;
         }
         public String getDescription() {
             return "3555:2: ( rule__Distribution__Group_1_1_1__0 )?";
+        }
+        public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
+            TokenStream input = (TokenStream)_input;
+        	int _s = s;
+            switch ( s ) {
+                    case 0 : 
+                        int LA32_1 = input.LA(1);
+
+                         
+                        int index32_1 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred65_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index32_1);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 1 : 
+                        int LA32_2 = input.LA(1);
+
+                         
+                        int index32_2 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred65_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index32_2);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 2 : 
+                        int LA32_3 = input.LA(1);
+
+                         
+                        int index32_3 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred65_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index32_3);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 3 : 
+                        int LA32_4 = input.LA(1);
+
+                         
+                        int index32_4 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred65_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index32_4);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 4 : 
+                        int LA32_5 = input.LA(1);
+
+                         
+                        int index32_5 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred65_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index32_5);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 5 : 
+                        int LA32_6 = input.LA(1);
+
+                         
+                        int index32_6 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred65_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index32_6);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 6 : 
+                        int LA32_7 = input.LA(1);
+
+                         
+                        int index32_7 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred65_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index32_7);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 7 : 
+                        int LA32_8 = input.LA(1);
+
+                         
+                        int index32_8 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred65_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index32_8);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 8 : 
+                        int LA32_9 = input.LA(1);
+
+                         
+                        int index32_9 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred65_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index32_9);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 9 : 
+                        int LA32_10 = input.LA(1);
+
+                         
+                        int index32_10 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred65_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index32_10);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 10 : 
+                        int LA32_11 = input.LA(1);
+
+                         
+                        int index32_11 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred65_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index32_11);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 11 : 
+                        int LA32_12 = input.LA(1);
+
+                         
+                        int index32_12 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred65_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index32_12);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 12 : 
+                        int LA32_13 = input.LA(1);
+
+                         
+                        int index32_13 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred65_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index32_13);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 13 : 
+                        int LA32_14 = input.LA(1);
+
+                         
+                        int index32_14 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred65_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index32_14);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 14 : 
+                        int LA32_15 = input.LA(1);
+
+                         
+                        int index32_15 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred65_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index32_15);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 15 : 
+                        int LA32_16 = input.LA(1);
+
+                         
+                        int index32_16 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred65_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index32_16);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 16 : 
+                        int LA32_17 = input.LA(1);
+
+                         
+                        int index32_17 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred65_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index32_17);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 17 : 
+                        int LA32_18 = input.LA(1);
+
+                         
+                        int index32_18 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred65_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index32_18);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 18 : 
+                        int LA32_19 = input.LA(1);
+
+                         
+                        int index32_19 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred65_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index32_19);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 19 : 
+                        int LA32_20 = input.LA(1);
+
+                         
+                        int index32_20 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred65_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index32_20);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 20 : 
+                        int LA32_21 = input.LA(1);
+
+                         
+                        int index32_21 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred65_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index32_21);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 21 : 
+                        int LA32_22 = input.LA(1);
+
+                         
+                        int index32_22 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred65_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index32_22);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 22 : 
+                        int LA32_23 = input.LA(1);
+
+                         
+                        int index32_23 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred65_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index32_23);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 23 : 
+                        int LA32_24 = input.LA(1);
+
+                         
+                        int index32_24 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred65_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index32_24);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 24 : 
+                        int LA32_25 = input.LA(1);
+
+                         
+                        int index32_25 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred65_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index32_25);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 25 : 
+                        int LA32_26 = input.LA(1);
+
+                         
+                        int index32_26 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred65_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index32_26);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 26 : 
+                        int LA32_27 = input.LA(1);
+
+                         
+                        int index32_27 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred65_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index32_27);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 27 : 
+                        int LA32_28 = input.LA(1);
+
+                         
+                        int index32_28 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred65_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index32_28);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 28 : 
+                        int LA32_29 = input.LA(1);
+
+                         
+                        int index32_29 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred65_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index32_29);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 29 : 
+                        int LA32_30 = input.LA(1);
+
+                         
+                        int index32_30 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred65_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index32_30);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 30 : 
+                        int LA32_31 = input.LA(1);
+
+                         
+                        int index32_31 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred65_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index32_31);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 31 : 
+                        int LA32_32 = input.LA(1);
+
+                         
+                        int index32_32 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred65_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index32_32);
+                        if ( s>=0 ) return s;
+                        break;
+            }
+            if (state.backtracking>0) {state.failed=true; return -1;}
+            NoViableAltException nvae =
+                new NoViableAltException(getDescription(), 32, _s, input);
+            error(nvae);
+            throw nvae;
+        }
+    }
+    static final String dfa_14s = "\1\1\1\uffff\1\3\6\uffff\1\3\7\uffff";
+    static final String dfa_15s = "\1\4\1\uffff\1\4\1\uffff\1\4\2\75\3\4\2\101\2\75\1\4\2\101";
+    static final String dfa_16s = "\1\102\1\uffff\1\103\1\uffff\1\5\2\102\2\5\1\103\4\102\1\5\2\102";
+    static final String dfa_17s = "\1\uffff\1\2\1\uffff\1\1\15\uffff";
+    static final String[] dfa_18s = {
+            "\1\3\1\2\5\uffff\4\3\3\uffff\21\3\6\uffff\14\3\2\uffff\1\1\1\uffff\1\1\1\3\1\uffff\1\1\5\uffff\1\1",
+            "",
+            "\2\3\5\uffff\4\3\1\uffff\2\1\21\3\6\uffff\14\3\2\uffff\1\3\1\uffff\2\3\1\uffff\1\3\3\uffff\1\4\1\uffff\1\3\1\1",
+            "",
+            "\1\5\1\6",
+            "\1\7\3\uffff\1\11\1\10",
+            "\1\7\3\uffff\1\11\1\10",
+            "\1\12\1\13",
+            "\1\14\1\15",
+            "\2\3\5\uffff\4\3\1\uffff\2\1\21\3\6\uffff\14\3\2\uffff\1\3\1\uffff\2\3\1\uffff\1\3\5\uffff\1\3\1\1",
+            "\1\11\1\10",
+            "\1\11\1\10",
+            "\1\16\3\uffff\1\11\1\10",
+            "\1\16\3\uffff\1\11\1\10",
+            "\1\17\1\20",
+            "\1\11\1\10",
+            "\1\11\1\10"
+    };
+    static final short[] dfa_14 = DFA.unpackEncodedString(dfa_14s);
+    static final char[] dfa_15 = DFA.unpackEncodedStringToUnsignedChars(dfa_15s);
+    static final char[] dfa_16 = DFA.unpackEncodedStringToUnsignedChars(dfa_16s);
+    static final short[] dfa_17 = DFA.unpackEncodedString(dfa_17s);
+    static final short[][] dfa_18 = unpackEncodedStringArray(dfa_18s);
+
+    class DFA34 extends DFA {
+
+        public DFA34(BaseRecognizer recognizer) {
+            this.recognizer = recognizer;
+            this.decisionNumber = 34;
+            this.eot = dfa_1;
+            this.eof = dfa_14;
+            this.min = dfa_15;
+            this.max = dfa_16;
+            this.accept = dfa_17;
+            this.special = dfa_5;
+            this.transition = dfa_18;
+        }
+        public String getDescription() {
+            return "()* loopback of 3771:2: ( rule__Expression__Group_1__0 )*";
         }
     }
  
@@ -15166,7 +16810,7 @@ public class InternalBugsDslParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0200000000000020L});
     public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000000000030000L});
     public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x1000000000000000L,0x0000000000000004L});
-    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x00000000000C6000L});
-    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x00000000000C6002L});
+    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x041FFE07FFFC7830L});
+    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x041FFE07FFFC7832L});
 
 }

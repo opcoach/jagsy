@@ -859,7 +859,7 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
                 if ( (LA6_1==20) ) {
                     alt6=2;
                 }
-                else if ( (LA6_1==EOF||LA6_1==RULE_ID||LA6_1==13||LA6_1==15||LA6_1==18||(LA6_1>=22 && LA6_1<=23)||LA6_1==25||(LA6_1>=31 && LA6_1<=32)) ) {
+                else if ( (LA6_1==EOF||(LA6_1>=RULE_ID && LA6_1<=RULE_INT)||LA6_1==13||(LA6_1>=15 && LA6_1<=16)||LA6_1==18||(LA6_1>=22 && LA6_1<=23)||LA6_1==25||(LA6_1>=31 && LA6_1<=47)||(LA6_1>=54 && LA6_1<=67)) ) {
                     alt6=1;
                 }
                 else {
@@ -4082,7 +4082,7 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleExpression"
-    // InternalBugsDsl.g:1424:1: ruleExpression returns [EObject current=null] : (this_TerminalExpression_0= ruleTerminalExpression ( () ( (lv_op_2_0= ruleOperator ) ) ( (lv_right_3_0= ruleTerminalExpression ) ) )* ) ;
+    // InternalBugsDsl.g:1424:1: ruleExpression returns [EObject current=null] : (this_TerminalExpression_0= ruleTerminalExpression ( () ( (lv_op_2_0= ruleOperator ) )? ( (lv_right_3_0= ruleTerminalExpression ) ) )* ) ;
     public final EObject ruleExpression() throws RecognitionException {
         EObject current = null;
 
@@ -4097,11 +4097,11 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBugsDsl.g:1430:2: ( (this_TerminalExpression_0= ruleTerminalExpression ( () ( (lv_op_2_0= ruleOperator ) ) ( (lv_right_3_0= ruleTerminalExpression ) ) )* ) )
-            // InternalBugsDsl.g:1431:2: (this_TerminalExpression_0= ruleTerminalExpression ( () ( (lv_op_2_0= ruleOperator ) ) ( (lv_right_3_0= ruleTerminalExpression ) ) )* )
+            // InternalBugsDsl.g:1430:2: ( (this_TerminalExpression_0= ruleTerminalExpression ( () ( (lv_op_2_0= ruleOperator ) )? ( (lv_right_3_0= ruleTerminalExpression ) ) )* ) )
+            // InternalBugsDsl.g:1431:2: (this_TerminalExpression_0= ruleTerminalExpression ( () ( (lv_op_2_0= ruleOperator ) )? ( (lv_right_3_0= ruleTerminalExpression ) ) )* )
             {
-            // InternalBugsDsl.g:1431:2: (this_TerminalExpression_0= ruleTerminalExpression ( () ( (lv_op_2_0= ruleOperator ) ) ( (lv_right_3_0= ruleTerminalExpression ) ) )* )
-            // InternalBugsDsl.g:1432:3: this_TerminalExpression_0= ruleTerminalExpression ( () ( (lv_op_2_0= ruleOperator ) ) ( (lv_right_3_0= ruleTerminalExpression ) ) )*
+            // InternalBugsDsl.g:1431:2: (this_TerminalExpression_0= ruleTerminalExpression ( () ( (lv_op_2_0= ruleOperator ) )? ( (lv_right_3_0= ruleTerminalExpression ) ) )* )
+            // InternalBugsDsl.g:1432:3: this_TerminalExpression_0= ruleTerminalExpression ( () ( (lv_op_2_0= ruleOperator ) )? ( (lv_right_3_0= ruleTerminalExpression ) ) )*
             {
             if ( state.backtracking==0 ) {
 
@@ -4119,20 +4119,14 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
               			afterParserOrEnumRuleCall();
               		
             }
-            // InternalBugsDsl.g:1440:3: ( () ( (lv_op_2_0= ruleOperator ) ) ( (lv_right_3_0= ruleTerminalExpression ) ) )*
-            loop29:
+            // InternalBugsDsl.g:1440:3: ( () ( (lv_op_2_0= ruleOperator ) )? ( (lv_right_3_0= ruleTerminalExpression ) ) )*
+            loop30:
             do {
-                int alt29=2;
-                int LA29_0 = input.LA(1);
-
-                if ( ((LA29_0>=22 && LA29_0<=23)||(LA29_0>=31 && LA29_0<=32)) ) {
-                    alt29=1;
-                }
-
-
-                switch (alt29) {
+                int alt30=2;
+                alt30 = dfa30.predict(input);
+                switch (alt30) {
             	case 1 :
-            	    // InternalBugsDsl.g:1441:4: () ( (lv_op_2_0= ruleOperator ) ) ( (lv_right_3_0= ruleTerminalExpression ) )
+            	    // InternalBugsDsl.g:1441:4: () ( (lv_op_2_0= ruleOperator ) )? ( (lv_right_3_0= ruleTerminalExpression ) )
             	    {
             	    // InternalBugsDsl.g:1441:4: ()
             	    // InternalBugsDsl.g:1442:5: 
@@ -4147,38 +4141,49 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // InternalBugsDsl.g:1448:4: ( (lv_op_2_0= ruleOperator ) )
-            	    // InternalBugsDsl.g:1449:5: (lv_op_2_0= ruleOperator )
-            	    {
-            	    // InternalBugsDsl.g:1449:5: (lv_op_2_0= ruleOperator )
-            	    // InternalBugsDsl.g:1450:6: lv_op_2_0= ruleOperator
-            	    {
-            	    if ( state.backtracking==0 ) {
+            	    // InternalBugsDsl.g:1448:4: ( (lv_op_2_0= ruleOperator ) )?
+            	    int alt29=2;
+            	    int LA29_0 = input.LA(1);
 
-            	      						newCompositeNode(grammarAccess.getExpressionAccess().getOpOperatorParserRuleCall_1_1_0());
-            	      					
+            	    if ( ((LA29_0>=22 && LA29_0<=23)||(LA29_0>=31 && LA29_0<=32)) ) {
+            	        alt29=1;
             	    }
-            	    pushFollow(FOLLOW_22);
-            	    lv_op_2_0=ruleOperator();
+            	    switch (alt29) {
+            	        case 1 :
+            	            // InternalBugsDsl.g:1449:5: (lv_op_2_0= ruleOperator )
+            	            {
+            	            // InternalBugsDsl.g:1449:5: (lv_op_2_0= ruleOperator )
+            	            // InternalBugsDsl.g:1450:6: lv_op_2_0= ruleOperator
+            	            {
+            	            if ( state.backtracking==0 ) {
 
-            	    state._fsp--;
-            	    if (state.failed) return current;
-            	    if ( state.backtracking==0 ) {
+            	              						newCompositeNode(grammarAccess.getExpressionAccess().getOpOperatorParserRuleCall_1_1_0());
+            	              					
+            	            }
+            	            pushFollow(FOLLOW_22);
+            	            lv_op_2_0=ruleOperator();
 
-            	      						if (current==null) {
-            	      							current = createModelElementForParent(grammarAccess.getExpressionRule());
-            	      						}
-            	      						set(
-            	      							current,
-            	      							"op",
-            	      							lv_op_2_0,
-            	      							"com.opcoach.bugsy.xtext.BugsDsl.Operator");
-            	      						afterParserOrEnumRuleCall();
-            	      					
-            	    }
+            	            state._fsp--;
+            	            if (state.failed) return current;
+            	            if ( state.backtracking==0 ) {
 
-            	    }
+            	              						if (current==null) {
+            	              							current = createModelElementForParent(grammarAccess.getExpressionRule());
+            	              						}
+            	              						set(
+            	              							current,
+            	              							"op",
+            	              							lv_op_2_0,
+            	              							"com.opcoach.bugsy.xtext.BugsDsl.Operator");
+            	              						afterParserOrEnumRuleCall();
+            	              					
+            	            }
 
+            	            }
+
+
+            	            }
+            	            break;
 
             	    }
 
@@ -4222,7 +4227,7 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop29;
+            	    break loop30;
                 }
             } while (true);
 
@@ -4316,17 +4321,17 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
             // InternalBugsDsl.g:1505:2: ( (otherlv_0= '(' this_Expression_1= ruleExpression otherlv_2= ')' ) | ( (lv_value_3_0= ruleValue ) ) | ( (lv_function_4_0= ruleFunction ) ) | ( (lv_distribution_5_0= ruleDistribution ) ) | ( (lv_arrayFunction_6_0= ruleArrayFunction ) ) )
             {
             // InternalBugsDsl.g:1505:2: ( (otherlv_0= '(' this_Expression_1= ruleExpression otherlv_2= ')' ) | ( (lv_value_3_0= ruleValue ) ) | ( (lv_function_4_0= ruleFunction ) ) | ( (lv_distribution_5_0= ruleDistribution ) ) | ( (lv_arrayFunction_6_0= ruleArrayFunction ) ) )
-            int alt30=5;
+            int alt31=5;
             switch ( input.LA(1) ) {
             case 16:
                 {
-                alt30=1;
+                alt31=1;
                 }
                 break;
             case RULE_ID:
             case RULE_INT:
                 {
-                alt30=2;
+                alt31=2;
                 }
                 break;
             case 54:
@@ -4343,7 +4348,7 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
             case 65:
             case 66:
                 {
-                alt30=3;
+                alt31=3;
                 }
                 break;
             case 33:
@@ -4362,23 +4367,23 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
             case 46:
             case 47:
                 {
-                alt30=4;
+                alt31=4;
                 }
                 break;
             case 67:
                 {
-                alt30=5;
+                alt31=5;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 30, 0, input);
+                    new NoViableAltException("", 31, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt30) {
+            switch (alt31) {
                 case 1 :
                     // InternalBugsDsl.g:1506:3: (otherlv_0= '(' this_Expression_1= ruleExpression otherlv_2= ')' )
                     {
@@ -4636,92 +4641,92 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
             // InternalBugsDsl.g:1615:2: ( (enumLiteral_0= 'dbern' ) | (enumLiteral_1= 'dbin' ) | (enumLiteral_2= 'dchisqr' ) | (enumLiteral_3= 'ddexp' ) | (enumLiteral_4= 'dexp' ) | (enumLiteral_5= 'df' ) | (enumLiteral_6= 'dgen.gamma' ) | (enumLiteral_7= 'dhyper' ) | (enumLiteral_8= 'dlogis' ) | (enumLiteral_9= 'dlnorm' ) | (enumLiteral_10= 'dnegbin' ) | (enumLiteral_11= 'dnchisqr' ) | (enumLiteral_12= 'dpar' ) | (enumLiteral_13= 'dpois' ) | (enumLiteral_14= 'dt' ) )
             {
             // InternalBugsDsl.g:1615:2: ( (enumLiteral_0= 'dbern' ) | (enumLiteral_1= 'dbin' ) | (enumLiteral_2= 'dchisqr' ) | (enumLiteral_3= 'ddexp' ) | (enumLiteral_4= 'dexp' ) | (enumLiteral_5= 'df' ) | (enumLiteral_6= 'dgen.gamma' ) | (enumLiteral_7= 'dhyper' ) | (enumLiteral_8= 'dlogis' ) | (enumLiteral_9= 'dlnorm' ) | (enumLiteral_10= 'dnegbin' ) | (enumLiteral_11= 'dnchisqr' ) | (enumLiteral_12= 'dpar' ) | (enumLiteral_13= 'dpois' ) | (enumLiteral_14= 'dt' ) )
-            int alt31=15;
+            int alt32=15;
             switch ( input.LA(1) ) {
             case 33:
                 {
-                alt31=1;
+                alt32=1;
                 }
                 break;
             case 34:
                 {
-                alt31=2;
+                alt32=2;
                 }
                 break;
             case 35:
                 {
-                alt31=3;
+                alt32=3;
                 }
                 break;
             case 36:
                 {
-                alt31=4;
+                alt32=4;
                 }
                 break;
             case 37:
                 {
-                alt31=5;
+                alt32=5;
                 }
                 break;
             case 38:
                 {
-                alt31=6;
+                alt32=6;
                 }
                 break;
             case 39:
                 {
-                alt31=7;
+                alt32=7;
                 }
                 break;
             case 40:
                 {
-                alt31=8;
+                alt32=8;
                 }
                 break;
             case 41:
                 {
-                alt31=9;
+                alt32=9;
                 }
                 break;
             case 42:
                 {
-                alt31=10;
+                alt32=10;
                 }
                 break;
             case 43:
                 {
-                alt31=11;
+                alt32=11;
                 }
                 break;
             case 44:
                 {
-                alt31=12;
+                alt32=12;
                 }
                 break;
             case 45:
                 {
-                alt31=13;
+                alt32=13;
                 }
                 break;
             case 46:
                 {
-                alt31=14;
+                alt32=14;
                 }
                 break;
             case 47:
                 {
-                alt31=15;
+                alt32=15;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 31, 0, input);
+                    new NoViableAltException("", 32, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt31) {
+            switch (alt32) {
                 case 1 :
                     // InternalBugsDsl.g:1616:3: (enumLiteral_0= 'dbern' )
                     {
@@ -5051,47 +5056,47 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
             // InternalBugsDsl.g:1746:2: ( (enumLiteral_0= 'dnorm' ) | (enumLiteral_1= 'dunif' ) | (enumLiteral_2= 'dbeta' ) | (enumLiteral_3= 'dgamma' ) | (enumLiteral_4= 'dweib' ) | (enumLiteral_5= 'weibul' ) )
             {
             // InternalBugsDsl.g:1746:2: ( (enumLiteral_0= 'dnorm' ) | (enumLiteral_1= 'dunif' ) | (enumLiteral_2= 'dbeta' ) | (enumLiteral_3= 'dgamma' ) | (enumLiteral_4= 'dweib' ) | (enumLiteral_5= 'weibul' ) )
-            int alt32=6;
+            int alt33=6;
             switch ( input.LA(1) ) {
             case 48:
                 {
-                alt32=1;
+                alt33=1;
                 }
                 break;
             case 49:
                 {
-                alt32=2;
+                alt33=2;
                 }
                 break;
             case 50:
                 {
-                alt32=3;
+                alt33=3;
                 }
                 break;
             case 51:
                 {
-                alt32=4;
+                alt33=4;
                 }
                 break;
             case 52:
                 {
-                alt32=5;
+                alt33=5;
                 }
                 break;
             case 53:
                 {
-                alt32=6;
+                alt33=6;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 32, 0, input);
+                    new NoViableAltException("", 33, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt32) {
+            switch (alt33) {
                 case 1 :
                     // InternalBugsDsl.g:1747:3: (enumLiteral_0= 'dnorm' )
                     {
@@ -5257,82 +5262,82 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
             // InternalBugsDsl.g:1805:2: ( (enumLiteral_0= 'acos' ) | (enumLiteral_1= 'acosh' ) | (enumLiteral_2= 'asin' ) | (enumLiteral_3= 'asinh' ) | (enumLiteral_4= 'atan' ) | (enumLiteral_5= 'log' ) | (enumLiteral_6= 'exp' ) | (enumLiteral_7= 'c' ) | (enumLiteral_8= 'mean' ) | (enumLiteral_9= 'sqrt' ) | (enumLiteral_10= 'length' ) | (enumLiteral_11= 'inverse' ) | (enumLiteral_12= 'sort' ) )
             {
             // InternalBugsDsl.g:1805:2: ( (enumLiteral_0= 'acos' ) | (enumLiteral_1= 'acosh' ) | (enumLiteral_2= 'asin' ) | (enumLiteral_3= 'asinh' ) | (enumLiteral_4= 'atan' ) | (enumLiteral_5= 'log' ) | (enumLiteral_6= 'exp' ) | (enumLiteral_7= 'c' ) | (enumLiteral_8= 'mean' ) | (enumLiteral_9= 'sqrt' ) | (enumLiteral_10= 'length' ) | (enumLiteral_11= 'inverse' ) | (enumLiteral_12= 'sort' ) )
-            int alt33=13;
+            int alt34=13;
             switch ( input.LA(1) ) {
             case 54:
                 {
-                alt33=1;
+                alt34=1;
                 }
                 break;
             case 55:
                 {
-                alt33=2;
+                alt34=2;
                 }
                 break;
             case 56:
                 {
-                alt33=3;
+                alt34=3;
                 }
                 break;
             case 57:
                 {
-                alt33=4;
+                alt34=4;
                 }
                 break;
             case 58:
                 {
-                alt33=5;
+                alt34=5;
                 }
                 break;
             case 59:
                 {
-                alt33=6;
+                alt34=6;
                 }
                 break;
             case 60:
                 {
-                alt33=7;
+                alt34=7;
                 }
                 break;
             case 61:
                 {
-                alt33=8;
+                alt34=8;
                 }
                 break;
             case 62:
                 {
-                alt33=9;
+                alt34=9;
                 }
                 break;
             case 63:
                 {
-                alt33=10;
+                alt34=10;
                 }
                 break;
             case 64:
                 {
-                alt33=11;
+                alt34=11;
                 }
                 break;
             case 65:
                 {
-                alt33=12;
+                alt34=12;
                 }
                 break;
             case 66:
                 {
-                alt33=13;
+                alt34=13;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 33, 0, input);
+                    new NoViableAltException("", 34, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt33) {
+            switch (alt34) {
                 case 1 :
                     // InternalBugsDsl.g:1806:3: (enumLiteral_0= 'acos' )
                     {
@@ -5830,6 +5835,7 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
     protected DFA21 dfa21 = new DFA21(this);
     protected DFA24 dfa24 = new DFA24(this);
     protected DFA27 dfa27 = new DFA27(this);
+    protected DFA30 dfa30 = new DFA30(this);
     static final String dfa_1s = "\21\uffff";
     static final String dfa_2s = "\1\4\1\30\1\4\2\uffff\2\23\2\4\1\33\2\31\2\23\1\4\2\31";
     static final String dfa_3s = "\1\4\1\36\1\5\2\uffff\2\32\2\5\1\36\4\32\1\5\2\32";
@@ -5879,66 +5885,56 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
             return "816:2: (this_StochasticRelation_0= ruleStochasticRelation | this_DeterministicRelation_1= ruleDeterministicRelation )";
         }
     }
-    static final String dfa_7s = "\65\uffff";
-    static final String dfa_8s = "\1\41\64\uffff";
-    static final String dfa_9s = "\1\4\2\uffff\1\22\36\uffff\1\4\6\uffff\2\23\2\4\1\22\2\31\2\23\1\4\2\31";
-    static final String dfa_10s = "\1\103\2\uffff\1\40\36\uffff\1\5\6\uffff\2\32\2\5\1\40\4\32\1\5\2\32";
-    static final String dfa_11s = "\1\uffff\2\1\1\uffff\35\1\1\2\1\uffff\6\1\14\uffff";
-    static final String dfa_12s = "\1\1\2\uffff\1\2\51\uffff\1\0\7\uffff}>";
+    static final String dfa_7s = "\53\uffff";
+    static final String dfa_8s = "\1\41\52\uffff";
+    static final String dfa_9s = "\1\4\40\0\12\uffff";
+    static final String dfa_10s = "\1\103\40\0\12\uffff";
+    static final String dfa_11s = "\41\uffff\1\2\10\uffff\1\1";
+    static final String dfa_12s = "\1\uffff\1\0\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\16\1\17\1\20\1\21\1\22\1\23\1\24\1\25\1\26\1\27\1\30\1\31\1\32\1\33\1\34\1\35\1\36\1\37\12\uffff}>";
     static final String[] dfa_13s = {
             "\1\3\1\2\7\uffff\1\41\1\uffff\1\41\1\1\1\uffff\1\41\3\uffff\2\41\1\uffff\1\41\5\uffff\2\41\1\21\1\22\1\23\1\24\1\25\1\26\1\27\1\30\1\31\1\32\1\33\1\34\1\35\1\36\1\37\6\uffff\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\16\1\17\1\20\1\40",
-            "",
-            "",
-            "\1\50\3\uffff\1\43\1\44\1\42\1\47\1\uffff\1\41\1\uffff\2\41\1\45\1\46",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "\1\52\1\51",
-            "",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
+            "\1\uffff",
             "",
             "",
             "",
             "",
             "",
-            "\1\53\5\uffff\1\54\1\55",
-            "\1\53\5\uffff\1\54\1\55",
-            "\1\57\1\56",
-            "\1\61\1\60",
-            "\1\50\3\uffff\1\43\1\44\1\uffff\1\47\1\uffff\1\41\1\uffff\2\41\1\45\1\46",
-            "\1\54\1\55",
-            "\1\54\1\55",
-            "\1\62\5\uffff\1\54\1\55",
-            "\1\62\5\uffff\1\54\1\55",
-            "\1\64\1\63",
-            "\1\54\1\55",
-            "\1\54\1\55"
+            "",
+            "",
+            "",
+            "",
+            ""
     };
 
     static final short[] dfa_7 = DFA.unpackEncodedString(dfa_7s);
@@ -5970,105 +5966,33 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA21_45 = input.LA(1);
+                        int LA21_1 = input.LA(1);
 
                          
-                        int index21_45 = input.index();
+                        int index21_1 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (LA21_45==27||(LA21_45>=29 && LA21_45<=30)) ) {s = 33;}
+                        if ( (synpred2_InternalBugsDsl()) ) {s = 42;}
 
-                        else if ( (LA21_45==22) && (synpred2_InternalBugsDsl())) {s = 35;}
-
-                        else if ( (LA21_45==23) && (synpred2_InternalBugsDsl())) {s = 36;}
-
-                        else if ( (LA21_45==31) && (synpred2_InternalBugsDsl())) {s = 37;}
-
-                        else if ( (LA21_45==32) && (synpred2_InternalBugsDsl())) {s = 38;}
-
-                        else if ( (LA21_45==25) && (synpred2_InternalBugsDsl())) {s = 39;}
-
-                        else if ( (LA21_45==18) && (synpred2_InternalBugsDsl())) {s = 40;}
+                        else if ( (true) ) {s = 33;}
 
                          
-                        input.seek(index21_45);
+                        input.seek(index21_1);
                         if ( s>=0 ) return s;
                         break;
                     case 1 : 
-                        int LA21_0 = input.LA(1);
+                        int LA21_2 = input.LA(1);
 
                          
-                        int index21_0 = input.index();
+                        int index21_2 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (LA21_0==16) && (synpred2_InternalBugsDsl())) {s = 1;}
+                        if ( (synpred2_InternalBugsDsl()) ) {s = 42;}
 
-                        else if ( (LA21_0==RULE_INT) && (synpred2_InternalBugsDsl())) {s = 2;}
-
-                        else if ( (LA21_0==RULE_ID) ) {s = 3;}
-
-                        else if ( (LA21_0==54) && (synpred2_InternalBugsDsl())) {s = 4;}
-
-                        else if ( (LA21_0==55) && (synpred2_InternalBugsDsl())) {s = 5;}
-
-                        else if ( (LA21_0==56) && (synpred2_InternalBugsDsl())) {s = 6;}
-
-                        else if ( (LA21_0==57) && (synpred2_InternalBugsDsl())) {s = 7;}
-
-                        else if ( (LA21_0==58) && (synpred2_InternalBugsDsl())) {s = 8;}
-
-                        else if ( (LA21_0==59) && (synpred2_InternalBugsDsl())) {s = 9;}
-
-                        else if ( (LA21_0==60) && (synpred2_InternalBugsDsl())) {s = 10;}
-
-                        else if ( (LA21_0==61) && (synpred2_InternalBugsDsl())) {s = 11;}
-
-                        else if ( (LA21_0==62) && (synpred2_InternalBugsDsl())) {s = 12;}
-
-                        else if ( (LA21_0==63) && (synpred2_InternalBugsDsl())) {s = 13;}
-
-                        else if ( (LA21_0==64) && (synpred2_InternalBugsDsl())) {s = 14;}
-
-                        else if ( (LA21_0==65) && (synpred2_InternalBugsDsl())) {s = 15;}
-
-                        else if ( (LA21_0==66) && (synpred2_InternalBugsDsl())) {s = 16;}
-
-                        else if ( (LA21_0==33) && (synpred2_InternalBugsDsl())) {s = 17;}
-
-                        else if ( (LA21_0==34) && (synpred2_InternalBugsDsl())) {s = 18;}
-
-                        else if ( (LA21_0==35) && (synpred2_InternalBugsDsl())) {s = 19;}
-
-                        else if ( (LA21_0==36) && (synpred2_InternalBugsDsl())) {s = 20;}
-
-                        else if ( (LA21_0==37) && (synpred2_InternalBugsDsl())) {s = 21;}
-
-                        else if ( (LA21_0==38) && (synpred2_InternalBugsDsl())) {s = 22;}
-
-                        else if ( (LA21_0==39) && (synpred2_InternalBugsDsl())) {s = 23;}
-
-                        else if ( (LA21_0==40) && (synpred2_InternalBugsDsl())) {s = 24;}
-
-                        else if ( (LA21_0==41) && (synpred2_InternalBugsDsl())) {s = 25;}
-
-                        else if ( (LA21_0==42) && (synpred2_InternalBugsDsl())) {s = 26;}
-
-                        else if ( (LA21_0==43) && (synpred2_InternalBugsDsl())) {s = 27;}
-
-                        else if ( (LA21_0==44) && (synpred2_InternalBugsDsl())) {s = 28;}
-
-                        else if ( (LA21_0==45) && (synpred2_InternalBugsDsl())) {s = 29;}
-
-                        else if ( (LA21_0==46) && (synpred2_InternalBugsDsl())) {s = 30;}
-
-                        else if ( (LA21_0==47) && (synpred2_InternalBugsDsl())) {s = 31;}
-
-                        else if ( (LA21_0==67) && (synpred2_InternalBugsDsl())) {s = 32;}
-
-                        else if ( (LA21_0==EOF||LA21_0==13||LA21_0==15||LA21_0==18||(LA21_0>=22 && LA21_0<=23)||LA21_0==25||(LA21_0>=31 && LA21_0<=32)) ) {s = 33;}
+                        else if ( (true) ) {s = 33;}
 
                          
-                        input.seek(index21_0);
+                        input.seek(index21_2);
                         if ( s>=0 ) return s;
                         break;
                     case 2 : 
@@ -6078,24 +6002,447 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
                         int index21_3 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (LA21_3==24) ) {s = 34;}
+                        if ( (synpred2_InternalBugsDsl()) ) {s = 42;}
 
-                        else if ( (LA21_3==27||(LA21_3>=29 && LA21_3<=30)) ) {s = 33;}
-
-                        else if ( (LA21_3==22) && (synpred2_InternalBugsDsl())) {s = 35;}
-
-                        else if ( (LA21_3==23) && (synpred2_InternalBugsDsl())) {s = 36;}
-
-                        else if ( (LA21_3==31) && (synpred2_InternalBugsDsl())) {s = 37;}
-
-                        else if ( (LA21_3==32) && (synpred2_InternalBugsDsl())) {s = 38;}
-
-                        else if ( (LA21_3==25) && (synpred2_InternalBugsDsl())) {s = 39;}
-
-                        else if ( (LA21_3==18) && (synpred2_InternalBugsDsl())) {s = 40;}
+                        else if ( (true) ) {s = 33;}
 
                          
                         input.seek(index21_3);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 3 : 
+                        int LA21_4 = input.LA(1);
+
+                         
+                        int index21_4 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred2_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index21_4);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 4 : 
+                        int LA21_5 = input.LA(1);
+
+                         
+                        int index21_5 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred2_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index21_5);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 5 : 
+                        int LA21_6 = input.LA(1);
+
+                         
+                        int index21_6 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred2_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index21_6);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 6 : 
+                        int LA21_7 = input.LA(1);
+
+                         
+                        int index21_7 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred2_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index21_7);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 7 : 
+                        int LA21_8 = input.LA(1);
+
+                         
+                        int index21_8 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred2_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index21_8);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 8 : 
+                        int LA21_9 = input.LA(1);
+
+                         
+                        int index21_9 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred2_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index21_9);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 9 : 
+                        int LA21_10 = input.LA(1);
+
+                         
+                        int index21_10 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred2_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index21_10);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 10 : 
+                        int LA21_11 = input.LA(1);
+
+                         
+                        int index21_11 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred2_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index21_11);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 11 : 
+                        int LA21_12 = input.LA(1);
+
+                         
+                        int index21_12 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred2_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index21_12);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 12 : 
+                        int LA21_13 = input.LA(1);
+
+                         
+                        int index21_13 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred2_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index21_13);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 13 : 
+                        int LA21_14 = input.LA(1);
+
+                         
+                        int index21_14 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred2_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index21_14);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 14 : 
+                        int LA21_15 = input.LA(1);
+
+                         
+                        int index21_15 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred2_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index21_15);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 15 : 
+                        int LA21_16 = input.LA(1);
+
+                         
+                        int index21_16 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred2_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index21_16);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 16 : 
+                        int LA21_17 = input.LA(1);
+
+                         
+                        int index21_17 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred2_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index21_17);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 17 : 
+                        int LA21_18 = input.LA(1);
+
+                         
+                        int index21_18 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred2_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index21_18);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 18 : 
+                        int LA21_19 = input.LA(1);
+
+                         
+                        int index21_19 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred2_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index21_19);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 19 : 
+                        int LA21_20 = input.LA(1);
+
+                         
+                        int index21_20 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred2_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index21_20);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 20 : 
+                        int LA21_21 = input.LA(1);
+
+                         
+                        int index21_21 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred2_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index21_21);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 21 : 
+                        int LA21_22 = input.LA(1);
+
+                         
+                        int index21_22 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred2_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index21_22);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 22 : 
+                        int LA21_23 = input.LA(1);
+
+                         
+                        int index21_23 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred2_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index21_23);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 23 : 
+                        int LA21_24 = input.LA(1);
+
+                         
+                        int index21_24 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred2_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index21_24);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 24 : 
+                        int LA21_25 = input.LA(1);
+
+                         
+                        int index21_25 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred2_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index21_25);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 25 : 
+                        int LA21_26 = input.LA(1);
+
+                         
+                        int index21_26 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred2_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index21_26);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 26 : 
+                        int LA21_27 = input.LA(1);
+
+                         
+                        int index21_27 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred2_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index21_27);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 27 : 
+                        int LA21_28 = input.LA(1);
+
+                         
+                        int index21_28 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred2_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index21_28);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 28 : 
+                        int LA21_29 = input.LA(1);
+
+                         
+                        int index21_29 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred2_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index21_29);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 29 : 
+                        int LA21_30 = input.LA(1);
+
+                         
+                        int index21_30 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred2_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index21_30);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 30 : 
+                        int LA21_31 = input.LA(1);
+
+                         
+                        int index21_31 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred2_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index21_31);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 31 : 
+                        int LA21_32 = input.LA(1);
+
+                         
+                        int index21_32 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred2_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index21_32);
                         if ( s>=0 ) return s;
                         break;
             }
@@ -6106,8 +6453,6 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
             throw nvae;
         }
     }
-    static final String dfa_14s = "\1\1\2\uffff\1\0\51\uffff\1\2\7\uffff}>";
-    static final short[] dfa_14 = DFA.unpackEncodedString(dfa_14s);
 
     class DFA24 extends DFA {
 
@@ -6119,7 +6464,7 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
             this.min = dfa_9;
             this.max = dfa_10;
             this.accept = dfa_11;
-            this.special = dfa_14;
+            this.special = dfa_12;
             this.transition = dfa_13;
         }
         public String getDescription() {
@@ -6130,132 +6475,483 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
         	int _s = s;
             switch ( s ) {
                     case 0 : 
+                        int LA24_1 = input.LA(1);
+
+                         
+                        int index24_1 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index24_1);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 1 : 
+                        int LA24_2 = input.LA(1);
+
+                         
+                        int index24_2 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index24_2);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 2 : 
                         int LA24_3 = input.LA(1);
 
                          
                         int index24_3 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (LA24_3==24) ) {s = 34;}
+                        if ( (synpred3_InternalBugsDsl()) ) {s = 42;}
 
-                        else if ( (LA24_3==27||(LA24_3>=29 && LA24_3<=30)) ) {s = 33;}
-
-                        else if ( (LA24_3==22) && (synpred3_InternalBugsDsl())) {s = 35;}
-
-                        else if ( (LA24_3==23) && (synpred3_InternalBugsDsl())) {s = 36;}
-
-                        else if ( (LA24_3==31) && (synpred3_InternalBugsDsl())) {s = 37;}
-
-                        else if ( (LA24_3==32) && (synpred3_InternalBugsDsl())) {s = 38;}
-
-                        else if ( (LA24_3==25) && (synpred3_InternalBugsDsl())) {s = 39;}
-
-                        else if ( (LA24_3==18) && (synpred3_InternalBugsDsl())) {s = 40;}
+                        else if ( (true) ) {s = 33;}
 
                          
                         input.seek(index24_3);
                         if ( s>=0 ) return s;
                         break;
-                    case 1 : 
-                        int LA24_0 = input.LA(1);
+                    case 3 : 
+                        int LA24_4 = input.LA(1);
 
                          
-                        int index24_0 = input.index();
+                        int index24_4 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (LA24_0==16) && (synpred3_InternalBugsDsl())) {s = 1;}
+                        if ( (synpred3_InternalBugsDsl()) ) {s = 42;}
 
-                        else if ( (LA24_0==RULE_INT) && (synpred3_InternalBugsDsl())) {s = 2;}
-
-                        else if ( (LA24_0==RULE_ID) ) {s = 3;}
-
-                        else if ( (LA24_0==54) && (synpred3_InternalBugsDsl())) {s = 4;}
-
-                        else if ( (LA24_0==55) && (synpred3_InternalBugsDsl())) {s = 5;}
-
-                        else if ( (LA24_0==56) && (synpred3_InternalBugsDsl())) {s = 6;}
-
-                        else if ( (LA24_0==57) && (synpred3_InternalBugsDsl())) {s = 7;}
-
-                        else if ( (LA24_0==58) && (synpred3_InternalBugsDsl())) {s = 8;}
-
-                        else if ( (LA24_0==59) && (synpred3_InternalBugsDsl())) {s = 9;}
-
-                        else if ( (LA24_0==60) && (synpred3_InternalBugsDsl())) {s = 10;}
-
-                        else if ( (LA24_0==61) && (synpred3_InternalBugsDsl())) {s = 11;}
-
-                        else if ( (LA24_0==62) && (synpred3_InternalBugsDsl())) {s = 12;}
-
-                        else if ( (LA24_0==63) && (synpred3_InternalBugsDsl())) {s = 13;}
-
-                        else if ( (LA24_0==64) && (synpred3_InternalBugsDsl())) {s = 14;}
-
-                        else if ( (LA24_0==65) && (synpred3_InternalBugsDsl())) {s = 15;}
-
-                        else if ( (LA24_0==66) && (synpred3_InternalBugsDsl())) {s = 16;}
-
-                        else if ( (LA24_0==33) && (synpred3_InternalBugsDsl())) {s = 17;}
-
-                        else if ( (LA24_0==34) && (synpred3_InternalBugsDsl())) {s = 18;}
-
-                        else if ( (LA24_0==35) && (synpred3_InternalBugsDsl())) {s = 19;}
-
-                        else if ( (LA24_0==36) && (synpred3_InternalBugsDsl())) {s = 20;}
-
-                        else if ( (LA24_0==37) && (synpred3_InternalBugsDsl())) {s = 21;}
-
-                        else if ( (LA24_0==38) && (synpred3_InternalBugsDsl())) {s = 22;}
-
-                        else if ( (LA24_0==39) && (synpred3_InternalBugsDsl())) {s = 23;}
-
-                        else if ( (LA24_0==40) && (synpred3_InternalBugsDsl())) {s = 24;}
-
-                        else if ( (LA24_0==41) && (synpred3_InternalBugsDsl())) {s = 25;}
-
-                        else if ( (LA24_0==42) && (synpred3_InternalBugsDsl())) {s = 26;}
-
-                        else if ( (LA24_0==43) && (synpred3_InternalBugsDsl())) {s = 27;}
-
-                        else if ( (LA24_0==44) && (synpred3_InternalBugsDsl())) {s = 28;}
-
-                        else if ( (LA24_0==45) && (synpred3_InternalBugsDsl())) {s = 29;}
-
-                        else if ( (LA24_0==46) && (synpred3_InternalBugsDsl())) {s = 30;}
-
-                        else if ( (LA24_0==47) && (synpred3_InternalBugsDsl())) {s = 31;}
-
-                        else if ( (LA24_0==67) && (synpred3_InternalBugsDsl())) {s = 32;}
-
-                        else if ( (LA24_0==EOF||LA24_0==13||LA24_0==15||LA24_0==18||(LA24_0>=22 && LA24_0<=23)||LA24_0==25||(LA24_0>=31 && LA24_0<=32)) ) {s = 33;}
+                        else if ( (true) ) {s = 33;}
 
                          
-                        input.seek(index24_0);
+                        input.seek(index24_4);
                         if ( s>=0 ) return s;
                         break;
-                    case 2 : 
-                        int LA24_45 = input.LA(1);
+                    case 4 : 
+                        int LA24_5 = input.LA(1);
 
                          
-                        int index24_45 = input.index();
+                        int index24_5 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (LA24_45==22) && (synpred3_InternalBugsDsl())) {s = 35;}
+                        if ( (synpred3_InternalBugsDsl()) ) {s = 42;}
 
-                        else if ( (LA24_45==23) && (synpred3_InternalBugsDsl())) {s = 36;}
-
-                        else if ( (LA24_45==31) && (synpred3_InternalBugsDsl())) {s = 37;}
-
-                        else if ( (LA24_45==32) && (synpred3_InternalBugsDsl())) {s = 38;}
-
-                        else if ( (LA24_45==25) && (synpred3_InternalBugsDsl())) {s = 39;}
-
-                        else if ( (LA24_45==18) && (synpred3_InternalBugsDsl())) {s = 40;}
-
-                        else if ( (LA24_45==27||(LA24_45>=29 && LA24_45<=30)) ) {s = 33;}
+                        else if ( (true) ) {s = 33;}
 
                          
-                        input.seek(index24_45);
+                        input.seek(index24_5);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 5 : 
+                        int LA24_6 = input.LA(1);
+
+                         
+                        int index24_6 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index24_6);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 6 : 
+                        int LA24_7 = input.LA(1);
+
+                         
+                        int index24_7 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index24_7);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 7 : 
+                        int LA24_8 = input.LA(1);
+
+                         
+                        int index24_8 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index24_8);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 8 : 
+                        int LA24_9 = input.LA(1);
+
+                         
+                        int index24_9 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index24_9);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 9 : 
+                        int LA24_10 = input.LA(1);
+
+                         
+                        int index24_10 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index24_10);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 10 : 
+                        int LA24_11 = input.LA(1);
+
+                         
+                        int index24_11 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index24_11);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 11 : 
+                        int LA24_12 = input.LA(1);
+
+                         
+                        int index24_12 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index24_12);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 12 : 
+                        int LA24_13 = input.LA(1);
+
+                         
+                        int index24_13 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index24_13);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 13 : 
+                        int LA24_14 = input.LA(1);
+
+                         
+                        int index24_14 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index24_14);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 14 : 
+                        int LA24_15 = input.LA(1);
+
+                         
+                        int index24_15 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index24_15);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 15 : 
+                        int LA24_16 = input.LA(1);
+
+                         
+                        int index24_16 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index24_16);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 16 : 
+                        int LA24_17 = input.LA(1);
+
+                         
+                        int index24_17 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index24_17);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 17 : 
+                        int LA24_18 = input.LA(1);
+
+                         
+                        int index24_18 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index24_18);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 18 : 
+                        int LA24_19 = input.LA(1);
+
+                         
+                        int index24_19 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index24_19);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 19 : 
+                        int LA24_20 = input.LA(1);
+
+                         
+                        int index24_20 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index24_20);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 20 : 
+                        int LA24_21 = input.LA(1);
+
+                         
+                        int index24_21 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index24_21);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 21 : 
+                        int LA24_22 = input.LA(1);
+
+                         
+                        int index24_22 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index24_22);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 22 : 
+                        int LA24_23 = input.LA(1);
+
+                         
+                        int index24_23 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index24_23);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 23 : 
+                        int LA24_24 = input.LA(1);
+
+                         
+                        int index24_24 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index24_24);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 24 : 
+                        int LA24_25 = input.LA(1);
+
+                         
+                        int index24_25 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index24_25);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 25 : 
+                        int LA24_26 = input.LA(1);
+
+                         
+                        int index24_26 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index24_26);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 26 : 
+                        int LA24_27 = input.LA(1);
+
+                         
+                        int index24_27 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index24_27);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 27 : 
+                        int LA24_28 = input.LA(1);
+
+                         
+                        int index24_28 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index24_28);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 28 : 
+                        int LA24_29 = input.LA(1);
+
+                         
+                        int index24_29 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index24_29);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 29 : 
+                        int LA24_30 = input.LA(1);
+
+                         
+                        int index24_30 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index24_30);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 30 : 
+                        int LA24_31 = input.LA(1);
+
+                         
+                        int index24_31 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index24_31);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 31 : 
+                        int LA24_32 = input.LA(1);
+
+                         
+                        int index24_32 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred3_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index24_32);
                         if ( s>=0 ) return s;
                         break;
             }
@@ -6266,8 +6962,6 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
             throw nvae;
         }
     }
-    static final String dfa_15s = "\1\0\2\uffff\1\1\51\uffff\1\2\7\uffff}>";
-    static final short[] dfa_15 = DFA.unpackEncodedString(dfa_15s);
 
     class DFA27 extends DFA {
 
@@ -6279,7 +6973,7 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
             this.min = dfa_9;
             this.max = dfa_10;
             this.accept = dfa_11;
-            this.special = dfa_15;
+            this.special = dfa_12;
             this.transition = dfa_13;
         }
         public String getDescription() {
@@ -6290,132 +6984,483 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA27_0 = input.LA(1);
+                        int LA27_1 = input.LA(1);
 
                          
-                        int index27_0 = input.index();
+                        int index27_1 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (LA27_0==16) && (synpred4_InternalBugsDsl())) {s = 1;}
+                        if ( (synpred4_InternalBugsDsl()) ) {s = 42;}
 
-                        else if ( (LA27_0==RULE_INT) && (synpred4_InternalBugsDsl())) {s = 2;}
-
-                        else if ( (LA27_0==RULE_ID) ) {s = 3;}
-
-                        else if ( (LA27_0==54) && (synpred4_InternalBugsDsl())) {s = 4;}
-
-                        else if ( (LA27_0==55) && (synpred4_InternalBugsDsl())) {s = 5;}
-
-                        else if ( (LA27_0==56) && (synpred4_InternalBugsDsl())) {s = 6;}
-
-                        else if ( (LA27_0==57) && (synpred4_InternalBugsDsl())) {s = 7;}
-
-                        else if ( (LA27_0==58) && (synpred4_InternalBugsDsl())) {s = 8;}
-
-                        else if ( (LA27_0==59) && (synpred4_InternalBugsDsl())) {s = 9;}
-
-                        else if ( (LA27_0==60) && (synpred4_InternalBugsDsl())) {s = 10;}
-
-                        else if ( (LA27_0==61) && (synpred4_InternalBugsDsl())) {s = 11;}
-
-                        else if ( (LA27_0==62) && (synpred4_InternalBugsDsl())) {s = 12;}
-
-                        else if ( (LA27_0==63) && (synpred4_InternalBugsDsl())) {s = 13;}
-
-                        else if ( (LA27_0==64) && (synpred4_InternalBugsDsl())) {s = 14;}
-
-                        else if ( (LA27_0==65) && (synpred4_InternalBugsDsl())) {s = 15;}
-
-                        else if ( (LA27_0==66) && (synpred4_InternalBugsDsl())) {s = 16;}
-
-                        else if ( (LA27_0==33) && (synpred4_InternalBugsDsl())) {s = 17;}
-
-                        else if ( (LA27_0==34) && (synpred4_InternalBugsDsl())) {s = 18;}
-
-                        else if ( (LA27_0==35) && (synpred4_InternalBugsDsl())) {s = 19;}
-
-                        else if ( (LA27_0==36) && (synpred4_InternalBugsDsl())) {s = 20;}
-
-                        else if ( (LA27_0==37) && (synpred4_InternalBugsDsl())) {s = 21;}
-
-                        else if ( (LA27_0==38) && (synpred4_InternalBugsDsl())) {s = 22;}
-
-                        else if ( (LA27_0==39) && (synpred4_InternalBugsDsl())) {s = 23;}
-
-                        else if ( (LA27_0==40) && (synpred4_InternalBugsDsl())) {s = 24;}
-
-                        else if ( (LA27_0==41) && (synpred4_InternalBugsDsl())) {s = 25;}
-
-                        else if ( (LA27_0==42) && (synpred4_InternalBugsDsl())) {s = 26;}
-
-                        else if ( (LA27_0==43) && (synpred4_InternalBugsDsl())) {s = 27;}
-
-                        else if ( (LA27_0==44) && (synpred4_InternalBugsDsl())) {s = 28;}
-
-                        else if ( (LA27_0==45) && (synpred4_InternalBugsDsl())) {s = 29;}
-
-                        else if ( (LA27_0==46) && (synpred4_InternalBugsDsl())) {s = 30;}
-
-                        else if ( (LA27_0==47) && (synpred4_InternalBugsDsl())) {s = 31;}
-
-                        else if ( (LA27_0==67) && (synpred4_InternalBugsDsl())) {s = 32;}
-
-                        else if ( (LA27_0==EOF||LA27_0==13||LA27_0==15||LA27_0==18||(LA27_0>=22 && LA27_0<=23)||LA27_0==25||(LA27_0>=31 && LA27_0<=32)) ) {s = 33;}
+                        else if ( (true) ) {s = 33;}
 
                          
-                        input.seek(index27_0);
+                        input.seek(index27_1);
                         if ( s>=0 ) return s;
                         break;
                     case 1 : 
+                        int LA27_2 = input.LA(1);
+
+                         
+                        int index27_2 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred4_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index27_2);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 2 : 
                         int LA27_3 = input.LA(1);
 
                          
                         int index27_3 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (LA27_3==24) ) {s = 34;}
+                        if ( (synpred4_InternalBugsDsl()) ) {s = 42;}
 
-                        else if ( (LA27_3==27||(LA27_3>=29 && LA27_3<=30)) ) {s = 33;}
-
-                        else if ( (LA27_3==22) && (synpred4_InternalBugsDsl())) {s = 35;}
-
-                        else if ( (LA27_3==23) && (synpred4_InternalBugsDsl())) {s = 36;}
-
-                        else if ( (LA27_3==31) && (synpred4_InternalBugsDsl())) {s = 37;}
-
-                        else if ( (LA27_3==32) && (synpred4_InternalBugsDsl())) {s = 38;}
-
-                        else if ( (LA27_3==25) && (synpred4_InternalBugsDsl())) {s = 39;}
-
-                        else if ( (LA27_3==18) && (synpred4_InternalBugsDsl())) {s = 40;}
+                        else if ( (true) ) {s = 33;}
 
                          
                         input.seek(index27_3);
                         if ( s>=0 ) return s;
                         break;
-                    case 2 : 
-                        int LA27_45 = input.LA(1);
+                    case 3 : 
+                        int LA27_4 = input.LA(1);
 
                          
-                        int index27_45 = input.index();
+                        int index27_4 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (LA27_45==22) && (synpred4_InternalBugsDsl())) {s = 35;}
+                        if ( (synpred4_InternalBugsDsl()) ) {s = 42;}
 
-                        else if ( (LA27_45==23) && (synpred4_InternalBugsDsl())) {s = 36;}
-
-                        else if ( (LA27_45==31) && (synpred4_InternalBugsDsl())) {s = 37;}
-
-                        else if ( (LA27_45==32) && (synpred4_InternalBugsDsl())) {s = 38;}
-
-                        else if ( (LA27_45==25) && (synpred4_InternalBugsDsl())) {s = 39;}
-
-                        else if ( (LA27_45==18) && (synpred4_InternalBugsDsl())) {s = 40;}
-
-                        else if ( (LA27_45==27||(LA27_45>=29 && LA27_45<=30)) ) {s = 33;}
+                        else if ( (true) ) {s = 33;}
 
                          
-                        input.seek(index27_45);
+                        input.seek(index27_4);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 4 : 
+                        int LA27_5 = input.LA(1);
+
+                         
+                        int index27_5 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred4_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index27_5);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 5 : 
+                        int LA27_6 = input.LA(1);
+
+                         
+                        int index27_6 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred4_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index27_6);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 6 : 
+                        int LA27_7 = input.LA(1);
+
+                         
+                        int index27_7 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred4_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index27_7);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 7 : 
+                        int LA27_8 = input.LA(1);
+
+                         
+                        int index27_8 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred4_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index27_8);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 8 : 
+                        int LA27_9 = input.LA(1);
+
+                         
+                        int index27_9 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred4_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index27_9);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 9 : 
+                        int LA27_10 = input.LA(1);
+
+                         
+                        int index27_10 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred4_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index27_10);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 10 : 
+                        int LA27_11 = input.LA(1);
+
+                         
+                        int index27_11 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred4_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index27_11);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 11 : 
+                        int LA27_12 = input.LA(1);
+
+                         
+                        int index27_12 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred4_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index27_12);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 12 : 
+                        int LA27_13 = input.LA(1);
+
+                         
+                        int index27_13 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred4_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index27_13);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 13 : 
+                        int LA27_14 = input.LA(1);
+
+                         
+                        int index27_14 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred4_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index27_14);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 14 : 
+                        int LA27_15 = input.LA(1);
+
+                         
+                        int index27_15 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred4_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index27_15);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 15 : 
+                        int LA27_16 = input.LA(1);
+
+                         
+                        int index27_16 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred4_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index27_16);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 16 : 
+                        int LA27_17 = input.LA(1);
+
+                         
+                        int index27_17 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred4_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index27_17);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 17 : 
+                        int LA27_18 = input.LA(1);
+
+                         
+                        int index27_18 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred4_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index27_18);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 18 : 
+                        int LA27_19 = input.LA(1);
+
+                         
+                        int index27_19 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred4_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index27_19);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 19 : 
+                        int LA27_20 = input.LA(1);
+
+                         
+                        int index27_20 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred4_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index27_20);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 20 : 
+                        int LA27_21 = input.LA(1);
+
+                         
+                        int index27_21 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred4_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index27_21);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 21 : 
+                        int LA27_22 = input.LA(1);
+
+                         
+                        int index27_22 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred4_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index27_22);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 22 : 
+                        int LA27_23 = input.LA(1);
+
+                         
+                        int index27_23 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred4_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index27_23);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 23 : 
+                        int LA27_24 = input.LA(1);
+
+                         
+                        int index27_24 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred4_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index27_24);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 24 : 
+                        int LA27_25 = input.LA(1);
+
+                         
+                        int index27_25 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred4_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index27_25);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 25 : 
+                        int LA27_26 = input.LA(1);
+
+                         
+                        int index27_26 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred4_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index27_26);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 26 : 
+                        int LA27_27 = input.LA(1);
+
+                         
+                        int index27_27 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred4_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index27_27);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 27 : 
+                        int LA27_28 = input.LA(1);
+
+                         
+                        int index27_28 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred4_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index27_28);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 28 : 
+                        int LA27_29 = input.LA(1);
+
+                         
+                        int index27_29 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred4_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index27_29);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 29 : 
+                        int LA27_30 = input.LA(1);
+
+                         
+                        int index27_30 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred4_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index27_30);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 30 : 
+                        int LA27_31 = input.LA(1);
+
+                         
+                        int index27_31 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred4_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index27_31);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 31 : 
+                        int LA27_32 = input.LA(1);
+
+                         
+                        int index27_32 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred4_InternalBugsDsl()) ) {s = 42;}
+
+                        else if ( (true) ) {s = 33;}
+
+                         
+                        input.seek(index27_32);
                         if ( s>=0 ) return s;
                         break;
             }
@@ -6424,6 +7469,52 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
                 new NoViableAltException(getDescription(), 27, _s, input);
             error(nvae);
             throw nvae;
+        }
+    }
+    static final String dfa_14s = "\1\1\1\uffff\1\3\6\uffff\1\3\7\uffff";
+    static final String dfa_15s = "\1\4\1\uffff\1\4\1\uffff\1\4\2\23\3\4\2\31\2\23\1\4\2\31";
+    static final String dfa_16s = "\1\103\1\uffff\1\103\1\uffff\1\5\2\32\2\5\1\103\4\32\1\5\2\32";
+    static final String dfa_17s = "\1\uffff\1\2\1\uffff\1\1\15\uffff";
+    static final String[] dfa_18s = {
+            "\1\2\1\3\7\uffff\1\1\1\uffff\1\1\1\3\1\uffff\1\1\3\uffff\2\3\1\uffff\1\1\5\uffff\21\3\6\uffff\16\3",
+            "",
+            "\2\3\7\uffff\1\3\1\uffff\2\3\1\uffff\1\3\3\uffff\2\3\1\4\1\3\1\uffff\1\1\1\uffff\2\1\21\3\6\uffff\16\3",
+            "",
+            "\1\6\1\5",
+            "\1\7\5\uffff\1\10\1\11",
+            "\1\7\5\uffff\1\10\1\11",
+            "\1\13\1\12",
+            "\1\15\1\14",
+            "\2\3\7\uffff\1\3\1\uffff\2\3\1\uffff\1\3\3\uffff\2\3\1\uffff\1\3\1\uffff\1\1\1\uffff\2\1\21\3\6\uffff\16\3",
+            "\1\10\1\11",
+            "\1\10\1\11",
+            "\1\16\5\uffff\1\10\1\11",
+            "\1\16\5\uffff\1\10\1\11",
+            "\1\20\1\17",
+            "\1\10\1\11",
+            "\1\10\1\11"
+    };
+    static final short[] dfa_14 = DFA.unpackEncodedString(dfa_14s);
+    static final char[] dfa_15 = DFA.unpackEncodedStringToUnsignedChars(dfa_15s);
+    static final char[] dfa_16 = DFA.unpackEncodedStringToUnsignedChars(dfa_16s);
+    static final short[] dfa_17 = DFA.unpackEncodedString(dfa_17s);
+    static final short[][] dfa_18 = unpackEncodedStringArray(dfa_18s);
+
+    class DFA30 extends DFA {
+
+        public DFA30(BaseRecognizer recognizer) {
+            this.recognizer = recognizer;
+            this.decisionNumber = 30;
+            this.eot = dfa_1;
+            this.eof = dfa_14;
+            this.min = dfa_15;
+            this.max = dfa_16;
+            this.accept = dfa_17;
+            this.special = dfa_5;
+            this.transition = dfa_18;
+        }
+        public String getDescription() {
+            return "()* loopback of 1440:3: ( () ( (lv_op_2_0= ruleOperator ) )? ( (lv_right_3_0= ruleTerminalExpression ) ) )*";
         }
     }
  
@@ -6454,6 +7545,6 @@ public class InternalBugsDslParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000060000000L});
     public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000010010000L});
     public static final BitSet FOLLOW_26 = new BitSet(new long[]{0xFFC0FFFE00010032L,0x000000000000000FL});
-    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000000180C00002L});
+    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0xFFC0FFFF80C10032L,0x000000000000000FL});
 
 }
