@@ -17,14 +17,14 @@ This project  is a collaboration between [OPCoach (France)](http://www.opcoach.c
 
 
 
-##Current Key Features - version 0.1 XXXX/XX/XX - released - stable :
+## Current Key Features - version 0.1 XXXX/XX/XX - released - stable :
 
 * auto-completion for distribution functions and deterministic functions
 * syntax checking by error highlighting in the model block
 * auto-formatting in the model block
 
 
-##Short-term Planned Features - version 0.2 XXXX/XX/XX - expected - beta:
+## Short-term Planned Features - version 0.2 XXXX/XX/XX - expected - beta:
 
 * syntax checking by error highlighting in the data block
 * launching jags directly from jagsy
